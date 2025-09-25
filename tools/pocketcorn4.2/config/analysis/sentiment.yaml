@@ -1,0 +1,3 @@
+backend: lexicon
+lexicon: data/samples/sentiment_lexicon.json
+neutral_window: 0.15

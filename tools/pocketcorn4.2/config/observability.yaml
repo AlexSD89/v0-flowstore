@@ -1,0 +1,12 @@
+metrics:
+  exporter: "prometheus"
+  endpoint: "http://localhost:9090"
+  labels:
+    service: pocketcorn
+logging:
+  level: INFO
+  format: json
+alerts:
+  - name: collector_failure
+    condition: "mission_signals_collected == 0"
+    channel: "slack"

@@ -1,0 +1,32 @@
+# Rube MCP 客户端配置模板
+# -------------------------------------------------------------
+# 说明：
+#   - endpoint: Rube 服务地址
+#   - auth: 鉴权信息
+#   - tasks: 预置的结构化采集任务
+endpoint: "http://localhost:9100"
+auth:
+  type: "basic"
+  username: "rube"
+  password: "rube-password"
+tasks:
+  wechat_official:
+    description: "监控 AI 赛道公众号文章"
+    schedule: "0 */2 * * *"  # 每 2 小时
+    query:
+      keywords:
+        - "AI 创业"
+        - "AGI"
+      max_pages: 5
+  news_portal:
+    description: "抓取科技新闻网站 RSS"
+    schedule: "*/15 * * * *"
+    query:
+      sources:
+        - "https://36kr.com/feed"
+        - "https://www.jiqizhixin.com/rss"
+storage:
+  type: "mysql"
+  dsn: "mysql+pymysql://root:password@localhost:3306/pocketcorn_raw"
+
+sample_data: "../../data/samples/rube_samples.json"

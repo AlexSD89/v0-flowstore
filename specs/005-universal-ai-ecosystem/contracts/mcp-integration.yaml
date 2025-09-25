@@ -1,0 +1,868 @@
+# Universal AI Ecosystem MCP Integration Specification
+# Version: 1.0.0
+# Date: 2025-01-22
+# Model Context Protocol Tool Integration Configuration
+
+# Core MCP Integration Framework
+mcp_framework:
+  version: "2.0.0"
+  protocol_compliance: "full"
+  max_concurrent_tools: 50
+  tool_discovery_enabled: true
+  automatic_fallback: true
+  health_monitoring: true
+
+# Critical Infrastructure Tools (Tier 1)
+tier_1_tools:
+  rube_workflow_orchestration:
+    mcp_server_name: "rube-mcp-server"
+    priority: "critical"
+    auto_start: true
+    health_check_interval: "30s"
+    capabilities:
+      - multi_platform_data_collection
+      - rate_limiting_management
+      - workflow_automation
+      - chinese_platform_integration
+      - international_platform_integration
+    endpoints:
+      - name: "create_workflow"
+        method: "POST"
+        path: "/workflows"
+        description: "Create multi-platform data collection workflow"
+        parameters:
+          - name: "target_company"
+            type: "string"
+            required: true
+          - name: "platforms"
+            type: "array"
+            required: true
+          - name: "data_types"
+            type: "array"
+            required: true
+      - name: "execute_workflow"
+        method: "POST"
+        path: "/workflows/{workflow_id}/execute"
+        description: "Execute configured workflow"
+      - name: "get_workflow_status"
+        method: "GET"
+        path: "/workflows/{workflow_id}/status"
+        description: "Get workflow execution status and results"
+    platform_support:
+      chinese_platforms:
+        - zhihu:
+            rate_limit: 25  # requests per minute
+            anti_detection: true
+            session_management: true
+            data_types: ["hiring_signals", "product_updates", "discussions"]
+        - xiaohongshu:
+            rate_limit: 20
+            anti_detection: true
+            session_management: true
+            data_types: ["customer_testimonials", "product_reviews", "user_engagement"]
+        - v2ex:
+            rate_limit: 30
+            anti_detection: false
+            session_management: true
+            data_types: ["technical_discussions", "product_launches", "developer_feedback"]
+        - weibo:
+            rate_limit: 15
+            anti_detection: true
+            session_management: true
+            data_types: ["media_mentions", "company_updates", "public_sentiment"]
+        - boss_zhipin:
+            rate_limit: 40
+            anti_detection: true
+            session_management: true
+            data_types: ["hiring_velocity", "job_postings", "team_growth"]
+        - lagou:
+            rate_limit: 35
+            anti_detection: true
+            session_management: true
+            data_types: ["hiring_signals", "salary_data", "company_culture"]
+        - liepin:
+            rate_limit: 30
+            anti_detection: true
+            session_management: true
+            data_types: ["executive_hires", "senior_positions", "company_expansion"]
+        - maimai:
+            rate_limit: 25
+            anti_detection: true
+            session_management: true
+            data_types: ["professional_networks", "industry_insights", "career_moves"]
+      international_platforms:
+        - linkedin:
+            rate_limit: 20
+            anti_detection: true
+            session_management: true
+            data_types: ["hiring_announcements", "company_updates", "professional_milestones"]
+        - github:
+            rate_limit: 60
+            anti_detection: false
+            session_management: false
+            data_types: ["code_activity", "repository_growth", "developer_activity"]
+        - twitter:
+            rate_limit: 15
+            anti_detection: true
+            session_management: true
+            data_types: ["company_announcements", "product_updates", "community_engagement"]
+        - producthunt:
+            rate_limit: 10
+            anti_detection: false
+            session_management: true
+            data_types: ["product_launches", "user_feedback", "market_reception"]
+        - app_store:
+            rate_limit: 20
+            anti_detection: false
+            session_management: false
+            data_types: ["app_reviews", "download_metrics", "update_frequency"]
+        - google_play:
+            rate_limit: 20
+            anti_detection: false
+            session_management: false
+            data_types: ["app_reviews", "download_metrics", "user_ratings"]
+
+  playwright_browser_automation:
+    mcp_server_name: "playwright-mcp-server"
+    priority: "critical"
+    auto_start: true
+    health_check_interval: "60s"
+    capabilities:
+      - dynamic_content_extraction
+      - anti_detection_browsing
+      - cookie_session_management
+      - proxy_rotation
+      - human_behavioral_simulation
+    endpoints:
+      - name: "create_browser_session"
+        method: "POST"
+        path: "/browser/sessions"
+        description: "Create new browser session with anti-detection"
+        parameters:
+          - name: "anti_detection_level"
+            type: "string"
+            enum: ["basic", "advanced", "stealth"]
+            default: "advanced"
+          - name: "proxy_config"
+            type: "object"
+            required: false
+          - name: "user_agent_strategy"
+            type: "string"
+            enum: ["random", "fixed", "rotating"]
+            default: "rotating"
+      - name: "navigate_and_extract"
+        method: "POST"
+        path: "/browser/sessions/{session_id}/extract"
+        description: "Navigate to URL and extract structured data"
+        parameters:
+          - name: "url"
+            type: "string"
+            required: true
+          - name: "extraction_rules"
+            type: "object"
+            required: true
+          - name: "wait_conditions"
+            type: "array"
+            required: false
+      - name: "close_session"
+        method: "DELETE"
+        path: "/browser/sessions/{session_id}"
+        description: "Close browser session and cleanup resources"
+    anti_detection_features:
+      user_agent_rotation:
+        enabled: true
+        rotation_frequency: "per_request"
+        user_agent_pool_size: 100
+      viewport_randomization:
+        enabled: true
+        width_range: [1200, 1920]
+        height_range: [800, 1080]
+      request_timing_humanization:
+        enabled: true
+        min_delay_ms: 1000
+        max_delay_ms: 5000
+        random_distribution: "exponential"
+      cookie_persistence:
+        enabled: true
+        storage_type: "encrypted_file"
+        retention_hours: 24
+      proxy_pool_management:
+        enabled: true
+        pool_size: 50
+        rotation_strategy: "round_robin"
+        health_check_enabled: true
+
+  tavily_intelligent_search:
+    mcp_server_name: "tavily-mcp-server"
+    priority: "critical"
+    auto_start: true
+    health_check_interval: "30s"
+    api_key_env: "TAVILY_API_KEY"
+    capabilities:
+      - real_time_search
+      - context_aware_queries
+      - multi_language_support
+      - trend_analysis
+      - semantic_search
+    endpoints:
+      - name: "search_company_intelligence"
+        method: "POST"
+        path: "/search/company"
+        description: "Comprehensive company intelligence search"
+        parameters:
+          - name: "company_name"
+            type: "string"
+            required: true
+          - name: "search_domains"
+            type: "array"
+            enum: ["funding", "team", "product", "customers", "partnerships"]
+            required: true
+          - name: "language_preference"
+            type: "string"
+            enum: ["en", "zh-cn", "zh-tw", "ja", "ko"]
+            default: "en"
+          - name: "time_range"
+            type: "string"
+            enum: ["1_week", "1_month", "3_months", "6_months", "1_year"]
+            default: "3_months"
+      - name: "search_trends"
+        method: "POST"
+        path: "/search/trends"
+        description: "Industry and market trend analysis"
+        parameters:
+          - name: "industry"
+            type: "string"
+            required: true
+          - name: "geographic_scope"
+            type: "array"
+            enum: ["global", "asia_pacific", "china", "north_america", "europe"]
+            required: true
+          - name: "trend_types"
+            type: "array"
+            enum: ["technology", "business_model", "funding", "regulatory", "competitive"]
+            required: true
+      - name: "semantic_search"
+        method: "POST"
+        path: "/search/semantic"
+        description: "Semantic search with context understanding"
+        parameters:
+          - name: "query"
+            type: "string"
+            required: true
+          - name: "context"
+            type: "object"
+            required: false
+          - name: "result_type"
+            type: "string"
+            enum: ["comprehensive", "factual", "analytical", "trend_focused"]
+            default: "comprehensive"
+    search_domains:
+      company_information:
+        - funding_announcements
+        - team_composition
+        - executive_changes
+        - company_milestones
+      product_intelligence:
+        - product_launches
+        - feature_updates
+        - user_feedback
+        - competitive_positioning
+      market_analysis:
+        - industry_trends
+        - market_size_data
+        - competitive_landscape
+        - regulatory_changes
+      partnership_intelligence:
+        - strategic_partnerships
+        - integration_announcements
+        - channel_partnerships
+        - acquisition_rumors
+
+# High Priority Tools (Tier 2)
+tier_2_tools:
+  scraperr_bridge_adapters:
+    mcp_server_name: "scraperr-bridge-mcp"
+    priority: "high"
+    auto_start: true
+    health_check_interval: "60s"
+    capabilities:
+      - existing_collector_integration
+      - data_normalization
+      - signal_correlation
+      - error_handling
+    bridge_configuration:
+      existing_collectors:
+        - zhihu_public:
+            data_types: ["posts", "comments", "user_profiles"]
+            normalization_rules: "zhihu_to_universal"
+            quality_filters: ["min_engagement", "relevance_threshold"]
+        - v2ex_public:
+            data_types: ["topics", "replies", "user_activity"]
+            normalization_rules: "v2ex_to_universal"
+            quality_filters: ["technical_relevance", "discussion_quality"]
+        - linkedin_public:
+            data_types: ["company_updates", "job_postings", "professional_posts"]
+            normalization_rules: "linkedin_to_universal"
+            quality_filters: ["professional_relevance", "company_association"]
+        - twitter_public:
+            data_types: ["tweets", "replies", "media"]
+            normalization_rules: "twitter_to_universal"
+            quality_filters: ["engagement_threshold", "spam_detection"]
+        - github_public:
+            data_types: ["repositories", "commits", "issues", "releases"]
+            normalization_rules: "github_to_universal"
+            quality_filters: ["activity_level", "relevance_score"]
+        - producthunt_public:
+            data_types: ["product_launches", "comments", "maker_profiles"]
+            normalization_rules: "producthunt_to_universal"
+            quality_filters: ["launch_quality", "engagement_metrics"]
+        - youtube_public:
+            data_types: ["videos", "comments", "channel_data"]
+            normalization_rules: "youtube_to_universal"
+            quality_filters: ["view_threshold", "content_relevance"]
+    normalization_framework:
+      universal_schema:
+        entity_resolution:
+          company_matching_rules:
+            - exact_name_match
+            - domain_association
+            - social_media_correlation
+            - fuzzy_string_matching
+          confidence_thresholds:
+            high_confidence: 0.90
+            medium_confidence: 0.75
+            low_confidence: 0.60
+        signal_standardization:
+          hiring_signals:
+            - job_postings
+            - team_announcements
+            - hiring_velocity_indicators
+          product_signals:
+            - feature_announcements
+            - version_releases
+            - user_feedback
+          financial_signals:
+            - funding_announcements
+            - revenue_mentions
+            - pricing_updates
+          cultural_signals:
+            - communication_style_indicators
+            - international_collaboration
+            - cross_cultural_partnerships
+
+  entity_resolution_mcp:
+    mcp_server_name: "entity-resolution-mcp"
+    priority: "high"
+    auto_start: true
+    health_check_interval: "45s"
+    capabilities:
+      - cross_platform_entity_matching
+      - chinese_name_normalization
+      - confidence_scoring
+      - deduplication
+    algorithms:
+      fuzzy_string_matching:
+        algorithm: "levenshtein_distance"
+        threshold: 0.8
+        weight: 0.25
+      semantic_similarity:
+        model: "sentence_transformers"
+        threshold: 0.75
+        weight: 0.30
+      social_graph_analysis:
+        algorithm: "graph_embedding"
+        threshold: 0.70
+        weight: 0.25
+      temporal_correlation:
+        algorithm: "time_series_correlation"
+        threshold: 0.65
+        weight: 0.20
+    chinese_name_processing:
+      traditional_to_simplified: true
+      pinyin_matching: true
+      english_name_correlation: true
+      cultural_name_variants: true
+    confidence_calculation:
+      high_confidence_criteria:
+        - multiple_algorithm_agreement: "> 0.85"
+        - cross_platform_validation: "≥ 3 platforms"
+        - temporal_consistency: "> 30 days"
+      medium_confidence_criteria:
+        - algorithm_consensus: "> 0.70"
+        - cross_platform_validation: "≥ 2 platforms"
+        - temporal_consistency: "> 7 days"
+      low_confidence_criteria:
+        - algorithm_consensus: "> 0.55"
+        - single_platform_validation: true
+        - temporal_consistency: "> 1 day"
+
+  cultural_intelligence_mcp:
+    mcp_server_name: "cultural-intelligence-mcp"
+    priority: "high"
+    auto_start: true
+    health_check_interval: "60s"
+    capabilities:
+      - communication_style_analysis
+      - business_approach_classification
+      - cross_border_readiness_assessment
+      - partnership_compatibility_scoring
+    analysis_frameworks:
+      communication_style_detection:
+        western_indicators:
+          keywords: ["transparent", "direct", "straightforward", "candid", "feedback"]
+          patterns: ["explicit_criticism", "individual_accountability", "process_focus"]
+          weight_multipliers: {"public_communication": 1.2, "internal_docs": 1.0, "social_media": 0.8}
+        chinese_indicators:
+          keywords: ["partnership", "cooperation", "long-term", "relationship", "harmony"]
+          patterns: ["consensus_building", "face_saving_language", "relationship_emphasis"]
+          weight_multipliers: {"public_communication": 1.0, "internal_docs": 1.3, "social_media": 0.9}
+        hybrid_indicators:
+          keywords: ["cross-cultural", "international", "bridge", "global", "diverse"]
+          patterns: ["multicultural_team", "bilingual_communication", "cultural_adaptation"]
+          weight_multipliers: {"public_communication": 1.1, "internal_docs": 1.2, "social_media": 1.0}
+      business_approach_analysis:
+        relationship_orientation:
+          measurement_criteria:
+            - long_term_partnership_emphasis
+            - stakeholder_consideration_breadth
+            - trust_building_investment
+            - network_effect_utilization
+          scoring_algorithm: "weighted_average"
+          cultural_context_adjustment: true
+        decision_making_style:
+          hierarchical_indicators:
+            - centralized_decision_announcements
+            - authority_based_communications
+            - formal_approval_processes
+          consensus_indicators:
+            - team_consultation_evidence
+            - stakeholder_input_integration
+            - collaborative_decision_narratives
+          hybrid_indicators:
+            - situational_decision_adaptation
+            - cross_functional_collaboration
+            - transparent_decision_rationale
+      cross_border_readiness:
+        assessment_dimensions:
+          international_team_composition:
+            measurement: "percentage_international_team_members"
+            weight: 0.30
+            cultural_bonus: "geographic_diversity_score"
+          regulatory_awareness:
+            measurement: "compliance_discussion_frequency"
+            weight: 0.25
+            cultural_bonus: "multi_jurisdiction_understanding"
+          market_expansion_signals:
+            measurement: "international_market_references"
+            weight: 0.25
+            cultural_bonus: "cultural_adaptation_evidence"
+          language_capabilities:
+            measurement: "multi_language_content_ratio"
+            weight: 0.20
+            cultural_bonus: "native_speaker_team_diversity"
+
+# Medium Priority Tools (Tier 3)
+tier_3_tools:
+  mrr_inference_mcp:
+    mcp_server_name: "mrr-inference-mcp"
+    priority: "medium"
+    auto_start: false  # On-demand activation
+    health_check_interval: "120s"
+    capabilities:
+      - hiring_velocity_analysis
+      - pricing_model_detection
+      - customer_volume_estimation
+      - infrastructure_cost_correlation
+    inference_models:
+      hiring_velocity_correlation:
+        model_type: "linear_regression"
+        base_coefficient: 15000  # RMB per hire per month
+        industry_adjustments:
+          ai_infra: 1.4
+          b2b_saas: 1.2
+          devtools: 1.1
+          consumer_ai: 0.9
+          fintech: 1.3
+        regional_adjustments:
+          mainland_china: 1.0
+          hong_kong_taiwan: 1.2
+          international: 1.4
+        confidence_factors:
+          hiring_announcement_quality: 0.3
+          job_posting_detail_level: 0.2
+          team_growth_consistency: 0.3
+          cross_platform_validation: 0.2
+      pricing_tier_analysis:
+        detection_algorithms:
+          freemium_indicators: ["free", "trial", "basic", "starter"]
+          professional_indicators: ["pro", "professional", "standard", "premium"]
+          enterprise_indicators: ["enterprise", "business", "team", "organization"]
+        revenue_multipliers:
+          freemium_to_revenue: 0.1
+          basic_tier_multiplier: 1.0
+          professional_tier_multiplier: 2.5
+          enterprise_tier_multiplier: 8.0
+        customer_volume_estimation:
+          testimonial_based: "testimonial_count * 50"  # Average RMB per testimonial
+          social_engagement_based: "engagement_score * 0.1"  # RMB per engagement point
+          infrastructure_cost_based: "estimated_costs * 3.0"  # 3x cost-to-revenue ratio
+      ensemble_model_weighting:
+        hiring_signals: 0.30
+        pricing_signals: 0.25
+        customer_signals: 0.20
+        infrastructure_signals: 0.15
+        social_signals: 0.10
+      confidence_interval_calculation:
+        bayesian_estimation: true
+        monte_carlo_simulations: 10000
+        confidence_levels: [0.68, 0.95]  # 1-sigma and 2-sigma
+        uncertainty_sources:
+          - model_parameter_uncertainty
+          - signal_quality_variance
+          - temporal_inconsistency
+          - cross_platform_disagreement
+
+  alert_classification_mcp:
+    mcp_server_name: "alert-classification-mcp"
+    priority: "medium"
+    auto_start: true
+    health_check_interval: "90s"
+    capabilities:
+      - investment_tier_classification
+      - deduplication_management
+      - cooldown_enforcement
+      - evidence_compilation
+    classification_rules:
+      tier_a_alerts:
+        criteria:
+          overall_score: ">= 0.75"
+          confidence_level: ">= 0.90"
+          source_count: ">= 3"
+          mrr_threshold: ">= 500000"  # RMB
+        limits:
+          max_daily_alerts: 2
+          cooldown_hours: 24
+          deduplication_window: 72  # hours
+        notification_channels: ["email", "slack", "dashboard_highlight"]
+        evidence_requirements:
+          minimum_evidence_items: 5
+          cross_platform_validation: true
+          temporal_consistency_check: true
+      tier_b_alerts:
+        criteria:
+          overall_score: ">= 0.65"
+          confidence_level: ">= 0.80"
+          source_count: ">= 2"
+          mrr_threshold: ">= 200000"  # RMB
+        limits:
+          max_daily_alerts: 5
+          cooldown_hours: 12
+          deduplication_window: 48  # hours
+        notification_channels: ["email", "dashboard"]
+        evidence_requirements:
+          minimum_evidence_items: 3
+          cross_platform_validation: false
+          temporal_consistency_check: true
+      tier_c_alerts:
+        criteria:
+          overall_score: ">= 0.50"
+          confidence_level: ">= 0.60"
+          source_count: ">= 1"
+          mrr_threshold: ">= 100000"  # RMB
+        limits:
+          max_daily_alerts: 10
+          cooldown_hours: 6
+          deduplication_window: 24  # hours
+        notification_channels: ["dashboard"]
+        evidence_requirements:
+          minimum_evidence_items: 2
+          cross_platform_validation: false
+          temporal_consistency_check: false
+    deduplication_strategies:
+      company_level_deduplication:
+        enabled: true
+        similarity_threshold: 0.85
+        time_window_hours: 24
+      signal_type_deduplication:
+        enabled: true
+        similarity_threshold: 0.90
+        time_window_hours: 6
+      cross_platform_deduplication:
+        enabled: true
+        correlation_threshold: 0.75
+        evidence_overlap_threshold: 0.60
+
+# System Integration and Orchestration
+integration_orchestration:
+  async_coordination:
+    max_concurrent_workflows: 20
+    workflow_timeout_minutes: 45
+    task_queue_size: 1000
+    retry_configuration:
+      max_retries: 3
+      backoff_strategy: "exponential"
+      base_delay_seconds: 30
+      max_delay_seconds: 1800
+      jitter_enabled: true
+
+  health_monitoring:
+    global_health_check_interval: "30s"
+    failure_threshold: 3  # consecutive failures before marking unhealthy
+    recovery_threshold: 2  # consecutive successes before marking healthy
+    circuit_breaker_enabled: true
+    circuit_breaker_failure_threshold: 5
+    circuit_breaker_recovery_timeout: 300  # seconds
+
+  fallback_strategies:
+    rate_limit_response:
+      primary_actions:
+        - reduce_request_frequency
+        - activate_request_queuing
+        - switch_to_backup_endpoints
+      secondary_actions:
+        - activate_proxy_rotation
+        - delay_non_urgent_requests
+        - notify_rate_limit_violation
+      emergency_actions:
+        - pause_data_collection
+        - activate_manual_intervention_alert
+        - switch_to_cached_data_mode
+
+    access_denied_response:
+      primary_actions:
+        - switch_to_alternative_platforms
+        - activate_playwright_browser_mode
+        - rotate_authentication_credentials
+      secondary_actions:
+        - delay_until_off_peak_hours
+        - activate_proxy_pool_rotation
+        - switch_to_public_data_sources
+      emergency_actions:
+        - notify_manual_intervention_required
+        - activate_graceful_degradation
+        - switch_to_historical_data_mode
+
+    detection_suspected_response:
+      immediate_actions:
+        - terminate_current_session
+        - activate_cool_down_period
+        - switch_to_different_user_agents
+      recovery_actions:
+        - activate_human_behavior_simulation
+        - increase_request_delays
+        - rotate_proxy_configuration
+      prevention_actions:
+        - update_anti_detection_patterns
+        - analyze_detection_signals
+        - improve_behavioral_simulation
+
+# Performance Optimization
+performance_optimization:
+  caching_strategy:
+    multi_level_caching:
+      l1_cache:  # Redis in-memory
+        ttl_seconds: 300  # 5 minutes
+        max_size_mb: 1000
+        eviction_policy: "lru"
+      l2_cache:  # Database cache
+        ttl_seconds: 3600  # 1 hour
+        max_size_mb: 5000
+        eviction_policy: "lru"
+      l3_cache:  # File system cache
+        ttl_seconds: 86400  # 24 hours
+        max_size_mb: 20000
+        eviction_policy: "lfu"
+    cache_key_strategies:
+      company_analysis: "company:{domain}:analysis:{hash}"
+      cultural_intelligence: "cultural:{company_id}:{version}"
+      mrr_inference: "mrr:{company_id}:{signals_hash}"
+      trend_analysis: "trends:{industry}:{region}:{timeframe}"
+
+  connection_pooling:
+    database_pool:
+      min_connections: 5
+      max_connections: 50
+      connection_timeout_seconds: 30
+      idle_timeout_seconds: 600
+    redis_pool:
+      min_connections: 2
+      max_connections: 20
+      connection_timeout_seconds: 10
+      idle_timeout_seconds: 300
+    http_client_pool:
+      max_connections_per_host: 10
+      max_total_connections: 100
+      connection_timeout_seconds: 30
+      read_timeout_seconds: 60
+
+  resource_management:
+    memory_limits:
+      per_mcp_tool: "512MB"
+      total_system_limit: "8GB"
+      garbage_collection_threshold: "80%"
+    cpu_limits:
+      per_mcp_tool: "1.0 CPU"
+      total_system_limit: "8.0 CPU"
+      throttling_threshold: "85%"
+    storage_limits:
+      temporary_data: "10GB"
+      cache_storage: "20GB"
+      log_retention: "30GB"
+
+# Security and Compliance
+security_framework:
+  data_handling_policies:
+    public_data_only: true
+    pii_detection_enabled: true
+    data_anonymization_required: true
+    audit_trail_comprehensive: true
+    data_retention_days: 90
+    secure_deletion_verification: true
+
+  platform_compliance:
+    robots_txt_respect: true
+    rate_limit_strict_compliance: true
+    terms_of_service_adherence: true
+    user_agent_honest_identification: true
+    data_usage_transparent_declaration: true
+
+  access_control:
+    mcp_tool_authentication:
+      method: "api_key_rotation"
+      rotation_frequency_days: 30
+      key_length_bits: 256
+    session_management:
+      timeout_minutes: 60
+      concurrent_session_limit: 5
+      session_token_entropy: "high"
+    network_security:
+      tls_version_minimum: "1.3"
+      certificate_verification: "strict"
+      ip_whitelist_enabled: false
+      geographic_restrictions: []
+
+# Monitoring and Observability
+monitoring_configuration:
+  metrics_collection:
+    mcp_tool_performance:
+      response_time_percentiles: [50, 90, 95, 99]
+      request_rate_tracking: true
+      error_rate_monitoring: true
+      resource_usage_monitoring: true
+    business_metrics:
+      signal_collection_rate: "signals_per_hour"
+      data_quality_score: "percentage"
+      entity_resolution_accuracy: "percentage"
+      cultural_intelligence_confidence: "average_score"
+    system_health_metrics:
+      service_availability: "uptime_percentage"
+      api_response_times: "milliseconds_p95"
+      database_performance: "query_time_p95"
+      cache_hit_rates: "percentage"
+
+  alerting_configuration:
+    critical_alerts:
+      mcp_tool_failure:
+        threshold: "3_consecutive_failures"
+        notification: "immediate"
+        escalation: "15_minutes"
+      data_quality_degradation:
+        threshold: "20%_quality_drop"
+        notification: "5_minutes"
+        escalation: "30_minutes"
+      rate_limit_violations:
+        threshold: "5_violations_per_hour"
+        notification: "immediate"
+        escalation: "never"
+    warning_alerts:
+      performance_degradation:
+        threshold: "50%_slower_response"
+        notification: "15_minutes"
+        escalation: "1_hour"
+      cache_miss_spike:
+        threshold: "30%_increase"
+        notification: "30_minutes"
+        escalation: "2_hours"
+
+  logging_framework:
+    log_levels:
+      development: "DEBUG"
+      staging: "INFO"
+      production: "WARNING"
+    structured_logging: true
+    log_aggregation: "centralized"
+    log_retention_days: 30
+    sensitive_data_filtering: true
+    audit_log_immutability: true
+
+# Deployment and Scaling Configuration
+deployment_configuration:
+  container_orchestration:
+    platform: "kubernetes"
+    replica_count: 3
+    resource_requests:
+      cpu: "500m"
+      memory: "1Gi"
+    resource_limits:
+      cpu: "2000m"
+      memory: "4Gi"
+    health_checks:
+      liveness_probe:
+        path: "/health/live"
+        initial_delay_seconds: 30
+        period_seconds: 10
+      readiness_probe:
+        path: "/health/ready"
+        initial_delay_seconds: 5
+        period_seconds: 5
+
+  horizontal_scaling:
+    auto_scaling_enabled: true
+    min_replicas: 3
+    max_replicas: 20
+    target_cpu_utilization: 70
+    target_memory_utilization: 80
+    scale_up_stabilization_seconds: 300
+    scale_down_stabilization_seconds: 600
+
+  service_mesh_configuration:
+    istio_enabled: true
+    mutual_tls: true
+    traffic_policy:
+      load_balancer: "round_robin"
+      connection_pool:
+        tcp:
+          max_connections: 100
+        http:
+          http1_max_pending_requests: 50
+          max_requests_per_connection: 10
+    retry_policy:
+      attempts: 3
+      per_try_timeout: "30s"
+      retry_on: "5xx,reset,connect-failure,refused-stream"
+
+# Environment-Specific Configurations
+environment_configurations:
+  development:
+    debug_mode: true
+    rate_limiting_relaxed: true
+    cache_ttl_reduced: true
+    verbose_logging: true
+    mcp_tool_mocking: true
+    
+  staging:
+    debug_mode: false
+    rate_limiting_moderate: true
+    cache_ttl_normal: true
+    verbose_logging: false
+    mcp_tool_mocking: false
+    performance_testing: true
+    
+  production:
+    debug_mode: false
+    rate_limiting_strict: true
+    cache_ttl_optimized: true
+    verbose_logging: false
+    mcp_tool_mocking: false
+    monitoring_comprehensive: true
+    security_hardened: true

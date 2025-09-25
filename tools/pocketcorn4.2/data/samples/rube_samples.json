@@ -1,0 +1,26 @@
+{
+  "wechat_official": [
+    {
+      "company": "aurora-ai",
+      "category": "insight",
+      "summary": "AI 赛道公众号《未来智能》发布文章，分析 Aurora AI 横向扩展策略。",
+      "link": "https://mp.weixin.qq.com/s/article123",
+      "captured_at": "2025-09-18T10:00:00+00:00",
+      "reliability": 0.68,
+      "cultural_tags": ["zh-CN", "media"],
+      "topic": "市场扩张"
+    }
+  ],
+  "news_portal": [
+    {
+      "company": "aurora-ai",
+      "category": "market",
+      "summary": "36氪报道 Aurora AI 计划在东南亚设立区域总部。",
+      "link": "https://36kr.com/p/1234567890",
+      "captured_at": "2025-09-19T02:20:00+00:00",
+      "reliability": 0.72,
+      "cultural_tags": ["zh-CN", "international"],
+      "region": "SEA"
+    }
+  ]
+}

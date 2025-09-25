@@ -147,6 +147,15 @@
       "disabled": false,
       "autoApprove": ["list_dir", "find_file", "search_for_pattern", "get_symbols_overview", "find_symbol", "activate_project", "check_onboarding_performed"],
       "description": "Serena AI coding assistant with intelligent code analysis and editing tools"
+    },
+    
+    "xiaohongshu-mcp": {
+      "command": "/Users/dangsiyuan/Downloads/xiaohongshu-mcp-darwin-amd64/xiaohongshu-mcp-darwin-amd64",
+      "args": ["-headless", "true"],
+      "cwd": "/Users/dangsiyuan/Downloads/xiaohongshu-mcp-darwin-amd64",
+      "disabled": false,
+      "autoApprove": ["check_login_status", "search_feeds", "list_feeds"],
+      "description": "Xiaohongshu (Little Red Book) social platform integration for content analysis and interaction"
     }
   }
 }

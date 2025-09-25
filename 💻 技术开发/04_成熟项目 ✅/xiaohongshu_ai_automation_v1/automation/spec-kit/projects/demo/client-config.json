@@ -1,0 +1,19 @@
+{
+  "client_name": "Demo Fashion",
+  "client_slug": "demo_fashion",
+  "industry": "fashion",
+  "target_audience": "urban women 25-35",
+  "brand_voice_keywords": ["confident", "elegant", "warm"],
+  "disallowed_phrases": ["减肥", "瘦身三天", "绝对保证"],
+  "prompt_style_keywords": ["street fashion", "soft light", "editorial"],
+  "daily_publish_limit": 20,
+  "post_count": 5,
+  "asset_output_dir": "automation/spec-kit/projects/demo/assets/generated",
+  "image_generation_tool": "image-mcp.generate",
+  "image_ai_models": ["flux-schnell"],
+  "image_fallback_sources": ["/Users/dangsiyuan/Media/demo_fashion"],
+  "primary_mcp": "xiaohongshu-mcp",
+  "additional_mcp": [],
+  "report_frequency": "weekly",
+  "storage_root": "automation/spec-kit/projects/demo"
+}

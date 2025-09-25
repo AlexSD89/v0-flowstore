@@ -1,0 +1,29 @@
+# MindSpider 微博采集配置模板
+# -------------------------------------------------------------
+# 说明：
+#   - credentials: 微博账号及加密后的密码/Token
+#   - cookies_path: MindSpider 生成的 cookie 存储路径
+#   - proxy: 可选代理配置(HTTP/SOCKS)
+#   - rate_limit: 单位分钟内最大请求次数
+#   - keywords: 需要监控的关键词或话题
+#   - storage: 原始数据落库配置（MongoDB/MySQL 等）
+credentials:
+  username: "YOUR_WEIBO_USERNAME"
+  password: "YOUR_WEIBO_PASSWORD_OR_TOKEN"
+cookies_path: "secrets/weibo_cookies.json"
+proxy:
+  enabled: false
+  url: "http://127.0.0.1:7890"
+rate_limit:
+  requests_per_minute: 90
+keywords:
+  - "AI 初创"
+  - "大模型融资"
+storage:
+  type: "mongodb"
+  uri: "mongodb://localhost:27017"
+  database: "pocketcorn_raw"
+  collection: "weibo_signals"
+scheduler:
+  cadence: "*/30 * * * *"  # cron 表达式：每 30 分钟
+sample_data: "../../data/samples/weibo_mindspider_sample.json"

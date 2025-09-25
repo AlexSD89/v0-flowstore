@@ -1,0 +1,61 @@
+phase: phase3_reporting
+summary: >-
+  构建一键式报告与 CLI 自动化脚本，实现“创建→采集→分析→导出报告”的全流程自动执行。
+tasks:
+  - id: T301
+    name: 报告模板设计
+    description: >-
+      在 docs/templates/ 中定义 Markdown 报告模板，涵盖平台摘要、情感/主题指标、风险提示、行动建议。
+    commands:
+      - python tools/reporting/build_report_template.py
+    outputs:
+      - docs/templates/mission_report.md.j2
+    tags: [reporting]
+
+  - id: T302
+    name: 报告导出脚本
+    description: >-
+      编写 export_report.py，支持按 mission/run 导出 Markdown 或 HTML，并可集成图表。
+    depends_on: [T301]
+    commands:
+      - python tools/reporting/export_report.py --dry-run
+      - pytest tests/reporting/test_export_report.py
+    outputs:
+      - tools/export_report.py
+      - reports/.gitkeep
+    tags: [reporting, cli]
+
+  - id: T303
+    name: 全流程自动脚本
+    description: >-
+      编写 run_full_mission.py，自动执行：创建任务→运行→等待→导出报告，输出最终报告路径。
+    depends_on: [T302]
+    commands:
+      - python tools/run_full_mission.py --dry-run
+      - pytest tests/integration/test_full_mission_script.py
+    outputs:
+      - tools/run_full_mission.py
+    tags: [automation, cli]
+
+  - id: T304
+    name: CLI 集成任务命令
+    description: >-
+      扩展 pocketcorn CLI（mission_commands），增加 analyze/report/export 子命令，调用上一步脚本。
+    depends_on: [T303]
+    commands:
+      - python tools/task_helpers/update_cli_commands.py
+      - pytest tests/cli/test_mission_commands.py
+    outputs:
+      - src/pocketcorn/cli/mission_commands.py
+    tags: [cli, automation]
+
+  - id: T305
+    name: 自动化演示与报告
+    description: >-
+      使用 run_full_mission.py 执行一次完整演示任务，生成最终报告并归档。
+    depends_on: [T304]
+    commands:
+      - python tools/run_full_mission.py --description "扫描 AI 初创公司" --output reports/final_demo.md
+    outputs:
+      - reports/final_demo.md
+    tags: [reporting, demo]

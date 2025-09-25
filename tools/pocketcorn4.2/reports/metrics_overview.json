@@ -1,0 +1,21 @@
+{
+  "missions_analyzed": 3,
+  "avg_signals": 13,
+  "missions": [
+    {
+      "mission_id": "3e93b672-8111-440d-b6fc-1e1435f1017a",
+      "signals": 13,
+      "companies": 7
+    },
+    {
+      "mission_id": "17c780cf-6578-4dc0-a16e-416e75a729fb",
+      "signals": 13,
+      "companies": 7
+    },
+    {
+      "mission_id": "a2c971c7-7158-4ba2-a5e0-c8974c160c2d",
+      "signals": 13,
+      "companies": 7
+    }
+  ]
+}

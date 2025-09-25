@@ -1,0 +1,35 @@
+[
+  {
+    "company": "aurora-ai",
+    "category": "product",
+    "summary": "产品官方号发布了多模态升级，强调企业级安全能力。",
+    "link": "https://weibo.com/aurora_ai/post/1",
+    "captured_at": "2025-09-19T01:12:00+00:00",
+    "reliability": 0.82,
+    "cultural_tags": ["zh-CN", "enterprise"],
+    "engagement": 352,
+    "sentiment_hint": "positive"
+  },
+  {
+    "company": "aurora-ai",
+    "category": "funding",
+    "summary": "投资圈博主曝出 Aurora AI 获得千万美元 A 轮融资。",
+    "link": "https://weibo.com/investor/post/2",
+    "captured_at": "2025-09-18T16:45:00+00:00",
+    "reliability": 0.7,
+    "cultural_tags": ["zh-CN", "finance"],
+    "engagement": 128,
+    "sentiment_hint": "neutral"
+  },
+  {
+    "company": "aurora-ai",
+    "category": "hiring",
+    "summary": "招聘官发布信息，正在扩招大模型推理优化工程师。",
+    "link": "https://weibo.com/aurora_ai/post/3",
+    "captured_at": "2025-09-17T09:05:00+00:00",
+    "reliability": 0.9,
+    "cultural_tags": ["zh-CN", "talent"],
+    "positions": 6,
+    "sentiment_hint": "positive"
+  }
+]

@@ -1,0 +1,21 @@
+phase: master_plan
+summary: >-
+  围绕 LaunchX_CMS_Master_Plan 与通用 AI 生态架构，将 Pocketcorn v4.2 的升级拆解为四个阶段，
+  每个阶段对应独立任务文件，可由 Task Orchestrator 自动执行。
+tasks:
+  - id: MP-1
+    name: Phase 1 - Collectors
+    description: 接入 MindSpider、Playwith MCP、Rube MCP 等真实采集能力，替换 Mock 数据源。
+    follows: phase1_collectors
+  - id: MP-2
+    name: Phase 2 - Analysis
+    description: 构建情感/主题/风险/文化分析管线，输出业务洞察。
+    follows: phase2_analysis
+  - id: MP-3
+    name: Phase 3 - Reporting & Automation
+    description: 实现一键任务执行与 Markdown 报告导出，支撑演示与日常使用。
+    follows: phase3_reporting
+  - id: MP-4
+    name: Phase 4 - Deployment & Observability
+    description: 完成依赖梳理、配置安全、监控告警、CI/CD 以及生产验收。
+    follows: phase4_deploy

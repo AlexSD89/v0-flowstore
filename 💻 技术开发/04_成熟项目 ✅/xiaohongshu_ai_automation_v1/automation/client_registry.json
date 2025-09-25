@@ -1,0 +1,9 @@
+{
+  "clients": [
+    {
+      "slug": "launch-x",
+      "enabled": true,
+      "config": "automation/spec-kit/configs/launch-x.json"
+    }
+  ]
+}

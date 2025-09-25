@@ -1,0 +1,77 @@
+phase: phase1_collectors
+summary: >-
+  接入真实数据采集层：统一配置 MindSpider、Playwith MCP、Rube MCP，替换当前 Mock 适配器，
+  并确保调度器可以稳定触发多平台采集。
+tasks:
+  - id: T101
+    name: 建立采集配置骨架
+    description: >-
+      在 config/ 下新增 MindSpider 与 MCP 所需配置文件，定义账号、代理、速率限制、任务模板等。
+    commands:
+      - python tools/task_helpers/create_collector_configs.py
+    outputs:
+      - config/mindspider/weibo.yaml
+      - config/mcp/playwith.yaml
+      - config/mcp/rube.yaml
+    tags: [configuration, collectors]
+
+  - id: T102
+    name: 接入 MindSpider 微博客户端
+    description: >-
+      将 Weibo_PublicOpinion_AnalysisSystem/MindSpider 的 WeiboClient 抽象为 Pocketcorn 的 WeiboAdapter，
+      输出 RawSignal，并允许根据配置切换账号。
+    depends_on: [T101]
+    commands:
+      - python tools/importers/import_mindspider_weibo.py
+      - pytest tests/collectors/test_weibo_adapter.py
+    outputs:
+      - src/pocketcorn/collectors/adapters/tier1/weibo.py
+    tags: [collectors, mindspider, weibo]
+
+  - id: T103
+    name: Playwith MCP 浏览器自动化接入
+    description: >-
+      为 LinkedIn/GitHub 等需要浏览器自动化的平台编写 Playwith MCP 客户端封装，并在注册表配置。
+    depends_on: [T101]
+    commands:
+      - python tools/importers/import_playwith_mcp.py
+      - pytest tests/collectors/test_playwith_client.py
+    outputs:
+      - src/pocketcorn/services/collectors/playwith_client.py
+    tags: [collectors, mcp, automation]
+
+  - id: T104
+    name: Rube MCP 结构化采集接入
+    description: >-
+      复用 Rube MCP 任务执行引擎，实现结构化任务（批量关键词监控、分页抓取等）。
+    depends_on: [T101]
+    commands:
+      - python tools/importers/import_rube_mcp.py
+      - pytest tests/collectors/test_rube_client.py
+    outputs:
+      - src/pocketcorn/services/collectors/rube_client.py
+    tags: [collectors, mcp]
+
+  - id: T105
+    name: 调度器串联真实采集
+    description: >-
+      更新 MissionScheduler，让其根据平台能力（MindSpider/MCP）分发任务，记录速率与错误指标。
+    depends_on: [T102, T103, T104]
+    commands:
+      - python tools/task_helpers/update_scheduler_routes.py
+      - pytest tests/unit/test_scheduler.py
+    outputs:
+      - src/pocketcorn/collectors/scheduler.py
+    tags: [scheduler, collectors]
+
+  - id: T106
+    name: 采集链路端到端演练
+    description: >-
+      在 staging 环境运行一次真实 mission，验证多平台采集成功并生成 RawSignal 数据。
+    depends_on: [T105]
+    commands:
+      - python tools/run_mission.py --name "Collector Smoke Test" --description "自动采集多平台 AI 机会" --geography CN,US --revenue-threshold 40000 --output reports/staging_phase1.json
+      - python tools/export_report.py --input reports/staging_phase1.json --output reports/staging_phase1.md
+    outputs:
+      - reports/staging_phase1.md
+    tags: [integration, collectors]

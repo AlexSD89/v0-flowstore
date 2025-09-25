@@ -1,0 +1,1416 @@
+# Universal AI Ecosystem API Specification
+# Version: 1.0.0
+# Date: 2025-01-22
+# OpenAPI 3.0.3 Specification
+
+openapi: 3.0.3
+info:
+  title: Universal Zero-Code AI Collaboration Ecosystem API
+  description: |
+    Comprehensive API for the Universal Zero-Code AI Collaboration Ecosystem that transforms
+    complex software development and analysis into natural language conversations through
+    AI collaboration.
+  version: 1.0.0
+  contact:
+    name: LaunchX Development Team
+    email: dev@launchx-ecosystem.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://api.universal-ai-ecosystem.com/v1
+    description: Production API Server
+  - url: https://staging-api.universal-ai-ecosystem.com/v1
+    description: Staging API Server
+  - url: http://localhost:8000/v1
+    description: Development API Server
+
+security:
+  - bearerAuth: []
+  - apiKeyAuth: []
+
+paths:
+  # Natural Language Interface Endpoints
+  /conversations:
+    post:
+      summary: Start a new conversation
+      description: |
+        Initialize a new conversation session for natural language interaction
+        with the AI ecosystem. Supports investment analysis, enterprise service
+        generation, and knowledge management tasks.
+      operationId: startConversation
+      tags:
+        - Natural Language Interface
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationStartRequest'
+      responses:
+        '201':
+          description: Conversation started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationSession'
+        '400':
+          description: Invalid request format
+        '401':
+          description: Unauthorized access
+        '429':
+          description: Rate limit exceeded
+
+  /conversations/{conversation_id}/messages:
+    post:
+      summary: Send message to conversation
+      description: |
+        Send a natural language message to an active conversation. The system
+        will interpret the intent, route to appropriate agents, and return
+        structured responses with evidence chains.
+      operationId: sendMessage
+      tags:
+        - Natural Language Interface
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationMessage'
+      responses:
+        '200':
+          description: Message processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationResponse'
+        '404':
+          description: Conversation not found
+        '400':
+          description: Invalid message format
+
+    get:
+      summary: Get conversation history
+      description: Retrieve the complete conversation history including all messages and agent responses
+      operationId: getConversationHistory
+      tags:
+        - Natural Language Interface
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+            maximum: 200
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Conversation history retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationHistory'
+
+  # Investment Analysis Endpoints
+  /investment/analyze:
+    post:
+      summary: Analyze investment opportunity
+      description: |
+        Comprehensive investment analysis using cultural intelligence,
+        MRR inference, and 7-dimension evaluation framework.
+      operationId: analyzeInvestment
+      tags:
+        - Investment Analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvestmentAnalysisRequest'
+      responses:
+        '202':
+          description: Analysis started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisTask'
+        '400':
+          description: Invalid analysis request
+
+  /investment/analysis/{analysis_id}:
+    get:
+      summary: Get investment analysis results
+      description: Retrieve comprehensive investment analysis results including cultural intelligence, MRR estimates, and 7-dimension scoring
+      operationId: getInvestmentAnalysis
+      tags:
+        - Investment Analysis
+      parameters:
+        - name: analysis_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Analysis results retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvestmentAnalysisResult'
+        '202':
+          description: Analysis still in progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisProgress'
+        '404':
+          description: Analysis not found
+
+  /investment/cultural-intelligence:
+    post:
+      summary: Analyze cultural intelligence
+      description: |
+        Standalone cultural intelligence analysis for East-West business
+        compatibility assessment.
+      operationId: analyzeCulturalIntelligence
+      tags:
+        - Investment Analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CulturalIntelligenceRequest'
+      responses:
+        '200':
+          description: Cultural intelligence analysis completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CulturalIntelligenceResult'
+
+  /investment/mrr-inference:
+    post:
+      summary: Infer monthly recurring revenue
+      description: |
+        Multi-signal MRR inference using hiring velocity, pricing signals,
+        customer testimonials, and infrastructure scaling indicators.
+      operationId: inferMRR
+      tags:
+        - Investment Analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MRRInferenceRequest'
+      responses:
+        '200':
+          description: MRR inference completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MRRInferenceResult'
+
+  # Enterprise Services Endpoints
+  /enterprise/solutions:
+    post:
+      summary: Generate enterprise solution
+      description: |
+        Generate comprehensive enterprise AI solution using 6-role AI
+        collaboration system (Alex, Sarah, Mike, Emma, Jack, Lisa).
+      operationId: generateEnterpriseSolution
+      tags:
+        - Enterprise Services
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseSolutionRequest'
+      responses:
+        '202':
+          description: Solution generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SolutionGenerationTask'
+
+  /enterprise/solutions/{solution_id}:
+    get:
+      summary: Get enterprise solution
+      description: Retrieve generated enterprise solution including architecture, implementation plan, and deployment strategy
+      operationId: getEnterpriseSolution
+      tags:
+        - Enterprise Services
+      parameters:
+        - name: solution_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Solution retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseSolution'
+        '202':
+          description: Solution generation in progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SolutionProgress'
+
+  /enterprise/code-generation:
+    post:
+      summary: Generate implementation code
+      description: |
+        Generate deployable code based on enterprise solution specifications
+        with testing and deployment configurations.
+      operationId: generateCode
+      tags:
+        - Enterprise Services
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CodeGenerationRequest'
+      responses:
+        '202':
+          description: Code generation started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CodeGenerationTask'
+
+  # Knowledge Management Endpoints
+  /knowledge/research:
+    post:
+      summary: Conduct intelligent research
+      description: |
+        Automated research and trend analysis across global markets
+        with 22+ language support and cross-platform correlation.
+      operationId: conductResearch
+      tags:
+        - Knowledge Management
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResearchRequest'
+      responses:
+        '202':
+          description: Research started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResearchTask'
+
+  /knowledge/trends:
+    get:
+      summary: Get emerging trends
+      description: Retrieve detected emerging trends with confidence scoring and market impact analysis
+      operationId: getEmergingTrends
+      tags:
+        - Knowledge Management
+      parameters:
+        - name: industry
+          in: query
+          schema:
+            type: string
+            enum: [ai, fintech, saas, devtools, consumer, healthcare, education]
+        - name: region
+          in: query
+          schema:
+            type: string
+            enum: [global, asia_pacific, north_america, europe, china, japan, korea]
+        - name: time_horizon
+          in: query
+          schema:
+            type: string
+            enum: [1_month, 3_months, 6_months, 1_year]
+            default: 3_months
+        - name: confidence_threshold
+          in: query
+          schema:
+            type: number
+            format: float
+            minimum: 0.0
+            maximum: 1.0
+            default: 0.7
+      responses:
+        '200':
+          description: Trends retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrendAnalysisResult'
+
+  # Agent Orchestration Endpoints
+  /agents/orchestrate:
+    post:
+      summary: Orchestrate multi-agent task
+      description: |
+        Directly orchestrate a complex task using multiple specialized agents
+        with forum-style debate and consensus building.
+      operationId: orchestrateAgents
+      tags:
+        - Agent Orchestration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentOrchestrationRequest'
+      responses:
+        '202':
+          description: Agent orchestration started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrchestrationTask'
+
+  /agents/available:
+    get:
+      summary: List available agents
+      description: Get list of available agents with their capabilities and current load status
+      operationId: listAvailableAgents
+      tags:
+        - Agent Orchestration
+      responses:
+        '200':
+          description: Available agents retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailableAgentsList'
+
+  # System Health and Monitoring
+  /health:
+    get:
+      summary: System health check
+      description: Comprehensive system health check including all services and dependencies
+      operationId: healthCheck
+      tags:
+        - System Health
+      responses:
+        '200':
+          description: System is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+        '503':
+          description: System is unhealthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+
+  /metrics:
+    get:
+      summary: Get system metrics
+      description: Real-time system performance metrics and usage statistics
+      operationId: getMetrics
+      tags:
+        - System Health
+      responses:
+        '200':
+          description: Metrics retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemMetrics'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  schemas:
+    # Natural Language Interface Schemas
+    ConversationStartRequest:
+      type: object
+      required:
+        - initial_query
+        - user_context
+      properties:
+        initial_query:
+          type: string
+          description: Initial natural language query from user
+          example: "I want to analyze an AI startup for potential investment"
+        user_context:
+          $ref: '#/components/schemas/UserContext'
+        conversation_type:
+          type: string
+          enum: [investment_analysis, enterprise_solution, knowledge_research, general]
+          default: general
+        preferences:
+          type: object
+          properties:
+            language:
+              type: string
+              enum: [en, zh-cn, zh-tw, ja, ko, de, fr, es]
+              default: en
+            cultural_context:
+              type: string
+              enum: [western, chinese, japanese, korean, hybrid]
+              default: western
+
+    ConversationSession:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          format: uuid
+        session_token:
+          type: string
+          description: Session token for subsequent requests
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+        conversation_type:
+          type: string
+          enum: [investment_analysis, enterprise_solution, knowledge_research, general]
+        status:
+          type: string
+          enum: [active, paused, completed, expired]
+          default: active
+
+    ConversationMessage:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Natural language message from user
+          maxLength: 10000
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageAttachment'
+        context_override:
+          type: object
+          description: Override context for this specific message
+
+    ConversationResponse:
+      type: object
+      properties:
+        message_id:
+          type: string
+          format: uuid
+        response_text:
+          type: string
+          description: Natural language response from AI system
+        structured_data:
+          type: object
+          description: Structured data extracted or generated
+        agent_contributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentContribution'
+        evidence_chain:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceItem'
+        confidence_level:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        next_suggested_actions:
+          type: array
+          items:
+            type: string
+        processing_time_seconds:
+          type: number
+          format: float
+
+    ConversationHistory:
+      type: object
+      properties:
+        conversation_id:
+          type: string
+          format: uuid
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              sender:
+                type: string
+                enum: [user, system]
+              message:
+                type: string
+              response_data:
+                type: object
+        total_messages:
+          type: integer
+        has_more:
+          type: boolean
+
+    # Investment Analysis Schemas
+    InvestmentAnalysisRequest:
+      type: object
+      required:
+        - company_identifier
+        - analysis_type
+      properties:
+        company_identifier:
+          type: object
+          properties:
+            company_name:
+              type: string
+            domain:
+              type: string
+            chinese_name:
+              type: string
+            linkedin_url:
+              type: string
+            additional_identifiers:
+              type: array
+              items:
+                type: string
+        analysis_type:
+          type: string
+          enum: [comprehensive, cultural_intelligence, mrr_inference, quick_scan]
+          default: comprehensive
+        investment_thesis:
+          type: object
+          properties:
+            target_vertical:
+              type: string
+              enum: [b2b_saas, ai_infra, devtools, consumer_ai, fintech, healthcare]
+            investment_amount_rmb:
+              type: integer
+              minimum: 100000
+              maximum: 10000000
+            expected_return_multiple:
+              type: number
+              format: float
+              minimum: 1.0
+              maximum: 10.0
+            time_horizon_months:
+              type: integer
+              minimum: 6
+              maximum: 60
+        cultural_preferences:
+          type: object
+          properties:
+            east_west_preference:
+              type: string
+              enum: [western_style, chinese_style, hybrid_approach, no_preference]
+            communication_style_preference:
+              type: string
+              enum: [direct, relationship_oriented, flexible]
+            partnership_model_preference:
+              type: string
+              enum: [hands_on, advisory, passive]
+
+    InvestmentAnalysisResult:
+      type: object
+      properties:
+        analysis_id:
+          type: string
+          format: uuid
+        company_profile:
+          $ref: '#/components/schemas/CompanyProfile'
+        overall_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        dimension_scores:
+          $ref: '#/components/schemas/SevenDimensionScores'
+        cultural_intelligence:
+          $ref: '#/components/schemas/CulturalIntelligenceResult'
+        mrr_estimate:
+          $ref: '#/components/schemas/MRRInferenceResult'
+        investment_recommendation:
+          type: string
+          enum: [strong_recommend, recommend, conditional_recommend, observe, avoid]
+        confidence_level:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        evidence_chain:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceItem'
+        risk_factors:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskFactor'
+        partnership_recommendations:
+          type: array
+          items:
+            type: string
+        analysis_timestamp:
+          type: string
+          format: date-time
+
+    SevenDimensionScores:
+      type: object
+      properties:
+        thesis_fit:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        hiring_velocity:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        product_iteration:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        customer_testimonials:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        pricing_evolution:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        infrastructure_scaling:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        media_presence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        operational_expansion:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        cultural_fit:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        risk_penalty:
+          type: number
+          format: float
+          minimum: -1.0
+          maximum: 0.0
+
+    CulturalIntelligenceRequest:
+      type: object
+      required:
+        - company_identifier
+      properties:
+        company_identifier:
+          type: object
+          properties:
+            company_name:
+              type: string
+            domain:
+              type: string
+            social_media_profiles:
+              type: array
+              items:
+                type: string
+        analysis_depth:
+          type: string
+          enum: [basic, comprehensive, detailed]
+          default: comprehensive
+
+    CulturalIntelligenceResult:
+      type: object
+      properties:
+        overall_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        east_west_compatibility:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        communication_style:
+          type: object
+          properties:
+            style_classification:
+              type: string
+              enum: [western_direct, chinese_relationship, hybrid_approach]
+            confidence_level:
+              type: number
+              format: float
+            supporting_evidence:
+              type: array
+              items:
+                type: string
+        relationship_orientation:
+          type: object
+          properties:
+            orientation_score:
+              type: number
+              format: float
+              minimum: 0.0
+              maximum: 1.0
+            indicators:
+              type: array
+              items:
+                type: string
+        cross_border_readiness:
+          type: object
+          properties:
+            readiness_score:
+              type: number
+              format: float
+              minimum: 0.0
+              maximum: 1.0
+            international_team_ratio:
+              type: number
+              format: float
+            language_capabilities:
+              type: array
+              items:
+                type: string
+            regulatory_awareness_indicators:
+              type: array
+              items:
+                type: string
+        collaborative_governance:
+          type: object
+          properties:
+            governance_score:
+              type: number
+              format: float
+              minimum: 0.0
+              maximum: 1.0
+            decision_making_style:
+              type: string
+              enum: [hierarchical, consensus_based, collaborative, hybrid]
+            transparency_indicators:
+              type: array
+              items:
+                type: string
+        partnership_recommendations:
+          type: array
+          items:
+            type: string
+        cultural_risk_factors:
+          type: array
+          items:
+            type: string
+
+    MRRInferenceRequest:
+      type: object
+      required:
+        - company_identifier
+      properties:
+        company_identifier:
+          type: object
+          properties:
+            company_name:
+              type: string
+            domain:
+              type: string
+            additional_sources:
+              type: array
+              items:
+                type: string
+        inference_method:
+          type: string
+          enum: [comprehensive, hiring_signals, pricing_signals, customer_signals, infrastructure_signals]
+          default: comprehensive
+        confidence_threshold:
+          type: number
+          format: float
+          minimum: 0.5
+          maximum: 0.95
+          default: 0.75
+
+    MRRInferenceResult:
+      type: object
+      properties:
+        estimated_mrr:
+          type: integer
+          description: Estimated monthly recurring revenue in RMB
+        confidence_interval:
+          type: object
+          properties:
+            lower_bound:
+              type: integer
+            upper_bound:
+              type: integer
+            confidence_level:
+              type: number
+              format: float
+        estimation_methods:
+          type: object
+          properties:
+            hiring_based_estimate:
+              type: integer
+            pricing_based_estimate:
+              type: integer
+            customer_based_estimate:
+              type: integer
+            infrastructure_based_estimate:
+              type: integer
+        method_weights:
+          type: object
+          properties:
+            hiring_signals:
+              type: number
+              format: float
+            pricing_signals:
+              type: number
+              format: float
+            customer_signals:
+              type: number
+              format: float
+            infrastructure_signals:
+              type: number
+              format: float
+        supporting_signals:
+          type: array
+          items:
+            $ref: '#/components/schemas/RevenueSignal'
+        confidence_factors:
+          type: object
+          properties:
+            temporal_consistency:
+              type: number
+              format: float
+            cross_platform_validation:
+              type: number
+              format: float
+            signal_quality:
+              type: number
+              format: float
+        estimation_timestamp:
+          type: string
+          format: date-time
+        currency:
+          type: string
+          default: RMB
+
+    # Enterprise Services Schemas
+    EnterpriseSolutionRequest:
+      type: object
+      required:
+        - client_requirements
+        - project_scope
+      properties:
+        client_requirements:
+          type: string
+          description: Natural language description of client needs
+          maxLength: 10000
+        project_scope:
+          type: object
+          properties:
+            industry:
+              type: string
+              enum: [manufacturing, healthcare, finance, retail, education, technology, logistics]
+            company_size:
+              type: string
+              enum: [startup, small_business, medium_enterprise, large_enterprise]
+            budget_range_rmb:
+              type: object
+              properties:
+                min:
+                  type: integer
+                max:
+                  type: integer
+            timeline_months:
+              type: integer
+              minimum: 1
+              maximum: 24
+        technical_constraints:
+          type: object
+          properties:
+            existing_tech_stack:
+              type: array
+              items:
+                type: string
+            deployment_preferences:
+              type: array
+              items:
+                type: string
+                enum: [cloud, on_premise, hybrid]
+            security_requirements:
+              type: array
+              items:
+                type: string
+            compliance_requirements:
+              type: array
+              items:
+                type: string
+        collaboration_preferences:
+          type: object
+          properties:
+            preferred_ai_roles:
+              type: array
+              items:
+                type: string
+                enum: [alex, sarah, mike, emma, jack, lisa]
+            communication_frequency:
+              type: string
+              enum: [daily, weekly, milestone_based]
+            review_process:
+              type: string
+              enum: [continuous, phase_based, final_review]
+
+    EnterpriseSolution:
+      type: object
+      properties:
+        solution_id:
+          type: string
+          format: uuid
+        client_requirements_analysis:
+          $ref: '#/components/schemas/RequirementsAnalysis'
+        system_architecture:
+          $ref: '#/components/schemas/SystemArchitecture'
+        implementation_plan:
+          $ref: '#/components/schemas/ImplementationPlan'
+        ui_ux_design:
+          $ref: '#/components/schemas/UIUXDesign'
+        quality_assurance_plan:
+          $ref: '#/components/schemas/QualityAssurancePlan'
+        deployment_strategy:
+          $ref: '#/components/schemas/DeploymentStrategy'
+        project_timeline:
+          $ref: '#/components/schemas/ProjectTimeline'
+        cost_estimation:
+          $ref: '#/components/schemas/CostEstimation'
+        risk_assessment:
+          $ref: '#/components/schemas/RiskAssessment'
+        success_metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/SuccessMetric'
+        ai_agent_contributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentContribution'
+        generated_assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeneratedAsset'
+
+    # Knowledge Management Schemas
+    ResearchRequest:
+      type: object
+      required:
+        - research_query
+        - scope
+      properties:
+        research_query:
+          type: string
+          description: Natural language research question
+          maxLength: 1000
+        scope:
+          type: object
+          properties:
+            industries:
+              type: array
+              items:
+                type: string
+            regions:
+              type: array
+              items:
+                type: string
+            time_horizon:
+              type: string
+              enum: [1_month, 3_months, 6_months, 1_year, historical]
+            depth_level:
+              type: string
+              enum: [overview, detailed, comprehensive]
+        language_preferences:
+          type: array
+          items:
+            type: string
+            enum: [en, zh-cn, zh-tw, ja, ko, de, fr, es]
+        data_sources:
+          type: array
+          items:
+            type: string
+            enum: [news, social_media, academic, industry_reports, government, patents]
+
+    TrendAnalysisResult:
+      type: object
+      properties:
+        trends:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmergingTrend'
+        market_intelligence:
+          $ref: '#/components/schemas/MarketIntelligence'
+        research_methodology:
+          type: object
+          properties:
+            data_sources_analyzed:
+              type: array
+              items:
+                type: string
+            analysis_timeframe:
+              type: string
+            confidence_methodology:
+              type: string
+        generated_at:
+          type: string
+          format: date-time
+
+    EmergingTrend:
+      type: object
+      properties:
+        trend_id:
+          type: string
+        trend_name:
+          type: string
+        description:
+          type: string
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        market_impact_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        time_to_mainstream:
+          type: string
+          enum: [immediate, 3_months, 6_months, 1_year, 2_years_plus]
+        geographic_scope:
+          type: array
+          items:
+            type: string
+        key_players:
+          type: array
+          items:
+            type: string
+        supporting_evidence:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceItem'
+        investment_implications:
+          type: array
+          items:
+            type: string
+
+    # Agent Orchestration Schemas
+    AgentOrchestrationRequest:
+      type: object
+      required:
+        - task_description
+        - required_capabilities
+      properties:
+        task_description:
+          type: string
+          maxLength: 5000
+        required_capabilities:
+          type: array
+          items:
+            type: string
+            enum: [data_analysis, cultural_intelligence, technical_architecture, 
+                   ui_ux_design, project_management, quality_assurance, 
+                   market_research, financial_analysis]
+        collaboration_style:
+          type: string
+          enum: [sequential, parallel, debate_based, consensus_building]
+          default: debate_based
+        priority_level:
+          type: string
+          enum: [low, medium, high, urgent]
+          default: medium
+        deadline:
+          type: string
+          format: date-time
+
+    AgentContribution:
+      type: object
+      properties:
+        agent_id:
+          type: string
+        agent_role:
+          type: string
+        contribution_type:
+          type: string
+          enum: [analysis, design, recommendation, validation, synthesis]
+        content:
+          type: string
+        confidence_level:
+          type: number
+          format: float
+        evidence_provided:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvidenceItem'
+        timestamp:
+          type: string
+          format: date-time
+
+    # Common Schemas
+    UserContext:
+      type: object
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        role:
+          type: string
+          enum: [investor, enterprise_client, researcher, developer]
+        expertise_level:
+          type: string
+          enum: [beginner, intermediate, expert]
+        cultural_background:
+          type: string
+          enum: [western, chinese, japanese, korean, hybrid, other]
+        previous_interactions:
+          type: integer
+          description: Number of previous interactions with the system
+        preferences:
+          type: object
+          properties:
+            communication_style:
+              type: string
+              enum: [detailed, concise, technical, business_focused]
+            notification_preferences:
+              type: object
+            privacy_settings:
+              type: object
+
+    EvidenceItem:
+      type: object
+      properties:
+        evidence_id:
+          type: string
+          format: uuid
+        source_platform:
+          type: string
+        source_url:
+          type: string
+          format: uri
+        content_snippet:
+          type: string
+        confidence_weight:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+        collection_timestamp:
+          type: string
+          format: date-time
+        evidence_type:
+          type: string
+          enum: [hiring_signal, product_update, customer_testimonial, 
+                 media_mention, partnership_announcement, financial_disclosure]
+        verification_status:
+          type: string
+          enum: [verified, pending_verification, unverified, disputed]
+
+    AnalysisTask:
+      type: object
+      properties:
+        task_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [queued, processing, completed, failed]
+        progress_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        estimated_completion_time:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        timestamp:
+          type: string
+          format: date-time
+        services:
+          type: object
+          properties:
+            natural_language_interface:
+              $ref: '#/components/schemas/ServiceHealth'
+            investment_analysis_engine:
+              $ref: '#/components/schemas/ServiceHealth'
+            enterprise_services_platform:
+              $ref: '#/components/schemas/ServiceHealth'
+            knowledge_management_system:
+              $ref: '#/components/schemas/ServiceHealth'
+            agent_orchestration_framework:
+              $ref: '#/components/schemas/ServiceHealth'
+        dependencies:
+          type: object
+          properties:
+            database:
+              $ref: '#/components/schemas/ServiceHealth'
+            redis_cache:
+              $ref: '#/components/schemas/ServiceHealth'
+            mcp_tools:
+              type: array
+              items:
+                $ref: '#/components/schemas/ServiceHealth'
+
+    ServiceHealth:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        response_time_ms:
+          type: number
+          format: float
+        error_rate:
+          type: number
+          format: float
+        last_check:
+          type: string
+          format: date-time
+        details:
+          type: object
+
+    SystemMetrics:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        performance:
+          type: object
+          properties:
+            requests_per_minute:
+              type: number
+            average_response_time_ms:
+              type: number
+            error_rate_percentage:
+              type: number
+            active_conversations:
+              type: integer
+            active_agent_tasks:
+              type: integer
+        resource_usage:
+          type: object
+          properties:
+            cpu_usage_percentage:
+              type: number
+            memory_usage_percentage:
+              type: number
+            storage_usage_percentage:
+              type: number
+        business_metrics:
+          type: object
+          properties:
+            daily_analyses_completed:
+              type: integer
+            monthly_active_users:
+              type: integer
+            average_user_satisfaction:
+              type: number
+              format: float
+
+    # Additional schemas for complex objects would be defined here
+    CompanyProfile:
+      type: object
+    RequirementsAnalysis:
+      type: object
+    SystemArchitecture:
+      type: object
+    ImplementationPlan:
+      type: object
+    UIUXDesign:
+      type: object
+    QualityAssurancePlan:
+      type: object
+    DeploymentStrategy:
+      type: object
+    ProjectTimeline:
+      type: object
+    CostEstimation:
+      type: object
+    RiskAssessment:
+      type: object
+    SuccessMetric:
+      type: object
+    GeneratedAsset:
+      type: object
+    MarketIntelligence:
+      type: object
+    MessageAttachment:
+      type: object
+    AnalysisProgress:
+      type: object
+    SolutionGenerationTask:
+      type: object
+    SolutionProgress:
+      type: object
+    CodeGenerationRequest:
+      type: object
+    CodeGenerationTask:
+      type: object
+    ResearchTask:
+      type: object
+    OrchestrationTask:
+      type: object
+    AvailableAgentsList:
+      type: object
+    RevenueSignal:
+      type: object
+    RiskFactor:
+      type: object

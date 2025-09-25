@@ -1,0 +1,11 @@
+{
+  "clients": {
+    "launch-x": {
+      "slug": "launch-x",
+      "name": "LaunchX",
+      "config": "automation/spec-kit/configs/launch-x.json",
+      "prd_dir": "clients/launch-x/docs",
+      "status": "pending"
+    }
+  }
+}

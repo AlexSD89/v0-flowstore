@@ -1,0 +1,31 @@
+# Playwith MCP 客户端配置模板
+# -------------------------------------------------------------
+# 说明：
+#   - endpoint: Playwith MCP 服务地址
+#   - auth: 鉴权信息（API Key 或 Basic Auth）
+#   - browsers: 需要并发的浏览器实例设置
+#   - platforms: 针对特定平台（如 LinkedIn/GitHub）的采集策略
+endpoint: "http://localhost:9000"
+auth:
+  type: "token"
+  token: "PLAYWITH_MCP_TOKEN"
+browsers:
+  pool_size: 2
+  headless: true
+platforms:
+  linkedin:
+    login:
+      username: "YOUR_LINKEDIN_USERNAME"
+      password: "YOUR_LINKEDIN_PASSWORD"
+    rate_limit:
+      requests_per_minute: 30
+    selectors:
+      post_container: "div.feed-shared-update-v2"
+      timestamp: "span.feed-shared-actor__sub-description"
+  github:
+    rate_limit:
+      requests_per_minute: 60
+    selectors:
+      repo_list: "div.Box-row"
+
+sample_data: "../../data/samples/playwith_samples.json"
