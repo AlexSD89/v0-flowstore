@@ -170,3 +170,21 @@ secrets/**
 I.💻 技术开发/02_开发工具 🛠️/mcp-servers/git-mcp/**
 💻 技术开发/02_开发工具 🛠️/mcp-servers/git-mcp/**
 📱 平台配置 IDE/.obsidian/plugins/remotely-save/**
+# 忽略大文件和缓存
+node_modules/
+.pnpm-home/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.git/objects/pack/
+tools/Weibo_PublicOpinion_AnalysisSystem/.git/
+*.pack
