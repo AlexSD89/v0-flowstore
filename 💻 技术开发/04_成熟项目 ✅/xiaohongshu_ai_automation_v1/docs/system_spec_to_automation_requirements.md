@@ -41,7 +41,7 @@
 - SEO & 标签：提交前执行脚本或人工复核，生成勾选结果存档。
 
 ## 6. 持续优化建议
-- 将 Spec-kit 输出与自动化产物映射到统一的状态面板（可写入 `status.json` 的 `artifacts` 字段）。
+- 将 Spec-kit 输出与自动化产物映射到统一的 Markdown 状态报告/`status.json`（建议写入 `artifacts` 字段）。
 - 对特殊项目（例如多语言或特殊渠道）扩展自定义校验模块，但仍遵循此基础框架。
 - 每次新增脚本或模板，优先更新本文件与 `system_quality_enforcement_checklist.md`，保持团队共识。
 

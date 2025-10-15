@@ -3,7 +3,7 @@ title: "业务服务 CLAUDE 指南"
 owners:
   - "LaunchX Business Ops"
 status: "active"
-last_update: "2025-10-12"
+last_update: "2025-10-15"
 related:
   - "./README.md"
   - "./RULES.md"
@@ -21,7 +21,7 @@ impact: "指导 AI 在业务域安全协作"
 4. 明确对外/内部输出的语言策略与保密等级。
 5. 在 `/spec` 列出：客户目标、交付物、依赖域、验证方式。
 
-> 草稿与会议速记可暂存于 `🤖 AI生成 auto-generated/日期`，需在 24 小时内整理并归档至正式目录。
+> 使用 spec-kit 或其它生成器产出的 `/spec`、`/plan`、`/do` 草稿，统一存放在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/` 并维护索引；经审核通过后 24 小时内迁移至目标目录（如 `study/specs/`、`plans/`、客户子目录），同时更新 frontmatter 与 Summary。
 
 ## 执行流程
 | 阶段 | 行动 | 产出 |

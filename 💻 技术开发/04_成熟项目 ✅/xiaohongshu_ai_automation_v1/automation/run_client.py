@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -93,6 +93,28 @@ def ensure_client_outputs(client_slug: str, config: Dict[str, object]) -> None:
         directory.mkdir(parents=True, exist_ok=True)
 
 
+def ensure_quality_gate(client_slug: str) -> str:
+    """Ensure the latest quality log contains approved drafts."""
+    quality_dir = CLIENTS_ROOT / client_slug / "data" / "quality_logs"
+    if not quality_dir.exists():
+        raise RuntimeError(f"质量审核目录不存在: {quality_dir}")
+
+    quality_files = sorted(quality_dir.glob("quality_log_*.json"))
+    if not quality_files:
+        raise RuntimeError(f"未发现质量审核文件，请先完成人工审核: {quality_dir}")
+
+    latest_file = quality_files[-1]
+    payload = json.loads(latest_file.read_text(encoding="utf-8"))
+
+    reviews = payload.get("draft_reviews", [])
+    for item in reviews:
+        status = str(item.get("status") or "").lower()
+        if status == "approved":
+            return latest_file.name
+
+    raise RuntimeError(f"{latest_file} 中未找到 Approved 状态，请确认审核流程。")
+
+
 def run_claude_task(task_file: Path, task_id: str, dry_run: bool) -> subprocess.CompletedProcess[str]:
     command = ["claude", "tasks", "run", str(task_file), task_id]
     if dry_run:
@@ -110,7 +132,7 @@ def run_claude_task(task_file: Path, task_id: str, dry_run: bool) -> subprocess.
     return result
 
 def write_log(logs_dir: Path, task_id: str, result: subprocess.CompletedProcess[str]) -> Path:
-    timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     log_path = logs_dir / f"{task_id}_{timestamp}.log"
     header = [
         f"timestamp: {timestamp}",
@@ -128,6 +150,7 @@ def main() -> None:
     parser.add_argument("--task-id", help="Claude task ID to run (default: <client>_automation)")
     parser.add_argument("--task-file", help="Override Claude task YAML path")
     parser.add_argument("--dry-run", action="store_true", help="Print command without executing")
+    parser.add_argument("--no-quality-gate", action="store_true", help="Skip quality log enforcement")
     args = parser.parse_args()
 
     client_slug = args.client
@@ -140,6 +163,10 @@ def main() -> None:
     print(f"[info] Running client '{client_slug}'")
     print(f"[info] Task file: {task_file}")
     print(f"[info] Task ID: {default_task_id}")
+
+    quality_gate_status = "skipped"
+    if not args.dry_run and not args.no_quality_gate:
+        quality_gate_status = ensure_quality_gate(client_slug)
 
     result = run_claude_task(task_file, default_task_id, args.dry_run)
     if args.dry_run:
@@ -158,11 +185,12 @@ def main() -> None:
         log_reference = str(log_path)
 
     record = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "task_id": default_task_id,
         "status": status,
         "exit_code": result.returncode,
         "log": log_reference,
+        "quality_gate": quality_gate_status,
     }
     update_status(client_slug, record)
 

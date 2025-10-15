@@ -16,129 +16,90 @@
 ```yaml
 version: 1
 tasks:
-  launch-x_automation:
-    description: "LaunchX end-to-end automation"
+  example-client_automation:
+    description: "Example Client end-to-end automation"
     context:
       mcpServers:
         - xiaohongshu-mcp
         - rube
-        - playwright-mcp
-        - rube-mcp
-        - tavily-search
 
     steps:
-      - run: rube.gather_xhs_intel
-      - ask: |
-          系列信息：LaunchX「企业AI武器库」Day1｜基于真实企业链路的全栈AI评测，可直接复制到销售闭环
-          链路步骤：线索捕获 → 互动培育 → 成交辅导 → 团队扩编 → 数据回流
-          节点分工：Synkli / Uniform / WisdomSnap / GPT Realtime / AI Resume Screener
-          颜色要求：主色 #1B6BFF ，强调色 #F2B705
-          请基于最新情报为 LaunchX 生成 20 篇图文内容，每篇包含：
-          1. 20 字以内标题
-          2. 三段正文（突出 权威、专业、洞察）
-          3. 3-5 个标签，避免 割韭菜、稳赚不赔、无风险
+      - id: gather_intel
+        run: rube.gather_xhs_intel
+      - id: generate_payload
+        ask: |
+          系列信息：LaunchX「」｜
+          链路步骤：待补充
+          节点分工：待补充
+          颜色要求：主色  ，强调色 
+          请基于最新情报为 Example Client 生成 5 篇图文内容。
+          每篇需输出如下 JSON 结构（所有字段必填，按顺序输出 5 项）：
+          {
+            "title": "20 字以内标题",
+            "body": "三段正文，突出 权威、可信、专业，并依次覆盖 待补充",
+            "tags": ["标签1", "标签2", "标签3"],
+            "image_prompt": "英文生图提示词，结合 futuristic neon, cinematic lighting，强调主色  与强调色 ",
+            "safety_notes": "需要在合规审查中特别关注的要点（如是否涉及敏感行业、隐私数据等）",
+            "tool_breakdown": {
+              "线索捕获": "对应节点与量化指标",
+              "互动培育": "对应节点与量化指标",
+              "成交辅导": "对应节点与量化指标",
+              "团队扩编": "对应节点与量化指标",
+              "数据回流": "对应节点与量化指标"
+            },
+            "action_calls": {
+              "comment": "评论区问题",
+              "dm": "私信引导语",
+              "save": "收藏提示",
+              "follow": "关注提醒"
+            },
+            "citations": ["引用来源 1", "引用来源 2"]
+          }
           文案结构要求（逐条覆盖）：
-          - 功能亮点
-          - 差异化优势
-          - 受众场景
-          - 获取方式/地址
-          - 最新市场表现
-          - 头部信号引用
-          - 行动建议
-          Hook 策略参考：数据震撼 / 真实实测开箱 / 竞争对比悬念 / 行业趋势预警 / 用户故事切入
-          互动触发请至少包含：评论问题 / 私信引导 / 收藏提示 / 关注提醒
-          引用来源需覆盖：CB Insights / IDC / Gartner / 艾瑞咨询 / 官方案例链接
+          - 请补充结构模块
+          Hook 策略参考：待补充
+          互动触发请至少包含：待补充
+          引用来源需覆盖：待补充
           对链路中每个 AI 工具，必须输出：
-          - 线索捕获
-          - 互动培育
-          - 成交辅导
-          - 团队扩编
-          - 数据回流
+          - 请补充结构模块
             - 工具背景速览（定位、典型客户、行业口碑）
             - 三步即用指南（入口、配置、验证指标）
             - 实测指标（用数据支撑）
             - 客户在乎的风险/合规提醒
           节点详细说明：
-          - 节点：Synkli
-            一句话定位：创作者线索匹配器：5分钟找到最有回应的达人名单
-            背景：纽约创作者匹配平台，2024年获 General Catalyst A 轮，擅长中小品牌引流
-            角色：线索捕获节点，负责自动寻源与外联脚本生成
-            关键特性：
-              · 命中率高，平均响应时间缩短至 10 分钟内
-              · 对接 CRM、Slack，自动触发跟进提醒
-              · 可自定义禁用词与行业白名单
-            · 导入 ICP 画像，建立榜单
-            · Claude 生成多套话术并过滤黑词
-            · 同步高分线索至 Slack/CRM
-            指标：5 分钟输出 60+ 线索、命中率 82%、响应时间 9 分钟
-            风险：席位成本高、国内创作者数据需自建、敏感行业需人工审核
-          - 节点：Uniform
-            一句话定位：动效表单生成器：语音描述就能做出高转化落地页
-            背景：旧金山 AI 动效表单创业公司，2024 年入选 YC Top 20
-            角色：互动培育节点，生成高转化表单与实时漏斗
-            关键特性：
-              · 3 分钟自动生成动效表单
-              · 实时漏斗 + 自动 AB 测试
-              · 移动端体验优秀，适合短视频导流
-            · 自然语言描述销售 SOP
-            · 嵌入落地页/短链并回传数据
-            · 触发 Claude 生成下一步脚本
-            指标：停留时长 +32%、表单完成率 +31%、漏斗报表 T+1 输出
-            风险：复杂逻辑需人工调、Pro 订阅成本、部分分析需二次集成
-          - 节点：WisdomSnap
-            一句话定位：播客知识速食机：15分钟萃取行业洞见、金句、行动建议
-            背景：旧金山播客 AI 平台，3500 万+ 节目库，A16Z 投资
-            角色：内容沉淀节点，为销售 enablement 提供洞察+金句
-            关键特性：
-              · 3500 万+ 节目库，支持企业自有音频
-              · 按场景生成“洞察 + 行动建议 + 金句”
-              · 培训采纳率与新人上手速度提升明显
-            · 上传行业播客或内部培训
-            · RUBE 指令生成摘要+行动建议
-            · 同步至 Notion 供销售复制
-            指标：培训采纳率 +40%、RAMP 缩短 7 天
-            风险：中文语料稀缺、版权需确认、企业版报价需沟通
-          - 节点：GPT Realtime
-            一句话定位：实时多语成交助手：会议现场自动翻译、控场、记要
-            背景：OpenAI 多模态实时报价，Zoom/RingCentral 官方合作
-            角色：成交辅导节点，多语 Demo + 情绪调节
-            关键特性：
-              · 端到端低延迟（<450ms）
-              · 情绪与语气可调，适配跨国团队
-              · 会议纪要、下一步行动自动生成
-            · Claude 准备 Demo 剧本与 FAQ
-            · 实时译制+情绪控制
-            · 会后生成行动项与合同草案
-            指标：延迟 <450ms、满意度 +18%、识别准确率 95%
-            风险：席位 $500+/月、噪声环境需硬件、录音合规
-          - 节点：AI Resume Screener
-            一句话定位：智能招聘筛选官：10 分钟搞定 500 份销售简历
-            背景：HireLoop 旗下 HR Tech 产品，深耕 ATS 对接
-            角色：团队扩编节点，批量筛选简历并生成面试材料
-            关键特性：
-              · 支持 20+ ATS，打分逻辑可自定义
-              · 自动生成面试提纲与谈判建议
-              · 节省 86,238 小时/年的人力成本
-            · 导入候选简历并打分
-            · Claude 输出胜任力摘要与提问脚本
-            · HRBP 标注并回写 Offer 建议
-            指标：500 份简历 10 分钟筛完、技能命中率 92%
-            风险：中文语义需自建词表、敏感信息脱敏、小团队成本需评估
-          系列开场白需要复用：LaunchX「企业AI武器库」{{day_label}}｜{{core_question}}
+          - 节点信息待补充
+          系列开场白需要复用：
           写作语言要求：面向企业业务负责人，避免行业黑话与内部术语，用真实数据和案例说服。
-          输出 JSON：[{"title":...,"body":...,"tags":[],"image_refs":[]}]
-      - use: image-mcp.generate
+          输出 JSON：{"posts": [...], "meta": {"generated_at": "{{now}}", "intel_step": "gather_intel"}}
+      - id: generate_images
+        use: image-mcp.generate
+        foreach: "{{steps.generate_payload.data.posts}}"
         with:
-          prompts: "{{step.prev.data}}"
-          style: "futuristic control room, neon edge lighting"
-          outputDir: "clients/launch-x/assets/generated"
-      - use: rube.text_guard
+          prompt: "{{item.image_prompt}}"
+          style: "futuristic neon, cinematic lighting"
+          outputDir: "projects/example-client/assets/generated"
+      - id: image_safety
+        use: rube.image_guard
         with:
           payload: "{{step.prev.data}}"
-      - use: rube.image_guard
+      - id: assemble_payload
+        ask: |
+          你将获得两份 JSON 数据。
+          1) 原始图文草稿：{{steps.generate_payload.data.posts}}
+          2) 生图结果 manifest：{{steps.generate_images.data}}
+          请按照 `post_id` 或数组顺序将图片路径写回对应的图文草稿，输出新的数组：
+          [{
+            "title": "...",
+            "body": "...",
+            "tags": ["..."],
+            "generated_images": ["/abs/path/img1.png", "..."]
+          }]
+      - id: text_safety
+        use: rube.text_guard
         with:
           payload: "{{step.prev.data}}"
-      - use: xiaohongshu-mcp.publish_content
+      - id: publish_batch
+        use: xiaohongshu-mcp.publish_content
         foreach: "{{step.prev.data}}"
         with:
           title: "{{item.title}}"
@@ -150,10 +111,10 @@ tasks:
 ```
 
 ## 数据留痕 / Logging Checklist
-- [ ] 保存 `intel_report.json` → `clients/launch-x/data/intel/`
-- [ ] 保存 `drafts.json` → `clients/launch-x/data/drafts/`
-- [ ] 保存 `images_manifest.json` 与生成图片 → `clients/launch-x/assets/generated`
+- [ ] 保存 `intel_report.json` → `projects/example-client/data/intel/`
+- [ ] 保存 `drafts.json` → `projects/example-client/data/drafts/`
+- [ ] 保存 `images_manifest.json` 与生成图片 → `projects/example-client/assets/generated`
 - [ ] 发布结果 `publish_log.json`
 - [ ] 表现跟踪 `performance/YYYY-MM-DD.csv`
 - [ ] 生成周报 `reports/weekly/{{week_id}}.md`
-- [ ] 质量稽核表：`execution/launch-x_quality_checklist.md` 完成勾选
+- [ ] 质量稽核表：`execution/example-client_quality_checklist.md` 完成勾选

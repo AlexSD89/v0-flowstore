@@ -1,25 +1,22 @@
 {
-  "client_name": "LaunchX",
-  "client_slug": "launch-x",
-  "industry": "企业应用层AI功能评测",
-  "target_audience": "AI功能开发商、企业数字化转型负责人、投资人顾问",
+  "client_name": "Example Client",
+  "client_slug": "example-client",
+  "industry": "AI 自动化",
+  "target_audience": "数字化决策者",
   "brand_voice_keywords": [
-    "权威",
-    "专业",
-    "洞察"
+    "权威、可信、专业"
   ],
   "disallowed_phrases": [
     "割韭菜",
-    "稳赚不赔",
-    "无风险"
+    "保底收益"
   ],
   "prompt_style_keywords": [
-    "futuristic control room",
-    "neon edge lighting"
+    "futuristic neon",
+    "cinematic lighting"
   ],
-  "daily_publish_limit": 6,
-  "post_count": 20,
-  "asset_output_dir": "clients/launch-x/assets/generated",
+  "daily_publish_limit": 5,
+  "post_count": 5,
+  "asset_output_dir": "projects/example-client/assets/generated",
   "content_output_dir": "clients/launch-x/assets/content",
   "data_output_dir": "clients/launch-x/data",
   "image_generation_tool": "image-mcp.generate",
@@ -27,302 +24,12 @@
     "flux-schnell"
   ],
   "image_fallback_sources": [
-    "Pexels",
-    "LaunchXBrandKit"
+    "Pexels"
   ],
   "primary_mcp": "xiaohongshu-mcp",
-  "additional_mcp": [
-    "playwright-mcp",
-    "rube-mcp",
-    "tavily-search"
-  ],
+  "additional_mcp": [],
   "report_frequency": "weekly",
-  "storage_root": "clients/launch-x",
+  "storage_root": "projects/example-client",
   "default_run_id": "launch-x_automation",
-  "claude_task_file": "automation/claude_tasks/launch-x.yaml",
-  "content_structure": {
-    "required_modules": [
-      "功能亮点",
-      "差异化优势",
-      "受众场景",
-      "获取方式/地址",
-      "最新市场表现",
-      "头部信号引用",
-      "行动建议"
-    ],
-    "hook_strategies": [
-      "数据震撼",
-      "真实实测开箱",
-      "竞争对比悬念",
-      "行业趋势预警",
-      "用户故事切入"
-    ],
-    "engagement_triggers": [
-      "评论问题",
-      "私信引导",
-      "收藏提示",
-      "关注提醒"
-    ],
-    "data_authority_sources": [
-      "CB Insights",
-      "IDC",
-      "Gartner",
-      "艾瑞咨询",
-      "官方案例链接"
-    ]
-  },
-  "seo_optimization": {
-    "brand_tag": "LaunchX",
-    "default_tags": [
-      "LaunchX",
-      "AI工具评测",
-      "企业数字化"
-    ],
-    "trending_hashtags": [
-      "智能办公",
-      "AI选型",
-      "企业效率提升"
-    ],
-    "seo_keywords": [
-      "AI工具对比",
-      "企业AI评测",
-      "SaaS选型指南"
-    ],
-    "target_search_terms": [
-      "AI工具哪个强",
-      "企业AI工具推荐",
-      "AI效率平台"
-    ]
-  },
-  "image_quality_config": {
-    "image_service": "flux-schnell",
-    "quality_settings": {
-      "resolution": "1080x1440",
-      "dpi": 300,
-      "format": "PNG",
-      "compression": "lossless"
-    },
-    "style_presets": {
-      "data_radar": "futuristic radar chart, neon blue accents, clean background",
-      "comparison_bar": "dual-tone bar chart, LaunchX blue & gold, minimal grid",
-      "scenario_focus": "business professional in action, soft depth of field"
-    },
-    "brand_elements": {
-      "logo_position": "bottom-right",
-      "watermark_opacity": 0.78,
-      "brand_color_integration": true
-    }
-  },
-  "content_modes": {
-    "daily": {
-      "tone": "亲和+信息量",
-      "headline_pattern": "数据/场景 + 明确收益",
-      "emoji_density": "每段≤1",
-      "tag_priority": [
-        "AI工具评测",
-        "企业效率提升"
-      ]
-    },
-    "hot_topic": {
-      "tone": "高能+话题性",
-      "headline_pattern": "疑问/对比 + 最新动态",
-      "emoji_density": "首段2个，其余控制",
-      "tag_priority": [
-        "AI选型",
-        "智能办公"
-      ]
-    },
-    "deep_dive": {
-      "tone": "权威+专业",
-      "headline_pattern": "行业结论/数据 + 时间窗口",
-      "emoji_density": "重要数据前",
-      "tag_priority": [
-        "企业数字化",
-        "SaaS选型指南"
-      ]
-    }
-  },
-  "series_preset": {
-    "name": "企业AI武器库",
-    "slug": "enterprise-ai-arsenal",
-    "current_day_label": "Day1",
-    "update_cadence": "每周三 18:00",
-    "opening_template": "LaunchX「企业AI武器库」{{day_label}}｜{{core_question}}",
-    "color_palette": {
-      "primary": "#1B6BFF",
-      "accent": "#F2B705"
-    },
-    "chain_steps": [
-      "线索捕获",
-      "互动培育",
-      "成交辅导",
-      "团队扩编",
-      "数据回流"
-    ],
-    "value_promise": "基于真实企业链路的全栈AI评测，可直接复制到销售闭环"
-  },
-  "sales_chain_nodes": [
-    {
-      "name": "Synkli",
-      "one_liner": "创作者线索匹配器：5分钟找到最有回应的达人名单",
-      "background": "纽约创作者匹配平台，2024年获 General Catalyst A 轮，擅长中小品牌引流",
-      "role": "线索捕获节点，负责自动寻源与外联脚本生成",
-      "quick_steps": [
-        "导入 ICP 画像，建立榜单",
-        "Claude 生成多套话术并过滤黑词",
-        "同步高分线索至 Slack/CRM"
-      ],
-      "key_traits": [
-        "命中率高，平均响应时间缩短至 10 分钟内",
-        "对接 CRM、Slack，自动触发跟进提醒",
-        "可自定义禁用词与行业白名单"
-      ],
-      "metrics": "5 分钟输出 60+ 线索、命中率 82%、响应时间 9 分钟",
-      "risks": "席位成本高、国内创作者数据需自建、敏感行业需人工审核"
-    },
-    {
-      "name": "Uniform",
-      "one_liner": "动效表单生成器：语音描述就能做出高转化落地页",
-      "background": "旧金山 AI 动效表单创业公司，2024 年入选 YC Top 20",
-      "role": "互动培育节点，生成高转化表单与实时漏斗",
-      "quick_steps": [
-        "自然语言描述销售 SOP",
-        "嵌入落地页/短链并回传数据",
-        "触发 Claude 生成下一步脚本"
-      ],
-      "key_traits": [
-        "3 分钟自动生成动效表单",
-        "实时漏斗 + 自动 AB 测试",
-        "移动端体验优秀，适合短视频导流"
-      ],
-      "metrics": "停留时长 +32%、表单完成率 +31%、漏斗报表 T+1 输出",
-      "risks": "复杂逻辑需人工调、Pro 订阅成本、部分分析需二次集成"
-    },
-    {
-      "name": "WisdomSnap",
-      "one_liner": "播客知识速食机：15分钟萃取行业洞见、金句、行动建议",
-      "background": "旧金山播客 AI 平台，3500 万+ 节目库，A16Z 投资",
-      "role": "内容沉淀节点，为销售 enablement 提供洞察+金句",
-      "quick_steps": [
-        "上传行业播客或内部培训",
-        "RUBE 指令生成摘要+行动建议",
-        "同步至 Notion 供销售复制"
-      ],
-      "key_traits": [
-        "3500 万+ 节目库，支持企业自有音频",
-        "按场景生成“洞察 + 行动建议 + 金句”",
-        "培训采纳率与新人上手速度提升明显"
-      ],
-      "metrics": "培训采纳率 +40%、RAMP 缩短 7 天",
-      "risks": "中文语料稀缺、版权需确认、企业版报价需沟通"
-    },
-    {
-      "name": "GPT Realtime",
-      "one_liner": "实时多语成交助手：会议现场自动翻译、控场、记要",
-      "background": "OpenAI 多模态实时报价，Zoom/RingCentral 官方合作",
-      "role": "成交辅导节点，多语 Demo + 情绪调节",
-      "quick_steps": [
-        "Claude 准备 Demo 剧本与 FAQ",
-        "实时译制+情绪控制",
-        "会后生成行动项与合同草案"
-      ],
-      "key_traits": [
-        "端到端低延迟（<450ms）",
-        "情绪与语气可调，适配跨国团队",
-        "会议纪要、下一步行动自动生成"
-      ],
-      "metrics": "延迟 <450ms、满意度 +18%、识别准确率 95%",
-      "risks": "席位 $500+/月、噪声环境需硬件、录音合规"
-    },
-    {
-      "name": "AI Resume Screener",
-      "one_liner": "智能招聘筛选官：10 分钟搞定 500 份销售简历",
-      "background": "HireLoop 旗下 HR Tech 产品，深耕 ATS 对接",
-      "role": "团队扩编节点，批量筛选简历并生成面试材料",
-      "quick_steps": [
-        "导入候选简历并打分",
-        "Claude 输出胜任力摘要与提问脚本",
-        "HRBP 标注并回写 Offer 建议"
-      ],
-      "key_traits": [
-        "支持 20+ ATS，打分逻辑可自定义",
-        "自动生成面试提纲与谈判建议",
-        "节省 86,238 小时/年的人力成本"
-      ],
-      "metrics": "500 份简历 10 分钟筛完、技能命中率 92%",
-      "risks": "中文语义需自建词表、敏感信息脱敏、小团队成本需评估"
-    }
-  ],
-  "customer_personas": {
-    "demand_side": {
-      "summary": "企业 IT/数字化负责人、业务主管、投资顾问，关注 ROI、实施周期、合规与培训成本",
-      "segments": [
-        {
-          "label": "创业团队 (≤50 人)",
-          "priorities": [
-            "快速验证",
-            "预算敏感",
-            "轻量部署"
-          ],
-          "success_metrics": [
-            "响应时间",
-            "预约率",
-            "首单转化"
-          ]
-        },
-        {
-          "label": "成长型企业 (50-500 人)",
-          "priorities": [
-            "效率提升",
-            "流程标准化",
-            "跨团队协同"
-          ],
-          "success_metrics": [
-            "成交周期",
-            "团队产能",
-            "学习成本"
-          ]
-        },
-        {
-          "label": "大型企业 (500+ 人)",
-          "priorities": [
-            "安全合规",
-            "深度定制",
-            "全球化协同"
-          ],
-          "success_metrics": [
-            "合规通过率",
-            "部署稳定性",
-            "培训覆盖率"
-          ]
-        }
-      ]
-    },
-    "supply_side": {
-      "summary": "AI 功能开发商（SaaS 产品经理、架构师、增长负责人），需要权威评测与企业案例",
-      "needs": [
-        "第三方评测背书",
-        "集成指导与模板",
-        "企业案例曝光",
-        "投资人与媒体关注"
-      ],
-      "signals": [
-        "咨询集成难度",
-        "询问企业案例",
-        "关注 ROI 数据",
-        "主动提供 Demo/试用"
-      ]
-    }
-  },
-  "tool_database": {
-    "name": "Biji Tool Intelligence API",
-    "description": "由 LaunchX 手工维护的工具情报数据库，用于快速拉取最新 AI 项目背景、定价与特性",
-    "api_key": "JiAGQhaOhoVaEbHp5oabNI/CM+SeQqrZ/0QQ4lxSCtl+6fUR9jKeTCwwswmog1gtcsIntLOzE/wEwpgWzwB8qmsCuol+qLu5V1dV/",
-    "usage_notes": [
-      "通过密钥调用以补齐项目资料（背景、定价、优势）",
-      "可在内容策划阶段查询工具更新",
-      "注意接口速率限制与敏感字段合规处理"
-    ],
-    "provider": "https://www.biji.com/"
-  }
+  "claude_task_file": "automation/claude_tasks/launch-x.yaml"
 }

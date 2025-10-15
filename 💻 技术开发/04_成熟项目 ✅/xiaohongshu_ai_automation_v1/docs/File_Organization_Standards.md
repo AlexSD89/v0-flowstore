@@ -51,7 +51,9 @@ clients/{client-name}/
 ├── data/                      # 客户数据存储
 │   ├── intel/                 # 情报数据
 │   ├── drafts/                # 草稿数据
-│   ├── performance/           # 性能数据
+│   ├── quality_logs/          # 审核记录
+│   ├── performance/           # 发布表现数据
+│   ├── dynamic_opt/           # AI 优化建议
 │   └── analytics/             # 分析数据
 ├── execution/                 # 执行管理
 │   ├── {client}_run_checklist.md
@@ -322,3 +324,11 @@ PRD文档:
 
 **维护责任**: LaunchX系统管理团队
 **更新频率**: 根据需求变化定期更新
+| 子目录 | 内容说明 | 命名规范 |
+|--------|---------|-----------|
+| `data/intel/` | 情报快照、竞品调研、热门话题 | `intel_snapshot_<timestamp>.json` |
+| `data/drafts/` | 草稿（待审/已审） | `LaunchX_<主题>_<YYYY-MM-DD>.md` |
+| `data/quality_logs/` | 人工审核记录 | `quality_log_<YYYY-MM-DD>.json` |
+| `data/performance/` | 发布后表现指标 | `performance_snapshot_<timestamp>.json` |
+| `data/dynamic_opt/` | 爆款学习与 AI 建议 | `trending_recommendations_<timestamp>.json` |
+| `data/analytics/` | 二次分析数据 | `analytics_<主题>_<YYYY-MM-DD>.json` |

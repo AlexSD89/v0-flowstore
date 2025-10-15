@@ -1,161 +1,209 @@
 {
   "mcpServers": {
-    "tavily-search": {
+    "fetch": {
       "command": "uvx",
-      "args": ["mcp-server-tavily"],
+      "args": [
+        "mcp-server-fetch"
+      ],
       "env": {
         "TAVILY_API_KEY": "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"
       },
-      "disabled": false,
-      "autoApprove": ["search", "get_search_results", "answer_question"],
-      "description": "Tavily search API for real-time information gathering and market research"
+      "autoApprove": [
+        "fetch"
+      ],
+      "description": "Basic web content fetching and retrieval"
     },
-    
-    "jina-reader": {
-      "command": "uvx", 
-      "args": ["mcp-server-jina"],
+    "firecrawl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-8158e62e4f954b8b86117a9249fd07cf"
+      },
+      "autoApprove": [
+        "firecrawl_scrape",
+        "firecrawl_crawl",
+        "firecrawl_map"
+      ],
+      "description": "Advanced web scraping and content extraction"
+    },
+    "jina": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "jina-mcp-tools"
+      ],
       "env": {
         "JINA_API_KEY": "jina_6e538c6492f2444197ee64397d7a4ca5CyXFjgbwy_VQ1NT2iwbf5x6RvPYM"
       },
-      "disabled": true,
-      "autoApprove": ["read_url", "extract_content", "parse_document"],
-      "description": "Jina AI reader for intelligent content extraction and document parsing"
+      "autoApprove": [
+        "jina_reader",
+        "jina_search"
+      ],
+      "description": "Intelligent content parsing and document analysis"
     },
-    
-    "smithery-tools": {
-      "command": "uvx",
-      "args": ["mcp-server-smithery"],
+    "hotnews": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wopal/mcp-server-hotnews"
+      ],
+      "autoApprove": [
+        "get_hot_news"
+      ],
+      "description": "Real-time trending topics from major platforms"
+    },
+    "tavily": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "tavily-mcp"
+      ],
       "env": {
-        "SMITHERY_API_KEY": "86ba62ee-5972-40cb-aaba-596fee5e1ef7"
+        "TAVILY_API_KEY": "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"
       },
-      "disabled": true,
-      "autoApprove": ["validate_api", "test_endpoint", "check_service"],
-      "description": "Smithery development tools for API testing and service validation"
+      "autoApprove": [
+        "tavily-search",
+        "tavily-extract"
+      ],
+      "description": "Real-time web search and market research for LaunchX platform"
     },
-    
     "workspace-filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dangsiyuan/Documents/obsidion/launch x"],
-      "disabled": false,
-      "autoApprove": ["read_file", "list_directory", "search_files", "write_file", "edit_file"],
-      "description": "Workspace filesystem access for LaunchX project files"
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/dangsiyuan/Documents/obsidion/launch-x"
+      ],
+      "autoApprove": [
+        "read_text_file",
+        "list_directory",
+        "search_files"
+      ],
+      "description": "LaunchX workspace file system access"
     },
-    
-    "pocketcorn-data": {
+    "shadcn-ui": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dangsiyuan/Documents/obsidion/launch x/💻 技术开发/04_成熟项目 ✅/pocketcorn_v4"],
-      "disabled": false,
-      "autoApprove": ["read_file", "list_directory", "search_files", "write_file", "edit_file"],
-      "description": "PocketCorn investment analysis engine data access"
+      "args": [
+        "-y",
+        "@jpisnice/shadcn-ui-mcp-server"
+      ],
+      "autoApprove": [
+        "list_components",
+        "get_component",
+        "get_component_demo"
+      ],
+      "description": "Shadcn/ui component library access for consistent UI development"
     },
-    "knowledge-base": {
+    "playwright": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dangsiyuan/Documents/obsidion/launch x/🟣 knowledge"],
-      "disabled": false,
-      "autoApprove": ["read_file", "list_directory", "search_files", "write_file"],
-      "description": "LaunchX knowledge base and research repository"
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "autoApprove": [
+        "browser_navigate",
+        "browser_snapshot",
+        "browser_click"
+      ],
+      "description": "Browser automation and UI testing"
     },
-    
-    "methodology-library": {
+    "context7": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dangsiyuan/Documents/obsidion/launch x/项目开发工具的规范和原理"],
-      "disabled": false,
-      "autoApprove": ["read_file", "list_directory", "search_files"],
-      "description": "Development methodology and framework library"
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "autoApprove": [
+        "resolve-library-id",
+        "get-library-docs"
+      ],
+      "description": "Up-to-date code documentation and library references"
     },
-    
-    "postgres-database": {
-      "command": "uvx",
-      "args": ["mcp-server-postgres"],
-      "env": {
-        "POSTGRES_CONNECTION_STRING": "${DATABASE_URL}"
-      },
-      "disabled": true,
-      "autoApprove": ["query", "schema", "explain"],
-      "description": "PostgreSQL database operations for LaunchX platforms"
-    },
-    
-    "redis-cache": {
-      "command": "uvx",
-      "args": ["mcp-server-redis"],
-      "env": {
-        "REDIS_URL": "${REDIS_URL}"
-      },
-      "disabled": true,
-      "autoApprove": ["get", "set", "del", "keys"],
-      "description": "Redis cache operations and session management"
-    },
-    
-    "github-official": {
+    "git-local": {
       "command": "npx",
-      "args": ["-y", "@github/github-mcp-server"],
+      "args": [
+        "-y",
+        "@cyanheads/git-mcp-server",
+        "--repository",
+        "/Users/dangsiyuan/Documents/obsidion/launch-x"
+      ],
+      "autoApprove": [
+        "git_status",
+        "git_diff",
+        "git_log"
+      ],
+      "description": "Local Git repository operations for LaunchX"
+    },
+    "filesystem-shtse": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@shtse8/filesystem-mcp"
+      ],
+      "autoApprove": [
+        "list_files",
+        "read_content",
+        "write_content"
+      ],
+      "description": "Enhanced file system operations with project-aware features"
+    },
+    "gemini-cli": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "gemini-mcp-tool"
+      ],
+      "autoApprove": [
+        "ask-gemini",
+        "brainstorm"
+      ],
+      "description": "Google Gemini AI integration for advanced analysis and brainstorming"
+    },
+    "ant-design": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "antd-mcp-server"
+      ],
+      "autoApprove": [
+        "list_antd_components",
+        "get_component_details"
+      ],
+      "description": "Ant Design component library access for enterprise UI development"
+    },
+    "rube": {
+      "type": "http",
+      "url": "https://rube.app/mcp"
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "web-search-prime": {
+      "type": "http",
+      "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "Bearer 720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
+      }
+    },
+    "zai-mcp-server": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@z_ai/mcp-server"
+      ],
       "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
-      },
-      "disabled": true,
-      "autoApprove": ["read_repository", "list_issues", "get_file", "search_code", "get_commit"],
-      "description": "GitHub official MCP server for repository management and code analysis"
-    },
-    
-    "posthog-analytics": {
-      "command": "uvx",
-      "args": ["mcp-server-posthog"],
-      "env": {
-        "POSTHOG_API_KEY": "${POSTHOG_API_KEY}",
-        "POSTHOG_HOST": "${POSTHOG_HOST:-https://app.posthog.com}"
-      },
-      "disabled": true,
-      "autoApprove": ["get_insights", "query_events", "get_feature_flags", "track_event"],
-      "description": "PostHog analytics for user behavior tracking and feature usage monitoring"
-    },
-    
-    "prometheus-monitoring": {
-      "command": "uvx", 
-      "args": ["mcp-server-prometheus"],
-      "env": {
-        "PROMETHEUS_URL": "${PROMETHEUS_URL:-http://localhost:9090}"
-      },
-      "disabled": true,
-      "autoApprove": ["query", "query_range", "get_metrics", "get_alerts"],
-      "description": "Prometheus monitoring server for system metrics and performance analysis"
-    },
-    
-    "python-sandbox": {
-      "command": "uvx",
-      "args": ["mcp-run-python"],
-      "disabled": false,
-      "autoApprove": ["run_python", "install_package", "list_packages"],
-      "description": "Secure Python code execution sandbox for testing and validation"
-    },
-    
-    "azure-cloud": {
-      "command": "uvx",
-      "args": ["mcp-server-azure"],
-      "env": {
-        "AZURE_CLIENT_ID": "${AZURE_CLIENT_ID}",
-        "AZURE_CLIENT_SECRET": "${AZURE_CLIENT_SECRET}",
-        "AZURE_TENANT_ID": "${AZURE_TENANT_ID}"
-      },
-      "disabled": true,
-      "autoApprove": ["list_resources", "get_database_info", "query_database", "get_service_status"],
-      "description": "Azure cloud services integration for infrastructure and database management"
-    },
-    
-    "serena-local": {
-      "command": "uv",
-      "args": ["run", "--directory", "/Users/dangsiyuan/Documents/obsidion/launch x/💻 技术开发/02_开发工具 🛠️/mcp-servers/serena", "serena", "start-mcp-server", "--context", "ide-assistant", "--project", "/Users/dangsiyuan/Documents/obsidion/launch x"],
-      "disabled": false,
-      "autoApprove": ["list_dir", "find_file", "search_for_pattern", "get_symbols_overview", "find_symbol", "activate_project", "check_onboarding_performed"],
-      "description": "Serena AI coding assistant with intelligent code analysis and editing tools"
-    },
-    
-    "xiaohongshu-mcp": {
-      "command": "/Users/dangsiyuan/Downloads/xiaohongshu-mcp-darwin-amd64/xiaohongshu-mcp-darwin-amd64",
-      "args": ["-headless", "true"],
-      "cwd": "/Users/dangsiyuan/Downloads/xiaohongshu-mcp-darwin-amd64",
-      "disabled": false,
-      "autoApprove": ["check_login_status", "search_feeds", "list_feeds"],
-      "description": "Xiaohongshu (Little Red Book) social platform integration for content analysis and interaction"
+        "Z_AI_API_KEY": "720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
+      }
     }
   }
 }

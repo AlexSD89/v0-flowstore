@@ -1,120 +1,58 @@
-# 🎨 设计美学资源库
-
-## 概述
-
-本资源库收集了各种优秀的设计系统、UI组件库和设计资源，为LaunchX平台的界面设计提供参考和素材支持。
-
-## 📁 资源分类
-
-### UI设计素材库
-- **[cloudsway-design-system](UI设计素材库/cloudsway-design-system/)** - CloudSway设计系统
-- **[material-ui](UI设计素材库/material-ui/)** - Google Material Design组件库
-- **[shadcn-ui](UI设计素材库/shadcn-ui/)** - 现代化React组件库
-- **[tweakcn](UI设计素材库/tweakcn.md)** - 中国本土化设计系统
-
-## 🎯 设计系统特点
-
-### 1. **CloudSway Design System**
-- 企业级设计语言
-- 完整的组件体系
-- 响应式设计支持
-
-### 2. **Material-UI**
-- Google官方设计规范
-- 丰富的组件库
-- 强大的主题系统
-
-### 3. **Shadcn/ui**
-- 现代化设计语言
-- 高度可定制
-- 优秀的开发体验
-
-### 4. **TweakCN** ⭐ 新增
-- **中国本土化设计语言**
-- **中文用户习惯适配**
-- **现代化技术架构**
-- **完整的企业级组件体系**
-
-## 🚀 快速开始
-
-### 选择设计系统
-根据项目需求选择合适的 design system：
-
-- **企业级应用** → CloudSway 或 TweakCN
-- **国际化产品** → Material-UI
-- **现代化应用** → Shadcn/ui
-- **中国本土产品** → TweakCN
-
-### 集成步骤
-1. 查看对应设计系统的详细文档
-2. 安装依赖和配置环境
-3. 引入组件和样式文件
-4. 根据设计规范进行定制
-
-## 💡 使用建议
-
-### 1. **设计一致性**
-- 在项目中使用统一的设计系统
-- 保持组件使用的一致性
-- 遵循设计规范中的视觉标准
-
-### 2. **响应式设计**
-- 优先考虑移动端体验
-- 使用响应式组件和布局
-- 测试不同屏幕尺寸下的表现
-
-### 3. **可访问性**
-- 遵循WCAG可访问性标准
-- 确保组件的键盘导航支持
-- 提供适当的颜色对比度
-
-### 4. **性能优化**
-- 按需引入组件和样式
-- 使用懒加载和代码分割
-- 优化图片和字体资源
-
-## 🔧 技术集成
-
-### 前端框架支持
-- **React**: Material-UI, Shadcn/ui, TweakCN
-- **Vue**: 部分设计系统支持
-- **原生**: CSS框架和组件库
-
-### 构建工具
-- **Webpack**: 模块化构建
-- **Vite**: 快速开发构建
-- **Rollup**: 库打包
-
-## 📚 学习资源
-
-### 官方文档
-- [CloudSway Design System](UI设计素材库/cloudsway-design-system/)
-- [Material-UI](https://mui.com/)
-- [Shadcn/ui](https://ui.shadcn.com/)
-- [TweakCN](https://tweakcn.com/)
-
-### 设计规范
-- [Material Design Guidelines](https://material.io/design)
-- [Ant Design 设计语言](https://ant.design/docs/spec/introduce-cn)
-- [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
-
-## 🤝 贡献指南
-
-欢迎为设计美学资源库贡献内容：
-
-1. **新增设计系统**: 添加新的设计系统文档
-2. **完善现有文档**: 补充使用示例和最佳实践
-3. **分享设计经验**: 分享实际项目中的设计经验
-4. **反馈和改进**: 提出改进建议和问题反馈
-
-## 📝 更新日志
-
-### 2025-01-27
-- ✨ 新增 TweakCN 中国本土化设计系统
-- 📚 完善设计美学资源库结构
-- 🔧 优化文档组织和分类
-
+---
+title: "设计美学资源库总览"
+owners:
+  - "LaunchX Design Guild"
+status: "active"
+last_update: "2025-10-12"
+related:
+  - "./CLAUDE.md"
+  - "./RULES.md"
+  - "./AGENTS.md"
+  - "../README.md"
+source: "自动生成（Codex CLI）"
+impact: "统一设计资产的协作入口"
 ---
 
-*维护者: LaunchX设计团队*
-*最后更新: 2025-01-27*
+# 设计美学资源库总览
+
+## 使命与定位
+- 为 LaunchX 的产品与品牌提供统一的视觉语言、组件库与素材。
+- 将技术、业务、知识域的需求转化为标准化的设计资产与工作流。
+- 维护可复用的组件、品牌规范与跨端体验指引，支撑快速迭代。
+
+## 目录地图
+| 目录 | 功能 |
+| --- | --- |
+| `UI设计素材库/` | 设计系统、组件库、主题素材（CloudSway、Material-UI、Shadcn/ui、TweakCN 等） |
+| `品牌设计/` | 品牌识别、Logo、视觉规范、传播模板 |
+| `README_索引.md` | 历史索引与详细资源导航 |
+| 其他 Markdown | 方法案例、设计实践总结、系统方案 |
+
+## 设计系统速览
+- **CloudSway**：企业级设计语言，完整组件体系与响应式规范。
+- **Material-UI**：国际化产品标准，深度支持 React 与主题自定义。
+- **Shadcn/ui**：现代化组件集合，适配 Tailwind 与渐进增强需求。
+- **TweakCN**：针对中文语境的设计系统，强调本土化交互与视觉。
+
+## 快速使用
+1. 依据项目类型在 `UI设计素材库` 选择基线设计系统。
+2. 阅读对应文件夹内的 `README` 或说明，确认组件与视觉约束。
+3. 与技术域同步组件实现路径（参考 `memory-bank/support_modules/design/USEME.md`）。
+4. 在业务或传播场景中使用 `品牌设计` 的模板与素材。
+5. 完成项目后将经验、组件改进写入 `README_索引.md` 并通知相关域。
+
+## 协同流
+- **技术域**：对接组件实现、调整主题变量、同步性能/可访问性要求。
+- **业务域**：将方案视觉化、维护客户演示模板与品牌材料。
+- **知识域**：记录设计方法、最佳实践、跨行业案例。
+- **自动化实验室**：探索设计自动化脚本与批量处理工具。
+
+## 质量与更新
+- 所有新增素材需补 frontmatter（放入 README 或索引），标注来源与用途。
+- 组件或模板更新时，通知使用方并记录版本差异与回滚方案。
+- 每月复盘资源库的使用反馈，将改进项同步至 `memory-bank/support_modules/design/USEME.md`。
+- 临时草稿可暂存于 `🤖 AI生成 auto-generated/日期`，需在 24 小时内整理并入库。
+
+## 更新日志
+- **2025-01-27**：新增 TweakCN 设计系统，完善目录结构与索引。
+- **2025-10-12**：补充域级文档、协同流程与质量守则。

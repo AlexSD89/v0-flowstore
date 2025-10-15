@@ -26,16 +26,37 @@ tasks:
 {{additional_mcp_block}}
 {{/if}}
     steps:
-      - run: rube.gather_xhs_intel
-      - ask: |
+      - id: gather_intel
+        run: rube.gather_xhs_intel
+      - id: generate_payload
+        ask: |
           系列信息：LaunchX「{{series_name}}」{{series_day_label}}｜{{series_value_promise}}
           链路步骤：{{series_chain_steps_display}}
           节点分工：{{series_node_names_display}}
           颜色要求：主色 {{series_palette_primary}} ，强调色 {{series_palette_accent}}
-          请基于最新情报为 {{client_name}} 生成 {{post_count}} 篇图文内容，每篇包含：
-          1. 20 字以内标题
-          2. 三段正文（突出 {{brand_voice_keywords}}）
-          3. 3-5 个标签，避免 {{disallowed_phrases}}
+          请基于最新情报为 {{client_name}} 生成 {{post_count}} 篇图文内容。
+          每篇需输出如下 JSON 结构（所有字段必填，按顺序输出 {{post_count}} 项）：
+          {
+            "title": "20 字以内标题",
+            "body": "三段正文，突出 {{brand_voice_keywords}}，并依次覆盖 {{required_modules_display}}",
+            "tags": ["标签1", "标签2", "标签3"],
+            "image_prompt": "英文生图提示词，结合 {{prompt_style_keywords}}，强调主色 {{series_palette_primary}} 与强调色 {{series_palette_accent}}",
+            "safety_notes": "需要在合规审查中特别关注的要点（如是否涉及敏感行业、隐私数据等）",
+            "tool_breakdown": {
+              "线索捕获": "对应节点与量化指标",
+              "互动培育": "对应节点与量化指标",
+              "成交辅导": "对应节点与量化指标",
+              "团队扩编": "对应节点与量化指标",
+              "数据回流": "对应节点与量化指标"
+            },
+            "action_calls": {
+              "comment": "评论区问题",
+              "dm": "私信引导语",
+              "save": "收藏提示",
+              "follow": "关注提醒"
+            },
+            "citations": ["引用来源 1", "引用来源 2"]
+          }
           文案结构要求（逐条覆盖）：
 {{required_modules_prompt_block}}
           Hook 策略参考：{{hook_strategies_display}}
@@ -51,19 +72,36 @@ tasks:
 {{series_nodes_prompt_block}}
           系列开场白需要复用：{{series_opening_template}}
           写作语言要求：面向企业业务负责人，避免行业黑话与内部术语，用真实数据和案例说服。
-          输出 JSON：[{"title":...,"body":...,"tags":[],"image_refs":[]}]
-      - use: {{image_generation_tool}}
+          输出 JSON：{"posts": [...], "meta": {"generated_at": "{{now}}", "intel_step": "gather_intel"}}
+      - id: generate_images
+        use: {{image_generation_tool}}
+        foreach: "{{steps.generate_payload.data.posts}}"
         with:
-          prompts: "{{step.prev.data}}"
+          prompt: "{{item.image_prompt}}"
           style: "{{prompt_style_keywords}}"
           outputDir: "{{asset_output_dir}}"
-      - use: rube.text_guard
+      - id: image_safety
+        use: rube.image_guard
         with:
           payload: "{{step.prev.data}}"
-      - use: rube.image_guard
+      - id: assemble_payload
+        ask: |
+          你将获得两份 JSON 数据。
+          1) 原始图文草稿：{{steps.generate_payload.data.posts}}
+          2) 生图结果 manifest：{{steps.generate_images.data}}
+          请按照 `post_id` 或数组顺序将图片路径写回对应的图文草稿，输出新的数组：
+          [{
+            "title": "...",
+            "body": "...",
+            "tags": ["..."],
+            "generated_images": ["/abs/path/img1.png", "..."]
+          }]
+      - id: text_safety
+        use: rube.text_guard
         with:
           payload: "{{step.prev.data}}"
-      - use: xiaohongshu-mcp.publish_content
+      - id: publish_batch
+        use: xiaohongshu-mcp.publish_content
         foreach: "{{step.prev.data}}"
         with:
           title: "{{item.title}}"

@@ -1,0 +1,47 @@
+{
+  "name": "@bmad/native-first-core-system",
+  "version": "5.3.0",
+  "description": "BMAD v5.3 - Native First BMAD Core System with Integrated Claude Code Subagents",
+  "main": "demo-native-first-bmad.js",
+  "scripts": {
+    "demo": "node demo-native-first-bmad.js",
+    "test": "node test-native-first-bmad.js",
+    "validate": "node quick_validation.js"
+  },
+  "keywords": [
+    "bmad",
+    "native-first",
+    "claude-subagents",
+    "enterprise-intelligence",
+    "collaboration-system",
+    "synergy-metrics"
+  ],
+  "author": "BMAD Team",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.14",
+    "chalk": "^5.3.0",
+    "lodash": "^4.17.21",
+    "openai": "^4.52.0",
+    "uuid": "^9.0.1",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.5",
+    "@types/uuid": "^9.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/launch-x/bmad"
+  },
+  "bugs": {
+    "url": "https://github.com/launch-x/bmad/issues"
+  },
+  "homepage": "https://github.com/launch-x/bmad#readme"
+}

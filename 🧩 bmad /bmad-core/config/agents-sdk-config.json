@@ -1,0 +1,82 @@
+{
+  "sdk": {
+    "anthropic_agent_sdk": {
+      "version": "^0.1.0",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model": "claude-sonnet-4-5",
+      "permission_mode": "grantEdits",
+      "source": "optimized-bmad-config-v5.3.json"
+    }
+  },
+  "agents": {
+    "business_analyst": {
+      "description": "商业分析和投资评估专家",
+      "use_cases": ["投资分析", "商业模式评估", "市场研究", "财务预测"]
+    },
+    "backend_architect": {
+      "description": "技术架构设计和系统优化专家",
+      "use_cases": ["系统架构", "技术评估", "性能优化", "可扩展性设计"]
+    },
+    "ai_engineer": {
+      "description": "AI技术实现和算法优化专家",
+      "use_cases": ["AI模型评估", "算法设计", "推理优化", "技术实现"]
+    },
+    "data_scientist": {
+      "description": "数据分析和建模专家",
+      "use_cases": ["数据分析", "预测建模", "用户行为分析", "市场趋势"]
+    },
+    "risk_manager": {
+      "description": "风险识别和管理专家",
+      "use_cases": ["风险评估", "风险管理", "合规检查", "风险缓解"]
+    },
+    "trend_researcher": {
+      "description": "趋势研究和市场洞察专家",
+      "use_cases": ["趋势分析", "市场研究", "竞争情报", "技术预测"]
+    },
+    "frontend_developer": {
+      "description": "前端开发和用户体验专家",
+      "use_cases": ["UI设计", "用户交互", "前端架构", "产品体验"]
+    },
+    "product_manager": {
+      "description": "产品策略和用户需求专家",
+      "use_cases": ["产品策略", "需求分析", "用户研究", "产品设计"]
+    },
+    "studio_producer": {
+      "description": "多Agent协调和项目管理专家",
+      "use_cases": ["项目协调", "Agent协作", "质量管理", "进度控制"]
+    },
+    "code_reviewer": {
+      "description": "代码质量和安全审查专家",
+      "use_cases": ["代码审查", "质量检查", "安全审计", "最佳实践"]
+    }
+  },
+  "mcp_servers": {
+    "enabled": [
+      "tavily-search",
+      "jina-reader",
+      "github-search",
+      "filesystem",
+      "git-mcp-local"
+    ],
+    "enterprise_servers": {
+      "enterprise_database": {
+        "name": "Enterprise Database MCP",
+        "description": "连接企业数据库和知识库",
+        "config_file": "config/mcp/enterprise-database.json"
+      },
+      "government_compliance": {
+        "name": "Government Compliance MCP",
+        "description": "面向政府项目的合规检查",
+        "config_file": "config/mcp/government-compliance.json"
+      },
+      "financial_analysis": {
+        "name": "Financial Analysis MCP",
+        "description": "金融建模与投资分析工具",
+        "config_file": "config/mcp/financial-analysis.json"
+      }
+    }
+  },
+  "bridge": {
+    "notes": "此文件为 Codex 验证兼容层，实际配置以 optimized-bmad-config-v5.3.json 为准"
+  }
+}

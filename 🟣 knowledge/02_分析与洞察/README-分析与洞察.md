@@ -1,3 +1,13 @@
+---
+title: "20251011-分析与洞察指南"
+owners: ["Knowledge Lab"]
+status: published
+last_update: 2025-10-11
+related: ["🟣 knowledge/CLAUDE.md", "memory-bank/support_modules/knowledge/USEME.md", "02_分析与洞察/TEMPLATES.md"]
+source: ["LaunchX 知识流水线标准", "AI Context 实施方法论"]
+impact: "定义 02_分析与洞察 目录的结构与操作规范，保障判断→趋势→结论流程"
+---
+
 # 分析与洞察 - 数据处理与分析指南
 
 ## 1. 核心定位：从"乐高套装"到"标准零件库"
@@ -146,4 +156,4 @@
 
 ---
 
-如需补充具体模板或有疑问，请查阅03_analysis层TEMPLATES.md或联系知识库维护人。
+如需补充具体模板或有疑问，请查阅 `TEMPLATES.md`、`memory-bank/support_modules/knowledge/USEME.md` 或联系知识库维护人。

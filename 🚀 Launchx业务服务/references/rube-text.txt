@@ -1,0 +1,117 @@
+Rube
+Marketplace
+Pricing
+Blog
+Get Started
+Now your AI can
+Send emails
+with
+Gmail
+Summarize Today&#x27;s Emails
+Send email
+Block Deep Work Time
+Explore Usecases
+Explore Usecases
+Featured
+Productivity
+Development
+Research
+Social Media
+Summarize today&#x27;s emails
+Try Prompt
+Try
+892
++ Users
+Catch up on Slack
+Try Prompt
+Try
+923
++ Users
+Send a quick email
+Try Prompt
+Try
+923
++ Users
+Draft and post a tweet
+Try Prompt
+Try
+845
++ Users
+Create a task from latest email
+Try Prompt
+Try
+778
++ Users
+Block time for deep work
+Try Prompt
+Try
+788
++ Users
+Works with
+anything
+you use
+VSCode
+Claude
+Cursor
+Whatsapp
+OpenAI
+N8N
+MCP
+VSCode
+Claude
+Cursor
+Whatsapp
+OpenAI
+N8N
+MCP
+VSCode
+Claude
+Cursor
+Whatsapp
+OpenAI
+N8N
+MCP
+VSCode
+Claude
+Cursor
+Whatsapp
+OpenAI
+N8N
+MCP
+Install Rube Anywhere
+Got
+something
+on your mind?
+What is Rube and how does it work?
+How do I get started with Rube?
+What can I use Rube for?
+Is there a tool limit like Cursor&#x27;s 30 tools limit?
+What is Composio? How is it related to Rube?
+How secure is my data with Composio?
+How is my data handled during processing?
+Do I need technical skills to set up Rube?
+Can I use multiple apps at the same time?
+Is Rube free to use? What are the limits?
+What if my app isn&#x27;t supported?
+How do I get help if something goes wrong?
+Enterprise
+Blog
+Building With Composio
+Terms of Service
+Privacy Policy
+Trust
+X
+GitHub
+YouTube
+© 2025 Rube powered by Composio.
+All rights reserved.
+(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])
+self.__next_f.push([1,"1:HL[\"/_next/static/media/3296bccdacdd55f7-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:HL[\"/_next/static/media/c180ecc1e0d7e935-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n3:HL[\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n4:HL[\"/_next/static/css/b09a2d672cf251ae.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"style\"]\n5:HL[\"/_next/static/css/f9b95ec969cff8a1.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"style\"]\n6:HL[\"/_next/static/css/fa0c07f2ebd17f93.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"style\"]\n"])
+self.__next_f.push([1,"7:I[49281,[],\"\"]\na:I[22352,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"\"]\nb:I[15415,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"default\"]\nc:I[83061,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"AuthKitProvider\"]\nd:I[5717,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dp"])
+self.__next_f.push([1,"l_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"SegmentProvider\"]\ne:I[24172,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"PosthogProvider\"]\nf:I[34500,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"IntercomProvider\"]\n10:I[90809,[],\"\"]\n11:I[22421,[\"7395\",\"static/chunks/7395-c1fa2b51c80d9396.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"7601\",\"static/chunks/app/error-7433c0f1d5caf4c4.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"default\"]\n12:I[87335,[],\"\"]\n13:I[27395,[\"7395\",\"static/chunks/7395-c1fa2b51c80d9396.js?dpl="])
+self.__next_f.push([1,"dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9160\",\"static/chunks/app/not-found-d6ad90646c7e3ece.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"\"]\n14:I[1888,[\"3839\",\"static/chunks/43c096f9-cfe8f10a57e30c86.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2995\",\"static/chunks/2995-17c3c7501c4c50a1.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3185\",\"static/chunks/app/layout-0f6d6291fcbd64ef.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"default\"]\n16:I[90093,[\"6470\",\"static/chunks/app/global-error-2f19db1f01373838.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"default\"]\n17:[]\n"])
+self.__next_f.push([1,"0:[\"$\",\"$L7\",null,{\"buildId\":\"ZxFvhZcJR2t8wDxg0dWqA\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"\"],\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"__PAGE__\",{},[[\"$L8\",\"$L9\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/fa0c07f2ebd17f93.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]]],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/b09a2d672cf251ae.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/f9b95ec969cff8a1.css?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"data-sentry-component\":\"RootLayout\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"$La\",null,{\"id\":\"google-tag-manager\",\"strategy\":\"afterInteractive\",\"data-sentry-element\":\"Script\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":\"(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\\nj=d.createElement(s),dl=l!='dataLayer'?'\u0026l='+l:'';j.async=true;j.src=\\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\\n})(window,document,'script','dataLayer','GTM-K8JLC5X7');\"}]}],[\"$\",\"body\",null,{\"className\":\"__className_f367f3 __variable_54208a\",\"suppressHydrationWarning\":true,\"children\":[[\"$\",\"noscript\",null,{\"children\":[\"$\",\"iframe\",null,{\"src\":\"https://www.googletagmanager.com/ns.html?id=GTM-K8JLC5X7\",\"height\":\"0\",\"width\":\"0\",\"style\":{\"display\":\"none\",\"visibility\":\"hidden\"}}]}],[\"$\",\"$La\",null,{\"src\":\"https://www.googletagmanager.com/gtag/js?id=G-9YP21Q505X\",\"strategy\":\"afterInteractive\",\"data-sentry-element\":\"Script\",\"data-sentry-source-file\":\"layout.tsx\"}],[\"$\",\"$La\",null,{\"id\":\"google-analytics\",\"strategy\":\"afterInteractive\",\"data-sentry-element\":\"Script\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":\"\\n            window.dataLayer = window.dataLayer || [];\\n            function gtag(){dataLayer.push(arguments);}\\n            gtag('js', new Date());\\n            gtag('config', 'G-9YP21Q505X');\\n          \"}],[\"$\",\"$Lb\",null,{\"data-sentry-element\":\"QueryProvider\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[\"$\",\"$Lc\",null,{\"data-sentry-element\":\"AuthKitProvider\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[\"$\",\"$Ld\",null,{\"data-sentry-element\":\"SegmentProvider\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[\"$\",\"$Le\",null,{\"data-sentry-element\":\"PosthogProvider\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[\"$\",\"$Lf\",null,{\"data-sentry-element\":\"IntercomProvider\",\"data-sentry-source-file\":\"layout.tsx\",\"children\":[[\"$\",\"$L10\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$11\",\"errorStyles\":[],\"errorScripts\":[],\"template\":[\"$\",\"$L12\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[\"$\",\"div\",null,{\"className\":\"relative min-h-screen overflow-hidden bg-[#FBFAF9]\",\"data-sentry-component\":\"NotFound\",\"data-sentry-source-file\":\"not-found.tsx\",\"children\":[[\"$\",\"div\",null,{\"className\":\"absolute inset-0 opacity-[0.03]\",\"children\":[[\"$\",\"div\",null,{\"className\":\"absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-[#FF6B00]\"}],[\"$\",\"div\",null,{\"className\":\"absolute right-1/3 bottom-1/3 h-80 w-80 rounded-full bg-[#282625]\"}]]}],[\"$\",\"div\",null,{\"className\":\"relative flex min-h-screen flex-col items-center justify-center px-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"w-full max-w-2xl text-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"mb-8\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"mb-6 font-nexa text-[120px] font-black leading-none text-[#282625] sm:text-[180px] lg:text-[240px]\",\"children\":[\"4\",[\"$\",\"span\",null,{\"className\":\"text-[#FF6B00]\",\"children\":\"0\"}],\"4\"]}],[\"$\",\"div\",null,{\"className\":\"mx-auto h-1 w-24 bg-gradient-to-r from-[#FF6B00] to-[#FFB366]\"}]]}],[\"$\",\"div\",null,{\"className\":\"mb-12\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"mb-4 font-roobert text-2xl font-medium text-[#565151] sm:text-3xl\",\"children\":\"Oops! This page took a wrong turn\"}],[\"$\",\"p\",null,{\"className\":\"mx-auto max-w-lg font-roobert text-base text-[#8F8B8B] sm:text-lg\",\"children\":\"We couldn't find what you're looking for. It might have been moved, deleted, or perhaps it never existed.\"}]]}],[\"$\",\"$L13\",null,{\"href\":\"/\",\"className\":\"group inline-flex items-center gap-3 font-roobert text-lg font-medium text-[#565151] transition-colors hover:text-[#282625]\",\"data-sentry-element\":\"Link\",\"data-sentry-source-file\":\"not-found.tsx\",\"children\":[[\"$\",\"svg\",null,{\"xmlns\":\"http://www.w3.org/2000/svg\",\"width\":24,\"height\":24,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"className\":\"lucide lucide-arrow-left h-5 w-5 transition-transform group-hover:-translate-x-1\",\"data-sentry-element\":\"ArrowLeft\",\"data-sentry-source-file\":\"not-found.tsx\",\"children\":[[\"$\",\"path\",\"1l729n\",{\"d\":\"m12 19-7-7 7-7\"}],[\"$\",\"path\",\"x3x0zl\",{\"d\":\"M19 12H5\"}],\"$undefined\"]}],[\"$\",\"span\",null,{\"children\":\"Back to Home\"}]]}],[\"$\",\"div\",null,{\"className\":\"mt-16 flex flex-wrap items-center justify-center gap-8 text-sm\",\"children\":[[\"$\",\"$L13\",null,{\"href\":\"/marketplace\",\"className\":\"font-roobert text-[#8F8B8B] transition-colors hover:text-[#565151]\",\"data-sentry-element\":\"Link\",\"data-sentry-source-file\":\"not-found.tsx\",\"children\":\"Marketplace\"}],[\"$\",\"span\",null,{\"className\":\"text-[#E5E0DF]\",\"children\":\"•\"}],[\"$\",\"a\",null,{\"href\":\"https://v3.docs.composio.dev/docs/welcome\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"font-roobert text-[#8F8B8B] transition-colors hover:text-[#565151]\",\"children\":\"Documentation\"}],[\"$\",\"span\",null,{\"className\":\"text-[#E5E0DF]\",\"children\":\"•\"}],[\"$\",\"$L13\",null,{\"href\":\"/chat\",\"className\":\"font-roobert text-[#8F8B8B] transition-colors hover:text-[#565151]\",\"data-sentry-element\":\"Link\",\"data-sentry-source-file\":\"not-found.tsx\",\"children\":\"Dashboard\"}]]}]]}]}]]}],\"notFoundStyles\":[]}],[\"$\",\"$L14\",null,{\"data-sentry-element\":\"ToasterProvider\",\"data-sentry-source-file\":\"layout.tsx\"}]]}]}]}]}]}]]}]]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L15\"],\"globalErrorComponent\":\"$16\",\"missingSlots\":\"$W17\"}]\n"])
+self.__next_f.push([1,"15:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Rube\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Rube by Composio, somethings connect to something, something happens\"}],[\"$\",\"meta\",\"4\",{\"name\":\"author\",\"content\":\"Composio\"}],[\"$\",\"meta\",\"5\",{\"name\":\"keywords\",\"content\":\"Rube, Composio, MCP, automation, integrations, productivity, workflow, SaaS, API, connect apps, app automation, no-code, low-code\"}],[\"$\",\"meta\",\"6\",{\"name\":\"robots\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"link\",\"7\",{\"rel\":\"canonical\",\"href\":\"https://rube.app/\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:title\",\"content\":\"Rube\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:description\",\"content\":\"Rube by Composio, somethings connect to something, something happens\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:url\",\"content\":\"https://rube.app/\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:image\",\"content\":\"https://rube.so/images/og.png\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"13\",{\"property\":\"og:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"14\",{\"property\":\"og:image:alt\",\"content\":\"Rube by Composio\"}],[\"$\",\"meta\",\"15\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"16\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"17\",{\"name\":\"twitter:site\",\"content\":\"@composiohq\"}],[\"$\",\"meta\",\"18\",{\"name\":\"twitter:title\",\"content\":\"Rube\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:description\",\"content\":\"Rube by Composio, somethings connect to something, something happens\"}],[\"$\",\"meta\",\"20\",{\"name\":\"twitter:image\",\"content\":\"https://rube.so/images/og.png\"}],[\"$\",\"meta\",\"21\",{\"name\":\"twitter:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"22\",{\"name\":\"twitter:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"23\",{\"name\":\"twitter:image:alt\",\"content\":\"Rube by Composio\"}],[\"$\",\"link\",\"24\",{\"rel\":\"shortcut icon\",\"href\":\"/favicon.ico\"}],[\"$\",\"link\",\"25\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\"}],[\"$\",\"link\",\"26\",{\"rel\":\"apple-touch-icon\",\"href\":\"/favicon.ico\"}],[\"$\",\"link\",\"27\",{\"rel\":\"apple-touch-icon-precomposed\",\"href\":\"/favicon.ico\"}],[\"$\",\"meta\",\"28\",{\"name\":\"next-size-adjust\"}]]\n"])
+self.__next_f.push([1,"8:null\n"])
+self.__next_f.push([1,"18:I[27193,[\"9150\",\"static/chunks/9150-73b40e4c8b268939.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2731\",\"static/chunks/2731-62eb2108cd437f6b.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"7395\",\"static/chunks/7395-c1fa2b51c80d9396.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"115\",\"static/chunks/115-75f5bfd01d61ac2f.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3912\",\"static/chunks/3912-73d957ba301569b4.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"5034\",\"static/chunks/5034-9bf0bbe0cf929f45.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"8104\",\"static/chunks/8104-5b80001ce724f4be.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6833\",\"static/chunks/6833-6978c8532a1f0e6e.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"3248\",\"static/chunks/3248-ad1665195b1da48c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2887\",\"static/chunks/2887-eaa56d6f6a6028e3.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"1390\",\"static/chunks/1390-df214879881abcda.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"2135\",\"static/chunks/2135-74952c8b57479eda.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"6010\",\"static/chunks/6010-ff98dcf702e1900c.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"5330\",\"static/chunks/5330-0237a39d8cbe1162.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"5178\",\"static/chunks/5178-d6d32531ecea73ee.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"1206\",\"static/chunks/1206-8027349576b1fc2e.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\",\"1931\",\"static/chunks/app/page-67aaa5d3baed3828.js?dpl=dpl_7AeP7RGJTu5UAeW6zynH448ChfqJ\"],\"default\"]\n9:[\"$\",\"div\",null,{\"data-sentry-component\":\"ServerContent\",\"data-sentry-source-file\":\"page.tsx\",\"children\":[\"$\",\"$L18\",null,{\"dehydratedState\":{\"mutations\":[],\"queries\":[{\"dehydratedAt\":1760463675629,\"state\":{\"data\":[],\"dataUpdateCount\":1,\"dataUpdatedAt\":1760463675629,\"error\":null,\"errorUpdateCount\":0,\"errorUpdatedAt\":0,\"fetchFailureCount\":0,\"fetchFailureReason\":null,\"fetchMeta\":null,\"isInvalidated\":false,\"status\":\"success\",\"fetchStatus\":\"idle\"},\"queryKey\":[\"ALL_APPS\"],\"queryHash\":\"[\\\"ALL_APPS\\\"]\"}]},\"data-sentry-element\":\"HomePageClient\",\"data-sentry-source-file\":\"page."])
+self.__next_f.push([1,"tsx\"}]}]\n"])

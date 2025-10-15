@@ -1,0 +1,292 @@
+# BMAD v5.3 原生Subagent优先配置
+# 整个BMAD系统优先使用Claude Code原生subagents
+
+version: "5.3.0"
+system_type: "native_first_bmad"
+
+# 核心架构：原生subagent优先
+architecture:
+  description: "优先使用Claude Code原生subagents，自定义agents作为增强补充"
+  priority_strategy: "native_subagents_first"
+  fallback_strategy: "custom_agents_as_enhancement"
+
+# 原生subagent映射表
+native_subagents:
+  # 投资分析类
+  business_analyst:
+    description: "商业分析和投资评估专家"
+    bmad_equivalent: "investment_analyst"
+    capabilities: ["投资分析", "商业模式评估", "市场研究", "财务预测", "ROI分析"]
+    use_in_tasks: ["concurrent-search-orchestrator", "intelligent-search-strategy", "investment-decision"]
+
+  risk_manager:
+    description: "风险识别和管理专家"
+    bmad_equivalent: "risk_assessor"
+    capabilities: ["风险评估", "风险管理", "合规检查", "风险缓解", "尽职调查"]
+    use_in_tasks: ["risk-assessment", "due-diligence", "investment-screening"]
+
+  data_scientist:
+    description: "数据分析和建模专家"
+    bmad_equivalent: "data_analyst"
+    capabilities: ["数据分析", "预测建模", "用户行为分析", "市场趋势", "统计建模"]
+    use_in_tasks: ["market-analysis", "trend-prediction", "user-research"]
+
+  trend_researcher:
+    description: "趋势研究和市场洞察专家"
+    bmad_equivalent: "market_intelligence"
+    capabilities: ["趋势分析", "市场研究", "竞争情报", "技术预测", "行业分析"]
+    use_in_tasks: ["market-research", "competitive-analysis", "trend-forecasting"]
+
+  # 技术架构类
+  backend_architect:
+    description: "技术架构设计和系统优化专家"
+    bmad_equivalent: "technical_architect"
+    capabilities: ["系统架构", "技术评估", "性能优化", "可扩展性设计", "技术选型"]
+    use_in_tasks: ["technical-assessment", "architecture-review", "scalability-analysis"]
+
+  ai_engineer:
+    description: "AI技术实现和算法优化专家"
+    bmad_equivalent: "ai_specialist"
+    capabilities: ["AI模型评估", "算法设计", "推理优化", "技术实现", "模型部署"]
+    use_in_tasks: ["ai-technology-review", "algorithm-assessment", "ml-implementation"]
+
+  code_reviewer:
+    description: "代码质量和安全审查专家"
+    bmad_equivalent: "quality_assurance"
+    capabilities: ["代码审查", "质量检查", "安全审计", "最佳实践", "代码规范"]
+    use_in_tasks: ["code-review", "security-audit", "quality-assurance"]
+
+  # 产品和用户体验类
+  product_manager:
+    description: "产品策略和用户需求专家"
+    bmad_equivalent: "product_strategist"
+    capabilities: ["产品策略", "需求分析", "用户研究", "产品设计", "产品规划"]
+    use_in_tasks: ["product-analysis", "user-research", "requirements-analysis"]
+
+  frontend_developer:
+    description: "前端开发和用户体验专家"
+    bmad_equivalent: "ux_designer"
+    capabilities: ["UI设计", "用户交互", "前端架构", "产品体验", "界面优化"]
+    use_in_tasks: ["ui-assessment", "ux-review", "frontend-analysis"]
+
+  # 项目协调类
+  studio_producer:
+    description: "多Agent协调和项目管理专家"
+    bmad_equivalent: "project_coordinator"
+    capabilities: ["项目协调", "Agent协作", "质量管理", "进度控制", "团队管理"]
+    use_in_tasks: ["project-management", "coordination", "quality-control"]
+
+  # 数据智能类
+  data_analyst:
+    description: "商业数据分析和可视化专家"
+    bmad_equivalent: "business_intelligence"
+    capabilities: ["商业数据分析", "数据可视化", "报表生成", "KPI分析", "业务洞察"]
+    use_in_tasks: ["business-analytics", "data-visualization", "kpi-analysis"]
+
+  data_intelligence:
+    description: "综合数据智能和洞察专家"
+    bmad_equivalent: "intelligence_analyst"
+    capabilities: ["数据挖掘", "智能分析", "洞察发现", "预测分析", "决策支持"]
+    use_in_tasks: ["intelligence-analysis", "data-mining", "decision-support"]
+
+# 协作方式配置
+collaboration_framework:
+  enabled: true
+  types:
+    sequential:
+      name: "顺序执行"
+      description: "Agent按顺序执行，前一个输出作为后一个输入"
+      efficiency_factor: 1.2
+      best_for: ["线性工作流", "数据处理管道", "分级分析"]
+
+    parallel:
+      name: "并行协作"
+      description: "多个Agent并行工作，实时协调结果"
+      efficiency_factor: 3.5
+      best_for: ["多维度分析", "并发搜索", "独立评估"]
+
+    hierarchical:
+      name: "层次协作"
+      description: "主Agent制定计划，辅助Agent执行"
+      efficiency_factor: 2.1
+      best_for: ["复杂项目管理", "系统架构", "战略规划"]
+
+    peer_to_peer:
+      name: "对等协作"
+      description: "平等协作，互相评审和优化"
+      efficiency_factor: 1.8
+      best_for: ["创新方案", "质量优化", "最佳实践"]
+
+    swarm:
+      name: "群体智能"
+      description: "群体智能，多轮沟通达成共识"
+      efficiency_factor: 4.2
+      best_for: ["复杂问题解决", "创新发现", "集体决策"]
+
+# 任务到原生subagent的路由规则
+task_routing_rules:
+  # 投资分析任务路由
+  investment_analysis:
+    patterns: ["投资.*分析", "投资.*评估", "投资.*机会", "投资价值", "投资决策"]
+    primary_agent: "business_analyst"
+    supporting_agents: ["risk_manager", "data_scientist", "trend_researcher"]
+    collaboration_type: "hierarchical"
+
+  # 技术评估任务路由
+  technical_assessment:
+    patterns: ["技术.*架构", "系统.*设计", "技术.*评估", "技术可行性", "技术尽调"]
+    primary_agent: "backend_architect"
+    supporting_agents: ["ai_engineer", "code_reviewer"]
+    collaboration_type: "peer_to_peer"
+
+  # 市场研究任务路由
+  market_research:
+    patterns: ["市场.*研究", "趋势.*分析", "竞争.*分析", "市场机会", "行业分析"]
+    primary_agent: "trend_researcher"
+    supporting_agents: ["data_scientist", "business_analyst"]
+    collaboration_type: "parallel"
+
+  # AI技术评估任务路由
+  ai_technology_review:
+    patterns: ["AI.*实现", "算法.*优化", "机器学习", "模型.*评估", "人工智能"]
+    primary_agent: "ai_engineer"
+    supporting_agents: ["backend_architect", "data_scientist"]
+    collaboration_type: "sequential"
+
+  # 风险评估任务路由
+  risk_assessment:
+    patterns: ["风险.*评估", "风险.*管理", "合规.*检查", "尽职调查", "风险分析"]
+    primary_agent: "risk_manager"
+    supporting_agents: ["business_analyst", "code_reviewer"]
+    collaboration_type: "parallel"
+
+  # 产品分析任务路由
+  product_analysis:
+    patterns: ["产品.*分析", "用户.*需求", "产品.*策略", "用户体验", "产品设计"]
+    primary_agent: "product_manager"
+    supporting_agents: ["frontend_developer", "data_analyst"]
+    collaboration_type: "peer_to_peer"
+
+# BMAD核心任务配置更新
+bmad_core_tasks:
+  # 并发搜索协调器 - 使用原生subagents
+  concurrent_search_orchestrator:
+    description: "5通道并发搜索协调器，优先使用原生subagents"
+    native_agent_config:
+      search_coordinator: "trend_researcher"
+      data_analyzer: "data_scientist"
+      market_analyst: "business_analyst"
+      technical_reviewer: "backend_architect"
+      risk_assessor: "risk_manager"
+    collaboration_type: "parallel"
+    enhancement_method: "native_subagent_first"
+
+  # 智能搜索策略 - 使用原生subagents
+  intelligent_search_strategy:
+    description: "智能搜索策略制定，优先使用原生subagents"
+    native_agent_config:
+      strategy_coordinator: "product_manager"
+      market_intelligence: "trend_researcher"
+      technical_advisor: "backend_architect"
+      business_analyst: "business_analyst"
+    collaboration_type: "hierarchical"
+    enhancement_method: "native_subagent_first"
+
+  # 投资决策支持 - 使用原生subagents
+  investment_decision_support:
+    description: "投资决策支持系统，优先使用原生subagents"
+    native_agent_config:
+      decision_coordinator: "business_analyst"
+      risk_manager: "risk_manager"
+      financial_analyst: "data_analyst"
+      market_researcher: "trend_researcher"
+      technical_validator: "backend_architect"
+    collaboration_type: "swarm"
+    enhancement_method: "native_subagent_first"
+
+  # 项目协调管理 - 使用原生subagents
+  project_coordination:
+    description: "项目协调和管理，优先使用原生subagents"
+    native_agent_config:
+      project_manager: "studio_producer"
+      quality_controller: "code_reviewer"
+      user_advocate: "product_manager"
+      technical_lead: "backend_architect"
+    collaboration_type: "hierarchical"
+    enhancement_method: "native_subagent_first"
+
+# MCP服务器集成配置
+mcp_servers:
+  enabled: [
+    "tavily-search",
+    "jina-reader",
+    "github-search",
+    "filesystem",
+    "git-mcp-local",
+    "workspace-filesystem",
+    "shadcn-ui",
+    "context7",
+    "firecrawl",
+    "tavily",
+    "xiaohongshu-mcp"
+  ]
+
+  native_subagent_tools:
+    business_analyst: ["tavily-search", "web-fetch", "data-analysis"]
+    risk_manager: ["tavily-search", "compliance-check", "data-analysis"]
+    data_scientist: ["python-sandbox", "data-processing", "statistical-analysis"]
+    trend_researcher: ["tavily-search", "jina-reader", "trend-analysis"]
+    backend_architect: ["code-review", "system-analysis", "architecture-tools"]
+    ai_engineer: ["ml-tools", "model-evaluation", "optimization-tools"]
+    code_reviewer: ["static-analysis", "security-scan", "quality-check"]
+    product_manager: ["user-research", "market-analysis", "product-tools"]
+    frontend_developer: ["ui-tools", "ux-analysis", "design-systems"]
+    studio_producer: ["project-management", "coordination-tools", "quality-control"]
+    data_analyst: ["business-intelligence", "visualization", "reporting"]
+    data_intelligence: ["data-mining", "predictive-analytics", "insight-tools"]
+
+# 质量保证和监控
+quality_assurance:
+  native_agent_validation:
+    enabled: true
+    pre_execution_check: true
+    post_execution_review: true
+    success_rate_threshold: 0.85
+
+  synergy_monitoring:
+    real_time_tracking: true
+    metrics:
+      - "knowledge_transfer_efficiency"
+      - "task_completion_acceleration"
+      - "quality_improvement_factor"
+      - "innovation_score"
+      - "resource_utilization"
+      - "communication_efficiency"
+      - "conflict_resolution_rate"
+      - "overall_synergy_score"
+
+# 系统配置
+system_config:
+  default_collaboration_type: "parallel"
+  max_concurrent_agents: 12
+  timeout_ms: 300000
+  context_management:
+    max_context_length: 200000
+    compaction_strategy: "semantic"
+    persistence_enabled: true
+
+# 安全配置
+security:
+  enterprise_grade: true
+  data_classification: "enabled"
+  access_control: "role_based"
+  audit_trail: "comprehensive"
+  native_agent_trust: "high"
+  cross_agent_communication: "encrypted"
+
+# 兼容性配置
+compatibility:
+  legacy_support: true
+  custom_agent_fallback: true
+  gradual_migration: true
+  backward_compatibility: true

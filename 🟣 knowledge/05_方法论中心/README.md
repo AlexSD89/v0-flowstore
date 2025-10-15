@@ -1,4 +1,16 @@
+---
+title: "20251011-方法论中心总览"
+owners: ["Knowledge Lab"]
+status: published
+last_update: 2025-10-11
+related: ["🟣 knowledge/CLAUDE.md", "memory-bank/README.md", "support_modules/knowledge/USEME.md"]
+source: ["AI Context 实施方法论", "LaunchX 方法论存档"]
+impact: "定义判断/趋势/结论三大能力与目录结构，指导方法论维护"
+---
+
 # 🎯 05_方法论中心 - 判断·趋势·结论
+
+> 上层指引：`🟣 knowledge/CLAUDE.md`（协作指南）· 根级协作总览
 
 ## 📋 核心定位
 方法论中心是LaunchX系统的**判断、趋势、结论**三大核心能力的集中体现，为每个业务板块提供相应的方法论指导，形成完整的方法论体系支撑整个系统的运作。
