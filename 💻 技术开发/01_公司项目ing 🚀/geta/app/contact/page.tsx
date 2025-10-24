@@ -35,7 +35,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <p className="text-sm text-muted-foreground">该二维码 10 月 27 日前有效,重新进入将更新</p>
+                <p className="text-sm text-muted-foreground">扫码加入 Gate 交流群,获取产品支持与更新</p>
               </div>
             </Card>
           </div>

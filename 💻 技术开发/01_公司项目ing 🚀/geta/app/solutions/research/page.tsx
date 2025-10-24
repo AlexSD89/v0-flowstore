@@ -1,13 +1,18 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ArrowRight, FileSearch, Database, TrendingUp, Zap, Clock, Shield } from "lucide-react"
+import WeChatQRModal from "@/components/wechat-qr-modal"
 
 export default function ResearchSolutionPage() {
+  const [showWeChatQR, setShowWeChatQR] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation Component */}
       <Navigation />
 
       {/* Hero Section */}
@@ -22,8 +27,12 @@ export default function ResearchSolutionPage() {
             从文献检索到数据分析,从报告生成到洞察发现,让 AI 处理繁琐工作,你专注于思考
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <a href="/#waitlist">免费开始</a>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+              onClick={() => setShowWeChatQR(true)}
+            >
+              免费开始
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="/tutorial">查看集成教程</a>
@@ -110,24 +119,46 @@ export default function ResearchSolutionPage() {
             </div>
 
             <Card className="p-8 bg-muted/30">
-              <h3 className="text-2xl font-bold mb-6">典型场景</h3>
+              <h3 className="text-2xl font-bold mb-6">真实应用场景</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="font-semibold mb-2">场景 1: 文献综述自动化</div>
-                  <p className="text-sm text-muted-foreground">
-                    "检索过去 5 年关于 AI 在医疗诊断的研究" → Gate 自动搜索 PubMed、arXiv 等数据库,生成分类综述
+                  <div className="font-semibold mb-2 text-accent">场景 1: 医学文献智能综述</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "检索 2020-2025 年 PubMed 中关于 CRISPR 基因编辑治疗癌症 的临床试验研究"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 搜索 PubMed、arXiv、Google Scholar,筛选出 127
+                    篇相关论文,按研究方法分类(RCT、队列研究、Meta分析),提取关键数据(样本量、有效率、副作用),生成 5
+                    页综述报告
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 从 3 天人工检索缩短到 2 小时,覆盖 3 个数据库
                   </p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 2: 数据分析流程</div>
-                  <p className="text-sm text-muted-foreground">
-                    "分析这份问卷数据,找出影响用户满意度的关键因素" → Gate 自动清洗数据、进行统计分析、生成可视化报告
+                  <div className="font-semibold mb-2 text-accent">场景 2: 问卷数据深度分析</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "分析这份 500 人的用户满意度问卷(Excel),找出影响 NPS 的关键因素"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 清洗异常数据(缺失值、离群点)、进行相关性分析(Pearson
+                    系数)、多元回归建模、生成可视化图表(热力图、散点图)、输出 SPSS 格式结果
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 发现"响应速度"和"界面设计"是影响 NPS 的前 2 大因素(R²=0.78)
                   </p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 3: 研究报告生成</div>
-                  <p className="text-sm text-muted-foreground">
-                    "根据实验数据生成研究报告初稿" → Gate 整合数据、图表和文献,生成结构化报告,节省 80% 撰写时间
+                  <div className="font-semibold mb-2 text-accent">场景 3: 实验报告自动生成</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "根据这组 A/B 测试数据(CSV),生成符合 APA 格式的研究报告"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 计算统计显著性(t-test, p 小于
+                    0.05)、生成方法论描述、插入数据表格和图表、撰写结果讨论、添加参考文献引用
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 生成 12 页报告初稿,节省 80% 撰写时间,可直接提交审阅
                   </p>
                 </div>
               </div>
@@ -158,16 +189,19 @@ export default function ResearchSolutionPage() {
               <p className="text-sm text-muted-foreground">用自然语言描述需求,AI 自动完成检索、分析、报告等工作</p>
             </div>
           </div>
-          <Button size="lg" className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-            <a href="/#waitlist">
-              立即开始
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+          <Button
+            size="lg"
+            className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90"
+            onClick={() => setShowWeChatQR(true)}
+          >
+            立即开始
+            <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
       </section>
 
-      {/* Footer Component */}
+      <WeChatQRModal open={showWeChatQR} onOpenChange={setShowWeChatQR} />
+
       <Footer />
     </div>
   )

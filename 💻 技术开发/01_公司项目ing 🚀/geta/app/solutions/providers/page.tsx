@@ -23,7 +23,7 @@ export default function ProvidersPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
               让你的 AI 能力
               <br />
-              <span className="text-accent">触达千万企业用户</span>
+              <span className="text-accent">触达更多企业用户</span>
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 text-pretty max-w-3xl mx-auto">
@@ -32,22 +32,18 @@ export default function ProvidersPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button asChild size="lg" className="h-12 px-8">
+              <Button asChild size="lg">
                 <Link href="/contact">
                   申请入驻 Gate Market
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 bg-transparent">
+              <Button asChild variant="outline" size="lg">
                 <Link href="/marketplace">查看 Gate Market</Link>
               </Button>
             </div>
 
             <div className="flex flex-wrap gap-6 justify-center text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-accent" />
-                <span>50,000+ 企业用户</span>
-              </div>
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-accent" />
                 <span>企业级安全认证</span>
@@ -163,19 +159,10 @@ export default function ProvidersPage() {
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <Users className="w-6 h-6 text-accent" />
-                      </div>
-                      <div>
-                        <div className="font-semibold">50,000+ 企业用户</div>
-                        <div className="text-sm text-muted-foreground">覆盖金融、制造、科技等行业</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
                         <TrendingUp className="w-6 h-6 text-accent" />
                       </div>
                       <div>
-                        <div className="font-semibold">月均 100 万次调用</div>
+                        <div className="font-semibold">快速增长的用户群</div>
                         <div className="text-sm text-muted-foreground">活跃的企业使用场景</div>
                       </div>
                     </div>
@@ -195,7 +182,7 @@ export default function ProvidersPage() {
                     <Users className="w-4 h-4" />
                     快速触达
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">直达 50,000+ 企业用户</h3>
+                  <h3 className="text-2xl font-bold mb-4">快速触达企业用户</h3>
                   <p className="text-muted-foreground mb-6">
                     Gate Market 是企业 AI 能力的首选市场。 入驻后,你的服务将直接展示给所有 Gate 用户,
                     无需漫长的销售周期,企业可以一键试用和采购
@@ -413,7 +400,7 @@ export default function ProvidersPage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button asChild size="lg" className="h-12 px-8">
+              <Button asChild size="lg">
                 <Link href="/contact">
                   立即申请入驻
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -432,16 +419,16 @@ export default function ProvidersPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">准备好让你的 AI 能力触达更多企业了吗?</h2>
-            <p className="text-xl mb-8 text-white/90">加入 Gate 生态,与 50,000+ 企业用户建立连接</p>
+            <p className="text-xl mb-8 text-white/90">加入 Gate 生态,开启商业化之旅</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary" className="h-12 px-8">
+              <Button asChild size="lg" variant="secondary">
                 <Link href="/contact">申请入驻</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 px-8 border-white text-white hover:bg-white/10 bg-transparent"
+                className="border-white text-white hover:bg-white/10 bg-transparent"
               >
                 <Link href="/marketplace">浏览 Gate Market</Link>
               </Button>

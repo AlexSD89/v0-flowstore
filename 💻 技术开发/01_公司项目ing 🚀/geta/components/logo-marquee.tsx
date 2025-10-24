@@ -22,9 +22,9 @@ export function LogoMarquee() {
                 <Image
                   src={company.logo || "/placeholder.svg"}
                   alt={company.name}
-                  width={120}
-                  height={32}
-                  className="h-8 w-auto object-contain grayscale"
+                  width={160}
+                  height={48}
+                  className="h-12 w-auto object-contain grayscale"
                 />
               </div>
             ))}

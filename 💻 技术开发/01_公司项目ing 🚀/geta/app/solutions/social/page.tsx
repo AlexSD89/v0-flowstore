@@ -1,10 +1,16 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ArrowRight, MessageSquare, TrendingUp, Calendar, Zap, Clock, Shield } from "lucide-react"
+import { useState } from "react"
+import WeChatQRModal from "@/components/wechat-qr-modal"
 
 export default function SocialSolutionPage() {
+  const [showWeChatQR, setShowWeChatQR] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation Component */}
@@ -22,8 +28,12 @@ export default function SocialSolutionPage() {
             从内容创作到数据分析,从社群互动到策略优化,让 AI 处理繁琐工作,你专注于创意
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <a href="/#waitlist">免费开始</a>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+              onClick={() => setShowWeChatQR(true)}
+            >
+              免费开始
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="/tutorial">查看集成教程</a>
@@ -116,24 +126,45 @@ export default function SocialSolutionPage() {
             </div>
 
             <Card className="p-8 bg-muted/30">
-              <h3 className="text-2xl font-bold mb-6">典型场景</h3>
+              <h3 className="text-2xl font-bold mb-6">真实应用场景</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="font-semibold mb-2">场景 1: 多平台内容分发</div>
-                  <p className="text-sm text-muted-foreground">
-                    "将这篇文章改写为小红书、微博、抖音三个版本" → Gate 自动适配各平台风格,生成标题、配图和话题标签
+                  <div className="font-semibold mb-2 text-accent">场景 1: 一键多平台内容分发</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "将这篇产品评测文章改写为小红书、微博、抖音三个版本"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 小红书版(1200字+9图,添加 #好物推荐
+                    #种草)、微博版(140字精华+话题标签)、抖音版(60秒脚本+字幕+BGM推荐)、自动生成配图(AI 绘图)
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 从 2 小时缩短到 10 分钟,覆盖 3 个平台,风格 100% 适配
                   </p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 2: 热点追踪与响应</div>
-                  <p className="text-sm text-muted-foreground">
-                    "监控行业热点,生成相关内容" → Gate 实时追踪热点话题,自动生成蹭热度的优质内容
+                  <div className="font-semibold mb-2 text-accent">场景 2: 实时热点追踪与响应</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "监控 #双十一 热点,生成 3 条蹭热度的品牌内容"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 实时抓取微博热搜、小红书热门话题,分析品牌关联度,生成 3
+                    个创意角度(省钱攻略、好物清单、避坑指南),自动排期发布(流量高峰期)
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 热点响应速度从 4 小时缩短到 30 分钟,互动率提升 2.5 倍
                   </p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 3: 数据分析与优化</div>
-                  <p className="text-sm text-muted-foreground">
-                    "分析上周内容表现,给出优化建议" → Gate 聚合多平台数据,识别高效内容类型,推荐下周策略
+                  <div className="font-semibold mb-2 text-accent">场景 3: 数据驱动的内容优化</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "分析上周 20 条内容表现,给出下周发布策略"
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 聚合小红书、微博、抖音数据,识别高效内容类型(视频 &gt;
+                    图文,教程类互动率最高),推荐最佳发布时间(周三 20:00),生成下周内容日历
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">
+                    ✓ 平均互动率从 3.2% 提升到 8.7%,粉丝增长提速 40%
                   </p>
                 </div>
               </div>
@@ -164,14 +195,19 @@ export default function SocialSolutionPage() {
               <p className="text-sm text-muted-foreground">用自然语言描述需求,AI 自动完成内容创作、排期和数据分析</p>
             </div>
           </div>
-          <Button size="lg" className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-            <a href="/#waitlist">
-              立即开始
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+          <Button
+            size="lg"
+            className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90"
+            onClick={() => setShowWeChatQR(true)}
+          >
+            立即开始
+            <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
       </section>
+
+      {/* WeChat QR Modal */}
+      <WeChatQRModal open={showWeChatQR} onOpenChange={setShowWeChatQR} />
 
       {/* Footer Component */}
       <Footer />

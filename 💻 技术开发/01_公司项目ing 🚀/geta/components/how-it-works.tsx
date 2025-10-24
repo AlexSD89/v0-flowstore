@@ -67,8 +67,8 @@ export function HowItWorks() {
         </div>
 
         <div className="text-center mt-10 sm:mt-12">
-          <Button onClick={scrollToUsecases} size="lg" variant="outline" className="h-12 sm:h-auto bg-transparent">
-            查看实际案例
+          <Button size="lg" variant="outline" asChild>
+            <a href="/solutions/development">查看实际案例</a>
           </Button>
         </div>
       </div>

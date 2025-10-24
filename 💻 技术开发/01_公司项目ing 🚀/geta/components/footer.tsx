@@ -1,5 +1,3 @@
-import { Github, Twitter, Youtube } from "lucide-react"
-
 export function Footer() {
   return (
     <footer className="border-t border-border py-12 px-4 sm:px-6 lg:px-8">
@@ -63,21 +61,6 @@ export function Footer() {
               <span className="text-primary-foreground font-bold text-lg">G</span>
             </div>
             <span className="font-semibold text-xl">Gate</span>
-          </div>
-
-          <div className="flex items-center gap-6 mb-4 md:mb-0">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Twitter className="w-5 h-5" />
-              <span className="sr-only">X (Twitter)</span>
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="w-5 h-5" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Youtube className="w-5 h-5" />
-              <span className="sr-only">YouTube</span>
-            </a>
           </div>
 
           <p className="text-sm text-muted-foreground">© 2025 Gate by LaunchX. 保留所有权利。</p>

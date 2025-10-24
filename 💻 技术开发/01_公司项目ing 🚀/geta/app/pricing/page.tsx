@@ -76,7 +76,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <Button className="w-full" variant={plan.popular ? "default" : "outline"} asChild>
-                  <a href={plan.price === "定制" ? "/contact" : "/#waitlist"}>
+                  <a href={plan.price === "定制" ? "/contact" : "/contact"}>
                     {plan.price === "定制" ? "联系销售" : plan.promotional ? "立即申请" : "开始使用"}
                   </a>
                 </Button>

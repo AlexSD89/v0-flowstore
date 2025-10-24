@@ -77,24 +77,24 @@ export function UsecaseTabs() {
   const [activeTab, setActiveTab] = useState("featured")
 
   return (
-    <section id="usecase-tabs" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="usecases" className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-4 text-balance">最受欢迎的自动化场景</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-6 text-balance">最受欢迎的自动化场景</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             探索 Gate 如何通过智能编排,让 AI 自动完成复杂工作流程
           </p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-8 h-auto gap-2 bg-transparent">
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-5 mb-10 h-auto gap-2 bg-transparent">
             {usecases.map((usecase) => {
               const Icon = usecase.icon
               return (
                 <TabsTrigger
                   key={usecase.id}
                   value={usecase.id}
-                  className="flex items-center gap-2 data-[state=active]:bg-card data-[state=active]:shadow-sm py-3"
+                  className="flex items-center gap-2 data-[state=active]:bg-card data-[state=active]:shadow-sm py-3 transition-all hover:scale-105"
                 >
                   <Icon className="w-4 h-4" />
                   <span className="hidden sm:inline">{usecase.label}</span>
@@ -105,13 +105,13 @@ export function UsecaseTabs() {
 
           {usecases.map((usecase) => (
             <TabsContent key={usecase.id} value={usecase.id}>
-              <Card className="p-8 sm:p-12">
+              <Card className="p-8 sm:p-12 hover:shadow-xl transition-shadow">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div>
-                    <h3 className="font-serif text-3xl text-foreground mb-4 text-balance">{usecase.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">{usecase.description}</p>
+                  <div className="space-y-6">
+                    <h3 className="font-serif text-3xl text-foreground text-balance">{usecase.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-lg">{usecase.description}</p>
 
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4">
                       {usecase.highlights.map((highlight, index) => {
                         const HighlightIcon = highlight.icon
                         return (
@@ -125,7 +125,7 @@ export function UsecaseTabs() {
                       })}
                     </ul>
 
-                    <Button variant="outline" className="group bg-transparent" asChild>
+                    <Button variant="outline" className="group bg-transparent hover:scale-105 transition-all" asChild>
                       <a href="#waitlist">
                         立即体验
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

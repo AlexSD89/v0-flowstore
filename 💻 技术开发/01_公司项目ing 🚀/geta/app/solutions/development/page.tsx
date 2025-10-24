@@ -1,11 +1,17 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ArrowRight, Code2, GitBranch, Bug, Zap, Shield, Clock } from "lucide-react"
 import { TermTooltip } from "@/components/term-tooltip"
+import { WeChatQRModal } from "@/components/wechat-qr-modal"
+import { useState } from "react"
 
 export default function DevelopmentSolutionPage() {
+  const [showWeChatQR, setShowWeChatQR] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -22,8 +28,12 @@ export default function DevelopmentSolutionPage() {
             告别"几乎正确"的 AI 代码,让 Gate 理解你的代码库上下文,生成真正可用的代码
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <a href="/#waitlist">免费开始</a>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+              onClick={() => setShowWeChatQR(true)}
+            >
+              免费开始
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="/tutorial">查看集成教程</a>
@@ -123,25 +133,40 @@ export default function DevelopmentSolutionPage() {
             </div>
 
             <Card className="p-8 bg-muted/30">
-              <h3 className="text-2xl font-bold mb-6">典型场景</h3>
+              <h3 className="text-2xl font-bold mb-6">真实应用场景</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="font-semibold mb-2">场景 1: 代码审查自动化</div>
-                  <p className="text-sm text-muted-foreground">
-                    "审查这个 PR,检查是否符合团队编码规范" → Gate 自动分析代码风格、安全漏洞、性能问题,生成详细审查报告
+                  <div className="font-semibold mb-2 text-accent">场景 1: GitHub PR 自动审查</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> 在 PR 评论中 @gate "审查这个 PR,检查是否符合 Airbnb JavaScript 规范"
                   </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 扫描代码风格(ESLint 规则)、检测安全漏洞(SQL
+                    注入、XSS)、分析性能问题(O(n²) 算法)、检查测试覆盖率
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">✓ 节省 30 分钟人工审查时间,发现 3 个潜在 bug</p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 2: 测试用例生成</div>
-                  <p className="text-sm text-muted-foreground">
-                    "为这个函数生成单元测试" → Gate 理解函数逻辑和边界条件,生成覆盖率 90%+ 的测试代码
+                  <div className="font-semibold mb-2 text-accent">场景 2: React 组件测试生成</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "为 UserProfile.tsx 生成 Jest + React Testing Library 单元测试"
                   </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 分析组件 props 和 state、生成边界条件测试(空数据、错误状态)、模拟 API
+                    调用、测试用户交互(点击、输入)
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">✓ 生成 15 个测试用例,覆盖率从 45% 提升到 92%</p>
                 </div>
                 <div>
-                  <div className="font-semibold mb-2">场景 3: 文档自动更新</div>
-                  <p className="text-sm text-muted-foreground">
-                    "更新 API 文档" → Gate 扫描代码变更,自动更新接口文档、参数说明和示例代码
+                  <div className="font-semibold mb-2 text-accent">场景 3: API 文档同步更新</div>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>具体操作:</strong> "检测 /api/users 接口变更,更新 Swagger 文档和 README"
                   </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <strong>AI 自动完成:</strong> 对比代码变更(新增 avatar 字段)、更新 OpenAPI 规范、生成 cURL
+                    示例、更新 TypeScript 类型定义
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">✓ 文档与代码 100% 同步,避免前后端对接错误</p>
                 </div>
               </div>
             </Card>
@@ -173,14 +198,18 @@ export default function DevelopmentSolutionPage() {
               <p className="text-sm text-muted-foreground">用自然语言描述需求,AI 自动完成代码生成、测试、文档等工作</p>
             </div>
           </div>
-          <Button size="lg" className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-            <a href="/#waitlist">
-              立即开始
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+          <Button
+            size="lg"
+            className="mt-12 bg-accent text-accent-foreground hover:bg-accent/90"
+            onClick={() => setShowWeChatQR(true)}
+          >
+            立即开始
+            <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
       </section>
+
+      <WeChatQRModal open={showWeChatQR} onOpenChange={setShowWeChatQR} />
 
       <Footer />
     </div>
