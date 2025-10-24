@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: LaunchX 知识库总览
 last_update: '2025-10-24'
 owners:
@@ -13,6 +14,8 @@ related:
 source:
 - 知识域复查（2025-10-24）
 ---
+=======
+
 
 ## 📋 执行摘要
 
@@ -71,10 +74,4 @@ LaunchX 知识域围绕“判断 → 趋势 → 结论”闭环组织资产：`0
 3. 清理目录命名与脚本归属，形成例外说明或迁移计划。
 4. 在 `09_周报月报` 建立“知识复查周志”章节，追踪巡检与整改。
 
-## 8. 关键链接
-- 根级指挥与协作：`CLAUDE.md` · `README.md` · `AGENTS.md`
-- 操作手册：`05_方法论中心/` · `06_工作流模版与规范/` · `memory-bank/support_modules/knowledge/USEME.md`
-- 自动化工具：`🛠️ Knowledge-Audit-Tools/` · `📊 Bilibili视频数据/`
-- 业务资产：`c_AI投资研究/` · `07_市场项目档案/` · `08_知识传播与品牌/`
 
-如需新增流程或工具，请在 Summary 中说明“知识指挥体系已更新”，并同步本文档、`memory-bank/support_modules/knowledge/USEME.md` 及相关索引。

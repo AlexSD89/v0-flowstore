@@ -33,7 +33,6 @@ python quick_validation_tool.py all_145_urls.txt
 ```python
 # 导航到页面
 
-mcp__playwright__browser_navigate(url="https://space.bilibili.com/18550835/video?tid=0&pn=1&keyword=&order=pubdate")
 
 # 获取快照
 mcp__playwright__browser_snapshot()
