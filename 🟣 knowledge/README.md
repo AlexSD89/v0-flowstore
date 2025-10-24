@@ -1,17 +1,23 @@
 ---
-title: "知识域总览"
+category: knowledge
+impact: 统一知识域的流程与索引
+last_update: '2025-10-24'
 owners:
-  - "LaunchX Knowledge Lab"
-status: "active"
-last_update: "2025-10-12"
+- LaunchX Knowledge Lab
 related:
-  - "./CLAUDE.md"
-  - "./RULES.md"
-  - "./AGENTS.md"
-  - "./📖README-知识库总览.md"
-source: "自动生成（Codex CLI）"
-impact: "统一知识域的流程与索引"
+- ./CLAUDE.md
+- ./RULES.md
+- ./AGENTS.md
+- ./📖README-知识库总览.md
+source: 自动生成（Codex CLI）
+status: active
+tags: []
+title: 知识域总览
 ---
+
+## 📋 执行摘要
+
+治理综述、优先事项与巡检节奏集中维护在 `📖README-知识库总览.md`。本文件提供目录导航、操作指引入口以及与其他域的接口说明，进入知识域工作前请先阅读 `CLAUDE.md`、`RULES.md` 与上述总览文档。
 
 # 知识域总览
 
@@ -42,6 +48,11 @@ impact: "统一知识域的流程与索引"
 3. **生成**：根据目标输出到 `03/07/08`，补 frontmatter 与指标。
 4. **回写**：更新 `memory-bank`、方法论，总结关键洞察，通知业务/技术域。
 
+## 自动化巡检
+- 执行 `python3 "🟣 knowledge/🛠️ Knowledge-Audit-Tools/knowledge_audit.py"` 生成治理巡检报告。
+- 报告保存于 `🟣 knowledge/🛠️ Knowledge-Audit-Tools/`（JSONL + Markdown），供周报与整改看板引用。
+- 在批量更新前后记录巡检时间与差异，保持“巡检 → 修复 → 再巡检”的闭环。
+
 ## 协作依赖
 - **技术域**：同步实现方案、性能数据，形成技术案例或方法论。
 - **业务服务域**：将研究转换为客户提案、市场材料。
@@ -49,8 +60,11 @@ impact: "统一知识域的流程与索引"
 - **设计域**：协同视觉化模板、品牌风格与传播素材。
 - **自动化实验室**：与 `🧩 bmad` 协作，将重复性采集和报告生成沉淀为脚本并记录使用指南。
 
-## 快速通道
+- 遇到敏感信息、跨域决策或需要脚本支持时，在 Summary 中标记“#需要人工介入”，并同步 Knowledge Lead。
+- 快速入口：`📖README-知识库总览.md`（治理/任务）、`CLAUDE.md`（执行指南）、`RULES.md`（质量门槛）、`memory-bank/support_modules/knowledge/USEME.md`（工具与字段说明）。
+
 - `memory-bank/support_modules/knowledge/USEME.md`：常用检索脚本、标签体系、引用规范。
 - `CLAUDE.md`：五通道执行细则与质量门槛。
-- `📖README-知识库总览.md`：历史索引与外部链接。
+- `📖README-知识库总览.md`：治理与优先任务概览。
 - `memory-bank/README.md`：跨域提示、任务模板。
+- `02_分析与洞察/02_综合洞察/20251023-历史观点复查与趋势共性.md`：观点复查结果与待补数据清单。

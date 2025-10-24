@@ -1,3 +1,18 @@
+---
+title: 市场情报专家 Skill 定义
+owners:
+- LaunchX Skills团队
+status: active
+last_update: '2025-10-24'
+related:
+- ./instructions.md
+- ./README.md
+source: 人工采集
+impact: 定义市场情报专家技能的能力范围与输出标准
+tags:
+- market-intelligence
+---
+
 # 市场情报专家
 
 ## 基本信息

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{REPORT_TITLE}}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <style>
+        :root {
+            /* === 品牌色彩系统 === */
+            --main-color: #4E6813;
+            --secondary-color: #A4BE7B;
+            --accent-color: #EDF1D6;
+            --success-color: #4CAF50;
+            --warning-color: #FFC107;
+            --error-color: #F44336;
+
+            /* === 背景色彩 === */
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --banner-bg: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(78, 104, 19, 0.7));
+
+            /* === 文字色彩 === */
+            --text-color: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #999999;
+
+            /* === 间距系统 === */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 15px;
+            --spacing-lg: 20px;
+            --spacing-xl: 30px;
+
+            /* === 圆角系统 === */
+            --radius-sm: 5px;
+            --radius-md: 8px;
+            --radius-lg: 10px;
+            --radius-xl: 15px;
+
+            /* === 阴影系统 === */
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 6px 15px rgba(0, 0, 0, 0.3);
+
+            /* === 过渡效果 === */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* === Banner 区域 === */
+        .banner {
+            background: var(--banner-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+        }
+
+        .banner-content {
+            width: 70%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner h1 {
+            font-size: clamp(24px, 3vw, 32px);
+            margin-bottom: var(--spacing-sm);
+            color: white;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .banner h2 {
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: normal;
+            margin-bottom: var(--spacing-lg);
+            color: var(--secondary-color);
+            opacity: 0.9;
+        }
+
+        .banner-metrics {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-btn {
+            background-color: rgba(78, 104, 19, 0.7);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            transition: all var(--transition-normal);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .download-btn:hover {
+            background-color: var(--main-color);
+            transform: scale(1.05);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .download-icon {
+            margin-right: var(--spacing-sm);
+        }
+
+        .key-metric {
+            text-align: right;
+            margin-top: var(--spacing-sm);
+        }
+
+        .metric-value {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* === 执行摘要 === */
+        .exec-summary {
+            background-color: rgba(50, 50, 50, 0.7);
+            border-left: 5px solid var(--main-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .exec-summary h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .exec-summary ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .exec-summary li {
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-left: var(--spacing-lg);
+            line-height: 1.5;
+        }
+
+        .exec-summary li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* === 卡片系统 === */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(78, 104, 19, 0.3);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--main-color);
+        }
+
+        .card-large {
+            width: 100%;
+        }
+
+        .card-medium {
+            width: calc(50% - var(--spacing-lg) / 2);
+        }
+
+        .card-small {
+            width: calc(33.33% - var(--spacing-lg) * 2 / 3);
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(78, 104, 19, 0.5);
+            padding-bottom: var(--spacing-sm);
+            color: white;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: var(--spacing-md) 0;
+        }
+
+        .mini-chart {
+            height: 200px;
+        }
+
+        .chart-explanation {
+            margin-top: var(--spacing-md);
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* === 标签系统 === */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+            gap: var(--spacing-sm);
+        }
+
+        .tag {
+            background-color: rgba(78, 104, 19, 0.7);
+            padding: 4px var(--spacing-sm);
+            border-radius: 20px;
+            font-size: 12px;
+            color: white;
+            transition: all var(--transition-fast);
+        }
+
+        .tag:hover {
+            background-color: var(--main-color);
+            transform: scale(1.05);
+        }
+
+        /* === 进度指示器 === */
+        .progress-container {
+            margin: var(--spacing-md) 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-xs);
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: rgba(100, 100, 100, 0.3);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+            transition: width 1s ease;
+            border-radius: var(--radius-sm);
+        }
+
+        /* === 表格样式 === */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+            font-size: 14px;
+            background-color: transparent;
+        }
+
+        .data-table th {
+            background-color: rgba(78, 104, 19, 0.5);
+            color: white;
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 600;
+            border: none;
+        }
+
+        .data-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: rgba(60, 60, 60, 0.3);
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(78, 104, 19, 0.2);
+        }
+
+        /* === 知识卡片 === */
+        .knowledge-card {
+            border: 2px solid var(--secondary-color);
+            background-color: rgba(45, 45, 45, 0.8);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .knowledge-card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .knowledge-icon {
+            margin-right: var(--spacing-sm);
+        }
+
+        /* === 指示器样式 === */
+        .city-indicator,
+        .risk-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: var(--spacing-sm);
+        }
+
+        .indicator-good,
+        .risk-low {
+            background-color: var(--success-color);
+        }
+
+        .indicator-medium,
+        .risk-medium {
+            background-color: var(--warning-color);
+        }
+
+        .indicator-poor,
+        .risk-high {
+            background-color: var(--error-color);
+        }
+
+        .risk-level {
+            display: flex;
+            align-items: center;
+            margin-top: var(--spacing-sm);
+        }
+
+        /* === 动画效果 === */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === 响应式设计 === */
+        @media (max-width: 1024px) {
+            .card-medium {
+                width: calc(50% - var(--spacing-md) / 2);
+            }
+
+            .card-small {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-md);
+            }
+
+            .banner {
+                flex-direction: column;
+                padding: var(--spacing-lg);
+            }
+
+            .banner-content,
+            .banner-metrics {
+                width: 100%;
+            }
+
+            .banner-metrics {
+                align-items: flex-start;
+                margin-top: var(--spacing-lg);
+            }
+
+            .key-metric {
+                text-align: left;
+            }
+
+            .card-medium {
+                width: 100%;
+            }
+
+            .chart-container {
+                height: 250px;
+            }
+
+            .mini-chart {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 24px;
+            }
+
+            .banner h2 {
+                font-size: 16px;
+            }
+
+            .metric-value {
+                font-size: 20px;
+            }
+
+            .chart-container {
+                height: 200px;
+            }
+
+            .mini-chart {
+                height: 150px;
+            }
+        }
+
+        /* === 打印样式 === */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            .download-btn {
+                display: none;
+            }
+
+            .card {
+                background-color: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            .banner {
+                background: linear-gradient(to right, #f5f5f5, #e8e8e8);
+                color: black;
+            }
+
+            .chart-container {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* === 辅助样式 === */
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-muted { color: var(--text-muted); }
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: var(--spacing-xs); }
+        .mb-2 { margin-bottom: var(--spacing-sm); }
+        .mb-3 { margin-bottom: var(--spacing-md); }
+        .mb-4 { margin-bottom: var(--spacing-lg); }
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: var(--spacing-xs); }
+        .mt-2 { margin-top: var(--spacing-sm); }
+        .mt-3 { margin-top: var(--spacing-md); }
+        .mt-4 { margin-top: var(--spacing-lg); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner Section -->
+        <div class="banner">
+            <div class="banner-content">
+                <h1>{{REPORT_TITLE}}</h1>
+                <h2>{{REPORT_SUBTITLE}}</h2>
+            </div>
+            <div class="banner-metrics">
+                <button id="download-pdf" class="download-btn">
+                    <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载PDF报告
+                </button>
+                {{KEY_METRICS}}
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        {{EXECUTIVE_SUMMARY}}
+
+        <!-- Main Content Cards -->
+        <div class="cards-container">
+            {{CONTENT_CARDS}}
+        </div>
+    </div>
+
+    <script>
+        // === 全局配置 ===
+        const REPORT_CONFIG = {
+            title: '{{REPORT_TITLE}}',
+            author: '{{REPORT_AUTHOR}}',
+            date: '{{REPORT_DATE}}',
+            version: '{{REPORT_VERSION}}'
+        };
+
+        const CHART_COLORS = [
+            '#4E6813', '#A4BE7B', '#EDF1D6', '#40513B', '#609966',
+            '#B99470', '#5c6b4c', '#8bacaa', '#DDA15E', '#BC6C25'
+        ];
+
+        // === 图表配置模板 ===
+        const CHART_DEFAULTS = {
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                borderColor: '#4E6813',
+                borderWidth: 1,
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 12
+                }
+            },
+            legend: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 12
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '15%',
+                containLabel: true
+            }
+        };
+
+        // === 图表生成函数 ===
+        class ChartManager {
+            constructor() {
+                this.charts = new Map();
+                this.initCharts();
+            }
+
+            initCharts() {
+                // 自动初始化所有图表容器
+                document.querySelectorAll('.chart-container').forEach(container => {
+                    if (container.id) {
+                        this.initChart(container.id);
+                    }
+                });
+            }
+
+            initChart(containerId) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                try {
+                    const chart = echarts.init(container);
+                    this.charts.set(containerId, chart);
+                    return chart;
+                } catch (error) {
+                    console.error(`初始化图表 ${containerId} 失败:`, error);
+                    return null;
+                }
+            }
+
+            createMixedChart(containerId, data) {
+                const chart = this.charts.get(containerId) || this.initChart(containerId);
+                if (!chart) return;
+
+                const option = {
+                    ...CHART_DEFAULTS,
+                    tooltip: {
+                        ...CHART_DEFAULTS.tooltip,
+                        axisPointer: {
+                            type: 'cross',
+                            crossStyle: {
+                                color: '#999'
+                            }
+                        }
+                    },
+                    legend: {
+                        ...CHART_DEFAULTS.legend,
+                        data: data.legend || []
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        data: data.categories || [],
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        axisLabel: {
+                            color: '#cccccc',
+                            fontSize: 11
+                        }
+                    }],
+                    yAxis: data.yAxis ? data.yAxis.map(axis => ({
+                        type: 'value',
+                        ...axis,
+                        axisLabel: {
+                            formatter: axis.formatter || '{value}',
+                            color: '#cccccc',
+                            fontSize: 11
+                        },
+                        nameTextStyle: {
+                            color: '#cccccc',
+                            fontSize: 12
+                        }
+                    })) : [{
+                        type: 'value',
+                        axisLabel: {
+                            color: '#cccccc',
+                            fontSize: 11
+                        },
+                        nameTextStyle: {
+                            color: '#cccccc',
+                            fontSize: 12
+                        }
+                    }],
+                    series: (data.series || []).map((series, index) => ({
+                        ...series,
+                        itemStyle: {
+                            color: CHART_COLORS[index % CHART_COLORS.length]
+                        },
+                        lineStyle: series.type === 'line' ? {
+                            width: 3
+                        } : undefined
+                    }))
+                };
+
+                chart.setOption(option, true);
+                return chart;
+            }
+
+            createPieChart(containerId, data) {
+                const chart = this.charts.get(containerId) || this.initChart(containerId);
+                if (!chart) return;
+
+                const option = {
+                    ...CHART_DEFAULTS,
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: {c}% ({d}%)'
+                    },
+                    legend: {
+                        ...CHART_DEFAULTS.legend,
+                        orient: 'vertical',
+                        left: 'left'
+                    },
+                    series: [{
+                        name: data.name || '数据',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#2d2d2d',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '18',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: (data.data || []).map((item, index) => ({
+                            ...item,
+                            itemStyle: {
+                                color: CHART_COLORS[index % CHART_COLORS.length]
+                            }
+                        }))
+                    }]
+                };
+
+                chart.setOption(option, true);
+                return chart;
+            }
+
+            createRadarChart(containerId, data) {
+                const chart = this.charts.get(containerId) || this.initChart(containerId);
+                if (!chart) return;
+
+                const option = {
+                    ...CHART_DEFAULTS,
+                    radar: {
+                        indicator: data.indicators || [],
+                        splitArea: {
+                            areaStyle: {
+                                color: ['rgba(78, 104, 19, 0.1)', 'rgba(78, 104, 19, 0.2)']
+                            }
+                        },
+                        axisName: {
+                            color: '#cccccc',
+                            fontSize: 11
+                        }
+                    },
+                    series: [{
+                        name: data.name || '对比分析',
+                        type: 'radar',
+                        data: (data.series || []).map((series, index) => ({
+                            ...series,
+                            areaStyle: {
+                                color: CHART_COLORS[index % CHART_COLORS.length] + '99'
+                            },
+                            lineStyle: {
+                                color: CHART_COLORS[index % CHART_COLORS.length],
+                                width: 2
+                            }
+                        }))
+                    }]
+                };
+
+                chart.setOption(option, true);
+                return chart;
+            }
+
+            resize() {
+                this.charts.forEach(chart => {
+                    try {
+                        chart.resize();
+                    } catch (error) {
+                        console.error('图表resize失败:', error);
+                    }
+                });
+            }
+
+            destroy() {
+                this.charts.forEach(chart => {
+                    try {
+                        chart.dispose();
+                    } catch (error) {
+                        console.error('图表销毁失败:', error);
+                    }
+                });
+                this.charts.clear();
+            }
+        }
+
+        // === PDF导出功能 ===
+        function setupPDFExport() {
+            const downloadBtn = document.getElementById('download-pdf');
+            if (!downloadBtn) return;
+
+            downloadBtn.addEventListener('click', function() {
+                const element = document.querySelector('.container');
+                const opt = {
+                    margin: 10,
+                    filename: `${REPORT_CONFIG.title}_${new Date().toISOString().slice(0, 10)}.pdf`,
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        backgroundColor: '#1a1a1a',
+                        logging: false
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'landscape'
+                    }
+                };
+
+                // 显示加载状态
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="download-icon"></span>正在生成PDF...';
+                this.disabled = true;
+
+                html2pdf().from(element).set(opt).save().then(() => {
+                    // 恢复按钮状态
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }).catch((error) => {
+                    console.error('PDF生成失败:', error);
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    alert('PDF生成失败，请重试');
+                });
+            });
+        }
+
+        // === 响应式处理 ===
+        function setupResponsiveness() {
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (window.chartManager) {
+                        window.chartManager.resize();
+                    }
+                }, 300);
+            });
+        }
+
+        // === 进度条动画 ===
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // === 错误处理 ===
+        function handleError(error, context = '') {
+            console.error(`错误 ${context}:`, error);
+            // 可以在这里添加错误提示UI
+        }
+
+        // === 初始化函数 ===
+        function initializeReport() {
+            try {
+                // 初始化图表管理器
+                window.chartManager = new ChartManager();
+
+                // 设置PDF导出
+                setupPDFExport();
+
+                // 设置响应式处理
+                setupResponsiveness();
+
+                // 启动进度条动画
+                animateProgressBars();
+
+                console.log('报告初始化完成');
+            } catch (error) {
+                handleError(error, '初始化');
+            }
+        }
+
+        // === 页面加载完成后初始化 ===
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeReport);
+        } else {
+            initializeReport();
+        }
+
+        // === 页面卸载时清理 ===
+        window.addEventListener('beforeunload', () => {
+            if (window.chartManager) {
+                window.chartManager.destroy();
+            }
+        });
+
+        // === 模拟数据填充函数 ===
+        function fillTemplateData(data) {
+            // 填充标题等基本信息
+            document.title = data.title || document.title;
+
+            // 这里可以扩展更多模板数据填充逻辑
+            console.log('模板数据已填充');
+        }
+
+        // === 导出全局函数供外部调用 ===
+        window.ReportUtils = {
+            fillTemplateData,
+            ChartManager,
+            setupPDFExport,
+            animateProgressBars
+        };
+    </script>
+</body>
+</html>

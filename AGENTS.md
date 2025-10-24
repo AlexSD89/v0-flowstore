@@ -49,6 +49,26 @@
 ### 协作进化与智能优化（进阶）
 当基础协作流程熟练后，可构建具备自我学习和优化能力的高级协作系统。
 
+#### 🤖 Claude Skills生态系统 (新增2025-10-23)
+基于Claude Skills官方标准，Launch-X已构建完整的12个智能Skills生态系统：
+
+**🧠 Launch-X Skills生态系统定位**:
+- **基础模块**: Skills作为基础的能力单元，专注于特定功能
+- **Agent SDK**: 更高级的智能体框架，支持多技能协作
+- **协同关系**: Skills是构建Agent的基础组件，两者互补而非替代
+
+**📚 核心文档**:
+- [🧠 Launch-X Skills生态系统/README.md](🧠%20Launch-X%20Skills生态系统/README.md) - 生态系统总览和12个Skills介绍
+- [📋 Skills生态系统指挥总则](🧠%20Launch-X%20Skills生态系统/AGENTS.md) - Skills开发流程和质量标准
+- [📋 Skills开发协作指南](🧠%20Launch-X%20Skills生态系统/CLAUDE.md) - Skills专用开发规范
+- [📚 Claude Skills官方标准学习](🧠%20Launch-X%20Skills生态系统/📚%20Claude%20Skills官方标准学习.md) - 官方开发标准
+- [🔧 从零到一开发实战指南](../../🟣%20knowledge/f_AI开发技巧/Claude%20Skills从零到一开发实战指南.md) - 完整开发教程
+
+**🚀 协作模式升级**:
+1. **技能复用**: 直接调用标准化的Skills处理特定任务
+2. **Agent编排**: 通过Agent SDK组合多个Skills完成复杂工作流
+3. **生态共享**: Skills可在项目间共享，Agent具备跨环境执行能力
+
 #### 🎯 从工具使用到智能协作
 - **基础阶段**：遵循工作流程，复用现有能力（本文档核心）
 - **进阶阶段**：动态学习用户偏好，优化协作模式

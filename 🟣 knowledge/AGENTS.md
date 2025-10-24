@@ -1,16 +1,22 @@
 ---
-title: "知识域 AGENTS"
+category: knowledge
+impact: 界定知识域人机协作职责
+last_update: '2025-10-24'
 owners:
-  - "LaunchX Knowledge Lab"
-status: "active"
-last_update: "2025-10-12"
+- LaunchX Knowledge Lab
 related:
-  - "./README.md"
-  - "./CLAUDE.md"
-  - "./RULES.md"
-source: "自动生成（Codex CLI）"
-impact: "界定知识域人机协作职责"
+- ./README.md
+- ./CLAUDE.md
+- ./RULES.md
+source: 自动生成（Codex CLI）
+status: active
+tags: []
+title: 知识域 AGENTS
 ---
+
+## 📋 执行摘要
+
+知识域的治理说明已集中至 `📖README-知识库总览.md`。本指挥文档聚焦“谁负责什么、何时升级”。所有执行人员在进入 Knowledge 域前，需完成 Phase 0（加载 `CLAUDE.md`、`RULES.md`、`memory-bank/support_modules/knowledge/USEME.md`），并按照最新巡检结果（见 `09_周报月报`）确认当前优先事项。
 
 # 知识域协作图
 
@@ -34,6 +40,10 @@ impact: "界定知识域人机协作职责"
 - 与自动化实验室：将高频检索与报告生成脚本化，记录在 `🧩 bmad` 与 `memory-bank/support_modules/knowledge/USEME.md`。
 
 ## 升级触发
+- 巡检发现 Inbox > 24h 堆积、frontmatter 缺失或脚本留存违规时，立即通报 Knowledge Lead 并在周志登记整改计划。
+- 涉及跨域方法论更新、市场档案大规模迁移，先提交 `/spec`，确认引用链与回写路径后执行。
+- 对外发布或对投资决策产生影响的报告，需完成业务/品牌复核并在 Summary 标记审批状态。
+
 - 遇到敏感信息、版权风险或跨部门决策，立即升级给 Knowledge Lead 并标记 `#需要人工介入`。
 - 对外公开稿件需经过法律/品牌审核并在 Summary 备注审批结论。
 - 发现知识空缺（无模板、无方法论）时，先立项补齐再继续执行。

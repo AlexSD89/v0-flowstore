@@ -1,6 +1,6 @@
 # CLAUDE.md · LaunchX 总路标
 
-最后更新：2025-10-11  
+最后更新：2025-10-23  
 参考：[@jserTang《让 AI coding 不再就近解决：如何在 monorepo 中建设 AI context》](https://juejin.cn/post/7540102683178123290)
 
 > 黄金法则：把 Claude Code 看成“天赋卓绝但失忆的合作者”。我们负责搭建外部记忆、Checklist 与 guardrails，让它先复用，再实现。
@@ -120,6 +120,47 @@ Claude Code 严格遵循以下五步工作流程：
 3. **优先复用 support_modules** – 避免重复造轮子，引用现有实现。
 4. **禁止 barrel 导入** – 所有导入必须指向具体文件。
 5. **涉及 UA / SSR / 性能** – 首先查阅 `common-ua`、`common-react-hooks`、`common-util`。
+
+### 🤖 Claude Skills生态系统 (新增2025-10-23)
+
+基于Claude Skills官方标准，Launch-X已构建完整的12个智能Skills生态系统，实现从静态知识到动态智能的转化。
+
+**🧠 Launch-X Skills生态系统定位**:
+- **基础模块**: Skills作为基础的能力单元，专注于特定功能
+- **Agent SDK**: 更高级的智能体框架，支持多技能协作
+- **协同关系**: Skills是构建Agent的基础组件，两者互补而非替代
+
+**📚 核心文档**:
+- [🧠 Launch-X Skills生态系统](../🧠%20Launch-X%20Skills生态系统/README.md) - 生态系统总览和12个Skills介绍
+- [📋 Skills生态系统指挥总则](../🧠%20Launch-X%20Skills生态系统/AGENTS.md) - Skills开发流程和质量标准
+- [📋 Skills开发协作指南](../🧠%20Launch-X%20Skills生态系统/CLAUDE.md) - Skills专用开发规范
+- [📚 Claude Skills官方标准学习](../🧠%20Launch-X%20Skills生态系统/📚%20Claude%20Skills官方标准学习.md) - 官方开发标准
+- [🔧 从零到一开发实战指南](../🟣%20knowledge/f_AI开发技巧/Claude%20Skills从零到一开发实战指南.md) - 完整开发教程
+
+**🚀 协作模式升级**:
+1. **技能复用**: 直接调用标准化的Skills处理特定任务
+2. **Agent编排**: 通过Agent SDK组合多个Skills完成复杂工作流
+3. **生态共享**: Skills可在项目间共享，Agent具备跨环境执行能力
+
+**💡 使用示例**:
+```bash
+# 商业决策支持
+/skill business-decision-support "分析这个AI项目的投资价值"
+
+# 企业研究分析
+/skill enterprise-research-analyst "对这家企业进行深度尽调"
+
+# 市场情报分析
+/skill market-intelligence-expert "分析当前AI市场趋势"
+
+# 知识管理
+/skill knowledge-master "整理本月知识内容并生成报告"
+```
+
+**🔄 工作流协同**:
+Skills可以智能协同完成复杂任务，如投资决策支持、企业咨询服务等，实现多技能自动编排和结果整合。
+
+> **详细指导**: 参考 [🧠 Launch-X Skills生态系统](../🧠%20Launch-X%20Skills生态系统/README.md) 了解完整的12个Skills功能和使用方法
 
 ### 📚 文档层次结构
 

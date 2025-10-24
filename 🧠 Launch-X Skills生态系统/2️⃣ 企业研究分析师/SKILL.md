@@ -1,3 +1,18 @@
+---
+title: 企业研究分析师 Skill 定义
+owners:
+- LaunchX Skills团队
+status: active
+last_update: '2025-10-24'
+related:
+- ./instructions.md
+- ./README.md
+source: 人工采集
+impact: 定义企业研究分析师技能的职责与调用方式
+tags:
+- enterprise-research
+---
+
 # 企业研究分析师
 
 ## 基本信息

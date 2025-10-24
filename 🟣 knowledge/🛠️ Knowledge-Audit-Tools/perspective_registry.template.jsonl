@@ -1,0 +1,26 @@
+{
+  "doc_path": "🟣 knowledge/02_分析与洞察/AI投资趋势分析.md",
+  "perspective_id": "ai-investment-forecast-2024",
+  "statement": "2024-2025 生成式AI资金将逆周期增长",
+  "timestamp": "2024-10-15",
+  "source_refs": [
+    "Stanford HAI 2024 AI Index",
+    "CB Insights Global Funding Report Q4"
+  ],
+  "predicted_metric": {
+    "type": "funding",
+    "unit": "USD",
+    "value": 50000000000
+  },
+  "status": "verified",
+  "evidence": [
+    "PitchBook Private Investment Pulse 2025Q3"
+  ],
+  "validators": [
+    "LaunchX Knowledge Lab"
+  ],
+  "weight": 0.8,
+  "follow_up_actions": [
+    "update with 2025Q4 funding data"
+  ]
+}

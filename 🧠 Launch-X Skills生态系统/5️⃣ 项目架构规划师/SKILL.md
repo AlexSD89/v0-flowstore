@@ -1,3 +1,18 @@
+---
+title: 项目架构规划师 Skill 定义
+owners:
+- LaunchX Skills团队
+status: active
+last_update: '2025-10-24'
+related:
+- ./instructions.md
+- ./README.md
+source: 人工采集
+impact: 定义项目架构规划师技能的职责与输出标准
+tags:
+- project-architecture
+---
+
 # 项目架构规划师
 
 ## 基本信息

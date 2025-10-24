@@ -1,0 +1,45 @@
+{
+  "test_case": "comprehensive_market_analysis",
+  "description": "完整市场分析流程测试预期输出",
+  "expected_structure": {
+    "executive_summary": {
+      "market_size": "number",
+      "growth_rate": "number",
+      "key_findings": "array",
+      "investment_recommendation": "string"
+    },
+    "detailed_analysis": {
+      "market_environment": "object",
+      "competitive_landscape": "object",
+      "trend_analysis": "object",
+      "opportunity_identification": "object"
+    },
+    "risk_assessment": {
+      "market_risks": "array",
+      "competitive_risks": "array",
+      "mitigation_strategies": "array"
+    },
+    "actionable_insights": {
+      "market_entry_strategies": "array",
+      "risk_management": "array",
+      "success_factors": "array"
+    }
+  },
+    "data_sources": ["array"],
+    "confidence_level": "string",
+    "quality_metrics": {
+      "data_completeness": "number",
+      "source_reliability": "number",
+      "methodology_appropriateness": "string"
+    },
+    "performance_metrics": {
+      "analysis_duration": "number",
+      "processing_speed": "string"
+    }
+  },
+  "metadata": {
+    "skill_version": "string",
+    "test_timestamp": "string",
+    "test_type": "functional"
+  }
+}

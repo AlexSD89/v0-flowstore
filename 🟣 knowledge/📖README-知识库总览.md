@@ -1,6 +1,24 @@
-# LaunchX 知识库总览
+---
+title: LaunchX 知识库总览
+last_update: '2025-10-24'
+owners:
+- LaunchX Knowledge Lab
+status: active
+impact: 统一知识域定位、工作流与治理节奏
+related:
+- 🟣 knowledge/README.md
+- 🟣 knowledge/AGENTS.md
+- 🟣 knowledge/CLAUDE.md
+- memory-bank/support_modules/knowledge/USEME.md
+source:
+- 知识域复查（2025-10-24）
+---
 
-版本：2025-10-11 · 维护：Knowledge Lab
+## 📋 执行摘要
+
+LaunchX 知识域围绕“判断 → 趋势 → 结论”闭环组织资产：`01_Inbox` 采集原始信号，`02_分析与洞察` 负责结构化加工，`03/07/08` 输出面向业务与外部的成品，并将成果回写 `09_周报月报` 与 `memory-bank`。2025Q4 的治理重点聚焦三点：① 清空 Inbox 与历史观点堆积并补齐引用链；② 用 `05_方法论中心`、`06_工作流模版与规范` 做执行手册，确保方法论与模板同步更新；③ 依托 `🛠️ Knowledge-Audit-Tools` 的脚本、清单建立周度巡检。当前市场档案、投资方法论、Skills 资料已形成索引，但仍需修复旧命名、规范脚本归属，并在 Summary 中声明“知识库索引已更新”以保持跨目录追溯。
+
+# LaunchX 知识库总览
 
 ## 1. 角色定位
 - **使命支撑**：为投资、企业服务、传播、内部运营提供数据、方法论、模板与案例。
@@ -32,27 +50,31 @@
 ## 4. 推荐工具与脚本
 - MCP：`tavily-remote-mcp`（实时搜索）、`jina-ai`（内容解析）、`media-crawler`（全平台素材）、`chart-server`（图表）、`knowledge-search`（本地检索）。
 - Python：位于 `study/tools/`（例如趋势分析、数据清洗脚本）。
-- Shell：`scripts/validate-ai-context.sh`、`scripts/ai-context-check.sh`（若存在时执行并更新日志）。
+- Shell：`scripts/validate-ai-context.sh`、`scripts/ai-context-check.sh`（如存在则执行并更新日志）。
 
-使用原则：先复用既有工具；输出图表或数据需标注脚本/命令、时间、来源。
+使用原则：优先复用既有工具；输出图表或数据需标注脚本/命令、时间、来源。
 
 ## 5. 质量与流程守则
-1. 采集阶段：记录来源、时间、可靠性等级。
-2. 分析阶段：按照 5 通道搜索流程执行（深入主题、相关领域、最新动态、专家观点、趋势信号）。
-3. 生成阶段：采用模板输出，写明验证方式与下一步建议。
-4. 归档阶段：在 README 与 `memory-bank/` 补充索引，必要时更新方法论。
+1. **采集**：记录来源、时间、可靠性等级，24 小时内决定“转入分析 / 废弃”。
+2. **分析**：对照 `05_方法论中心/📚 知识管理方法论/🟢_管理_观点复查方法论_V1.1_20251023.md` 执行五通道验证。
+3. **生成**：按模板输出，补齐 frontmatter、引用与验证说明。
+4. **归档**：在 README 与 `memory-bank` 回写索引，并在变更 Summary 中声明“知识库索引已更新”。
 
-> 详细流程与示例可参考 `05_方法论中心/AI_Context_实施方法论_掘金最佳实践_2025-10-14.md`。
+## 6. 维护责任与节奏
+- **知识库管理员**：把控目录结构、frontmatter 完整性，以及跨域引用的同步。
+- **贡献者**：提交产出时更新相关 README / 方法论，并补充回写说明。
+- **巡检例行**：每周运行 `🛠️ Knowledge-Audit-Tools/knowledge_audit.py` 并在 `09_周报月报` 登记结果；每月复查主题方法论与市场档案。
 
-## 6. 维护责任
-- **知识库管理员**：确保目录结构、frontmatter、索引保持最新。
-- **贡献者**：在 Summary 中说明“知识库已更新”并列出受影响文件；必要时在 `memory-bank/README.md` 中记录提示片段。
-- **审核周期**：每周一复查 pipeline、归档状态与 pending TODO。
+## 7. 近期优先事项（2025-10）
+1. 完成 `01_Inbox` 堆积稿件的归档或淘汰，并记录在 `perspective_registry.jsonl`。
+2. 更新 `02_分析与洞察` 与 `03_研究报告` 中的历史观点，补齐 2025 数据引用。
+3. 清理目录命名与脚本归属，形成例外说明或迁移计划。
+4. 在 `09_周报月报` 建立“知识复查周志”章节，追踪巡检与整改。
 
-## 7. 参考链接
-- 根级指挥：组织指挥总则、协作总览（CLAUDE）、`memory-bank/README.md`
-- 模块指南：`memory-bank/support_modules/knowledge/USEME.md`
-- 方法论与模板：`05_方法论中心/`、`06_工作流模版与规范/`
-- 研究成果：`03_研究报告/`、`07_市场项目档案/`、`08_知识传播与品牌/`
+## 8. 关键链接
+- 根级指挥与协作：`CLAUDE.md` · `README.md` · `AGENTS.md`
+- 操作手册：`05_方法论中心/` · `06_工作流模版与规范/` · `memory-bank/support_modules/knowledge/USEME.md`
+- 自动化工具：`🛠️ Knowledge-Audit-Tools/` · `📊 Bilibili视频数据/`
+- 业务资产：`c_AI投资研究/` · `07_市场项目档案/` · `08_知识传播与品牌/`
 
-如需新增流程或工具，请在 Summary 中说明“知识指挥体系已更新”，并同步本 README、`memory-bank/support_modules/knowledge/USEME.md` 与相关索引。***
+如需新增流程或工具，请在 Summary 中说明“知识指挥体系已更新”，并同步本文档、`memory-bank/support_modules/knowledge/USEME.md` 及相关索引。

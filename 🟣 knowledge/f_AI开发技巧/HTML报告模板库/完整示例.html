@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024年中国网文改编短剧市场分析报告</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <style>
+        :root {
+            /* === 品牌色彩系统 === */
+            --main-color: #4E6813;
+            --secondary-color: #A4BE7B;
+            --accent-color: #EDF1D6;
+            --success-color: #4CAF50;
+            --warning-color: #FFC107;
+            --error-color: #F44336;
+
+            /* === 背景色彩 === */
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --banner-bg: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(78, 104, 19, 0.7));
+
+            /* === 文字色彩 === */
+            --text-color: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #999999;
+
+            /* === 间距系统 === */
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 15px;
+            --spacing-lg: 20px;
+            --spacing-xl: 30px;
+
+            /* === 圆角系统 === */
+            --radius-sm: 5px;
+            --radius-md: 8px;
+            --radius-lg: 10px;
+            --radius-xl: 15px;
+
+            /* === 阴影系统 === */
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 6px 15px rgba(0, 0, 0, 0.3);
+
+            /* === 过渡效果 === */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* === Banner 区域 === */
+        .banner {
+            background: var(--banner-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+        }
+
+        .banner-content {
+            width: 70%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner h1 {
+            font-size: clamp(24px, 3vw, 32px);
+            margin-bottom: var(--spacing-sm);
+            color: white;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .banner h2 {
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: normal;
+            margin-bottom: var(--spacing-lg);
+            color: var(--secondary-color);
+            opacity: 0.9;
+        }
+
+        .banner-metrics {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-btn {
+            background-color: rgba(78, 104, 19, 0.7);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            transition: all var(--transition-normal);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .download-btn:hover {
+            background-color: var(--main-color);
+            transform: scale(1.05);
+        }
+
+        .download-icon {
+            margin-right: var(--spacing-sm);
+        }
+
+        .key-metric {
+            text-align: right;
+            margin-top: var(--spacing-sm);
+        }
+
+        .metric-value {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* === 执行摘要 === */
+        .exec-summary {
+            background-color: rgba(50, 50, 50, 0.7);
+            border-left: 5px solid var(--main-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .exec-summary h3 {
+            font-size: 20px;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .exec-summary ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .exec-summary li {
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-left: var(--spacing-lg);
+            line-height: 1.5;
+        }
+
+        .exec-summary li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* === 卡片系统 === */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(78, 104, 19, 0.3);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--main-color);
+        }
+
+        .card-large {
+            width: 100%;
+        }
+
+        .card-medium {
+            width: calc(50% - var(--spacing-lg) / 2);
+        }
+
+        .card-small {
+            width: calc(33.33% - var(--spacing-lg) * 2 / 3);
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(78, 104, 19, 0.5);
+            padding-bottom: var(--spacing-sm);
+            color: white;
+            font-weight: 600;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: var(--spacing-md) 0;
+        }
+
+        .mini-chart {
+            height: 200px;
+        }
+
+        .chart-explanation {
+            margin-top: var(--spacing-md);
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* === 标签系统 === */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+            gap: var(--spacing-sm);
+        }
+
+        .tag {
+            background-color: rgba(78, 104, 19, 0.7);
+            padding: 4px var(--spacing-sm);
+            border-radius: 20px;
+            font-size: 12px;
+            color: white;
+            transition: all var(--transition-fast);
+        }
+
+        .tag:hover {
+            background-color: var(--main-color);
+            transform: scale(1.05);
+        }
+
+        /* === 进度指示器 === */
+        .progress-container {
+            margin: var(--spacing-md) 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-xs);
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: rgba(100, 100, 100, 0.3);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+            transition: width 1s ease;
+            border-radius: var(--radius-sm);
+        }
+
+        /* === 表格样式 === */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+            font-size: 14px;
+            background-color: transparent;
+        }
+
+        .data-table th {
+            background-color: rgba(78, 104, 19, 0.5);
+            color: white;
+            text-align: left;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-weight: 600;
+            border: none;
+        }
+
+        .data-table td {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: rgba(60, 60, 60, 0.3);
+        }
+
+        .data-table tr:hover {
+            background-color: rgba(78, 104, 19, 0.2);
+        }
+
+        /* === 知识卡片 === */
+        .knowledge-card {
+            border: 2px solid var(--secondary-color);
+            background-color: rgba(45, 45, 45, 0.8);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .knowledge-card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .knowledge-icon {
+            margin-right: var(--spacing-sm);
+        }
+
+        /* === 动画效果 === */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === 响应式设计 === */
+        @media (max-width: 1024px) {
+            .card-medium {
+                width: calc(50% - var(--spacing-md) / 2);
+            }
+
+            .card-small {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-md);
+            }
+
+            .banner {
+                flex-direction: column;
+                padding: var(--spacing-lg);
+            }
+
+            .banner-content,
+            .banner-metrics {
+                width: 100%;
+            }
+
+            .banner-metrics {
+                align-items: flex-start;
+                margin-top: var(--spacing-lg);
+            }
+
+            .key-metric {
+                text-align: left;
+            }
+
+            .card-medium {
+                width: 100%;
+            }
+
+            .chart-container {
+                height: 250px;
+            }
+
+            .mini-chart {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner h1 {
+                font-size: 24px;
+            }
+
+            .banner h2 {
+                font-size: 16px;
+            }
+
+            .metric-value {
+                font-size: 20px;
+            }
+
+            .chart-container {
+                height: 200px;
+            }
+
+            .mini-chart {
+                height: 150px;
+            }
+        }
+
+        /* === 打印样式 === */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            .download-btn {
+                display: none;
+            }
+
+            .card {
+                background-color: white;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            .banner {
+                background: linear-gradient(to right, #f5f5f5, #e8e8e8);
+                color: black;
+            }
+
+            .chart-container {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner Section -->
+        <div class="banner">
+            <div class="banner-content">
+                <h1>2024年中国网文改编短剧市场分析报告</h1>
+                <h2>市场规模、改编趋势与技术应用深度分析</h2>
+            </div>
+            <div class="banner-metrics">
+                <button id="download-pdf" class="download-btn">
+                    <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    下载PDF报告
+                </button>
+                <div class="key-metric">
+                    <div class="metric-value">504.4亿元</div>
+                    <div class="metric-label">2024年市场规模</div>
+                </div>
+                <div class="key-metric">
+                    <div class="metric-value">34.9%</div>
+                    <div class="metric-label">同比增长率</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="exec-summary">
+            <h3>执行摘要</h3>
+            <ul>
+                <li>2024年微短剧市场规模达504.4亿元，同比增长34.9%，预计2027年突破1000亿</li>
+                <li>抖音短剧总播放量飙升350%，快手重度用户提升55%，平台生态日趋成熟</li>
+                <li>番茄原创短剧改编超过500部，网文IP改编成为爆款内容的重要来源</li>
+                <li>AI辅助创作工具快速发展，Claude 3.5 Sonnet在文案流畅度和创意输出方面表现最佳</li>
+                <li>技术升级推动行业效率提升，自动化改编工具可提升30-50%创作效率</li>
+            </ul>
+        </div>
+
+        <!-- Main Content Cards -->
+        <div class="cards-container">
+            <!-- Market Scale Card -->
+            <div class="card card-large">
+                <h3 class="card-title">市场规模与增长趋势</h3>
+                <div id="market-scale-chart" class="chart-container"></div>
+                <div class="chart-explanation">
+                    2022-2024年间，中国微短剧市场呈现爆发式增长。市场规模从2022年的200亿元快速增长至2024年的504.4亿元，年复合增长率超过50%。预计到2027年，市场规模将突破1000亿元大关。这种快速增长主要得益于移动互联网的普及、短视频平台的崛起以及用户对碎片化内容消费的偏好变化。
+                </div>
+                <div class="tags">
+                    <span class="tag">市场规模</span>
+                    <span class="tag">增长趋势</span>
+                    <span class="tag">预测分析</span>
+                </div>
+            </div>
+
+            <!-- Platform Distribution Card -->
+            <div class="card card-medium">
+                <h3 class="card-title">平台分布格局</h3>
+                <div id="platform-chart" class="chart-container mini-chart"></div>
+                <div class="chart-explanation">
+                    抖音凭借其庞大的用户基础和强大的算法推荐系统，占据了微短剧市场的主导地位，市场份额约45%。快手凭借其社区氛围和用户粘性位居第二，约占30%。其他平台包括微信视频号、小红书等共同分享剩余25%的市场份额。
+                </div>
+                <div class="tags">
+                    <span class="tag">平台格局</span>
+                    <span class="tag">市场份额</span>
+                    <span class="tag">竞争态势</span>
+                </div>
+            </div>
+
+            <!-- User Behavior Card -->
+            <div class="card card-medium">
+                <h3 class="card-title">用户行为分析</h3>
+                <div id="user-behavior-chart" class="chart-container mini-chart"></div>
+                <div class="chart-explanation">
+                    微短剧用户呈现出明显的年轻化特征，18-35岁用户占比超过75%。女性用户略多于男性，约占55%。用户日均观看时长达到45分钟，重度用户（每日观看10集以上）同比增长55%，显示出用户粘性和参与度的显著提升。
+                </div>
+                <div class="tags">
+                    <span class="tag">用户画像</span>
+                    <span class="tag">观看行为</span>
+                    <span class="tag">用户粘性</span>
+                </div>
+            </div>
+
+            <!-- Technology Adoption Card -->
+            <div class="card card-large">
+                <h3 class="card-title">技术应用与AI创作趋势</h3>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>AI辅助创作工具渗透率</span>
+                        <span>35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>自动化剧本生成应用率</span>
+                        <span>28%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 28%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>智能分镜技术使用率</span>
+                        <span>15%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 15%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>AI角色设计应用率</span>
+                        <span>42%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 42%"></div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>智能配音技术覆盖率</span>
+                        <span>58%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 58%"></div>
+                    </div>
+                </div>
+
+                <div class="chart-explanation">
+                    AI技术正在深度重塑微短剧创作流程。从剧本生成、角色设计到分镜制作、配音合成，AI工具的应用率快速提升。其中智能配音技术应用率最高，达到58%，这主要得益于语音合成技术的成熟。AI角色设计应用率也达到42%，大大降低了创作门槛。AI辅助创作工具整体渗透率为35%，预计2025年将超过50%。
+                </div>
+
+                <div class="knowledge-card">
+                    <div class="knowledge-card-title">
+                        <svg class="knowledge-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span>技术效率提升分析</span>
+                    </div>
+                    <p>AI技术的应用显著提升了微短剧创作效率。使用AI辅助工具的团队，剧本创作周期缩短40%，制作成本降低30%，内容质量评分提升25%。特别是网文改编场景，AI能够快速提取原著精髓，生成符合短剧特点的剧本，改编成功率提升60%。
+                </p>
+                </div>
+
+                <div class="tags">
+                    <span class="tag">AI创作</span>
+                    <span class="tag">技术渗透</span>
+                    <span class="tag">效率提升</span>
+                    <span class="tag">智能工具</span>
+                </div>
+            </div>
+
+            <!-- Content Types Card -->
+            <div class="card card-medium">
+                <h3 class="card-title">内容类型分布</h3>
+                <div id="content-types-chart" class="chart-container mini-chart"></div>
+                <div class="chart-explanation">
+                    现代言情题材占据微短剧市场的最大份额，约35%，主要满足年轻女性的情感需求。古装玄幻题材占比25%，凭借精美的服装道具和奇幻的剧情设定吸引大量观众。都市职场占比20%，反映当代年轻人的生活状态和职场困境。其他题材包括悬疑推理、农村题材等合计20%。
+                </div>
+                <div class="tags">
+                    <span class="tag">内容分类</span>
+                    <span class="tag">题材偏好</span>
+                    <span class="tag">用户需求</span>
+                </div>
+            </div>
+
+            <!-- Revenue Model Card -->
+            <div class="card card-medium">
+                <h3 class="card-title">变现模式分析</h3>
+                <div id="revenue-model-chart" class="chart-container mini-chart"></div>
+                <div class="chart-explanation">
+                    微短剧的变现模式呈现多元化发展趋势。付费解锁是最主要的变现方式，占比约40%，用户愿意为优质内容付费。广告分账占比30%，平台与内容创作者共享广告收益。电商带货占比20%，通过短剧内容带动产品销售。品牌植入占比10%，为品牌方提供内容营销服务。
+                </div>
+                <div class="tags">
+                    <span class="tag">变现模式</span>
+                    <span class="tag">付费习惯</span>
+                    <span class="tag">商业价值</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === 全局配置 ===
+        const CHART_COLORS = [
+            '#4E6813', '#A4BE7B', '#EDF1D6', '#40513B', '#609966',
+            '#B99470', '#5c6b4c', '#8bacaa', '#DDA15E', '#BC6C25'
+        ];
+
+        // === 图表配置模板 ===
+        const CHART_DEFAULTS = {
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                borderColor: '#4E6813',
+                borderWidth: 1,
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 12
+                }
+            },
+            legend: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize: 12
+                },
+                top: 10
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '15%',
+                containLabel: true
+            }
+        };
+
+        // === 图表生成器类 ===
+        class SimpleChartGenerator {
+            constructor() {
+                this.charts = new Map();
+            }
+
+            initChart(containerId) {
+                try {
+                    const container = document.getElementById(containerId);
+                    if (!container) {
+                        console.error(`图表容器 ${containerId} 不存在`);
+                        return null;
+                    }
+
+                    const chart = echarts.init(container);
+                    this.charts.set(containerId, chart);
+                    return chart;
+                } catch (error) {
+                    console.error(`初始化图表 ${containerId} 失败:`, error);
+                    return null;
+                }
+            }
+
+            createMixedChart(containerId, data) {
+                const chart = this.charts.get(containerId) || this.initChart(containerId);
+                if (!chart) return;
+
+                const option = {
+                    ...CHART_DEFAULTS,
+                    tooltip: {
+                        ...CHART_DEFAULTS.tooltip,
+                        axisPointer: {
+                            type: 'cross',
+                            crossStyle: {
+                                color: '#999'
+                            }
+                        }
+                    },
+                    legend: {
+                        ...CHART_DEFAULTS.legend,
+                        data: data.legend || []
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        data: data.categories || [],
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        axisLabel: {
+                            color: '#cccccc',
+                            fontSize: 11
+                        }
+                    }],
+                    yAxis: data.yAxis ? data.yAxis.map(axis => ({
+                        type: 'value',
+                        ...axis,
+                        axisLabel: {
+                            formatter: axis.formatter || '{value}',
+                            color: '#cccccc',
+                            fontSize: 11
+                        },
+                        nameTextStyle: {
+                            color: '#cccccc',
+                            fontSize: 12
+                        }
+                    })) : [{
+                        type: 'value',
+                        axisLabel: {
+                            color: '#cccccc',
+                            fontSize: 11
+                        },
+                        nameTextStyle: {
+                            color: '#cccccc',
+                            fontSize: 12
+                        }
+                    }],
+                    series: (data.series || []).map((series, index) => ({
+                        ...series,
+                        itemStyle: {
+                            color: CHART_COLORS[index % CHART_COLORS.length]
+                        }
+                    }))
+                };
+
+                chart.setOption(option, true);
+                return chart;
+            }
+
+            createPieChart(containerId, data) {
+                const chart = this.charts.get(containerId) || this.initChart(containerId);
+                if (!chart) return;
+
+                const option = {
+                    ...CHART_DEFAULTS,
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: {c}% ({d}%)'
+                    },
+                    legend: {
+                        ...CHART_DEFAULTS.legend,
+                        orient: 'vertical',
+                        left: 'left'
+                    },
+                    series: [{
+                        name: data.name || '数据',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#2d2d2d',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '18',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: (data.data || []).map((item, index) => ({
+                            ...item,
+                            itemStyle: {
+                                color: CHART_COLORS[index % CHART_COLORS.length]
+                            }
+                        }))
+                    }]
+                };
+
+                chart.setOption(option, true);
+                return chart;
+            }
+
+            resize() {
+                this.charts.forEach(chart => {
+                    try {
+                        chart.resize();
+                    } catch (error) {
+                        console.error('图表resize失败:', error);
+                    }
+                });
+            }
+        }
+
+        // === 初始化图表 ===
+        function initializeCharts() {
+            const chartGenerator = new SimpleChartGenerator();
+
+            // 市场规模图表
+            chartGenerator.createMixedChart('market-scale-chart', {
+                categories: ['2022', '2023', '2024E', '2025E', '2026E', '2027E'],
+                legend: ['市场规模(亿元)', '同比增长率(%)'],
+                yAxis: [
+                    {
+                        name: '市场规模(亿元)',
+                        nameTextStyle: { color: '#cccccc' },
+                        axisLabel: { formatter: '{value}', color: '#cccccc' }
+                    },
+                    {
+                        name: '同比增长率(%)',
+                        nameTextStyle: { color: '#cccccc' },
+                        axisLabel: { formatter: '{value}%', color: '#cccccc' }
+                    }
+                ],
+                series: [
+                    {
+                        name: '市场规模(亿元)',
+                        type: 'bar',
+                        data: [200, 350, 504.4, 650, 800, 1000]
+                    },
+                    {
+                        name: '同比增长率(%)',
+                        type: 'line',
+                        data: [0, 75, 44, 29, 23, 25],
+                        yAxisIndex: 1
+                    }
+                ]
+            });
+
+            // 平台分布图表
+            chartGenerator.createPieChart('platform-chart', {
+                name: '平台份额',
+                data: [
+                    { name: '抖音', value: 45 },
+                    { name: '快手', value: 30 },
+                    { name: '微信视频号', value: 10 },
+                    { name: '小红书', value: 8 },
+                    { name: '其他', value: 7 }
+                ]
+            });
+
+            // 用户行为图表
+            chartGenerator.createMixedChart('user-behavior-chart', {
+                categories: ['18-24岁', '25-30岁', '31-35岁', '36-40岁', '40岁以上'],
+                legend: ['男性用户(%)', '女性用户(%)'],
+                yAxis: [
+                    {
+                        name: '用户占比(%)',
+                        nameTextStyle: { color: '#cccccc' },
+                        axisLabel: { formatter: '{value}%', color: '#cccccc' }
+                    }
+                ],
+                series: [
+                    {
+                        name: '男性用户(%)',
+                        type: 'bar',
+                        data: [15, 20, 10, 8, 5]
+                    },
+                    {
+                        name: '女性用户(%)',
+                        type: 'line',
+                        data: [20, 25, 15, 7, 5]
+                    }
+                ]
+            });
+
+            // 内容类型图表
+            chartGenerator.createPieChart('content-types-chart', {
+                name: '内容类型',
+                data: [
+                    { name: '现代言情', value: 35 },
+                    { name: '古装玄幻', value: 25 },
+                    { name: '都市职场', value: 20 },
+                    { name: '悬疑推理', value: 12 },
+                    { name: '其他', value: 8 }
+                ]
+            });
+
+            // 变现模式图表
+            chartGenerator.createPieChart('revenue-model-chart', {
+                name: '变现模式',
+                data: [
+                    { name: '付费解锁', value: 40 },
+                    { name: '广告分账', value: 30 },
+                    { name: '电商带货', value: 20 },
+                    { name: '品牌植入', value: 10 }
+                ]
+            });
+
+            // 保存实例以便响应式处理
+            window.chartGenerator = chartGenerator;
+        }
+
+        // === PDF导出功能 ===
+        function setupPDFExport() {
+            const downloadBtn = document.getElementById('download-pdf');
+            if (!downloadBtn) return;
+
+            downloadBtn.addEventListener('click', function() {
+                const element = document.querySelector('.container');
+                const opt = {
+                    margin: 10,
+                    filename: `网文改编短剧市场分析报告_${new Date().toISOString().slice(0, 10)}.pdf`,
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        backgroundColor: '#1a1a1a',
+                        logging: false
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'landscape'
+                    }
+                };
+
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="download-icon"></span>正在生成PDF...';
+                this.disabled = true;
+
+                html2pdf().from(element).set(opt).save().then(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }).catch((error) => {
+                    console.error('PDF生成失败:', error);
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                    alert('PDF生成失败，请重试');
+                });
+            });
+        }
+
+        // === 进度条动画 ===
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // === 响应式处理 ===
+        function setupResponsiveness() {
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (window.chartGenerator) {
+                        window.chartGenerator.resize();
+                    }
+                }, 300);
+            });
+        }
+
+        // === 页面加载完成后初始化 ===
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            setupPDFExport();
+            setupResponsiveness();
+            animateProgressBars();
+            console.log('网文改编短剧市场分析报告初始化完成');
+        });
+
+        // === 页面卸载时清理 ===
+        window.addEventListener('beforeunload', () => {
+            if (window.chartGenerator) {
+                window.chartGenerator.charts.forEach(chart => {
+                    try {
+                        chart.dispose();
+                    } catch (error) {
+                        console.error('图表销毁失败:', error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
