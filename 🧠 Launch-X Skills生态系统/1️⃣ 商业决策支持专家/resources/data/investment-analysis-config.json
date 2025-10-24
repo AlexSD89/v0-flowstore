@@ -1,0 +1,190 @@
+{
+  "config_version": "1.0.0",
+  "analysis_framework": {
+    "name": "Launch-X投资分析方法论",
+    "version": "v2.4",
+    "description": "基于Launch-X验证的投资分析框架"
+  },
+  "evaluation_criteria": {
+    "weights": {
+      "market_potential": 0.25,
+      "team_quality": 0.20,
+      "technology_advantage": 0.20,
+      "business_model": 0.15,
+      "financial_metrics": 0.20
+    },
+    "scoring_thresholds": {
+      "excellent": 90,
+      "good": 80,
+      "average": 70,
+      "below_average": 60
+    }
+  },
+  "risk_assessment": {
+    "risk_categories": [
+      "market_risk",
+      "technology_risk",
+      "financial_risk",
+      "operational_risk",
+      "regulatory_risk",
+      "team_risk"
+    ],
+    "risk_levels": {
+      "low": { "max_score": 20, "color": "#10B981" },
+      "medium_low": { "max_score": 40, "color": "#84CC16" },
+      "medium": { "max_score": 60, "color": "#F59E0B" },
+      "medium_high": { "max_score": 80, "color": "#EF4444" },
+      "high": { "max_score": 100, "color": "#DC2626" }
+    }
+  },
+  "investment_stages": {
+    "种子轮": {
+      "typical_investment": "50-200万",
+      "expected_equity": "10-20%",
+      "typical_valuation": "500-2000万",
+      "success_rate": 0.10,
+      "expected_return": "10-30x"
+    },
+    "Pre-A轮": {
+      "typical_investment": "200-1000万",
+      "expected_equity": "5-15%",
+      "typical_valuation": "2000-10000万",
+      "success_rate": 0.25,
+      "expected_return": "5-15x"
+    },
+    "A轮": {
+      "typical_investment": "1000-5000万",
+      "expected_equity": "3-10%",
+      "typical_valuation": "1-5亿",
+      "success_rate": 0.40,
+      "expected_return": "3-10x"
+    },
+    "B轮": {
+      "typical_investment": "5000万-2亿",
+      "expected_equity": "2-8%",
+      "typical_valuation": "5-20亿",
+      "success_rate": 0.60,
+      "expected_return": "2-8x"
+    }
+  },
+  "industry_benchmarks": {
+    "AI教育": {
+      "average_mrr_multiple": "24-36x",
+      "typical_growth_rate": "15-25%",
+      "average_ltv_cac_ratio": "3:1",
+      "typical_net_margin": "20-40%"
+    },
+    "SaaS": {
+      "average_mrr_multiple": "30-48x",
+      "typical_growth_rate": "10-20%",
+      "average_ltv_cac_ratio": "5:1",
+      "typical_net_margin": "25-45%"
+    },
+    "电商": {
+      "average_revenue_multiple": "2-4x",
+      "typical_growth_rate": "20-40%",
+      "average_ltv_cac_ratio": "2:1",
+      "typical_net_margin": "15-35%"
+    },
+    "硬件": {
+      "average_revenue_multiple": "3-6x",
+      "typical_growth_rate": "15-30%",
+      "average_ltv_cac_ratio": "1.5:1",
+      "typical_net_margin": "10-25%"
+    }
+  },
+  "financial_metrics": {
+    "roi_thresholds": {
+      "minimum_acceptable": 15,
+      "good": 25,
+      "excellent": 40
+    },
+    "irr_thresholds": {
+      "minimum_acceptable": 20,
+      "good": 30,
+      "excellent": 50
+    },
+    "payback_period": {
+      "maximum_acceptable": 60,
+      "good": 36,
+      "excellent": 24
+    }
+  },
+  "market_analysis": {
+    "market_size_categories": {
+      "niche": "小于10亿",
+      "small": "10-100亿",
+      "medium": "100-1000亿",
+      "large": "1000-10000亿",
+      "huge": "大于10000亿"
+    },
+    "growth_rate_categories": {
+      "declining": "小于0%",
+      "slow": "0-10%",
+      "moderate": "10-20%",
+      "fast": "20-40%",
+      "hyper": "大于40%"
+    }
+  },
+  "team_evaluation": {
+    "founder_experience_weight": 0.30,
+    "technical_team_weight": 0.25,
+    "business_team_weight": 0.25,
+    "industry_network_weight": 0.20,
+    "experience_levels": {
+      "junior": 2,
+      "mid": 5,
+      "senior": 10,
+      "expert": 15
+    }
+  },
+  "technology_assessment": {
+    "innovation_score_factors": [
+      "patent_portfolio",
+      "technical_difficulty",
+      "scalability",
+      "defensibility",
+      "network_effects"
+    ],
+    "maturity_levels": {
+      "concept": 0.2,
+      "prototype": 0.4,
+      "mvp": 0.6,
+      "product": 0.8,
+      "platform": 1.0
+    }
+  },
+  "reporting": {
+    "output_formats": ["markdown", "json", "pdf"],
+    "include_sections": [
+      "executive_summary",
+      "market_analysis",
+      "team_evaluation",
+      "technology_assessment",
+      "financial_analysis",
+      "risk_assessment",
+      "investment_recommendation",
+      "action_items"
+    ],
+    "quality_checks": {
+      "minimum_data_completeness": 0.7,
+      "require_source_validation": true,
+      "enable_cross_reference": true
+    }
+  },
+  "automation": {
+    "data_sources": [
+      "company_database",
+      "market_research",
+      "financial_data",
+      "team_background",
+      "technology_analysis"
+    ],
+    "update_frequency": "weekly",
+    "alert_thresholds": {
+      "score_change": 10,
+      "risk_increase": 20,
+      "opportunity_score": 85
+    }
+  }
+}

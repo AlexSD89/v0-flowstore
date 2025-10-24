@@ -43,6 +43,9 @@ python study/tools/report_generator.py --config configs/weekly.yaml
 
 # 社交媒体抓取
 uv run main.py --platform xhs --lt qrcode --type search --keywords "AI投资" --save_data_option sqlite
+
+# 知识治理巡检
+python "🛠️ 系统管理/memory-bank/support_modules/knowledge/tools/knowledge_audit.py"
 ```
 - 搜索 / 抓取：`tavily-remote-mcp`、`jina-ai`、`media-crawler`
 - 图表：`chart-server`、`quickchart`
