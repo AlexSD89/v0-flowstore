@@ -46,3 +46,4 @@ impact: "明确业务域人机分工与节奏"
 - **Kit 输出位置**：运行 `/spec`、`/plan`、`/do` 生成脚本时，草稿统一写入 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，严禁直接落在根目录或业务目录。
 - **审阅归档**：经 Business Lead / Brand 审核通过后 24 小时内迁移至对应正式目录（如 `study/specs/`、`plans/`、`Ⅱ_对外业务/`），并更新 frontmatter `status`、`last_update`。
 - **索引同步**：归档后同步更新本目录 `README.md`、Summary 及关联 `memory-bank` 索引，确保跨域检索与责任人追溯。
+- **信息策略**：涉及方案、案例、客户数据的内容以本地资料为准，外部引用仅作对照，需标注来源与适用差异；详见 `📖README-LaunchX系统总体指南.md` 第 8 节。

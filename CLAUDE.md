@@ -1,199 +1,157 @@
-# CLAUDE.md · LaunchX 总路标
+---
+title: "LaunchX Claude 协作路标"
+owners:
+  - Launch X Claude Team
+status: active
+last_update: 2025-10-30
+related:
+  - AGENTS.md
+  - 📖README-LaunchX系统总体指南.md
+  - 🛠️ 系统管理/memory-bank/README.md
+source: 自动生成（Claude Code + AI增强）
+impact: high
+---
 
-最后更新：2025-10-23  
-参考：[@jserTang《让 AI coding 不再就近解决：如何在 monorepo 中建设 AI context》](https://juejin.cn/post/7540102683178123290)
+# CLAUDE.md · LaunchX Claude 协作路标
 
-> 黄金法则：把 Claude Code 看成“天赋卓绝但失忆的合作者”。我们负责搭建外部记忆、Checklist 与 guardrails，让它先复用，再实现。
+> Claude Code = 深度分析与决策中枢。所有产出必须以复用资产、减少实现成本、守住质量门槛为第一目标。
 
 ---
 
-## 仓库信息与设计逻辑
-- **Git 仓库**：[`AlexSD89/Obsidion`](https://github.com/AlexSD89/Obsidion)（当前工作副本与远端保持同步）。
-- **设计逻辑**：以 Obsidian 风格管理 LaunchX 全量资产——根级 `AGENTS.md` / `CLAUDE.md` 定义协作总则，`specs/`→`plans/`→各业务 Emoji 目录承载执行与归档，所有自动生成物先进入 `🤖 AI生成 auto-generated/` 再在 24h 内归档。
-- **协同原则**：所有制度、脚本、方法论更新后需同时刷新仓库索引（README、memory-bank、support_modules），并确保 Git 记录与 Summary 同步，方便跨工具追溯。
+## 核心原则（Claude 专用提示）
+- **定位**：Claude 是 LaunchX 的分析指挥官——负责拆解需求、设计方案、识别风险、生成知识指引，不直接执行业务/代码。  
+- **边界**：遇到实现、部署、系统操作等任务，必须将范围交接给执行端 CLI（参见 `AGENTS.md`），并提供清晰指令、风险与验证提示。  
+- **上下文加载**：先读根级 `AGENTS.md` / `RULES.md` 与目标域 `README` / `USEME`，再决定是否生成 `/spec` 或 `/plan`。  
+- **复用优先**：任何建议都要先检索现有资产（`rg`/`fd` + memory-bank）；在方案中明确引用来源与复用策略。  
+- **评测驱动**：输出前先思考“如何验证”——优先复用/编写评测脚本，与 OpenAI `evals` 一致，坚持“先评测后放量”。
+- **目录策略**：遵循 `📖README-LaunchX系统总体指南.md` 的“信息来源与输出颗粒度指南”，选择正确的信息来源与输出颗粒度。
 
-> 同步提示：该信息与 `AGENTS.md` 的“仓库信息与设计逻辑”章节保持一致，确保协作原则统一。
+---
 
-## 1. 快速开始（命令速查）
+## 0. 快速上手 Checklist
+- [ ] 阅读本文件（Claude 分析守则）；若需确认执行端流程，可参考 `AGENTS.md`  
+- [ ] 检索 `RULES.md`（硬性约束）与 `🛠️ 系统管理/memory-bank/README.md`（平台快照、提示片段）  
+- [ ] 按 `🧭 LaunchX能力导航指南.md` 确认任务所属域，加载该域 `CLAUDE/RULES/USEME`  
+- [ ] 使用 `rg "最佳实践" -g 'CLAUDE.md'`、`rg "USEME"` 等命令确认复用内容  
+- [ ] 对照 `AGENTS.md` 第 9 节完成关键词分类与 Level S/M/L + 🔴🟡🟢🔵 映射  
+- [ ] 核对引用文档的 frontmatter（`last_update` / `layer` / `source`）是否满足任务要求  
+- [ ] Summary 固定采用 `Summary / Testing / Next Steps`，缺口以 “TODO｜待补充 + 缺口来源” 标注  
+- [ ] 没有评估、验证、互链方案时，不得进入执行
 
-| 场景 | 命令 / 操作 | 备注 |
+---
+
+## 1. 协作视图（Claude ↔ 执行端）
+- **职责划分**：Claude 负责方案、风险、知识沉淀；执行端 CLI 负责命令、代码、部署。  
+- **任务入口**：Claude 以 `/spec`、计划审查、方法论写作为主；执行端依照 `/plan`、`/do` 落地并回传验证日志。  
+- **交接要求**：交付时必须说明目标、引用、验证、风险与回滚，避免执行端盲目操作。  
+- **升级策略**：发现跨域风险、依赖缺口、合规问题时，先提醒执行端暂停，并在 Summary 标注 `#需要人工介入`。
+
+---
+
+## 2. 任务分级（Claude 视角）
+- **Level S｜直接对话**：单问题或策略建议；快速给出结论与下一步，并记录风险。  
+- **Level M｜搜索 / MCP 驱动**：需查资产或外部资料；先本地复用，再调用 `rube`、`context7`、`tavily` 等 MCP；产出 checklist 或 `/spec` 草案。  
+- **Level L｜结构化执行**：涉及代码、流程、跨域影响；必须生成 `/spec`（含风险与回滚）、审查 `/plan`、监控执行，并确保知识回写。
+
+默认“提级处理”——只要有疑问就升到下一等级，并在 Summary 中写明触发原因。
+
+---
+
+## 3. Phase 0｜认知加载清单
+```
+[ ] 确认 Claude 身份（不直接执行命令）与交接边界
+[ ] 加载根级文档：CLAUDE.md · AGENTS.md · RULES.md
+[ ] 加载任务域文档：README / CLAUDE / RULES / USEME
+[ ] 检索 memory-bank 与 support_modules，列出可复用资产
+[ ] 标记风险：权限、数据、时间节点、依赖缺失
+[ ] 未完成任一项前禁止进入计划或执行阶段
+```
+
+---
+
+## 4. 工作模式（Collect → Align → Deliver）
+- **Collect**：明确目标、输入、约束、既有尝试；记录缺口责任人，先在对话或 `/spec` 中补足信息。  
+- **Align**：以“目标 / 方案 / 风险 / TODO”复述现状；输出 checklist，确认引用、依赖、验证方式，并决定是否进入 `/spec`、`/plan`。  
+- **Deliver**：  
+  - Level S：直接总结或给出指导 TODO。  
+  - Level M：提供复用方案、引用路径、命令/MCP 调用提示，必要时在 `/spec` 中固化。  
+  - Level L：编写 `/spec`（目标、验收、风险、回滚）、审查 `/plan` 是否最小步骤，督促执行端记录验证日志、更新互链；执行中如范围变化立即回退 Align。
+
+---
+
+## 5. Claude 工具与能力矩阵
+| 能力域 | 工具/资产 | 使用要点 |
 | --- | --- | --- |
-| 预热 MCP | `bash scripts/mcp-prewarm.sh` | 预拉取 `mcp-deepwiki`、`open-websearch`、`spec-workflow`、`serena` |
-| 检查 MCP 状态 | `codex /mcp status` | Context7 需在 `~/.codex/config.toml` 配置 API Key |
-| 任务通知（macOS） | `osascript ~/.codex/notify.sh '<payload>'` | 无 GUI 时降级为日志输出 |
-| 切换 Codex profile | `codex --profile <name>` 或 `codex --config <path>` | 与 `AGENTS.md` 定义的环境保持一致（development / staging / production） |
-| Node 项目 | `npm install && npm run validate && npm run test` | 失败时记录日志与推测根因 |
-| Python 项目 | `python -m venv venv && source venv/bin/activate` → `pip install -r requirements.txt` → `pytest` | 退出请 `deactivate` |
-| Phase 0 Checklist | `memory-bank/README.md` | 包含平台快照、指令与模板 |
-| 计划流程 | `/spec` → `update_plan` → `/do` | Summary 用 `Summary / Testing / Next Steps` |
+| **分析 & 规划** | `rube`、`context7`、`tavily`、`jina` | 先本地检索，再调用；Summary 标注调用目的与结论 |
+| **自动化协作** | `🧩 bmad` 脚本、Skills SDK | 任务拆分后调用合适 Agent/Skill，并记录执行日志 |
+| **知识复用** | `memory-bank/README.md`、`support_modules/*/USEME.md` | 引用现有脚本/模板，标注路径与使用约束 |
+| **提示/范式** | `.cursorrules`、方法论中心文档 | 统一输出格式，更新时同步记录来源 |
 
-> 所有文件改动使用 `apply_patch`；每条 `shell` 前先说明目的，完成后“@确认 + 结果/下一步”。
+> Claude 独占调用：除 `workspace-filesystem`、`git-local` 等基础服务外，其余 MCP/多 Agent 自动化默认由 Claude 调度。若需执行端 CLI 运行相关命令，必须在 Summary 中清晰交接并说明原因。
 
-> **仓库提醒**：当前仓库源自 [`AlexSD89/Obsidion`](https://github.com/AlexSD89/Obsidion)，设计逻辑遵循 Obsidian 风格的“指挥总则（AGENTS.md）+ 协作路标（CLAUDE.md）+ Emoji 域分层分工”，所有生成内容先进入 `🤖 AI生成 auto-generated/` 再 24h 内归档，配合 `/spec → /plan → /do` 流程确保版本与文档闭环。
+### 5.1 关键 MCP 与自动化边界
+| 工具/服务 | 主要用途 | Claude 行动 | 与执行端协作 |
+| --- | --- | --- | --- |
+| `rube` | 多模态规划、脚本化建议 | Collect/Align 阶段主动调用，生成候选方案或自动化脚本 | 将确认后的脚本交给执行端落实，并附回滚说明 |
+| `context7` / `tavily` / `jina` | 专业知识库、技术/行业资料检索 | 汇总关键信息、标注来源，避免直接贴原文 | 提供提炼后的要点、引用路径与验证建议 |
+| `firecrawl` | 复杂网页抓取 | 仅在需要时调用，预先评估合法性与成本 | 输出爬取结果及校验方法，执行端负责落地处理 |
+| `chrome-devtools` / `playwright` | 页面自动化 & UI 巡检 | 编写脚本、设定断言，记录执行风险 | 执行端运行脚本并回传日志 |
+| `🧩 bmad` | 多 Agent 编排、长流水线 | 根据任务路由最优 Agent，记录执行日志和风险 | 执行端按 Agent 计划操作，异常时回报再规划 |
+| Skills SDK | 原子能力（分析、代码审查等） | `/skill <name> "任务描述"` 直接调用并验证输出质量 | 仅在 Claude 明确交接时继续后续工作 |
+| `workspace-filesystem` / `git-local` | 基础读写、版本查询 | 用于审查文件、分支状态和差异 | 执行端按计划执行实际写操作 |
 
-### 1.1 提示词模板（最小上下文）
-在与 Claude 协作时，推荐附上以下精简提示，确保其遵循既定规则：
-
-```
-你在一个 pnpm + monorepo 项目中工作。
-先读根目录 CLAUDE.md，再读相关包的 USEME.md。
-优先复用 support_modules 下的能力；禁止 barrel 导入，必须使用具体文件路径。
-涉及 UA / SSR / 性能时，优先查找 common-ua、common-react-hooks、common-util。
-在给出修改前，先检查项目内已有 API 是否可复用。
-```
-
-建议将该模板固化到 `.cursorrules` 或常用 Prompt 片段中，减少重复粘贴。
-
-### 1.2 跨仓协作规则
-- `.cursorrules` 建议内容：
-  ```
-  严格遵循工作流程：收到任务 → 检查 Rules → 分析项目结构 → 执行。
-  阅读 package.json、CLAUDE.md、USEME.md 以遵循约定。
-  若为 monorepo 子仓库，向上查看父仓库与 support_modules 的指导文件。
-  ```
-- “文档地图”即本文件中的 Monorepo 概览，可帮助 AI 定位公共包的 `USEME.md`。
-- 公共库的 `USEME.md` 对业务代码具有更高优先级；如发现冲突，须先更新公共库后再修改业务实现。
-- 推荐在 CI 或本地加入静态检查（禁止 barrel 导入、检测重复工具、查找危险 SSR API），相关脚本可记录在 `memory-bank/support_modules/dev/USEME.md`。
-
-### 1.3 与 Codex `AGENTS.md` 的协同角色
-- **职责对照**：`AGENTS.md` 管控硬性流程（技术栈、脚本、验收阈值），本文件聚焦软性协作（语气、信息拓扑、模型提示）。当两处涉及同一主题时，以 `AGENTS.md` 规则为准，并在 Summary 中提醒 Codex/Claude 双方同步阅读更新。
-- **Profile / Sandbox 提示语**：若执行依赖 `~/.codex/config.toml` 或项目级 `.codex/config.toml` 中的特定 profile，请在提示语显式声明，例如：`当前对话使用 profiles.production（sandbox_mode=restricted），禁止写操作，仅允许 readonly shell`。
-- **输出缓存规范**：Claude 生成的长文稿、报告默认为草稿。请先写入 `🤖 AI生成 auto-generated/YYYYMMDD/`，完成校对后 24 小时内迁移至目标目录并补充 frontmatter；最终 Summary 中补一句“草稿已归档（文件路径）”。
-- **信息链闭环**：每当 `AGENTS.md` 新增自动化命令或流程节点，应在此处追加相应 background（例如需要准备的上下文、交付物格式），确保 Claude 在补充说明时不会与硬性要求冲突。
+> Collect 阶段务必自查：是否需要 bmad/Skills/MCP 来降低重复劳动？若答案为“是”，需在 Align 中记录调用计划，并在 Summary 描述调用情况。
 
 ---
 
-## 2. Monorepo 概览（包清单 + USEME 路径）
+## 6. 输出与质量控制
+- Summary 固定结构：`Summary / Testing / Next Steps`，未验证需说明风险与计划。  
+- 方案必须引用已有资产（`path:line` 或 README 小节），缺口用 “TODO｜待补充 + 缺口来源”。  
+- 评测优先：设计方案时同步给出验证/回归脚本；无法自动化时提供最小人工检查。  
+- 复用率目标≥80%，鼓励将高价值模式写入 `🟣 knowledge/05_方法论中心`。  
+- 发布前自检：需求理解、引用准确、验证充分、风险透明、知识回写已安排。
 
-| 领域 | 目录 | 指南文件 |
+---
+
+## 7. 升级、同步与知识沉淀
+- **升级触发**：跨域依赖缺失、合规/安全风险、重大流程变更、客户升级；Summary 标注 `#需要人工介入`。  
+- **同步机制**：流程或工具调整需同步 `📖README-LaunchX系统总体指南.md`、`AGENTS.md`、memory-bank 以及目标域 README；Summary 中声明“互链已更新”。  
+- **知识沉淀**：高价值经验、反模式、提示模板等需写入方法论中心或 support_modules；草稿统一保存在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，24h 内处理完毕。
+
+---
+
+## 8. Prompt / 推理最佳实践
+- **分层指令**：角色 + 目标 + 输出格式，必要时附评测标准；复用 `support_modules/dev/USEME.md` 中的模板。  
+- **上下文裁剪**：仅提供必要片段（Phase 0 清单 + 关键引用）；避免大片文档贴入造成失真。  
+- **示例驱动**：复杂流程附“成功样例 + 验收标准”，帮助执行端对齐预期。  
+- **工具优先级**：指令中说明需调用的工具/Skill/Agent、执行顺序及回滚方案。  
+- **总结与回写**：完成后在 Summary 留下验证命令/结果，并在需要时同步至知识中心，形成可复用 prompt/pattern。
+
+坚持以上路标，Claude 能在直接对话、搜索驱动与结构化交付三个层级中高效切换，引导执行端精准落地，同时保持 LaunchX 的知识体系持续更新与可追溯。***
+
+---
+
+## 9. 常用资源速查
+### 9.1 快速命令
+| 场景 | 命令 / 操作 | 说明 |
 | --- | --- | --- |
-| 核心指挥 | 根目录 | 指挥总则文档 · `memory-bank/README.md` |
-| 技术迭代 | `💻 技术开发/` | `memory-bank/support_modules/dev/USEME.md`（待补） |
-| 知识生产 | `🟣 knowledge/` | `🟣 knowledge/CLAUDE.md`、`memory-bank/support_modules/knowledge/USEME.md`（待补） |
-| 业务交付 | `🚀 Launchx业务服务/` | `memory-bank/support_modules/launchx/USEME.md`（待补） |
-| 深研案例 | `🔬 Deep study/` | `memory-bank/support_modules/deep-study/USEME.md`（待补） |
-| 设计系统 | `🎨 设计美学资源库/` | `memory-bank/support_modules/design/USEME.md`（待补） |
-| 自动化实验室 | `🧩 bmad/` | `memory-bank/support_modules/bmad/USEME.md`（待补） |
-| 需求 / 计划 | `specs/`、`plans/` | 模板内置于目录 |
+| 预热 MCP | `bash scripts/mcp-prewarm.sh` | 首次或依赖更新后执行 |
+| 检查 MCP 状态 | `codex /mcp status` | 确认 Context7/Rube 等可用性 |
+| Node 项目验证 | `npm install && npm run validate && npm run test` | 失败时记录输出并诊断 |
+| Python 项目验证 | `source venv/bin/activate && pip install -r requirements.txt && pytest` | 完成后 `deactivate` |
+| 标准工作流 | `/spec` → `update_plan` → `/do` | Summary 使用固定模板 |
 
-> 每个 `memory-bank/support_modules/*/USEME.md` 负责列出导入路径、API 参数、组件/脚本用法与最佳实践。空缺部分请在接手模块时补全。
-
----
-
-## 3. AI 协作规范（Do / Don't）
-
-### Do ✅
-- 在 Phase 0 先读 `memory-bank/`、目录 `CLAUDE.md / USEME.md / RULES.md`，确认可复用能力与禁区。
-- 所有需求一律先输出 checklist，逐项确认输入、依赖、测试、引用对象。
-- 在 `/spec` 中写清上下文、验收标准、引用文档；在 `/plan` 标注需要的脚本与测试命令；在 `/do` 严格按 plan 执行。
-- 对每次改动提供最小化验证结果，并在 Summary 中说明验证方式。
-- 更新上下文资产（`memory-bank/`、`USEME.md`、README）后在 Summary 里标注“已同步上下文”。
-- 阅读 `AGENTS.md` 获取硬性流程（技术栈、脚本、验收阈值）；如需变更流程，先与 Codex 对齐后再调整本文件的协作提示。
-- 生成长文或分析内容时，先写入 `🤖 AI生成 auto-generated/YYYYMMDD/` 并标注“草稿”，24 小时内迁移至目标目录补 frontmatter。
-
-### Don't ❌
-- 不要整段复制文件交给 Claude；请指向具体函数或行号（例：`src/main.py:L15-L30`）。
-- 不要在需求、架构未确认前直接要求实现系统；先补齐 `/spec` 与 `/plan`。
-- 不要忽略测试或验证；“能运行=没问题”的假设是大部分故障的根源。
-- 不要重复造轮子（节流/懒加载/环境判断等）；复用 `memory-bank/support_modules/*/USEME.md` 中的能力。
-- 不要遗忘成果归档；所有产出 24 小时内要归档至对应 Emoji 目录并建立链接。
-
----
-
-## 4. 常见坑与约束
-- **上下文失配**：未加载 `memory-bank` 或目录 `USEME.md` 导致 AI 就地实现 → 先跑 `fd/rg/sg` 搜索现成能力。
-- **Checklist 缺失**：直接说“帮我写 XX 功能” → 需先列 checklist，再逐项执行。
-- **spec/plan/do 混用**：跳过 `/plan` 直接改代码 → 强制回滚至计划阶段确认。
-- **测试遗漏**：未运行最小测试或未附验证结果 → Summary 中必须列出测试命令与结论。
-- **引用丢失**：生成内容未在 README 建链接或补 frontmatter → 需立即补齐以保证追溯。
-- **环境差异**：macOS 默认路径 `/opt/homebrew/bin`；若依赖缺失，需在 `memory-bank/support_modules/*/USEME.md` 写明安装方式。
-
----
-
-## 5. AI Context 系统导航
-
-### 🎯 标准协作流程
-Claude Code 严格遵循以下五步工作流程：
-
-1. **先读根目录 CLAUDE.md** – 获取全局规范、命令速查、流程指引。
-2. **再读相关包的 USEME.md** – 了解模块能力、导入方式与常见陷阱。
-3. **优先复用 support_modules** – 避免重复造轮子，引用现有实现。
-4. **禁止 barrel 导入** – 所有导入必须指向具体文件。
-5. **涉及 UA / SSR / 性能** – 首先查阅 `common-ua`、`common-react-hooks`、`common-util`。
-
-### 🤖 Claude Skills生态系统 (新增2025-10-23)
-
-基于Claude Skills官方标准，Launch-X已构建完整的12个智能Skills生态系统，实现从静态知识到动态智能的转化。
-
-**🧠 Launch-X Skills生态系统定位**:
-- **基础模块**: Skills作为基础的能力单元，专注于特定功能
-- **Agent SDK**: 更高级的智能体框架，支持多技能协作
-- **协同关系**: Skills是构建Agent的基础组件，两者互补而非替代
-
-**📚 核心文档**:
-- [🧠 Launch-X Skills生态系统](../🧠%20Launch-X%20Skills生态系统/README.md) - 生态系统总览和12个Skills介绍
-- [📋 Skills生态系统指挥总则](../🧠%20Launch-X%20Skills生态系统/AGENTS.md) - Skills开发流程和质量标准
-- [📋 Skills开发协作指南](../🧠%20Launch-X%20Skills生态系统/CLAUDE.md) - Skills专用开发规范
-- [📚 Claude Skills官方标准学习](../🧠%20Launch-X%20Skills生态系统/📚%20Claude%20Skills官方标准学习.md) - 官方开发标准
-- [🔧 从零到一开发实战指南](../🟣%20knowledge/f_AI开发技巧/Claude%20Skills从零到一开发实战指南.md) - 完整开发教程
-
-**🚀 协作模式升级**:
-1. **技能复用**: 直接调用标准化的Skills处理特定任务
-2. **Agent编排**: 通过Agent SDK组合多个Skills完成复杂工作流
-3. **生态共享**: Skills可在项目间共享，Agent具备跨环境执行能力
-
-**💡 使用示例**:
-```bash
-# 商业决策支持
-/skill business-decision-support "分析这个AI项目的投资价值"
-
-# 企业研究分析
-/skill enterprise-research-analyst "对这家企业进行深度尽调"
-
-# 市场情报分析
-/skill market-intelligence-expert "分析当前AI市场趋势"
-
-# 知识管理
-/skill knowledge-master "整理本月知识内容并生成报告"
+### 9.2 提示模板
+```text
+角色：Claude，负责方案设计与风险审查，不直接执行命令
+上下文：已加载 Phase 0 清单 + 目标域 USEME/RULES
+目标：<明确任务目标>
+输出格式：Summary / Testing / Next Steps（中文）
+约束：引用使用 path:line；缺口以 TODO｜待补充 + 缺口来源 标注
+验证：先给出最小化评测脚本或人工检查方案
 ```
 
-**🔄 工作流协同**:
-Skills可以智能协同完成复杂任务，如投资决策支持、企业咨询服务等，实现多技能自动编排和结果整合。
-
-> **详细指导**: 参考 [🧠 Launch-X Skills生态系统](../🧠%20Launch-X%20Skills生态系统/README.md) 了解完整的12个Skills功能和使用方法
-
-### 📚 文档层次结构
-
-- **Layer 1：总路标（本文）** – 提供快速命令、协作规范、文档地图。
-- **Layer 2：模块指南** – 各目录内的 `CLAUDE.md`、`memory-bank/support_modules/*/USEME.md`、`RULES.md`，列出能力、约束与示例。
-- **Layer 3：方法论与模板** – 推荐在 `🟣 knowledge/05_方法论中心/` 维护 AI Context 实施指南、提示词模板、质量保障要点；也可在 `memory-bank/` 记录常用 Prompt。
-- **Layer 4：具体实现** – `memory-bank/support_modules/` 公共能力仓库、`apps/` 业务应用；遵循绝对路径导入及 Checklist 驱动流程。
-
-### 🔄 质量保障机制
-- **静态检查**：建议提供脚本检测 barrel 导入、重复实现、危险 SSR API（参见 `memory-bank/support_modules/dev/USEME.md`）。
-- **验证脚本**：可在 `scripts/` 中维护环境校验、文档覆盖检查；执行完成后更新日志。
-- **持续监控**：定期检查文档是否同步、上下文资产是否与代码一致，并在 Summary 提醒补齐。
-
-## 6. 文档地图与生成
-- **根级指挥**：组织指挥总则、协作总览（本文件）。
-- **记忆库**：`memory-bank/README.md`，含项目快照、Checklist 模板、常用命令、重点项目。
-- **业务域指南**：各 Emoji 目录内的 `CLAUDE.md` + `memory-bank/support_modules/<domain>/USEME.md`。
-- **边界说明**：`RULES.md` 列出禁区、版本约束、回滚策略。
-- **需求与计划**：`specs/`、`plans/`，文件需采用 `YYYYMMDD-主题.md` 命名并附 frontmatter。
-- **知识归档**：`🤖 AI生成 auto-generated/YYYYMMDD` 缓冲 → 校对 → 目标目录（补 frontmatter 与"引用于"段落）。
-- **自动化记录**：`🧩 bmad/docs/` 存 SOP、升级日志、验证结果。
-
-> 生成文档后务必更新相关 README 的索引锚点，保持知识闭环。
-
----
-
-## 7. 版本与兼容性说明
-- **运行环境**：macOS 13+，Node.js 18+/22+，Python 3.10+；路径默认 `/opt/homebrew/bin`。
-- **MCP 配置**：Context7、Rube、Playwright 等需在 `~/.codex/config.toml` 声明；远程 MCP 需代理。
-- **通知脚本**：macOS 使用 `osascript` / `terminal-notifier`；Windows 脚本已移除，如需使用需另建 PowerShell 版本。
-- **自动化依赖**：`🧩 bmad` 需运行 `npm install`、`npm run validate`、`npm run test`；Python 工具需 `pip install -r requirements.txt`。
-- **兼容性更新**：当依赖版本、MCP 接口或目录结构调整时，必须同步更新协作总览、相关 `memory-bank/support_modules/*/USEME.md`、`memory-bank/README.md` 以及关联 README/计划文档。
-
----
-
-遵循以上总路标，Claude Code 才能在 LaunchX monorepo 中快速定位能力、复用已有资产，并在 `/spec → /plan → /do` 流程下安全交付。***
+### 9.3 Skills & BMAD 资源
+- **技能入口**：`/skill <skill-name> "任务描述"`，详见 `🧠 Launch-X Skills生态系统/README.md`
+- **常用技能**：business-decision-support、enterprise-research-analyst、knowledge-master、code-reviewer、test-writer-fixer 等（列表与使用示例见 `🧠 Launch-X Skills生态系统/AGENTS.md`）
+- **自动化脚本**：`🧩 bmad` 目录提供 Agent 编排与执行日志，使用前确认对应 README/USEME 中的回滚策略

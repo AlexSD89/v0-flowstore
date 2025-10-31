@@ -17,7 +17,6 @@ title: 知识域总览
 
 ## 📋 执行摘要
 
-<<<<<<< HEAD
 治理综述、优先事项与巡检节奏集中维护在 `📖README-知识库总览.md`。本文件提供目录导航、操作指引入口以及与其他域的接口说明，进入知识域工作前请先阅读 `CLAUDE.md`、`RULES.md` 与上述总览文档。
 
 # 知识域总览
@@ -40,7 +39,10 @@ title: 知识域总览
 | `07_市场项目档案` | 项目档案与估值分析 |
 | `08_知识传播与品牌` | 内容资产、品牌策略、传播计划 |
 | `09_周报月报` | 周期性复盘与趋势日志 |
-| `c_ / d_ / e_` | 专题研究集群（AI 投资、迭代优化、技术趋势） |
+| `c_AI投资研究` | AI投资专项研究集群 |
+| `d_claude code 使用研究库` | Claude Code使用研究与方法论沉淀 |
+| `e_AI技术栈趋势研究` | AI技术栈趋势跟踪与分析 |
+| `f_AI开发技巧` | AI开发技巧与最佳实践 |
 
 ## 工作流对照
 0. **草稿缓冲**：`🤖 AI生成 auto-generated/日期` 暂存生成内容，24 小时内完成校对与迁移。
@@ -51,9 +53,6 @@ title: 知识域总览
 
 ## 自动化巡检
 
-- 执行 `python3 "🟣 knowledge/🛠️ Knowledge-Audit-Tools/knowledge_audit.py"` 生成治理巡检报告。
-- 报告保存于 `🟣 knowledge/🛠️ Knowledge-Audit-Tools/`（JSONL + Markdown），供周报与整改看板引用。
-=======
 - 执行 `python3 "🛠️ 系统管理/memory-bank/support_modules/knowledge/tools/knowledge_audit.py"` 快速生成治理巡检报告。
 - 报告保存于 `🛠️ 系统管理/memory-bank/support_modules/knowledge/reports/`，包含 Markdown 与 JSON，供周报与整改看板引用。
 
@@ -66,17 +65,12 @@ title: 知识域总览
 - **设计域**：协同视觉化模板、品牌风格与传播素材。
 - **自动化实验室**：与 `🧩 bmad` 协作，将重复性采集和报告生成沉淀为脚本并记录使用指南。
 
-<<<<<<< HEAD
-- 遇到敏感信息、跨域决策或需要脚本支持时，在 Summary 中标记“#需要人工介入”，并同步 Knowledge Lead。
+- 遇到敏感信息、跨域决策或需要脚本支持时，在 Summary 中标记"#需要人工介入"，并同步 Knowledge Lead。
 - 快速入口：`📖README-知识库总览.md`（治理/任务）、`CLAUDE.md`（执行指南）、`RULES.md`（质量门槛）、`memory-bank/support_modules/knowledge/USEME.md`（工具与字段说明）。
 
-
+## 快速导航
 - `memory-bank/support_modules/knowledge/USEME.md`：常用检索脚本、标签体系、引用规范。
 - `CLAUDE.md`：五通道执行细则与质量门槛。
 - `📖README-知识库总览.md`：治理与优先任务概览。
 - `memory-bank/README.md`：跨域提示、任务模板。
-<<<<<<< HEAD
 - `02_分析与洞察/02_综合洞察/20251023-历史观点复查与趋势共性.md`：观点复查结果与待补数据清单。
-=======
-- `02_分析与洞察/02_综合洞察/20251023-历史观点复查与趋势共性.md`：观点复查结果与待补数据清单。
->>>>>>> a4c0d42015874ecd06f7f922c116dc5b41a2bac0

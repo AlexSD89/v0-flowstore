@@ -52,3 +52,5 @@ impact: "统筹业务交付与客户协同"
 - `memory-bank/support_modules/launchx/USEME.md`：提案模板、客户调研问卷、交付清单。
 - `CLAUDE.md`：业务域 AI 协作流程。
 - `memory-bank/README.md`：历史项目列表、快速提示片段。
+
+> 📌 **信息来源与输出要求**：本目录以本地客户案例、项目资料与复盘报告为准，外部资料仅作 benchmark，需注明来源与差异。文档更新时遵循 `📖README-LaunchX系统总体指南.md` 和 `RULES.md` 的信息颗粒度指南，所有 AI 草稿须先经过质量审核再正式归档。
