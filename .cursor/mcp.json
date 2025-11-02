@@ -1,0 +1,165 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "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"
+      },
+      "description": "Basic web content fetching and retrieval"
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-8158e62e4f954b8b86117a9249fd07cf"
+      },
+      "description": "Advanced web scraping and content extraction"
+    },
+    "jina": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "jina-mcp-tools"
+      ],
+      "env": {
+        "JINA_API_KEY": "jina_6e538c6492f2444197ee64397d7a4ca5CyXFjgbwy_VQ1NT2iwbf5x6RvPYM"
+      },
+      "description": "Intelligent content parsing and document analysis"
+    },
+    "hotnews": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wopal/mcp-server-hotnews"
+      ],
+      "description": "Real-time trending topics from major platforms"
+    },
+    "tavily": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "tavily-mcp"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "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"
+      },
+      "description": "Real-time web search and market research for LaunchX platform"
+    },
+    "workspace-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/dangsiyuan/Documents/obsidion/launch x"
+      ],
+      "description": "LaunchX workspace file system access"
+    },
+    "shadcn-ui": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@jpisnice/shadcn-ui-mcp-server"
+      ],
+      "description": "Shadcn/ui component library access for consistent UI development"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Browser automation and UI testing"
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "description": "Up-to-date code documentation and library references"
+    },
+    "git-local": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@cyanheads/git-mcp-server",
+        "--repository",
+        "/Users/dangsiyuan/Documents/obsidion/launch x"
+      ],
+      "description": "Local Git repository operations for LaunchX"
+    },
+    "filesystem-shtse": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@shtse8/filesystem-mcp"
+      ],
+      "description": "Enhanced file system operations with project-aware features"
+    },
+    "gemini-cli": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "gemini-mcp-tool"
+      ],
+      "description": "Google Gemini AI integration for advanced analysis and brainstorming"
+    },
+    "ant-design": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "antd-mcp-server"
+      ],
+      "description": "Ant Design component library access for enterprise UI development"
+    },
+    "rube": {
+      "type": "http",
+      "url": "https://rube.app/mcp",
+      "description": "Rube MCP - 海外SaaS集成服务，内置VPN功能"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ],
+      "description": "Chrome DevTools integration for browser debugging"
+    },
+    "web-search-prime": {
+      "type": "http",
+      "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "Bearer 720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
+      },
+      "description": "Web search prime service"
+    },
+    "zai-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@z_ai/mcp-server"
+      ],
+      "env": {
+        "Z_AI_API_KEY": "720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
+      },
+      "description": "Z AI MCP server"
+    },
+    "xiaohongshu-mcp": {
+      "url": "http://localhost:18060/mcp",
+      "description": "小红书内容分析和趋势监测MCP服务器 - LaunchX专用"
+    },
+    "xiaohongshu": {
+      "command": "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64",
+      "args": [
+        "-headless=true"
+      ],
+      "description": "小红书内容分析和趋势监测MCP服务器 - LaunchX专用（直接执行）"
+    }
+  }
+}
+
