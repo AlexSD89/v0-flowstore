@@ -120,6 +120,9 @@ mcp_config_standardized.json
 *.mov
 *.avi
 
+# 允许特定目录下的图片文件
+!.playwright-mcp/*.png
+
 # 文档文件（可选，根据需要调整）
 *.pdf
 *.docx
