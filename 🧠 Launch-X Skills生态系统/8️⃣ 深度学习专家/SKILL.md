@@ -1,6 +1,11 @@
-<<<<<<< HEAD
 ---
+name: deep-learning-expert
 title: 深度学习专家 Skill 定义
+description: 覆盖模型架构、训练优化与部署实务的深度学习指导技能，支撑学习路径与项目实施。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active
@@ -252,8 +257,4 @@ tags:
 **技能版本**: v1.0.0
 **更新日期**: 2025-10-24
 **维护团队**: Launch-X深度学习专家组
-<<<<<<< HEAD
 **技术支持**: 基于Launch-X AI开发经验构建
-=======
-**技术支持**: 基于Launch-X AI开发经验构建
->>>>>>> a4c0d42015874ecd06f7f922c116dc5b41a2bac0

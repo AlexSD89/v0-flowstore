@@ -1,5 +1,11 @@
 ---
+name: invested-enterprise-portrait-master
 title: 被投企业画像分析大师 Skill 定义
+description: 聚焦投资场景的企业画像技能，整合多维指标完成价值评估、风险识别与决策支持。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

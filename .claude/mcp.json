@@ -204,6 +204,20 @@
       "env": {
         "Z_AI_API_KEY": "720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
       }
+    },
+    "xiaohongshu": {
+      "command": "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64",
+      "args": [
+        "-headless=true"
+      ],
+      "autoApprove": [
+        "xhs_search_content",
+        "xhs_analyze_trending",
+        "xhs_get_user_profile",
+        "xhs_monitor_keywords",
+        "xhs_analyze_sentiment"
+      ],
+      "description": "小红书内容分析和趋势监测MCP服务器 - LaunchX专用"
     }
   }
 }

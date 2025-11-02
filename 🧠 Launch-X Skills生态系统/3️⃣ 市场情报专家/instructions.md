@@ -25,6 +25,9 @@
 - 整合🟣 knowledge/e_AI技术栈趋势研究/ 的技术洞察
 - 收集市场数据和行业报告
 - 监控竞争对手动态
+- 读取 `./resources/data/market-intelligence-config.json` 以锁定默认分析维度
+- 参考 `./resources/docs/api_design_guide.md` 的指标说明与术语约定
+- 对照 `./resources/examples/market_analysis_sample.md` 校验输出结构
 
 ### 第三步：趋势分析
 - 分析当前市场发展状况
@@ -37,6 +40,7 @@
 - 分析新技术带来的商业机会
 - 评估市场进入时机和策略
 - 提供具体的行动建议
+- 输出前复核 `./resources/templates` 下的模板（若缺失则 `TODO｜待补充 + 责任人`），保持格式一致
 
 ## 知识激活策略
 

@@ -66,24 +66,27 @@ impact: high
 
 ---
 
-## 2. 任务分级决策树
-- **Level S｜直接对话**  
-  条件：问题单一、无需写文件或执行命令。  
+## 2. 任务分级决策树 - 思维清晰度升级版
+- **Level S｜直接对话**
+  条件：问题单一、无需写文件或执行命令。
   行动：口头确认需求 → 给出答案或轻量建议 → Summary 记录结论与风险。
-- **Level M｜搜索 / MCP 驱动**  
-  条件：需要查找资料、比对资产或生成方案草稿。  
-  行动：  
-  1. 检索本地资产（`rg` / `find`）→ 复用 `memory-bank/support_modules`。  
-  2. 通过 MCP（优先 `rube`、`context7` 等）获取额外建议；若 `rube` 未就绪，记录阻塞并参考 `🛠️ 系统管理/memory-bank/Codex-Claude-配置指南.md` 申请配置。  
-  3. 输出包含引用来源与复用路径的 checklist，再执行。  
+  - **思维要求**：1-2句话说明推理依据，结论清晰可追溯
+- **Level M｜搜索 / MCP 驱动**
+  条件：需要查找资料、比对资产或生成方案草稿。
+  行动：
+  1. 检索本地资产（`rg` / `find`）→ 复用 `memory-bank/support_modules`。
+  2. 通过 MCP（优先 `rube`、`context7` 等）获取额外建议；若 `rube` 未就绪，记录阻塞并参考 `🛠️ 系统管理/memory-bank/Codex-Claude-配置指南.md` 申请配置。
+  3. 输出包含引用来源与复用路径的 checklist，再执行。
   结果写入 Summary，并记录使用的工具、命令。
-- **Level L｜结构化交付**  
-  条件：涉及多步实现、代码修改、跨域影响或风险较高。  
-  行动：  
-  1. `/spec`：在 `specs/` 下描述目标、验收、引用资产、风险 / 回滚。  
-  2. `/plan`：在 `plans/` 下拆解步骤 ≤3 个，保持 `update_plan` 同步，单一 `in_progress`。  
-  3. `/do`：严格按计划执行，范围变化立即回到 `/plan` 或 `/spec`。  
-  4. 验证 → Summary（含测试命令、日志路径）→ README / memory-bank 回写。  
+  - **思维要求**：简版方案对比（至少2个选项），说明选择理由
+- **Level L｜结构化交付**
+  条件：涉及多步实现、代码修改、跨域影响或风险较高。
+  行动：
+  1. `/spec`：在 `specs/` 下描述目标、验收、引用资产、风险 / 回滚。
+  2. `/plan`：在 `plans/` 下拆解步骤 ≤3 个，保持 `update_plan` 同步，单一 `in_progress`。
+  3. `/do`：严格按计划执行，范围变化立即回到 `/plan` 或 `/spec`。
+  4. 验证 → Summary（含测试命令、日志路径）→ README / memory-bank 回写。
+  - **思维要求**：完整思维分析 + 多方案对比 + 详细决策依据  
 
 遇到 Level 模糊时，默认提级处理。高风险事件（安全、合规、客户升级、预算超支）立即升级至域负责人并标注 `#需要人工介入`。
 
@@ -105,15 +108,19 @@ impact: high
 
 ---
 
-## 4. 执行流程（Collect → Align → Deliver）
+## 4. 工作模式（Collect → Model → Compare → Align → Deliver → Archive）
 - **Collect**：梳理目标、约束、依赖、已尝试方案；标注缺口责任人。任何未确认信息留在对话或 `/spec`，暂不写入文档。  
-- **Align**：用“目标 / 方案 / 风险 / TODO 草案”结构复述现状，输出 checklist 并确认引用、依赖、验证方式后，再进入 `/spec` 或 `/plan`。  
-- **Deliver**：严格按 `/plan` 执行；使用 `apply_patch` 做最小改动；执行中保持 `update_plan` 最新，范围变化或新增风险立即回退 Align。
+- **Model**：思维透明化环节——按照《思维透明化决策闭环工作法》拆分问题、列出关键假设与推理链[[🟣 knowledge/05_方法论中心/🛠️ 技术开发方法论/专项方法论/思维透明化决策闭环工作法.md:1]]。  
+- **Compare**：形成方案对比——至少两个可选路径，说明优劣、风险、验证与回滚策略，给出推荐理由。  
+- **Align**：用“目标 / 方案 / 风险 / TODO”结构复述现状，确认依赖、责任人与回滚方案后，再进入 `/spec` 或 `/plan`。  
+- **Deliver**：严格按 `/plan` 执行；使用 `apply_patch` 做最小改动；执行中保持 `update_plan` 最新，范围变化或新增风险立即回退 Align，并同步验证日志。  
+- **Archive**：在 Summary 中记录决策链路、测试结果、互链更新；完成 README / memory-bank 回写与开放问题分派。
 
 操作准则：
 - **命令说明**：每个 shell 命令前说明目的，失败时保留输出与假设，必要时提请重试。  
 - **搜索顺序**：`fd`（若不可用则 `find`）→ `rg` → `sg`，排除 `.git`、`node_modules`、`dist` 等噪音目录。  
 - **复用优先**：优先调用 `memory-bank/support_modules`、`🧩 bmad` 现有脚本，禁止重复造轮子。  
+- **思维透明化**：Level M/L 任务必须提交 Model 与 Compare 产出，并在 Align 前完成审阅确认。  
 - **计划粒度**：`update_plan` 最多 3 步，保持单一 `in_progress`，完成即勾选。  
 - **验证优先**：所有改动必须提供最小化验证。涉及 AI 输出或关键业务逻辑时，优先复用或编写评测脚本，遵循 OpenAI `evals`“先评测再迭代”的实践。
 
@@ -126,6 +133,7 @@ impact: high
 - **引用闭环**：引用现有资产或外部资料时标注 `path:line` 或 README 小节；新增互链需同步 memory-bank 与相关 README（🛠️ 系统管理/memory-bank/README.md:5）。  
 - **验证记录**：在 Summary 中写明测试命令、脚本或人工检查步骤；无法验证时说明风险与补救。  
 - **草稿治理**：AI 草稿统一保存在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，24h 内迁移或删除并在 Summary 标注处理结果。
+- **思维产出**：Level M/L 任务的 Summary 必须附上 Model/Compare 摘要或链接，说明推理链条与方案取舍。
 
 ## 6. 工具与资源矩阵
 | 工具/资产 | 用途 | 使用说明 |

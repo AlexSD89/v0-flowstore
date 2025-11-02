@@ -111,6 +111,49 @@ requires_openai_auth = true
 - `max_file_size`: 单文件大小限制
 - `exclude_patterns`: 排除的文件模式
 
+### 2.3 快速模板：高风险一键配置（需按需启用）
+
+来自 Vibe Sparking 文章《Codex 的常用选项放到配置文件》，适合临时需要“全自动 + 全权限”场景（例如只读仓库的批量检查）。**默认不要长期使用**；启用前请确认仓库可信、命令安全。
+
+```toml
+# 推理相关
+model = "gpt-5-codex"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+
+# 审批与执行策略
+approval_policy = "never"          # 自动执行，无需确认
+
+# 沙箱与网络
+sandbox_mode = "danger-full-access" # 几乎无隔离，慎用
+network_access = true               # 允许联网
+
+# Shell 环境策略
+[shell_environment_policy]
+inherit = "all"                     # 继承全部环境变量
+ignore_default_excludes = false     # 保留默认屏蔽清单
+```
+
+**风险提示**
+- `sandbox_mode = "danger-full-access"` 会绕过 Codex 默认的 workspace 保护；完成高危操作后记得切回安全模式（如 `workspace-write`）。
+- `approval_policy = "never"` 会跳过人工确认，执行 `rm -rf` 等命令前务必手动改为 `on-request` 或 `on-failure`。
+
+**位置选择**
+- 标准：`~/.codex/config.toml`
+- XDG 规范：`~/.config/codex/config.toml`
+
+**语法自检**
+
+```bash
+python - <<'PY'
+import tomllib, pathlib
+path = pathlib.Path('~/.codex/config.toml').expanduser()
+with path.open('rb') as f:
+    tomllib.load(f)
+print("TOML OK:", path)
+PY
+```
+
 ---
 
 ## 3. Claude Code 配置
@@ -172,6 +215,17 @@ Claude Code 进入仓库时会加载该文件中的守则与上下文模板，�
 - 所有变更需附最小化测试或验证日志。
 - 遇到不确定实现时先使用 `fd` / `rg` / `sg` 定位既有方案。
 - 按照 Phase 0 → `/spec` → `/plan` → `/do` 的节奏推进任务。
+
+### 3.5 技能资产 (`~/.claude/skills`)
+
+- **Codex-ClaCode 联动技能**：安装路径 `~/.claude/skills/codex/SKILL.md`，内容来源 `🧠 Launch-X Skills生态系统/codex-claudecode协作/SKILL.md`。  
+  - 默认遵循 LaunchX Guardrails，禁止裸用 `--yolo` / `danger-full-access`，需在 Summary 留痕并获审批后才可启用。  
+  - 调用前完成 `Collect → Align`，依据任务等级选择沙箱与推理力度，并在 `Summary / Testing / Next Steps` 中记录命令与日志。  
+- 更新技能时务必同步本指南与 `🧠 Launch-X Skills生态系统/codex-claudecode协作/README.md`，保持互链闭环。
+- **常态技能（2025-10-31 迁移）**：已将以下技能同步至 `~/.claude/skills/<slug>/`，可直接通过 `/skill <slug> "<任务>"` 调用：  
+  `business-decision-support` · `enterprise-research-analyst` · `market-intelligence-expert` · `knowledge-master` · `project-architect` · `technical-design-expert` · `cognitive-strategy-master` · `gate-os-enterprise-expert` · `deep-learning-expert` · `invested-enterprise-portrait-master` · `git-collaboration-expert`。  
+  - 源文件保留在 `🧠 Launch-X Skills生态系统/<目录>/`，后续更新需同步本地安装版本。  
+  - 个别技能（如 `deep-learning-expert`）仍含未清理的冲突标记，请在调用前完成内容修复。
 
 ---
 

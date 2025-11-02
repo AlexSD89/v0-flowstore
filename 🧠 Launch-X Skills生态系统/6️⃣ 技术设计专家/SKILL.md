@@ -1,5 +1,11 @@
 ---
+name: technical-design-expert
 title: 技术设计专家 Skill 定义
+description: 面向系统架构与代码模式的设计技能，输出选型评估、分层方案与实施准则。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

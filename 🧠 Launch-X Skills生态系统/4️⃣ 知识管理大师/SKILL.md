@@ -1,5 +1,11 @@
 ---
+name: knowledge-management-master
 title: 知识管理大师 Skill 定义
+description: 面向 Launch-X 知识资产的整理与复用技能，聚焦结构化归档、内容优化与互链管理。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

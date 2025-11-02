@@ -1,5 +1,11 @@
 ---
+name: enterprise-research-analyst
 title: 企业研究分析师 Skill 定义
+description: 基于 Launch-X 研究框架的企业分析技能，支持尽调、行业对比与投资决策文档化。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

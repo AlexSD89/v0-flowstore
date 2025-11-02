@@ -3,7 +3,7 @@ title: "Launch-X Skills 生态系统总览"
 owners:
   - LaunchX Skills 团队
 status: active
-last_update: '2025-10-30'
+last_update: '2025-10-31'
 related:
   - ./AGENTS.md
   - ./CLAUDE.md
@@ -26,7 +26,7 @@ impact: "统一管理 Claude Code Skills 的定义、验证与回写，支撑跨
 - 🔧 [Skills 开发协作指南](./CLAUDE.md) —— Collect → Align → Deliver 工作流、验证要求  
 - 📚 [Claude Skills 官方标准学习](./📚%20Claude%20Skills官方标准学习.md) —— 官方规范与 LaunchX 扩展说明  
 - 🎯 [生态系统概览（优化版）](./🎯%20Skills生态系统总览-优化版.md) —— 精简地图、互联关系  
-- 🧠 [全局协作哲学](../🟣%20knowledge/05_方法论中心/🎯%20claudecode-全局设计哲学.md) —— 技能设计的理论基线
+- 🧠 
 
 ---
 
@@ -39,6 +39,7 @@ impact: "统一管理 Claude Code Skills 的定义、验证与回写，支撑跨
 | 4️⃣ 知识管理大师 | 知识库整理与内容运营 | 🟣 knowledge/01·08·09 | 知识归档、自动化报告、内容路线图 |
 | 5️⃣ 项目架构规划师 | 项目初始化与流程治理 | study/项目规划、💻 技术开发 | 项目结构基线、流程规范、风险矩阵 |
 | 6️⃣ 技术设计专家 | 技术方案与架构设计 | 💻 技术开发、study、Gate-OS 资料 | 技术选型、架构草图、部署策略 |
+| Codex-ClaCode 联动 | Codex CLI + Claude Code 安全协作 | 🧠 Launch-X Skills生态系统/codex-claudecode协作 | 审批对齐的 Codex 命令模板、验证与回滚提示 |
 | 8️⃣ 深度学习专家 | 模型研发与学习路径 | study、🟣 knowledge/方法论 | 学习计划、训练方案、部署优化 |
 
 > 每个技能目录下必须包含：`README.md`（能力说明）、`instructions.md`（提示模板）、`scripts/`（执行脚本）、`tests/`（验证计划）、`resources/`（素材），并记录回滚方案。
@@ -81,3 +82,4 @@ impact: "统一管理 Claude Code Skills 的定义、验证与回写，支撑跨
 ```
 
 > Skills 生态是 Claude Code 的能力中枢。请按以上要求维护，确保技能与知识、工具、自动化保持同步，持续支撑 LaunchX 的跨域协作。
+[全局协作哲学](../🟣%20knowledge/05_方法论中心/🎯%20claudecode-全局设计哲学.md) —— 技能设计的理论基线

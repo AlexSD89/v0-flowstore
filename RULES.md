@@ -24,12 +24,15 @@
 
 ## ✅ 必须遵守 (Mandatory Requirements)
 
-### Phase 0 必做清单
+### Phase 0 必做清单（思维强化版）
 1. **先读根目录 CLAUDE.md** – 获取全局规范、命令速查、流程指引
 2. **再读相关包的 USEME.md** – 了解模块能力、导入方式与常见陷阱
 3. **优先复用 support_modules** – 避免重复造轮子，引用现有实现
 4. **禁止 barrel 导入** – 所有导入必须指向具体文件路径
 5. **涉及 UA/SSR/性能** – 首先查阅 `common-ua`、`common-react-hooks`、`common-util`
+6. **新增：上下文影响说明** – 必须说明每个读取的文档如何影响具体决策
+7. **新增：方案对比分析** – 必须对比至少2个可行方案并说明选择理由
+8. **新增：思维深度确认** – 根据任务级别确认思维展示深度是否足够
 
 ### 标准工作流程
 所有任务必须遵循 `/spec → /plan → /do` 流程：
@@ -38,10 +41,18 @@
 - **`/plan` 阶段**：拆解 approved spec，标注所需资产（文档/脚本/测试命令），等待用户确认
 - **`/do` 阶段**：严格按 plan 执行，使用 `apply_patch` 做最小改动；范围变化需回退至 `/plan` 或 `/spec`
 
-### 输出格式要求
+### 思维透明化要求
+- Level M / L 任务必须按《思维透明化决策闭环工作法》输出 Model（问题拆分 + 假设 + 推理链）与 Compare（方案对比 + 验证/回滚策略）[[🟣 knowledge/05_方法论中心/🛠️ 技术开发方法论/专项方法论/思维透明化决策闭环工作法.md:1]]
+- Align 前必须审阅思维画布，确认依据、风险、缺口责任人；缺口需以 “TODO｜待补充 + 缺口来源” 标注
+- Summary 必须引用思维产出或附链接，说明决策链路与测试结果
+
+### 输出格式要求（思维透明化升级版）
 - **Summary 模板**：必须使用 `Summary / Testing / Next Steps` 格式
+- **前置思维分析**：Level M/L任务必须在Summary前输出完整的思维分析
 - **Checklist 驱动**：所有需求一律先输出 checklist，逐项确认输入、依赖、测试、引用对象
-- **文件引用规范**：引用文件必须使用 `path:line` 格式并说明用途
+- **文件引用规范**：引用文件必须使用 `path:line` 格式并**说明该引用如何影响当前决策**
+- **方案对比强制**：涉及技术选型、架构设计等必须提供至少2个方案的对比分析
+- **思维深度强制**：根据任务级别执行对应的思维展示深度要求
 
 ---
 
@@ -53,11 +64,14 @@
 - **代码修改**：所有文件改动必须使用 `apply_patch`
 
 ### MCP 配置要求
-- **17个标准MCP服务**：fetch、firecrawl、jina、hotnews、tavily、workspace-filesystem、shadcn-ui、playwright、context7、git-local、filesystem-shtse、gemini-cli、ant-design、rube、chrome-devtools、web-search-prime、zai-mcp-server
+- **核心MCP服务**：workspace-filesystem、git-local、filesystem-shtse、gemini-cli、gate
+- **付费服务（需API/余额）**：tavily、jina、firecrawl（当前不可用，需配置API密钥或充值）
+- **专业服务**：context7、rube、chrome-devtools、playwright（按需配置）
 - **配置位置**：需在 `~/.codex/config.toml` 或项目 `.claude/mcp.json` 声明
 - **远程MCP**：需代理方案，必须在 Summary 中说明风险和使用目的
-- **预热流程**：首次或依赖更新后运行 `bash scripts/mcp-prewarm.sh` 预热常用服务
+- **预热流程**：首次或依赖更新后运行 `bash scripts/mcp-prewarm.sh` 预热可用服务
 - **多模态处理**：使用zai-mcp-server处理图片/视频内容，chrome-devtools执行页面操作
+- **服务状态检查**：使用前需验证付费服务余额和API密钥有效性
 
 ### 权限与安全
 - 涉及权限或写操作的任务需在 `/spec` 说明目标 profile 与 sandbox 约束
@@ -179,6 +193,94 @@
 - **技能调用**：使用 `/skill <skill-name> "任务描述"` 格式调用标准技能
 - **12项标准技能**：business-decision-support、enterprise-research-analyst、market-intelligence-expert、knowledge-master、academic-researcher、data-analyst、trend-researcher、code-reviewer、test-writer-fixer、performance-benchmarker等
 - **生态协同**：Skills作为原子能力，Agent SDK负责高级编排，两者互补而非替代
+
+---
+
+## 📋 大型文件开发规则（Level L 专用）
+
+> **优先级说明**：当触发大型文件开发条件时，本章节规则优先于基础规则。
+> 本规则是对Level L基础要求的**增强和补充**，不是完全替代。
+> 未明确说明的部分，仍遵循基础规则要求。
+
+### 触发条件
+满足任一条件时启动大型文件开发模式：
+- 文档 > 5,000词
+- 需要系统性架构设计
+- 涉及多域或技术栈
+- 包含复杂决策推理
+
+### Phase 0 增强要求
+
+**基础要求**：先完成基础Phase 0（第27-35行）
+
+**增强检查项**：
+- 深度认知加载：检索方法论模板，确认 `🧠 Launch-X Skills生态系统/` 和 `🧩 bmad/` 状态
+- 深度分析准备：明确价值、识别风险、确定Skills/Agent调用、制定验收标准
+- 资源复用深化：检查现有方法论可用性、明确知识沉淀计划
+
+### 增强工作流要求
+
+**遵循基础工作流**：`/spec → /plan → /do`（第37-42行）
+
+#### /spec 阶段
+- **必须包含**：背景约束、验收标准、风险评估、Skills计划、`🧩 bmad/` 协作规划
+- **禁止项**：禁止跳过资产检索、禁止忽略Phase 0、禁止无验收标准
+
+#### /plan 阶段
+- **任务分解**：四层模型（哲学→架构→实施→质量），标注 `path:line` 引用
+- **资源规划**：Claude（架构/风险）、Codex（技术验证）、`🧠 Skills/`（领域分析）、`🧩 bmad/`（Agent协作）
+
+#### /do 阶段
+- **执行要求**：严格按plan执行，用 `apply_patch` 最小化改动，每步提供验证结果
+
+### 思维透明化增强要求
+
+**遵循基础要求**：思维透明化（第44-55行）
+
+**增强项**：
+- **深度架构分析**：系统架构探索 + 多方案对比
+- **知识回写计划**：方法论沉淀 + 模板创建 + Skills优化 + 流程改进
+- **完整决策链**：基于《思维透明化决策闭环工作法》[[🟣 knowledge/05_方法论中心/🛠️ 技术开发方法论/专项方法论/思维透明化决策闭环工作法.md:1]]
+- **风险深度评估**：复杂决策的风险评估与缓解
+
+### `🧠 Launch-X Skills生态系统/` 协作规范
+
+#### Skills调用矩阵
+| 阶段 | 优先Skills | 时机 | 交付要求 |
+|------|-----------|------|----------|
+| 需求分析 | business-decision-support | Phase 0后 | 商业价值评估、ROI分析 |
+| 架构设计 | technical-design-expert | /plan开始 | 技术架构方案、选型建议 |
+| 知识管理 | knowledge-master | 全程 | 知识结构化、模板生成 |
+| 质量审查 | code-reviewer | 阶段结束 | 质量检查、改进建议 |
+| 风险评估 | security-auditor | 关键决策点 | 安全风险识别、缓解方案 |
+
+#### `🧩 bmad/` Agent协作
+1. **路由决策**（Claude）：选择最优Agent组合
+2. **多Agent执行**（`🧩 bmad/`）：按plan分配任务，监控执行状态
+3. **结果整合**（Claude）：质量审查、生成交付物
+
+### 反模式识别与纠正
+
+#### 大型文件开发反模式
+| 反模式 | 特征 | 纠正措施 | 预防 |
+|--------|------|----------|------|
+| 架构先行缺失 | 直接编写，无顶层设计 | 立即停止，重新Phase 0 | 强制思维透明化 |
+| 引用不规范 | 无 `path:line` 引用说明 | 重新检查补充引用 | 使用引用检查工具 |
+| Skills调用混乱 | 随意调用，无明确目的 | 重新规划调用策略 | 遵循调用矩阵 |
+| 质量门控缺失 | 无阶段性质量检查 | 补充质量检查点 | 建立标准化门控 |
+| 知识沉淀不足 | 经验未转化为可复用资产 | 强制知识回写 | 明确沉淀责任人 |
+
+#### 规则冲突解决
+1. **优先级原则**：大型文件规则优先（仅明确声明的增强部分）
+2. **补充原则**：未明确部分继续遵循基础规则
+3. **一致性检查**：确保思维透明化和质量标准一致
+4. **记录反馈**：memory-bank记录冲突案例，用于优化
+
+#### 纠正流程
+1. **立即停止**：发现冲突立即停止
+2. **重新规划**：回到相应阶段重新执行
+3. **记录案例**：memory-bank记录案例
+4. **流程优化**：基于案例优化流程
 
 ---
 

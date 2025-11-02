@@ -1,5 +1,11 @@
 ---
+name: market-intelligence-expert
 title: 市场情报专家 Skill 定义
+description: 聚焦 AI 市场动态与机会识别的情报技能，串联趋势分析、竞品扫描与行动规划。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

@@ -25,6 +25,9 @@
 - 应用🟣 knowledge/03_研究报告/ 的研究模板
 - 收集行业数据和竞争信息
 - 整合多源数据进行分析
+- 阅读 `./resources/templates/enterprise-research-report.md` 明确章节结构
+- 对照 `./resources/examples/enterprise_research_sample.md` 了解示例格式
+- 结合 `./resources/config/enterprise-research-config.json` 与 `./resources/data/enterprise-research-config.json` 获取默认参数
 
 ### 第三步：深度分析执行
 - 企业基本面分析
@@ -38,6 +41,7 @@
 - 提供明确的投资建议和评级
 - 识别关键风险和成功因素
 - 建议后续跟踪和评估计划
+- 输出完成后回查 `./resources/examples/sample-company.json`，确保字段与命名一致
 
 ## 知识激活策略
 

@@ -1,5 +1,11 @@
 ---
+name: gate-os-enterprise-expert
 title: Gate-OS企业AI操作系统专家 Skill 定义
+description: 面向企业级 AI 操作系统规划的技能，输出架构蓝图、转型路线与产品化策略。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

@@ -1,5 +1,11 @@
 ---
+name: project-architect
 title: 项目架构规划师 Skill 定义
+description: 提供项目目录规划与架构基线的技能，支持多技术栈的初始化设计与协作流程。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

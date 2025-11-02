@@ -1,5 +1,11 @@
 ---
+name: business-decision-support
 title: 商业决策支持专家 Skill 定义
+description: 面向投资与战略场景的商业分析技能，提供 ROI 评估、企业画像和风险判断的结构化支持。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active

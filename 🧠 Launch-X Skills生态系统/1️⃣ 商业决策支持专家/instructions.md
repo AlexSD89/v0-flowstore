@@ -24,6 +24,8 @@
 - 激活🟣 knowledge/02_分析与洞察/ 的数据分析能力
 - 调用🟣 knowledge/05_方法论中心/ 的核心方法论
 - 整合🟣 knowledge/c_AI投资研究/ 的专业洞察
+- 阅读 `./resources/templates/investment-analysis-report.md` 确认输出结构
+- 结合 `./resources/data/investment-analysis-config.json` 与 `./resources/data/investment-config.json` 了解默认参数
 
 ### 第三步：智能分析
 - 应用Launch-X评估框架
@@ -36,6 +38,7 @@
 - 给出明确的决策建议
 - 识别关键成功因素和风险点
 - 建议下一步行动计划
+- 输出前对照 `./resources/examples/sample-project.json` 或其他示例，确保字段与格式一致
 
 ## 知识激活策略
 

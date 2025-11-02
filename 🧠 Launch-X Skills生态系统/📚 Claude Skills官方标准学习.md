@@ -1,20 +1,18 @@
-<<<<<<< HEAD
 ---
 title: Claude Skills官方标准学习
 owners:
 - LaunchX Skills团队
 status: active
-last_update: '2025-10-24'
+last_update: '2025-10-31'
 related:
 - ./🎯 Skills生态系统总览-优化版.md
 - ./README.md
+- ./git-claudecode指导/README.md
+- ./git-claudecode指导/resources/doc-driven-bdd-prompt.md
 source: 人工采集
 impact: 梳理Claude官方要求并映射Launch-X Skills质量门槛
 tags: []
 ---
-
-=======
->>>>>>> a4c0d42015874ecd06f7f922c116dc5b41a2bac0
 # Claude Skills 官方标准学习
 
 ## 📋 官方定义
@@ -58,6 +56,31 @@ skill-name/
 ```
 
 ## 📝 SKILL.md 标准模板
+
+### YAML Frontmatter 必备字段
+所有 `SKILL.md` 文件必须在顶部提供完整的 frontmatter，用于支持 Claude Skills 的自动索引与权限控制：
+```yaml
+---
+name: skill-machine-friendly-slug      # 必填，建议使用英文短横线形式
+description: 对技能价值的简要说明         # 必填，50-120 字为宜
+allowed-tools:                          # 必填，列出本技能可调用的工具及权限
+  - python:read-only
+  - bash:read-only
+  - read
+owners:
+  - LaunchX Skills团队
+status: active                          # 必填，active/draft/deprecated
+last_update: 'YYYY-MM-DD'
+related:
+  - ./instructions.md
+source: 人工采集
+impact: 说明业务或技术影响范围
+tags:
+  - 关键标签1
+---
+```
+
+> `allowed-tools` 字段用于在 Claude Code 中声明可执行指令范围，必须与实际脚本能力匹配；如技能纯分析且不调用外部脚本，可写空数组 `[]`。
 
 ### 基本信息格式
 ```markdown
@@ -109,6 +132,11 @@ skill-name/
 
 ## 🔄 instructions.md 核心指令
 
+### 资源引用要求
+- 在步骤指引中显式引用 `resources/` 目录内的关键素材，例如品牌手册、模板或数据样本（使用相对路径说明，如 `./resources/docs/brand-guidelines.pdf`）。
+- 当流程依赖特定样式或业务规则时，应在指令中加入“读取→应用→校验”的提示，确保复用资产而非重新生成。
+- 若资源缺失，需标注 `TODO｜待补充 + 责任人` 并在 Summary 中记录阻塞。
+
 ### 指令逻辑模板
 ```markdown
 # [技能名称] - 核心指令
@@ -159,6 +187,20 @@ skill-name/
 ```
 请调用[技能名称]，帮我[具体任务描述]
 ```
+
+---
+
+## 🔁 LaunchX 扩展实践（2025-10 更新）
+
+1. **文档→测试→实现→回写闭环**  
+   - 依据 `git-claudecode指导` Skill，将业务/技术文档转化为 BDD 测试、最小实现方案，并同步回 memory-bank[[🧠 Launch-X Skills生态系统/git-claudecode指导/README.md:20-52]]。  
+   - 指令集遵循 Collect → Align → Deliver → Archive 流程，覆盖跨技术栈测试框架与 Git Guardrails[[🧠 Launch-X Skills生态系统/git-claudecode指导/instructions.md:20-71]]。  
+   - 提供标准提示与验证清单，确保 Summary 引用、测试命令与互链记录完整[[🧠 Launch-X Skills生态系统/git-claudecode指导/resources/doc-driven-bdd-prompt.md:18-53]][[🧠 Launch-X Skills生态系统/git-claudecode指导/tests/doc-driven-workflow-checklist.md:16-35]]。
+
+2. **目录结构补强要求**  
+   - Skills 目录必须具备 `resources/` 与 `tests/` 子目录，至少包含提示模板与验证清单，用于快速复用与自查[[🧠 Launch-X Skills生态系统/git-claudecode指导/README.md:42-46]]。
+
+> 后续新增技能若涉及代码或流程变更，默认沿用上述闭环作为质量底线，并在 Summary 中标注执行情况。
 
 ### 自动识别调用
 Claude会根据用户问题自动识别并调用本技能。

@@ -1,6 +1,6 @@
 # 📖 LaunchX 系统总体指南
 
-版本：2025-10-11 · 维护：Launch X Core
+版本：2025-11-01 · 维护：Launch X Core
 
 > 本指南提供根级视角的“看板”，说明组织使命、层级架构、核心流程、目录地图与引用关系。执行细节请参阅 `AGENTS.md`（Codex）与 `CLAUDE.md`（Claude Code），快速上下文请加载 `memory-bank/README.md`。
 
@@ -23,7 +23,7 @@
 | 层级 | 文档 | 作用 |
 | --- | --- | --- |
 | Root 指挥 | `AGENTS.md` | Codex CLI（执行端）守则：Phase 0、/spec→/plan→/do、工具策略 |
-| 协作总览 | `CLAUDE.md` | Claude Code（协作端）总路标：命令速查、提示模板、文档地图 |
+| 协作总览 | `CLAUDE.md` | Claude Code（协作端）总路标：命令速查、提示模板、文档地图、大型文件思维指南 |
 | 外部记忆 | `memory-bank/README.md` | 平台快照、提示片段、跨仓技巧、重点项目 |
 | 模块手册 | `memory-bank/support_modules/<domain>/USEME.md` | 公共能力、导入方式、示例、注意事项 |
 | 目录指挥 | 各 Emoji 目录内 `CLAUDE.md` / `RULES.md` | 域内能力、禁区、回滚方案 |

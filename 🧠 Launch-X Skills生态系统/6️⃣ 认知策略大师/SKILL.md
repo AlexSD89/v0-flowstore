@@ -1,5 +1,11 @@
 ---
+name: cognitive-strategy-master
 title: 认知策略大师 Skill 定义
+description: 提供思维模型、决策框架与学习策略的认知升级技能，支撑复杂问题拆解与方案制定。
+allowed-tools:
+  - python:read-only
+  - bash:read-only
+  - read
 owners:
 - LaunchX Skills团队
 status: active
