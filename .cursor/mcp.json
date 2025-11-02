@@ -123,13 +123,6 @@
       "url": "https://rube.app/mcp",
       "description": "Rube MCP - 海外SaaS集成服务，内置VPN功能"
     },
-    "chrome-devtools": {
-      "command": "npx",
-      "args": [
-        "chrome-devtools-mcp@latest"
-      ],
-      "description": "Chrome DevTools integration for browser debugging"
-    },
     "web-search-prime": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
@@ -162,4 +155,3 @@
     }
   }
 }
-

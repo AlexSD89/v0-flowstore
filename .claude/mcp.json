@@ -178,13 +178,6 @@
       "type": "http",
       "url": "https://rube.app/mcp"
     },
-    "chrome-devtools": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "chrome-devtools-mcp@latest"
-      ]
-    },
     "web-search-prime": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
