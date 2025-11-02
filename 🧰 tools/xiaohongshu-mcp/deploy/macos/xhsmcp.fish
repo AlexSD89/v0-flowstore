@@ -7,7 +7,6 @@ function xhsmcp_start
 end
 
 function xhsmcp_status
-    gomcp
     set service_name "xhsmcp"
     
     # 获取服务状态

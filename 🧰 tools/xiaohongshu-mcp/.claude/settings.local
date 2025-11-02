@@ -1,0 +1,193 @@
+{
+  "permissions": {
+    "allow": [
+      // MCP核心服务
+      "mcp__gate__GATE_SEARCH_TOOLS",
+      "mcp__gate__GATE_CREATE_PLAN",
+      "mcp__gate__GATE_MULTI_EXECUTE_TOOL",
+
+      // xiaohongshu-mCP核心功能
+      "Bash(./xiaohongshu-mcp-darwin-arm64)",
+      "Bash(./xiaohongshu-login-darwin-arm64)",
+      "Bash(./🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64)",
+      "Bash(./🧰 tools/xiaohongshu-mcp/xiaohongshu-login-darwin-arm64)",
+
+      // LaunchD服务管理
+      "Bash(./deploy/macos/xhsmcp.sh)",
+      "Bash(launchctl list)",
+      "Bash(launchctl start)",
+      "Bash(launchctl stop)",
+      "Bash(launchctl load)",
+      "Bash(launchctl unload)",
+
+      // API测试和验证
+      "curl",
+      "WebFetch",
+      "mcp__firecrawl__firecrawl_scrape",
+      "mcp__firecrawl__firecrawl_search",
+      "mcp__tavily__tavily-search",
+      "mcp__jina__jina_reader",
+      "mcp__jina__jina_search",
+
+      // 文件操作
+      "Read",
+      "Write",
+      "Edit",
+      "mcp__workspace-filesystem__*",
+
+      // Git版本控制
+      "mcp__git-local__git_*",
+
+      // 系统管理
+      "Bash(chmod +x)",
+      "Bash(ln -s)",
+      "Bash(mkdir -p)",
+      "Bash(rm -f)",
+      "Bash(ps aux)",
+      "Bash(kill)",
+      "Bash(pkill)",
+      "Bash(lsof)",
+      "Bash(ls -la)",
+      "Bash(find)",
+      "Bash(grep)",
+      "Bash(awk)",
+      "Bash(sed)",
+
+      // 开发工具
+      "Bash(go version)",
+      "Bash(go build)",
+      "Bash(go run)",
+      "Bash(npm install)",
+      "Bash(npm exec)",
+      "Bash(npm info)",
+      "Bash(npm run)",
+      "Bash(node)",
+      "Bash(source)",
+      "Bash(export)",
+      "Bash(echo)",
+      "Bash(tar)",
+      "Bash(wget)",
+      "Bash(timeout)",
+
+      // 浏览器自动化
+      "mcp__playwright-extension__browser_*",
+      "mcp__chrome-devtools__*",
+
+      // 网络和监控
+      "Bash(open)",
+      "Bash(brew install)",
+      "Bash(sudo)",
+
+      // AI增强工具
+      "mcp__zai-mcp-server__*",
+      "mcp__gemini-cli__*",
+      "mcp__rube__RUBE_*",
+
+      // 代码质量
+      "mcp__ide__getDiagnostics",
+      "mcp__ide__executeCode",
+
+      // 内容管理
+      "Skill(*)",
+      "SlashCommand(/commit)",
+      "SlashCommand(/clean)",
+      "SlashCommand(/code-analysis)",
+      "SlashCommand(/tdd)",
+      "SlashCommand(/create-docs)",
+      "SlashCommand(/smart-research)",
+      "SlashCommand(/todo)"
+    ],
+    "deny": [
+      // 危险操作
+      "Bash(rm -rf)",
+      "Bash(sudo rm -rf)",
+      "Bash(dd if=)",
+      "Bash(mkfs)",
+      "Bash(fdisk)",
+      "Bash(format)"
+    ]
+  },
+  "mcpServers": {
+    "xiaohongshu-mcp": {
+      "command": "./xiaohongshu-mcp-darwin-arm64",
+      "args": [],
+      "env": {
+        "COOKIES_PATH": "./cookies.json",
+        "XIAOHONGSHU_MCP_PORT": "18060",
+        "XIAOHONGSHU_MCP_HOST": "localhost"
+      }
+    }
+  },
+  "tools": {
+    "xiaohongshu_search_notes": {
+      "description": "搜索小红书笔记",
+      "parameters": {
+        "keyword": {
+          "type": "string",
+          "description": "搜索关键词"
+        },
+        "sort_type": {
+          "type": "number",
+          "description": "排序方式: 1综合 2最新 3最多点赞 4最多评论 5最多收藏",
+          "default": 1
+        },
+        "note_type": {
+          "type": "number",
+          "description": "笔记类型: 1不限 2视频 3图文",
+          "default": 1
+        },
+        "time": {
+          "type": "number",
+          "description": "时间范围: 1不限 2一天内 3一周内 4半年内",
+          "default": 1
+        }
+      }
+    },
+    "xiaohongshu_publish_image": {
+      "description": "发布图文内容到小红书",
+      "parameters": {
+        "title": {
+          "type": "string",
+          "description": "标题"
+        },
+        "content": {
+          "type": "string",
+          "description": "内容"
+        },
+        "tags": {
+          "type": "array",
+          "description": "标签数组",
+          "items": {"type": "string"}
+        },
+        "images": {
+          "type": "array",
+          "description": "图片数组，支持本地路径和URL",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "xiaohongshu_get_user_profile": {
+      "description": "获取用户资料",
+      "parameters": {
+        "user_id": {
+          "type": "string",
+          "description": "用户ID"
+        }
+      }
+    },
+    "xiaohongshu_analytics": {
+      "description": "获取笔记分析数据",
+      "parameters": {
+        "note_id": {
+          "type": "string",
+          "description": "笔记ID"
+        }
+      }
+    }
+  },
+  "prompts": {
+    "content_creation": "作为小红书内容创作者，请基于搜索结果分析热门话题和趋势，创作符合平台算法的优质内容。要求标题吸引人、内容有价值、标签精准。",
+    "market_analysis": "请搜索相关话题，分析竞品内容策略，生成市场分析报告和内容建议。",
+    "batch_publish": "请批量处理内容创作和发布任务，确保内容质量和发布时机最优。"
+  }
+}

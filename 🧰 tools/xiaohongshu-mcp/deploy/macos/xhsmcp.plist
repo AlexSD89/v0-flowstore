@@ -7,17 +7,28 @@
     
     <key>ProgramArguments</key>
     <array>
-        <string>{二进制路径}</string>
+        <string>/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64</string>
     </array>
     
     <key>WorkingDirectory</key>
-    <string>{工作路径}</string>
+    <string>/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp</string>
     
     <key>RunAtLoad</key>
-    <false/>
-    
+    <true/>
+
     <key>KeepAlive</key>
-    <false/>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>10</integer>
+
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>1024</integer>
+        <key>MaxFileSize</key>
+        <integer>10485760</integer>
+    </dict>
     
     <key>StandardOutPath</key>
     <string>/tmp/xhsmcp.log</string>

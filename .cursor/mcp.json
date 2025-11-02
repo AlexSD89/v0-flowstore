@@ -145,13 +145,6 @@
     "xiaohongshu-mcp": {
       "url": "http://localhost:18060/mcp",
       "description": "小红书内容分析和趋势监测MCP服务器 - LaunchX专用"
-    },
-    "xiaohongshu": {
-      "command": "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64",
-      "args": [
-        "-headless=true"
-      ],
-      "description": "小红书内容分析和趋势监测MCP服务器 - LaunchX专用（直接执行）"
     }
   }
 }

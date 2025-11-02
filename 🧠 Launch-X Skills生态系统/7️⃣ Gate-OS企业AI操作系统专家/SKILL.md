@@ -6,21 +6,29 @@ allowed-tools:
   - python:read-only
   - bash:read-only
   - read
+  - workspace-filesystem
+  - git-local
 owners:
 - LaunchX Skills团队
 status: active
-last_update: '2025-10-24'
+last_update: '2025-11-02'
 related:
 - ./instructions.md
 - ./README.md
-- ../🟣 knowledge/02_分析与洞察/方法论中心/企业AI转型方法论
-- ../🟣 knowledge/05_方法论中心/被投企业画像方法论
-source: 人工采集
-impact: 定义Gate-OS企业AI操作系统专家技能的职责与交付标准
+- ./scripts/
+- ./resources/
+- ./tests/
+- ../../🟣 knowledge/02_分析与洞察/方法论中心/企业AI转型方法论
+- ../../🟣 knowledge/05_方法论中心/被投企业画像方法论
+- ../../🟣 knowledge/05_方法论中心/专项方法论/大型文件深度开发方法论_V1.0_20251101.md
+source: LaunchX Skills生态系统标准化
+impact: 企业级AI系统架构设计、三层架构实施、数字化转型咨询与产品化策略
 tags:
 - enterprise-ai-os
 - digital-transformation
 - strategy-analysis
+- three-layer-architecture
+- system-integration
 ---
 
 # Gate-OS企业AI操作系统专家

@@ -8,9 +8,14 @@
 
 [![已捐赠](https://img.shields.io/badge/Donated-CNY%20200.00-brightgreen?style=flat-square)](./DONATIONS.md)
 [![获得赞赏](https://img.shields.io/badge/Received-CNY%20179.92-blue?style=flat-square)](./DONATIONS.md)
+[![Version](https://img.shields.io/badge/version-2.0-blue?style=flat-square)](./CHANGELOG.md)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-optimized-00d4ff?style=flat-square)](./CLAUDE_CODE_使用指南.md)
 
-MCP for 小红书/xiaohongshu.com。
+MCP for 小红书/xiaohongshu.com - 支持Claude Code深度集成。
 
+- ✨ **新功能**：图片URL自动下载、友好过滤器接口
+- 🎯 **Claude Code优化**：完整的权限配置和工作流指南
+- 📚 **完整文档**：[Claude Code使用指南](./CLAUDE_CODE_使用指南.md)
 - 我的博客文章：[haha.ai/xiaohongshu-mcp](https://www.haha.ai/xiaohongshu-mcp)
 
 **遇到任何问题，务必要先看 [各种疑难杂症](https://github.com/xpzouying/xiaohongshu-mcp/issues/56)**。
