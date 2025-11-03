@@ -16,7 +16,16 @@ impact: "业务服务域内的AI协作流程与Claude智能商业能力"
 
 # LaunchX业务服务 CLAUDE 指南
 
+<<<<<<< Updated upstream
 > **核心定位**：业务服务域是LaunchX的商业价值实现中心，集成Claude AI商业分析能力、BMAD智能协作和Skills生态系统，实现AI增强的企业服务与价值创造。
+=======
+## Phase 0 Checklist
+1. 快速扫描：@根目录指挥文档第15-25行（核心协作原则）+ @本目录README.md第1-10行（业务域概述）
+2. 精确读取：@RULES.md第17-30行（业务域技能触发规则）+ @memory-bank/support_modules/launchx/USEME.md第1-20行（模板位置）
+3. 定位查询：`find "🚀 Launchx业务服务" -name "*客户*" -o -name "*case*" | head -3` 获取最近客户资料
+4. 快速确认：`grep -n "保密等级\|NDA\|对外" "🚀 Launchx业务服务"/*.md | tail -5` 查看保密要求
+5. 强制要求：复杂业务任务必须创建Dev Docs三文件（见@RULES.md第63-75行模板）
+>>>>>>> Stashed changes
 
 > 📌 **信息来源原则**：业务方案、案例、指标必须基于 LaunchX 自有项目和复盘记录；外部市场数据或 benchmark 仅作参考，需注明出处与差异。遵循 `📖README-LaunchX系统总体指南.md` 的信息颗粒度指南，AI 草稿在 24h 内完成人工校验与归档。
 

@@ -1,0 +1,322 @@
+{
+  "version": "5.3.0",
+  "sdk": {
+    "anthropic_agent_sdk": {
+      "version": "^0.1.0",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "model": "claude-sonnet-4-5",
+      "permission_mode": "grantEdits"
+    }
+  },
+  "agent_priority_strategy": {
+    "description": "优先使用Claude Code原生subagents，自定义agent作为补充",
+    "priority_order": [
+      "native_subagents_first",
+      "custom_agents_as_enhancement",
+      "fallback_to_custom_only"
+    ],
+    "native_subagents": {
+      "business_analyst": {
+        "description": "商业分析和投资评估专家",
+        "use_cases": ["投资分析", "商业模式评估", "市场研究", "财务预测"]
+      },
+      "backend_architect": {
+        "description": "技术架构设计和系统优化专家",
+        "use_cases": ["系统架构", "技术评估", "性能优化", "可扩展性设计"]
+      },
+      "ai_engineer": {
+        "description": "AI技术实现和算法优化专家",
+        "use_cases": ["AI模型评估", "算法设计", "推理优化", "技术实现"]
+      },
+      "data_scientist": {
+        "description": "数据分析和建模专家",
+        "use_cases": ["数据分析", "预测建模", "用户行为分析", "市场趋势"]
+      },
+      "risk_manager": {
+        "description": "风险识别和管理专家",
+        "use_cases": ["风险评估", "风险管理", "合规检查", "风险缓解"]
+      },
+      "trend_researcher": {
+        "description": "趋势研究和市场洞察专家",
+        "use_cases": ["趋势分析", "市场研究", "竞争情报", "技术预测"]
+      },
+      "frontend_developer": {
+        "description": "前端开发和用户体验专家",
+        "use_cases": ["UI设计", "用户交互", "前端架构", "产品体验"]
+      },
+      "product_manager": {
+        "description": "产品策略和用户需求专家",
+        "use_cases": ["产品策略", "需求分析", "用户研究", "产品设计"]
+      },
+      "studio_producer": {
+        "description": "多Agent协调和项目管理专家",
+        "use_cases": ["项目协调", "Agent协作", "质量管理", "进度控制"]
+      },
+      "code_reviewer": {
+        "description": "代码质量和安全审查专家",
+        "use_cases": ["代码审查", "质量检查", "安全审计", "最佳实践"]
+      }
+    }
+  },
+  "collaboration_types": {
+    "description": "支持多种Agent协作方式，根据任务复杂度自动选择最优策略",
+    "types": {
+      "sequential": {
+        "name": "顺序执行",
+        "description": "Agent按顺序执行，前一个输出作为后一个输入",
+        "use_cases": ["线性工作流", "数据处理管道", "分级分析"],
+        "coordination_pattern": "pipeline",
+        "efficiency_factor": 1.2
+      },
+      "parallel": {
+        "name": "并行协作",
+        "description": "多个Agent并行工作，实时协调结果",
+        "use_cases": ["多维度分析", "并发搜索", "独立评估"],
+        "coordination_pattern": "map_reduce",
+        "efficiency_factor": 3.5
+      },
+      "hierarchical": {
+        "name": "层次协作",
+        "description": "主Agent制定计划，辅助Agent执行",
+        "use_cases": ["复杂项目管理", "系统架构", "战略规划"],
+        "coordination_pattern": "master_worker",
+        "efficiency_factor": 2.1
+      },
+      "peer_to_peer": {
+        "name": "对等协作",
+        "description": "平等协作，互相评审和优化",
+        "use_cases": ["创新方案", "质量优化", "最佳实践"],
+        "coordination_pattern": "consensus",
+        "efficiency_factor": 1.8
+      },
+      "swarm": {
+        "name": "群体智能",
+        "description": "群体智能，多轮沟通达成共识",
+        "use_cases": ["复杂问题解决", "创新发现", "集体决策"],
+        "coordination_pattern": "emergent_intelligence",
+        "efficiency_factor": 4.2
+      }
+    },
+    "synergy_metrics": {
+      "knowledge_transfer_efficiency": {
+        "description": "Agent间知识和技能传递效果",
+        "measurement": "知识传递完整度和速度",
+        "target_value": 0.85
+      },
+      "task_completion_acceleration": {
+        "description": "协作相比单独执行的加速倍数",
+        "measurement": "时间效率提升倍数",
+        "target_value": 2.5
+      },
+      "quality_improvement_factor": {
+        "description": "协作带来的质量提升程度",
+        "measurement": "输出质量评分提升",
+        "target_value": 1.5
+      },
+      "innovation_score": {
+        "description": "协作产生的创新价值",
+        "measurement": "创新想法和解决方案数量",
+        "target_value": 3.0
+      },
+      "resource_utilization": {
+        "description": "资源使用效率优化程度",
+        "measurement": "CPU/内存/时间资源利用率",
+        "target_value": 0.8
+      },
+      "communication_efficiency": {
+        "description": "Agent间沟通的有效性",
+        "measurement": "沟通成功率和理解准确度",
+        "target_value": 0.9
+      },
+      "conflict_resolution_rate": {
+        "description": "协作中冲突处理的成功率",
+        "measurement": "冲突解决成功比例",
+        "target_value": 0.95
+      },
+      "overall_synergy_score": {
+        "description": "整体协同效应评分",
+        "measurement": "综合各项指标的加权评分",
+        "target_value": 0.85
+      }
+    }
+  },
+  "enhanced_agents": {
+    "description": "基于原生subagents增强的专用agent配置",
+    "research_intelligence_specialist": {
+      "name": "研究情报专家",
+      "description": "基于trend_researcher + data_scientist增强",
+      "native_base": ["trend_researcher", "data_scientist"],
+      "enhancement_prompts": ["多通道并发搜索", "情报综合分析", "质量评估"],
+      "use_when": "需要复杂市场研究和技术分析时"
+    },
+    "investment_analysis_orchestrator": {
+      "name": "投资分析协调器",
+      "description": "基于business_analyst + risk_manager + data_scientist组合",
+      "native_base": ["business_analyst", "risk_manager", "data_scientist"],
+      "coordination_type": "hierarchical",
+      "use_when": "需要综合投资决策分析时"
+    },
+    "technical_evaluation_specialist": {
+      "name": "技术评估专家",
+      "description": "基于backend_architect + ai_engineer + code_reviewer组合",
+      "native_base": ["backend_architect", "ai_engineer", "code_reviewer"],
+      "coordination_type": "peer_to_peer",
+      "use_when": "需要深度技术尽调时"
+    }
+  },
+  "task_routing": {
+    "description": "智能任务路由到最适合的agent组合",
+    "routing_rules": [
+      {
+        "task_pattern": "投资.*分析|投资.*评估|投资.*机会",
+        "primary_agent": "business_analyst",
+        "supporting_agents": ["risk_manager", "data_scientist"],
+        "collaboration_type": "hierarchical",
+        "expected_synergy": 3.2
+      },
+      {
+        "task_pattern": "技术.*架构|系统.*设计|技术.*评估",
+        "primary_agent": "backend_architect",
+        "supporting_agents": ["ai_engineer", "code_reviewer"],
+        "collaboration_type": "peer_to_peer",
+        "expected_synergy": 2.8
+      },
+      {
+        "task_pattern": "市场.*研究|趋势.*分析|竞争.*分析",
+        "primary_agent": "trend_researcher",
+        "supporting_agents": ["data_scientist", "business_analyst"],
+        "collaboration_type": "parallel",
+        "expected_synergy": 3.5
+      },
+      {
+        "task_pattern": "AI.*实现|算法.*优化|机器学习",
+        "primary_agent": "ai_engineer",
+        "supporting_agents": ["backend_architect", "data_scientist"],
+        "collaboration_type": "sequential",
+        "expected_synergy": 2.4
+      },
+      {
+        "task_pattern": "风险.*评估|风险.*管理|合规.*检查",
+        "primary_agent": "risk_manager",
+        "supporting_agents": ["business_analyst", "code_reviewer"],
+        "collaboration_type": "parallel",
+        "expected_synergy": 2.1
+      }
+    ],
+    "fallback_strategy": {
+      "no_native_match": "使用enhanced_agents中的自定义agent",
+      "all_unavailable": "降级到单个最接近的native agent",
+      "complete_failure": "使用通用general-purpose agent"
+    }
+  },
+  "mcp_servers": {
+    "enabled": [
+      "tavily-search",
+      "jina-reader",
+      "github-search",
+      "filesystem",
+      "git-mcp-local"
+    ],
+    "enterprise_servers": {
+      "enterprise_database": {
+        "name": "Enterprise Database MCP",
+        "description": "Connect to enterprise databases and knowledge bases",
+        "config_file": "config/mcp/enterprise-database.json"
+      },
+      "government_compliance": {
+        "name": "Government Compliance MCP",
+        "description": "Government project compliance checking and validation",
+        "config_file": "config/mcp/government-compliance.json"
+      },
+      "financial_analysis": {
+        "name": "Financial Analysis MCP",
+        "description": "Financial modeling and investment analysis tools",
+        "config_file": "config/mcp/financial-analysis.json"
+      }
+    }
+  },
+  "orchestration": {
+    "max_concurrent_agents": 12,
+    "timeout_ms": 300000,
+    "context_management": {
+      "max_context_length": 200000,
+      "compaction_strategy": "semantic",
+      "persistence_enabled": true
+    },
+    "agent_coordination": {
+      "parallel_execution": true,
+      "resource_limits": {
+        "max_concurrent_agents": 12,
+        "timeout_ms": 300000
+      },
+      "coordination_protocols": {
+        "sequential": {
+          "handoff_strategy": "clean_state",
+          "error_handling": "fail_fast"
+        },
+        "parallel": {
+          "synchronization_point": "barrier_synchronization",
+          "result_aggregation": "map_reduce"
+        },
+        "hierarchical": {
+          "delegation_strategy": "smart_decompose",
+          "reporting_structure": "tree_hierarchy"
+        },
+        "peer_to_peer": {
+          "consensus_algorithm": "majority_vote",
+          "conflict_resolution": "mediation"
+        },
+        "swarm": {
+          "emergence_protocol": "stigmergic_coordination",
+          "convergence_criteria": "consensus_threshold"
+        }
+      }
+    },
+    "synergy_optimization": {
+      "real_time_monitoring": true,
+      "adaptive_coordination": true,
+      "learning_from_history": true,
+      "continuous_improvement": true
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "log_level": "info",
+    "audit_logging": {
+      "enabled": true,
+      "log_level": "detailed",
+      "retention_days": 90
+    },
+    "performance_metrics": {
+      "response_time_tracking": true,
+      "tool_usage_analytics": true,
+      "error_rate_monitoring": true,
+      "synergy_metrics_tracking": true,
+      "collaboration_effectiveness": true
+    },
+    "synergy_dashboard": {
+      "real_time_visibility": true,
+      "metrics": [
+        "knowledge_transfer_efficiency",
+        "task_completion_acceleration",
+        "quality_improvement_factor",
+        "innovation_score",
+        "resource_utilization",
+        "communication_efficiency",
+        "conflict_resolution_rate",
+        "overall_synergy_score"
+      ]
+    }
+  },
+  "security": {
+    "enterprise_grade": true,
+    "data_classification": "enabled",
+    "access_control": "role_based",
+    "audit_trail": "comprehensive",
+    "agent_security": {
+      "native_agent_trust": "high",
+      "custom_agent_validation": "strict",
+      "cross_agent_communication": "encrypted"
+    }
+  }
+}

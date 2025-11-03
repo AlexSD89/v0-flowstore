@@ -17,7 +17,16 @@ impact: "技术开发域内Claude AI协作流程与质量标准，90%+用户满�
 
 # CLAUDE.md · 💻 技术开发域
 
+<<<<<<< Updated upstream
 > **域定位**：Claude在技术开发域中专注于架构设计、技术选型、代码审查，与Codex形成高效协作。提供Plan→Execute→Document三步服务。
+=======
+## Phase 0 Checklist
+1. 快速扫描：@根目录CLAUDE.md第15-25行（协作总则）+ @本目录README.md第1-10行（技术域概述）
+2. 精确读取：@RULES.md第19-35行（技术域技能触发规则）+ @memory-bank/support_modules/dev/USEME.md第1-15行（公共能力）
+3. 环境检查：`ls scripts/ | grep -E "(mcp|check|validate)" | head -3` 确认可用脚本
+4. 技术栈确认：`find . -name "package.json" -o -name "*.ts" -o -name "Dockerfile" | head -3` 识别技术栈
+5. 强制要求：技术任务必须通过零错误检查（见@RULES.md第158-180行Hook检查）
+>>>>>>> Stashed changes
 
 ---
 
