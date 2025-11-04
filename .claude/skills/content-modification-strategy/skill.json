@@ -1,0 +1,226 @@
+{
+  "name": "content-modification-strategy",
+  "version": "1.0.0",
+  "description": "内容修改策略 - 适用于文档更新、重建、优化的完整方法论",
+  "category": "methodology",
+  "priority": "high",
+  "tags": ["content", "modification", "strategy", "update", "optimization"],
+  "created": "2025-11-03",
+  "last_updated": "2025-11-03",
+  "author": "LaunchX Skills Team",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "modification_request": {
+        "type": "object",
+        "description": "修改请求信息",
+        "properties": {
+          "target_content": {
+            "type": "string",
+            "description": "目标内容路径或描述"
+          },
+          "modification_type": {
+            "type": "string",
+            "enum": ["update", "rebuild", "optimize", "restructure", "merge", "split"],
+            "description": "修改类型"
+          },
+          "scope": {
+            "type": "string",
+            "enum": ["minor", "major", "complete"],
+            "description": "修改范围"
+          },
+          "urgency": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "紧急程度"
+          }
+        },
+        "required": ["target_content", "modification_type", "scope"]
+      },
+      "content_analysis": {
+        "type": "object",
+        "description": "内容分析信息",
+        "properties": {
+          "current_state": {
+            "type": "string",
+            "description": "当前状态描述"
+          },
+          "existing_issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "现有问题列表"
+          },
+          "quality_metrics": {
+            "type": "object",
+            "description": "当前质量指标"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "依赖关系"
+          }
+        }
+      },
+      "modification_requirements": {
+        "type": "object",
+        "description": "修改需求",
+        "properties": {
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "修改目标"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "约束条件"
+          },
+          "success_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "成功标准"
+          },
+          "stakeholder_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "利益相关者需求"
+          }
+        },
+        "required": ["objectives"]
+      },
+      "context": {
+        "type": "object",
+        "description": "上下文信息",
+        "properties": {
+          "business_context": {
+            "type": "string",
+            "description": "业务背景"
+          },
+          "technical_context": {
+            "type": "string",
+            "description": "技术背景"
+          },
+          "timeline": {
+            "type": "string",
+            "description": "时间线要求"
+          },
+          "resource_constraints": {
+            "type": "object",
+            "description": "资源约束"
+          }
+        }
+      }
+    },
+    "required": ["modification_request", "modification_requirements", "context"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "modification_strategy": {
+        "type": "object",
+        "description": "修改策略"
+      },
+      "implementation_plan": {
+        "type": "object",
+        "description": "实施计划"
+      },
+      "quality_assurance": {
+        "type": "object",
+        "description": "质量保证"
+      },
+      "risk_management": {
+        "type": "object",
+        "description": "风险管理"
+      },
+      "success_metrics": {
+        "type": "object",
+        "description": "成功指标"
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "description": "建议"
+      }
+    }
+  },
+  "execution_flow": [
+    {
+      "step": "analyze_modification_request",
+      "description": "分析修改请求"
+    },
+    {
+      "step": "develop_modification_strategy",
+      "description": "制定修改策略"
+    },
+    {
+      "step": "create_implementation_plan",
+      "description": "创建实施计划"
+    },
+    {
+      "step": "establish_quality_gates",
+      "description": "建立质量门控"
+    },
+    {
+      "step": "identify_and_mitigate_risks",
+      "description": "识别和缓解风险"
+    }
+  ],
+  "dependencies": {
+    "skills": [
+      "source-analysis-method",
+      "quality-validation-protocol"
+    ],
+    "hooks": [
+      "content-quality-hook",
+      "reference-validation-hook",
+      "file-naming-hook"
+    ],
+    "tools": [
+      "workspace-filesystem",
+      "git-local"
+    ]
+  },
+  "triggers": [
+    {
+      "condition": "content_modification_needed",
+      "description": "需要内容修改时触发",
+      "priority": "high"
+    },
+    {
+      "condition": "document_rebuild_required",
+      "description": "文档重建需求",
+      "priority": "high"
+    },
+    {
+      "condition": "content_optimization_request",
+      "description": "内容优化请求",
+      "priority": "medium"
+    }
+  ],
+  "integration_points": {
+    "pre_execution": [
+      "analyze_current_content",
+      "validate_modification_request",
+      "check_dependencies"
+    ],
+    "post_execution": [
+      "validate_modification_quality",
+      "update_references",
+      "archive_modification_experience"
+    ]
+  }
+}

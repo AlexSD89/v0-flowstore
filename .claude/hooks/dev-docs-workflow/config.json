@@ -1,0 +1,104 @@
+{
+  "hookName": "dev-docs-workflow",
+  "version": "1.0.0",
+  "description": "Dev Docs工作流Hook - Reddit指南集成版",
+  "source": "Reddit指南 + LaunchX 5步认知法",
+
+  "complexitySettings": {
+    "threshold": 5,
+    "levelDetection": {
+      "keywords": ["implement", "create", "build", "develop", "refactor", "system", "architecture", "infrastructure", "integration", "migration", "upgrade"],
+      "fileOperationsThreshold": 3,
+      "stepPatterns": ["first", "then", "after", "before", "next", "\\d+\\.", "step", "phase", "and", "also", "additionally"]
+    }
+  },
+
+  "devDocsConfig": {
+    "defaultDirectory": "dev-docs",
+    "templateVersion": "1.0",
+    "requiredFiles": ["plan.md", "context.md", "tasks.md"],
+    "autoUpdate": true,
+    "backupEnabled": true
+  },
+
+  "domainAnalysis": {
+    "enabled": true,
+    "dimensions": ["技术维度", "业务维度", "质量维度", "运维维度"],
+    "autoGenerate": true
+  },
+
+  "infrastructureChecks": {
+    "enabled": true,
+    "checks": [
+      {
+        "name": "PM2状态",
+        "command": "pm2 --version",
+        "successMessage": "✅ PM2已安装",
+        "failureMessage": "❌ PM2未安装，建议: npm install -g pm2"
+      },
+      {
+        "name": "Git仓库",
+        "command": "git status",
+        "successMessage": "✅ Git仓库正常",
+        "failureMessage": "❌ 非Git仓库，建议: git init"
+      },
+      {
+        "name": "Node.js版本",
+        "minVersion": "18.0.0",
+        "successMessage": "✅ Node.js版本正常",
+        "failureMessage": "⚠️ Node.js版本较低，建议升级到v18+"
+      },
+      {
+        "name": "项目结构",
+        "requiredItems": ["src", "package.json"],
+        "successMessage": "✅ 项目结构完整",
+        "failureMessage": "⚠️ 缺少必要文件/目录"
+      }
+    ]
+  },
+
+  "qualityGates": {
+    "enabled": true,
+    "autoTrigger": true,
+    "checks": [
+      {
+        "name": "Frontmatter完整性",
+        "required": ["title", "owners", "status", "last_update"],
+        "action": "validate_frontmatter"
+      },
+      {
+        "name": "Dev Docs同步性",
+        "check": "validate_dev_docs_sync",
+        "action": "sync_dev_docs"
+      },
+      {
+        "name": "任务进度一致性",
+        "check": "validate_task_progress",
+        "action": "update_task_status"
+      }
+    ]
+  },
+
+  "integration": {
+    "skills": true,
+    "hooks": true,
+    "slashCommands": true,
+    "mcpTools": true
+  },
+
+  "redditGuide": {
+    "corePrinciples": [
+      "工程基础设施优先",
+      "自动化强制执行",
+      "可观测性=能力",
+      "零错误遗漏机制"
+    ],
+    "implementFeatures": [
+      "5步认知法思维指导",
+      "Dev Docs执行系统",
+      "Skills自动激活",
+      "PM2可观测性",
+      "Hooks质量门禁"
+    ]
+  }
+}

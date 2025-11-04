@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "skill_name": "项目架构规划师",
+  "framework": "Launch-X项目规划方法论v2.4",
+  "architecture_patterns": {
+    "layered_architecture": "分层架构模式",
+    "microservices": "微服务架构模式",
+    "event_driven": "事件驱动架构模式",
+    "clean_architecture": "整洁架构原则"
+  },
+  "development_practices": {
+    "design_patterns": {
+      "mvc": "模型-视图-控制器模式",
+      "observer": "观察者模式",
+      "factory": "工厂模式",
+      "strategy": "策略模式"
+    },
+    "coding_standards": {
+      "naming_conventions": "统一的命名约定",
+      "file_organization": "标准的文件组织结构",
+      "code_review": "代码审查流程",
+      "documentation": "文档化要求"
+    },
+    "testing_strategies": {
+      "unit_testing": "单元测试要求",
+      "integration_testing": "集成测试策略",
+      "performance_testing": "性能测试方法"
+    }
+  },
+  "project_templates": {
+    "web_app_structure": {
+      "frontend": "src/frontend/",
+      "backend": "src/backend/",
+      "api": "src/api/",
+      "shared": "src/shared/",
+      "config": "config/",
+      "tests": "tests/"
+    },
+    "data_pipeline": {
+      "raw_data": "data/raw/",
+      "processed_data": "data/processed/",
+      "models": "models/",
+      "notebooks": "notebooks/"
+    }
+  },
+  "technology_stack": {
+    "frontend_choices": {
+      "react": "现代React应用",
+      "vue": "Vue.js生态项目",
+      "angular": "企业级应用"
+    },
+    "backend_choices": {
+      "python_django": "快速原型和API开发",
+      "python_flask": "轻量级服务和API",
+      "node_express": "JavaScript全栈开发",
+      "java_spring": "企业级后端服务"
+    },
+    "database_choices": {
+      "postgresql": "复杂关系数据",
+      "mysql": "传统关系数据",
+      "mongodb": "文档存储和灵活数据",
+      "redis": "缓存和会话存储"
+    }
+  },
+  "quality_metrics": {
+    "code_quality_threshold": 85,
+    "documentation_coverage": 90,
+    "test_coverage_minimum": 80,
+    "performance_baseline": {
+      "response_time": "<200ms",
+      "throughput": ">1000req/s",
+      "error_rate": "<1%"
+    }
+  }
+}

@@ -1,6 +1,14 @@
-# /context-prime - 智能项目上下文初始化
+---
+description: 智能项目上下文初始化，基于awesome-claude-code最佳实践的项目理解初始化命令
+category: project-analysis-technical
+argument-hint: "[--project] [--depth] [--focus]"
+allowed-tools: Task, WebSearch, WebFetch, Read, Write
+---
+
+# 🚀 智能项目上下文初始化 / Intelligent Project Context Prime
 
 基于awesome-claude-code最佳实践的项目理解初始化命令
+Project understanding initialization command based on awesome-claude-code best practices
 
 ## 概述
 

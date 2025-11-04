@@ -1,8 +1,10 @@
 ---
-description: Fix all linting and formatting issues across the codebase
-category: code-analysis-testing
+description: Fix all linting and formatting issues across the codebase / 修复代码库中的所有lint和格式化问题
+category: code-analysis-technical
 allowed-tools: Bash, Edit, Read, Glob
 ---
+
+# 🔧 代码质量清理 / Code Quality Cleanup
 
 Fix all linting, formatting, and static analysis issues in the entire codebase.
 

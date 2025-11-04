@@ -1,0 +1,281 @@
+{
+  "version": "1.0.0",
+  "description": "Incremental Build System Configuration - Reddit老哥硬核指南实践",
+
+  "globalSettings": {
+    "maxParallelBuilds": 3,
+    "buildTimeout": 300000,
+    "enableBuildCache": true,
+    "enableDependencyAnalysis": true,
+    "enablePerformanceOptimization": true,
+    "logLevel": "info"
+  },
+
+  "projectConfigs": {
+    "bmad-core": {
+      "priority": "critical",
+      "buildType": "node",
+      "maxMemory": "1G",
+      "enableTypeCheck": true,
+      "enableTests": true,
+      "buildCommands": [
+        "cd ./BMAD-METHOD-main-6",
+        "npm install",
+        "npm run build",
+        "npm run test"
+      ],
+      "validationCommands": {
+        "build": "cd ./BMAD-METHOD-main-6 && npm run build",
+        "type": "cd ./BMAD-METHOD-main-6 && npm run type-check",
+        "test": "cd ./BMAD-METHOD-main-6 && npm run test"
+      },
+      "dependencies": [],
+      "watchPatterns": ["src/**/*", "package.json", "tsconfig.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "geta-service": {
+      "priority": "high",
+      "buildType": "npm",
+      "maxMemory": "512M",
+      "enableTypeCheck": true,
+      "enableTests": true,
+      "buildCommands": [
+        "cd \"./💻 技术开发/01_公司项目ing 🚀/geta/\"",
+        "npm install",
+        "npm run build",
+        "npm run type-check"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/01_公司项目ing 🚀/geta/\" && npm run build",
+        "type": "cd \"./💻 技术开发/01_公司项目ing 🚀/geta/\" && npm run type-check",
+        "test": "cd \"./💻 技术开发/01_公司项目ing 🚀/geta/\" && npm run test"
+      },
+      "dependencies": ["bmad-core"],
+      "watchPatterns": ["src/**/*", "package.json", "tsconfig.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "obsidion-platform": {
+      "priority": "critical",
+      "buildType": "npm",
+      "maxMemory": "1G",
+      "enableTypeCheck": true,
+      "enableTests": true,
+      "buildCommands": [
+        "cd \"./💻 技术开发/01_公司项目ing 🚀/Obsidion-zhilink-platform_v3/\"",
+        "npm install",
+        "npm run build",
+        "npm run type-check"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/01_公司项目ing 🚀/Obsidion-zhilink-platform_v3/\" && npm run build",
+        "type": "cd \"./💻 技术开发/01_公司项目ing 🚀/Obsidion-zhilink-platform_v3/\" && npm run type-check",
+        "test": "cd \"./💻 技术开发/01_公司项目ing 🚀/Obsidion-zhilink-platform_v3/\" && npm run test"
+      },
+      "dependencies": ["bmad-core"],
+      "watchPatterns": ["src/**/*", "package.json", "tsconfig.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "zhiping-ai-portal": {
+      "priority": "medium",
+      "buildType": "npm",
+      "maxMemory": "512M",
+      "enableTypeCheck": true,
+      "enableTests": false,
+      "buildCommands": [
+        "cd \"./💻 技术开发/01_公司项目ing 🚀/zhiping-ai-portal/\"",
+        "npm install",
+        "npm run build"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/01_公司项目ing 🚀/zhiping-ai-portal/\" && npm run build",
+        "type": "cd \"./💻 技术开发/01_公司项目ing 🚀/zhiping-ai-portal/\" && npm run type-check"
+      },
+      "dependencies": ["bmad-core", "obsidion-platform"],
+      "watchPatterns": ["src/**/*", "package.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "ai-investment-tracker": {
+      "priority": "medium",
+      "buildType": "npm",
+      "maxMemory": "512M",
+      "enableTypeCheck": true,
+      "enableTests": false,
+      "buildCommands": [
+        "cd \"./💻 技术开发/01_公司项目ing 🚀/AI Investment MRR Tracker/\"",
+        "npm install",
+        "npm run build"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/01_公司项目ing 🚀/AI Investment MRR Tracker/\" && npm run build",
+        "type": "cd \"./💻 技术开发/01_公司项目ing 🚀/AI Investment MRR Tracker/\" && npm run type-check"
+      },
+      "dependencies": ["bmad-core"],
+      "watchPatterns": ["src/**/*", "package.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "shadcn-ui-server": {
+      "priority": "low",
+      "buildType": "npm",
+      "maxMemory": "256M",
+      "enableTypeCheck": true,
+      "enableTests": false,
+      "buildCommands": [
+        "cd \"./💻 技术开发/02_开发工具 🛠️/mcp-servers/shadcn-ui-server/\"",
+        "npm install",
+        "npm run build"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/02_开发工具 🛠️/mcp-servers/shadcn-ui-server/\" && npm run build"
+      },
+      "dependencies": [],
+      "watchPatterns": ["src/**/*", "package.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    },
+
+    "media-crawler": {
+      "priority": "low",
+      "buildType": "npm",
+      "maxMemory": "256M",
+      "enableTypeCheck": false,
+      "enableTests": false,
+      "buildCommands": [
+        "cd \"./💻 技术开发/02_开发工具 🛠️/mcp-servers/MediaCrawler/\"",
+        "npm install",
+        "npm run build"
+      ],
+      "validationCommands": {
+        "build": "cd \"./💻 技术开发/02_开发工具 🛠️/mcp-servers/MediaCrawler/\" && npm run build"
+      },
+      "dependencies": [],
+      "watchPatterns": ["src/**/*", "package.json"],
+      "excludePatterns": ["node_modules/**", "dist/**", "*.log"]
+    }
+  },
+
+  "fileTypeMappings": {
+    "typescript": {
+      "extensions": [".ts", ".tsx"],
+      "requiresBuild": true,
+      "requiresTypeCheck": true,
+      "buildTools": ["tsc", "webpack", "vite"]
+    },
+    "javascript": {
+      "extensions": [".js", ".jsx"],
+      "requiresBuild": true,
+      "requiresTypeCheck": false,
+      "buildTools": ["webpack", "vite", "babel"]
+    },
+    "vue": {
+      "extensions": [".vue"],
+      "requiresBuild": true,
+      "requiresTypeCheck": false,
+      "buildTools": ["vue-cli", "vite"]
+    },
+    "python": {
+      "extensions": [".py"],
+      "requiresBuild": true,
+      "requiresTypeCheck": false,
+      "buildTools": ["python", "setuptools"]
+    },
+    "stylesheet": {
+      "extensions": [".css", ".scss", ".sass", ".less"],
+      "requiresBuild": true,
+      "requiresTypeCheck": false,
+      "buildTools": ["sass", "postcss", "webpack"]
+    },
+    "markdown": {
+      "extensions": [".md", ".mdx"],
+      "requiresBuild": false,
+      "requiresTypeCheck": false,
+      "buildTools": []
+    },
+    "json": {
+      "extensions": [".json"],
+      "requiresBuild": false,
+      "requiresTypeCheck": false,
+      "buildTools": []
+    }
+  },
+
+  "criticalFilePatterns": [
+    "package\\.json$",
+    "tsconfig\\.json$",
+    "webpack\\.config",
+    "vite\\.config",
+    "rollup\\.config",
+    "index\\.(ts|js|tsx|jsx)$",
+    "App\\.(ts|js|tsx|jsx)$",
+    "main\\.(ts|js)$",
+    "server\\.(ts|js)$",
+    ".*rc\\.js$",
+    ".*config\\.js$"
+  ],
+
+  "dependencyGraph": {
+    "bmad-core": {
+      "affects": ["geta-service", "obsidion-platform", "zhiping-ai-portal", "ai-investment-tracker"],
+      "reason": "BMAD核心服务变更影响所有依赖服务"
+    },
+    "obsidion-platform": {
+      "affects": ["zhiping-ai-portal"],
+      "reason": "Obsidion平台变更影响AI门户"
+    },
+    "geta-service": {
+      "affects": [],
+      "reason": "GetA服务相对独立"
+    },
+    "zhiping-ai-portal": {
+      "affects": [],
+      "reason": "AI门户相对独立"
+    },
+    "ai-investment-tracker": {
+      "affects": [],
+      "reason": "投资追踪器相对独立"
+    },
+    "shadcn-ui-server": {
+      "affects": [],
+      "reason": "UI服务相对独立"
+    },
+    "media-crawler": {
+      "affects": [],
+      "reason": "媒体爬虫相对独立"
+    }
+  },
+
+  "performanceOptimizations": {
+    "enableBuildCache": true,
+    "cacheDirectory": "./.build-cache",
+    "enableParallelBuilds": true,
+    "maxParallelJobs": 3,
+    "enableIncrementalValidation": true,
+    "enableSmartDependencies": true,
+    "buildTimeoutMs": 300000,
+    "memoryOptimization": true,
+    "cpuOptimization": true
+  },
+
+  "notificationSettings": {
+    "enableNotifications": true,
+    "notifyOnSuccess": true,
+    "notifyOnFailure": true,
+    "notifyOnWarnings": false,
+    "notificationChannels": ["console", "file"],
+    "logDirectory": "./logs/builds"
+  },
+
+  "qualityGates": {
+    "enableZeroErrorPolicy": true,
+    "enableTypeCheckValidation": true,
+    "enableUnitTestValidation": false,
+    "enableLintValidation": false,
+    "enablePerformanceValidation": false,
+    "maxBuildWarnings": 10,
+    "maxBuildTimeMs": 300000,
+    "failOnCriticalErrors": true
+  }
+}

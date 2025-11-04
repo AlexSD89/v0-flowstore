@@ -28,8 +28,9 @@ const soundNotificationHook = {
 
     // 确保声音文件存在
     ensureSoundFiles: function () {
-        const soundDir = path.join(__dirname, 'hook-sound-system', 'sounds');
+        const soundDir = path.join('/Users/dangsiyuan/Documents/obsidion/launch x/.claude/hooks/hook-sound-system', 'sounds');
         console.log(`声音文件目录: ${soundDir}`);
+        this.soundDir = soundDir; // 保存路径供其他方法使用
     },
 
     // 启动活动监控
@@ -60,9 +61,9 @@ const soundNotificationHook = {
     // 播放小黄人声音
     playMinionSound: function (soundType, context = '') {
         try {
-            const soundDir = path.join(__dirname, 'hook-sound-system', 'sounds');
+            const soundDir = this.soundDir || path.join('/Users/dangsiyuan/Documents/obsidion/launch x/.claude/hooks/hook-sound-system', 'sounds');
             let soundFile = '';
-            
+
             // 根据类型选择小黄人声音文件
             switch (soundType) {
                 case 'task_complete':
@@ -119,9 +120,9 @@ const soundNotificationHook = {
     // 播放备用声音（如果小黄人声音不存在）
     playFallbackSound: function (soundType, context = '') {
         try {
-            const soundDir = path.join(__dirname, 'hook-sound-system', 'sounds');
+            const soundDir = this.soundDir || path.join('/Users/dangsiyuan/Documents/obsidion/launch x/.claude/hooks/hook-sound-system', 'sounds');
             let soundFile = '';
-            
+
             // 使用标准声音文件作为备用
             switch (soundType) {
                 case 'task_complete':

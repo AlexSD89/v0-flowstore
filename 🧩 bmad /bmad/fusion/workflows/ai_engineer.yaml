@@ -1,0 +1,17 @@
+name: ai_engineer
+description: "Fusion workflow generated from routing rule"
+steps:
+  - id: analyze
+    title: 分析任务意图
+    instructions:
+      - "读取任务描述，确认匹配表达式：AI.*实现|算法.*优化|机器学习"
+      - "识别协作 Agent：backend_architect, data_scientist"
+  - id: collaborate
+    title: 协作执行
+    instructions:
+      - "按照协作模式 sequential 调度 Agent"
+      - "记录阶段性输出"
+  - id: summarize
+    title: 汇总成果
+    instructions:
+      - "输出结论、风险、下一步"

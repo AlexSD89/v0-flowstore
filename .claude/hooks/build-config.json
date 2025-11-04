@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "project": "launch-x",
+  "build": {
+    "type": "incremental",
+    "strategy": "file-change-detection",
+    "triggers": [
+      "file-edit",
+      "git-commit",
+      "manual-trigger"
+    ],
+    "excludePatterns": [
+      "node_modules/**",
+      ".git/**",
+      "*.log",
+      "dist/**",
+      "build/**"
+    ],
+    "includePatterns": [
+      "**/*.js",
+      "**/*.md",
+      "**/*.json",
+      "**/*.sh",
+      "**/*.py",
+      "**/*.ts",
+      "**/*.tsx"
+    ]
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": [
+      "build-time",
+      "file-changes",
+      "success-rate",
+      "error-tracking"
+    ],
+    "alertThresholds": {
+      "buildTime": 30000,
+      "failureRate": 0.1,
+      "maxFileChanges": 100
+    }
+  },
+  "hooks": {
+    "preBuild": [],
+    "postBuild": [
+      "update-build-history",
+      "notify-status"
+    ],
+    "onFailure": [
+      "log-error",
+      "notify-failure"
+    ]
+  },
+  "redditGuide": {
+    "philosophy": "工程基础设施 > 提示词技巧",
+    "observability": "可观测性 = 能力",
+    "automation": "自动化强制执行",
+    "zeroError": "零错误遗漏机制"
+  }
+}

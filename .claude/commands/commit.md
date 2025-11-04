@@ -1,8 +1,10 @@
 ---
-description: Create well-formatted git commits with conventional commit messages and emoji
-category: version-control-git
+description: Create well-formatted git commits with conventional commit messages and emoji / 创建标准格式的Git提交，包含传统提交信息和emoji
+category: version-control-technical
 allowed-tools: Bash, Read, Glob
 ---
+
+# 📝 技术提交管理 / Technical Commit Management
 
 # Claude Command: Commit
 

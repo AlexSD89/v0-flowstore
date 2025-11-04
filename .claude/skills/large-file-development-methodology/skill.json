@@ -1,0 +1,391 @@
+{
+  "name": "large-file-development-methodology",
+  "version": "1.0.0",
+  "description": "大型文件开发方法论 - 适用于复杂文档、系统设计、架构规划等大型文件开发的完整流程",
+  "category": "methodology",
+  "priority": "high",
+  "tags": ["development", "methodology", "planning", "design", "architecture"],
+  "created": "2025-11-03",
+  "last_updated": "2025-11-03",
+  "author": "LaunchX Skills Team",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "project_info": {
+        "type": "object",
+        "description": "项目基本信息",
+        "properties": {
+          "project_name": {
+            "type": "string",
+            "description": "项目名称"
+          },
+          "project_type": {
+            "type": "string",
+            "enum": ["technical_spec", "architecture_design", "business_plan", "research_report", "methodology_guide", "system_documentation"],
+            "description": "项目类型"
+          },
+          "target_audience": {
+            "type": "string",
+            "description": "目标受众"
+          },
+          "scope": {
+            "type": "string",
+            "description": "项目范围"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "约束条件"
+          }
+        },
+        "required": ["project_name", "project_type", "target_audience", "scope"]
+      },
+      "development_requirements": {
+        "type": "object",
+        "description": "开发需求",
+        "properties": {
+          "complexity_level": {
+            "type": "string",
+            "enum": ["simple", "medium", "complex", "very_complex"],
+            "description": "复杂度级别"
+          },
+          "estimated_length": {
+            "type": "string",
+            "description": "预估长度"
+          },
+          "timeline": {
+            "type": "string",
+            "description": "时间线要求"
+          },
+          "quality_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "质量要求"
+          },
+          "stakeholders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "相关利益相关者"
+          }
+        },
+        "required": ["complexity_level", "estimated_length", "timeline"]
+      },
+      "existing_assets": {
+        "type": "object",
+        "description": "现有资产",
+        "properties": {
+          "reference_documents": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "参考文档"
+          },
+          "templates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "模板文件"
+          },
+          "previous_versions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "先前版本"
+          },
+          "related_projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "相关项目"
+          }
+        }
+      },
+      "context": {
+        "type": "object",
+        "description": "上下文信息",
+        "properties": {
+          "purpose": {
+            "type": "string",
+            "description": "开发目的"
+          },
+          "business_context": {
+            "type": "string",
+            "description": "业务背景"
+          },
+          "technical_context": {
+            "type": "string",
+            "description": "技术背景"
+          },
+          "urgency": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "紧急程度"
+          },
+          "success_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "成功标准"
+          }
+        },
+        "required": ["purpose"]
+      }
+    },
+    "required": ["project_info", "development_requirements", "context"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "development_plan": {
+        "type": "object",
+        "description": "开发计划",
+        "properties": {
+          "phases": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "开发阶段"
+          },
+          "timeline": {
+            "type": "object",
+            "description": "时间线"
+          },
+          "resources": {
+            "type": "object",
+            "description": "所需资源"
+          },
+          "deliverables": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "交付物"
+          }
+        }
+      },
+      "design_strategy": {
+        "type": "object",
+        "description": "设计策略",
+        "properties": {
+          "architecture_approach": {
+            "type": "string",
+            "description": "架构方法"
+          },
+          "content_structure": {
+            "type": "object",
+            "description": "内容结构"
+          },
+          "quality_gates": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "质量门控"
+          },
+          "validation_criteria": {
+            "type": "object",
+            "description": "验证标准"
+          }
+        }
+      },
+      "implementation_steps": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "step_number": {
+              "type": "number"
+            },
+            "step_name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "actions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "expected_output": {
+              "type": "string"
+            },
+            "validation_method": {
+              "type": "string"
+            },
+            "estimated_time": {
+              "type": "string"
+            },
+            "dependencies": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": ["step_number", "step_name", "description", "actions", "expected_output"]
+        },
+        "description": "实施步骤"
+      },
+      "quality_assurance": {
+        "type": "object",
+        "description": "质量保证",
+        "properties": {
+          "review_process": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "审查流程"
+          },
+          "testing_strategy": {
+            "type": "object",
+            "description": "测试策略"
+          },
+          "quality_metrics": {
+            "type": "object",
+            "description": "质量指标"
+          }
+        }
+      },
+      "risk_management": {
+        "type": "object",
+        "description": "风险管理",
+        "properties": {
+          "identified_risks": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "识别的风险"
+          },
+          "mitigation_strategies": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "缓解策略"
+          },
+          "contingency_plans": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "应急计划"
+          }
+        }
+      },
+      "success_metrics": {
+        "type": "object",
+        "description": "成功指标",
+        "properties": {
+          "completion_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quality_standards": {
+            "type": "object"
+          },
+          "stakeholder_satisfaction": {
+            "type": "object"
+          }
+        }
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "description": "建议"
+      }
+    }
+  },
+  "execution_flow": [
+    {
+      "step": "analyze_requirements",
+      "description": "分析开发需求",
+      "skills_required": ["content-modification-strategy", "source-analysis-method"]
+    },
+    {
+      "step": "create_development_plan",
+      "description": "创建开发计划",
+      "skills_required": []
+    },
+    {
+      "step": "design_structure",
+      "description": "设计文档结构",
+      "skills_required": []
+    },
+    {
+      "step": "implement_content",
+      "description": "实施内容创建",
+      "skills_required": ["document-generation-workflow"]
+    },
+    {
+      "step": "quality_validation",
+      "description": "质量验证",
+      "skills_required": ["quality-validation-protocol"]
+    }
+  ],
+  "dependencies": {
+    "skills": [
+      "content-modification-strategy",
+      "source-analysis-method",
+      "quality-validation-protocol",
+      "document-generation-workflow"
+    ],
+    "hooks": [
+      "file-naming-hook",
+      "content-quality-hook",
+      "reference-validation-hook"
+    ],
+    "tools": [
+      "workspace-filesystem",
+      "git-local"
+    ]
+  },
+  "triggers": [
+    {
+      "condition": "large_file_development",
+      "description": "大型文件开发需求",
+      "priority": "high"
+    },
+    {
+      "condition": "complex_documentation",
+      "description": "复杂文档编写需求",
+      "priority": "high"
+    },
+    {
+      "condition": "architecture_planning",
+      "description": "架构规划需求",
+      "priority": "high"
+    }
+  ],
+  "integration_points": {
+    "pre_execution": [
+      "validate_file_naming",
+      "check_content_quality",
+      "verify_references"
+    ],
+    "post_execution": [
+      "validate_output_quality",
+      "update_references",
+      "archive_lessons_learned"
+    ]
+  }
+}

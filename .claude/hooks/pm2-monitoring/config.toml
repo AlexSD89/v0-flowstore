@@ -1,0 +1,95 @@
+[core]
+# Claude Code 核心配置
+model = "claude-3-5-sonnet-20241022"
+temperature = 0.7
+max_tokens = 8192
+
+[hooks]
+# Hook配置 - LaunchX分级Hook系统 + Reddit工程化质量门禁
+enabled = true
+directory = "~/.claude/hooks"
+
+# === LaunchX核心Hooks (Level A - 始终启用) ===
+[hooks.sound-notification]
+enabled = true
+timeout = 10000
+priority = 1
+description = "小黄人声音提示系统"
+launchx_level = "A"
+launchx_purpose = "用户体验增强"
+
+[hooks.external-memory-loader]
+enabled = true
+timeout = 5000
+priority = 2
+description = "LaunchX - 外部记忆系统加载"
+launchx_level = "A"
+launchx_purpose = "确保Claude加载完整上下文资产"
+
+# === Reddit工程化Hooks (Level B - 质量门禁) ===
+[hooks.user-prompt-submit]
+enabled = true
+timeout = 5000
+priority = 3
+description = "Reddit工程化 - 需求预处理 + Phase 0检查"
+launchx_level = "B"
+launchx_purpose = "强制质量检查前置"
+
+[hooks.skill-activation]
+enabled = true
+timeout = 3000
+priority = 4
+description = "Reddit工程化 - 技能自动激活"
+launchx_level = "B"
+launchx_purpose = "确保复用support_modules资产"
+
+[hooks.asset-reuse-validator]
+enabled = true
+timeout = 4000
+priority = 5
+description = "LaunchX - 资产复用验证器"
+launchx_level = "B"
+launchx_purpose = "强制检查是否复用现有能力"
+
+# === 高级工程化Hooks (Level C - 按需启用) ===
+[hooks.dev-docs-workflow]
+enabled = true  # Reddit老哥强制激活设计
+timeout = 5000
+priority = 6
+description = "Reddit工程化 - Dev Docs三文件工作流"
+launchx_level = "C"
+launchx_purpose = "复杂任务管理"
+
+[hooks.stop]
+enabled = true
+timeout = 10000
+priority = 7
+description = "LaunchX + Reddit - 会话结束质量检查"
+launchx_level = "C"
+launchx_purpose = "零错误遗漏 + 知识归档"
+
+[mcp]
+# MCP服务配置 - Claude Code专用
+timeout = 30000
+retry_attempts = 3
+
+[mcp.services]
+# 常用MCP服务
+playwright = { enabled = true }
+tavily = { enabled = true }
+rube = { enabled = true }
+jina = { enabled = true }
+
+[quality]
+# 质量门禁配置
+require_phase0 = false  # 复杂任务强制要求
+require_dev_docs = false  # 开发任务强制要求
+max_dangerous_operations = 0
+min_validation_steps = 1
+
+[logging]
+# 日志配置
+level = "info"
+file = "~/.claude/logs/claude.log"
+max_size = "10MB"
+max_files = 5

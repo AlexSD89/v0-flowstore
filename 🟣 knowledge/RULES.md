@@ -28,7 +28,9 @@ title: 知识域 RULES
 - 输出前执行五通道校验：来源、时效、权威性、交叉验证、趋势洞察。
 - 生成结论需记录引用路径，更新 README / memory-bank 索引并在 Summary 声明“已回写”。
 - 重要方法论或模板调整后同步 `memory-bank/support_modules/knowledge/USEME.md` 与根级指挥文档。
-- `🤖 AI生成 auto-generated/日期` 仅作为 24h 内的缓冲区，逾期需立即归档或删除。
+- AI生成内容按项目规模分级存放：
+  - **小项目**：`🤖 AI生成 auto-generated/日期` 作为 24h 内的缓冲区，逾期需立即归档或删除
+  - **大项目**：直接在项目文件夹内生成，保持项目资料的完整性和独立性
 - 自动化脚本仅允许存放于 `🛠️ Knowledge-Audit-Tools/` 与 `📊 Bilibili视频数据/`，并在对应 README 标注维护责任与使用方式。
 =======
 title: "知识域 RULES - 工程化增强版"

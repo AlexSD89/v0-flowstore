@@ -1,9 +1,11 @@
 ---
-description: Manage project todos in a todos.md file with add, complete, remove, and list operations
-category: project-task-management
+description: Manage project todos in a todos.md file with add, complete, remove, and list operations / 在todos.md文件中管理项目任务，支持添加、完成、删除和列表操作
+category: project-management-technical
 argument-hint: <action> [args...]
 allowed-tools: Read, Write, Edit
 ---
+
+# 📋 项目任务管理 / Project Task Management
 
 # Project Todo Manager
 

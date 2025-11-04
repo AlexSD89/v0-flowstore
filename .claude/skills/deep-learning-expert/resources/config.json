@@ -1,0 +1,161 @@
+{
+  "version": "1.0.0",
+  "skill_name": "深度学习专家",
+  "framework": "Launch-X深度学习技术v2.4",
+  "knowledge_domains": {
+    "mathematical_foundations": "数学基础、线性代数、概率论、统计学、优化理论",
+    "deep_learning_core": "神经网络、深度学习、机器学习基础",
+    "computer_science": "计算机科学、算法、数据结构、计算复杂性理论",
+    "applied_mathematics": "应用数学、数值方法、最优化",
+    "information_theory": "信息论、信号处理、模式识别理论"
+    "statistical_learning": "统计分析、贝叶斯网络、聚类分析",
+    "reinforcement_learning": "强化学习、Q学习、策略梯度方法"
+  },
+  "model_architectures": {
+    "classical_architectures": {
+      "cnn": "卷积神经网络、LeNet",
+      "rnn": "循环神经网络、LSTM、GRU",
+      "transformer": "Transformer、自注意力机制、位置编码"
+    },
+    "modern_architectures": {
+      "gan": "生成对抗网络、扩散模型",
+      "vae": "变分自编码器、生成模型",
+      "autoencoder": "自编码器、瓶颈架构",
+      "mamba": "状态空间模型"
+    },
+    "attention_mechanisms": {
+      "self_attention": "自注意力机制",
+      "cross_attention": "交叉注意力",
+      "multi_head_attention": "多头注意力"
+    }
+  },
+    "training_techniques": {
+      "transfer_learning": "迁移学习、fine-tuning、领域自适应",
+      "data_augmentation": "数据增强、正则化、合成数据",
+      "regularization": "正则化(L1/L2)、Dropout、批量归一化",
+      "optimization_algorithms": "SGD、Adam、Wang、AdaGrad、RMSprop"
+    },
+    "deployment_architectures": {
+      "cloud_deployment": "云平台部署、模型服务化",
+      "edge_deployment": "边缘设备部署、移动端优化",
+      "on_premise": "本地部署、私有云部署"
+      "hybrid": "混合云边部署"
+    },
+    "scaling_techniques": {
+      "distributed_training": "分布式训练",
+      "model_parallelism": "模型并行",
+      "inference_optimization": "推理加速",
+      "quantization": "模型量化"
+    }
+  },
+  "toolchain": {
+    "frameworks": {
+      "pytorch": "PyTorch、TorchVision",
+      "tensorflow": "TensorFlow",
+      "jax": "JAX、Flax",
+      "keras": "Keras"
+    },
+    "ml_ops_platforms": {
+      "mlflow": "MLflow、Kubeflow",
+      "kubeflow": "Kubeflow",
+      "airflow": "Apache Airflow"
+      "dvc": "DVC、Git DVC"
+    },
+    "monitoring_tools": {
+      "tensorboard": "TensorBoard、Weights & Biases",
+      "prometheus": "Prometheus",
+      "grafana": "Grafana"
+      "wandb": "Weights & Biases"
+    },
+    "experiment_tracking": {
+      "mlflow": "MLflow",
+      "neptune": "Neptune",
+      "comet": "MLab Comet"
+    }
+  },
+    "cloud_services": {
+      "aws": "AWS",
+      "azure": "Azure",
+      "gcp": "GCP",
+      "alibaba": "阿里云"
+    }
+  },
+  "hpc_requirements": {
+      "gpu_requirements": "NVIDIA A100/V100",
+      "memory": "32GB+",
+      "storage": "1TB+"
+    }
+  },
+  "hardware": {
+      "edge_devices": "NVIDIA Jetson, Google Edge",
+      "embedded_systems": "树莓派、ARM架构"
+    }
+  },
+  "datasets": {
+      "academic_datasets": "ImageNet, CIFAR-10",
+      "industry_datasets": "医疗影像、金融交易",
+      "competition_datasets": "Kaggle, ImageNet",
+      "benchmark_datasets": "SQuAD, GLUE"
+    }
+  },
+  "optimization_frameworks": {
+      "model_optimization": "TensorRT, ONNX",
+      "quantization": "TVM, OpenVINO"
+      "pruning": "模型剪枝技术"
+    }
+  },
+  "development_platforms": {
+      "notebooks": "JupyterLab, Google Colab",
+      "ides": "VS Code, PyCharm",
+      "version_control": "Git, GitHub"
+    }
+  },
+  "research_frontiers": {
+      "arxiv": "Cornell大学图书馆",
+      "papers_with_code": "Papers With Code",
+      "preprint_servers": "arXiv",
+      "conferences": "NeurIPS, ICML, ICLR"
+    }
+  },
+  "ai_applications": {
+      "hugging_face": "Hugging Face",
+      "openai_api": "OpenAI API",
+      "anthropic": "Claude",
+      "google_ai": "Google AI"
+    }
+  }
+  },
+  "learning_resources": {
+    "online_courses": ["Coursera", "Udemy", "edX"],
+      "tutorials": ["FastAI", "PyTorch教程"],
+      "documentation": ["PyTorch文档", "TensorFlow文档"],
+      "blogs": ["Towards Data Science", "Distill.pub"],
+      "communities": ["Stack Overflow", "Reddit ML"],
+      "github_repos": ["open-source项目"]
+    }
+  },
+  "industry_best_practices": {
+    "model_development": "MLOps最佳实践",
+    "model_serving": "模型服务化",
+    "data_engineering": "特征工程",
+    "ai_ethics": "AI伦理和负责任AI",
+    "reproducibility": "可重现性研究"
+    }
+  },
+  "performance_benchmarks": {
+    "model_performance": ["ImageNet Top-1", "SOTA"],
+      "training_speed": ["训练吞吐量", "收敛速度"],
+      "inference_latency": ["推理延迟", "吞吐量"],
+      "model_size": ["参数数量", "模型大小GB"]
+    }
+  },
+  "emerging_trends": {
+      "foundation_models": "大语言模型",
+      "multimodal_models": "视觉-语言模型",
+      "few_shot_learning": "少样本学习",
+      "self_supervised_learning": "自监督学习",
+      "continual_learning": "持续学习",
+      "ai_agent": "AI智能体"
+    }
+  }
+}

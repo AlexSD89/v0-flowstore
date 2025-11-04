@@ -1,9 +1,11 @@
 ---
-description: Perform comprehensive code analysis with quality metrics and recommendations
-category: code-analysis-testing
+description: Perform comprehensive code analysis with quality metrics and recommendations / 执行综合代码分析，提供质量指标和改进建议
+category: code-analysis-technical
 argument-hint: "[file-or-directory-path]"
 allowed-tools: Read, Grep, Glob, TodoWrite
 ---
+
+# 🔍 技术代码分析 / Technical Code Analysis
 
 # Code Analysis Command
 

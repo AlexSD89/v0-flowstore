@@ -1,0 +1,308 @@
+{
+  "version": "2.0.0",
+  "description": "Skills渐进式披露系统 - Reddit指南Token效率优化 + Reddit工程化实践",
+  "globalSettings": {
+    "enableProgressiveDisclosure": true,
+    "maxMainFileSize": 500,
+    "tokenEfficiencyTarget": 0.6,
+    "enableSmartActivation": true,
+    "enableContextAwareLoading": true,
+    "enableResourceCaching": true,
+    "logLevel": "info"
+  },
+
+  "skillActivationRules": {
+    "business-decision-support": {
+      "triggers": [
+        "投资分析", "ROI", "商业决策", "企业估值", "风险评估",
+        "市场分析", "商业模式", "财务分析", "投资回报", "商业价值"
+      ],
+      "contextKeywords": ["项目", "企业", "投资", "商业", "财务", "市场"],
+      "priority": "high",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 2000
+        },
+        "detailed": {
+          "file": "resources/config.json",
+          "sections": ["分析框架", "评估模型"],
+          "maxTokens": 4000
+        },
+        "resources": {
+          "files": ["resources/templates/*", "resources/examples/*"],
+          "loadOnDemand": true,
+          "maxTokens": 8000
+        }
+      }
+    },
+
+    "enterprise-research-analyst": {
+      "triggers": [
+        "企业研究", "尽调", "行业分析", "竞争分析", "企业调研",
+        "公司分析", "行业研究", "竞争对手", "企业尽职调查", "行业报告"
+      ],
+      "contextKeywords": ["企业", "公司", "行业", "竞争", "尽调", "研究"],
+      "priority": "high",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 2000
+        },
+        "detailed": {
+          "file": "resources/config/enterprise-research-config.json",
+          "sections": ["研究框架", "分析模型"],
+          "maxTokens": 4000
+        },
+        "resources": {
+          "files": ["resources/templates/*", "resources/examples/*"],
+          "loadOnDemand": true,
+          "maxTokens": 6000
+        }
+      }
+    },
+
+    "market-intelligence-expert": {
+      "triggers": [
+        "市场情报", "竞争情报", "行业趋势", "市场调研", "竞争分析",
+        "市场动态", "行业洞察", "市场机会", "竞争格局", "市场分析"
+      ],
+      "contextKeywords": ["市场", "行业", "竞争", "趋势", "情报", "分析"],
+      "priority": "medium",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 1800
+        },
+        "resources": {
+          "files": ["resources/templates/*", "resources/examples/*"],
+          "loadOnDemand": true,
+          "maxTokens": 5000
+        }
+      }
+    },
+
+    "deep-learning-expert": {
+      "triggers": [
+        "深度学习", "神经网络", "模型训练", "AI模型", "机器学习",
+        "PyTorch", "TensorFlow", "模型优化", "学习路径", "AI技术"
+      ],
+      "contextKeywords": ["深度学习", "AI", "模型", "训练", "神经网络", "学习"],
+      "priority": "medium",
+      "autoLoad": false,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "核心功能", "使用方式"],
+          "maxTokens": 2500
+        },
+        "detailed": {
+          "file": "resources/config.json",
+          "sections": ["学习路径", "技术指导"],
+          "maxTokens": 4000
+        },
+        "resources": {
+          "files": ["resources/examples/*", "resources/templates/*"],
+          "loadOnDemand": true,
+          "maxTokens": 10000
+        }
+      }
+    },
+
+    "gate-os-enterprise-expert": {
+      "triggers": [
+        "企业AI", "AI系统", "数字化转型", "AI架构", "企业AI化",
+        "AI战略", "数字转型", "企业智能化", "AI平台", "系统架构"
+      ],
+      "contextKeywords": ["企业", "AI系统", "转型", "架构", "战略", "数字化"],
+      "priority": "critical",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 2000
+        },
+        "detailed": {
+          "file": "resources/templates/architecture-blueprint.md",
+          "sections": ["架构设计", "实施规划"],
+          "maxTokens": 5000
+        },
+        "resources": {
+          "files": ["resources/docs/*", "resources/templates/*"],
+          "loadOnDemand": true,
+          "maxTokens": 8000
+        }
+      }
+    },
+
+    "knowledge-master": {
+      "triggers": [
+        "知识管理", "知识库", "信息整理", "文档管理", "知识体系",
+        "信息架构", "知识组织", "内容管理", "知识资产", "文档化"
+      ],
+      "contextKeywords": ["知识", "文档", "信息", "管理", "组织", "体系"],
+      "priority": "medium",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 1500
+        },
+        "resources": {
+          "files": ["resources/*"],
+          "loadOnDemand": true,
+          "maxTokens": 3000
+        }
+      }
+    },
+
+    "technical-design-expert": {
+      "triggers": [
+        "技术设计", "系统架构", "技术选型", "架构设计", "技术方案",
+        "系统设计", "技术架构", "设计模式", "技术规划", "架构决策"
+      ],
+      "contextKeywords": ["技术", "架构", "设计", "系统", "方案", "规划"],
+      "priority": "high",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 1800
+        },
+        "resources": {
+          "files": ["resources/*"],
+          "loadOnDemand": true,
+          "maxTokens": 4000
+        }
+      }
+    },
+
+    "project-architect": {
+      "triggers": [
+        "项目架构", "项目规划", "项目设计", "架构规划", "项目结构",
+        "项目组织", "架构设计", "技术选型", "开发规划", "项目框架"
+      ],
+      "contextKeywords": ["项目", "架构", "规划", "设计", "结构", "组织"],
+      "priority": "medium",
+      "autoLoad": true,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 1500
+        },
+        "resources": {
+          "files": ["resources/templates/*"],
+          "loadOnDemand": true,
+          "maxTokens": 3500
+        }
+      }
+    },
+
+    "cognitive-strategy-master": {
+      "triggers": [
+        "认知策略", "思维模型", "决策方法", "思维框架", "战略思维",
+        "认知科学", "思维训练", "决策分析", "思维模式", "策略制定"
+      ],
+      "contextKeywords": ["认知", "思维", "策略", "决策", "框架", "模式"],
+      "priority": "low",
+      "autoLoad": false,
+      "progressiveLevels": {
+        "basic": {
+          "file": "SKILL.md",
+          "sections": ["基本信息", "功能描述", "使用方式"],
+          "maxTokens": 1800
+        },
+        "resources": {
+          "files": ["resources/*"],
+          "loadOnDemand": true,
+          "maxTokens": 6000
+        }
+      }
+    }
+  },
+
+  "progressiveDisclosureSettings": {
+    "tokenThresholds": {
+      "warning": 3000,
+      "critical": 5000,
+      "maximum": 8000
+    },
+    "loadingStrategy": {
+      "eagerLoading": ["business-decision-support", "project-architect", "technical-design-expert"],
+      "lazyLoading": ["enterprise-research-analyst", "market-intelligence-expert", "knowledge-master"],
+      "onDemandOnly": ["gate-os-enterprise-expert", "deep-learning-expert", "cognitive-strategy-master"]
+    },
+    "levelManifest": {
+      "Level 1": {
+        "name": "核心技能包 - Reddit指南推荐",
+        "skills": ["business-decision-support", "project-architect", "technical-design-expert"],
+        "maxTokens": 2000,
+        "autoLoad": true,
+        "description": "最常用的基础技能，符合Reddit指南工程化优先原则"
+      },
+      "Level 2": {
+        "name": "专业扩展包 - 按需智能加载",
+        "skills": ["enterprise-research-analyst", "market-intelligence-expert", "knowledge-master"],
+        "maxTokens": 3000,
+        "autoLoad": false,
+        "description": "专业分析技能，基于上下文智能识别加载"
+      },
+      "Level 3": {
+        "name": "高级专家包 - 复杂任务专用",
+        "skills": ["gate-os-enterprise-expert", "deep-learning-expert", "cognitive-strategy-master"],
+        "maxTokens": 5000,
+        "autoLoad": false,
+        "description": "高级系统级技能，复杂任务自动识别加载"
+      }
+    },
+    "cachingRules": {
+      "enableFileCache": true,
+      "cacheExpiration": 3600000,
+      "maxCacheSize": "100MB",
+      "enableMemoryCache": true
+    },
+    "contextAwareness": {
+      "enableSessionMemory": true,
+      "enableProjectContext": true,
+      "enableUserPreferences": true,
+      "enableAdaptiveLoading": true
+    }
+  },
+
+  "performanceOptimizations": {
+    "enableContentSummarization": true,
+    "enableSmartFiltering": true,
+    "enableDependencyOptimization": true,
+    "enableBatchProcessing": true,
+    "maxConcurrentLoads": 3,
+    "enableProgressiveLoading": true
+  },
+
+  "monitoringSettings": {
+    "enableUsageTracking": true,
+    "enablePerformanceMonitoring": true,
+    "enableErrorTracking": true,
+    "enableUserFeedback": true,
+    "logDirectory": "./logs/skills",
+    "metricsRetention": 30
+  },
+
+  "qualityGates": {
+    "enableContentValidation": true,
+    "enableStructureValidation": true,
+    "enablePerformanceValidation": true,
+    "maxLoadingTime": 5000,
+    "maxMemoryUsage": "256MB",
+    "minSuccessRate": 0.95
+  }
+}

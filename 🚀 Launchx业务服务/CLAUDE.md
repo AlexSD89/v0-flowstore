@@ -75,7 +75,9 @@ impact: "业务服务域内的AI协作流程与Claude智能商业能力"
    - 明确交付物标准、质量指标、验证方式
    - 确认BMAD商业Agent协作需求和Claude Skills使用计划
 
-> **智能生成管理**：使用AI生成的 `/spec`、`/plan`、`/do` 草稿，统一存放在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，经AI质量审核后24小时内迁移至目标目录，同时更新frontmatter与商业价值评估。
+> **智能生成管理**：使用AI生成的 `/spec`、`/plan`、`/do` 草稿，按项目规模分级存放：
+> - **小项目**：统一存放在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，经AI质量审核后24小时内迁移至目标目录
+> - **大项目**：直接在项目文件夹内生成所有资料内容，保持项目资料的完整性和独立性
 
 ## 🔄 AI增强业务服务流程
 

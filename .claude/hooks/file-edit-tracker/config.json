@@ -1,0 +1,92 @@
+{
+  "hookName": "basic-error-check",
+  "version": "1.0.0",
+  "description": "基础错误检查Hook - Reddit指南零错误遗漏机制",
+  "source": "Reddit工程化实践 + LaunchX质量保障",
+
+  "errorThresholds": {
+    "syntax": 0,
+    "lint": 5,
+    "type": 0,
+    "build": 0,
+    "test": 80
+  },
+
+  "checkCategories": [
+    {
+      "name": "syntax",
+      "description": "语法检查",
+      "enabled": true,
+      "critical": true,
+      "timeout": 30000
+    },
+    {
+      "name": "lint",
+      "description": "代码规范检查",
+      "enabled": true,
+      "critical": false,
+      "timeout": 60000
+    },
+    {
+      "name": "typescript",
+      "description": "TypeScript类型检查",
+      "enabled": true,
+      "critical": true,
+      "timeout": 60000
+    },
+    {
+      "name": "build",
+      "description": "构建检查",
+      "enabled": true,
+      "critical": true,
+      "timeout": 120000
+    },
+    {
+      "name": "test_coverage",
+      "description": "测试覆盖率检查",
+      "enabled": true,
+      "critical": false,
+      "timeout": 180000
+    }
+  ],
+
+  "fileTypes": [
+    ".js", ".jsx", ".ts", ".tsx", ".vue", ".py", ".java", ".cpp", ".c"
+  ],
+
+  "autoExecution": {
+    "enabled": true,
+    "trigger": "file_change",
+    "batchSize": 10,
+    "debounceMs": 2000
+  },
+
+  "notification": {
+    "enabled": true,
+    "sound": true,
+    "level": "error"
+  },
+
+  "reporting": {
+    "format": "json",
+    "outputFile": "error-check-report.json",
+    "includeRecommendations": true,
+    "generateMarkdown": true
+  },
+
+  "redditGuideIntegration": {
+    "principles": [
+      "零错误遗漏机制 - 强制质量检查前置",
+      "工程基础设施优先 - 自动化质量保障",
+      "可观测性 = 能力 - 全面的错误监控",
+      "自动化强制执行 - 不寄希望于人工提醒"
+    ],
+    "implementation": [
+      "语法错误零容忍",
+      "构建错误零容忍",
+      "类型错误零容忍",
+      "Lint错误限制在5个以内",
+      "测试覆盖率最低80%"
+    ]
+  }
+}

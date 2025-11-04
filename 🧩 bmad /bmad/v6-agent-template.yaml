@@ -1,0 +1,146 @@
+# BMAD V6 Agent 标准模板
+# 版本: 6.0.0
+# 创建时间: 2025-11-04
+# 用途: 所有V6 agents的标准化模板
+
+agent_id: "${AGENT_ID}"
+name: "${AGENT_NAME}"
+version: "6.0.0"
+category: "${CATEGORY}"
+tier: "professional"
+description_zh: |
+  ${中文描述}
+capabilities:
+  - "专业领域分析"
+  - "问题诊断与解决"
+  - "方案设计与优化"
+  - "跨团队协作"
+expertise_domains:
+  - "${主要专业领域}"
+  - "问题分析与解决"
+  - "方案设计与实施"
+collaboration_modes:
+  - "独立工作"
+  - "团队协作"
+  - "跨领域整合"
+mcp_integrations:
+  - "filesystem-shtse"
+  - "git-local"
+  - "workspace-filesystem"
+response_schema:
+  format: "structured_json"
+  sections:
+    - "analysis_summary"
+    - "recommendations"
+    - "implementation_steps"
+    - "risk_assessment"
+    - "success_metrics"
+workflow_config:
+  max_response_time: 300
+  retry_attempts: 3
+  quality_threshold: 0.85
+  language_preference: "zh-CN"
+quality_metrics:
+  - accuracy: ">= 0.9"
+  - relevance: ">= 0.85"
+  - completeness: ">= 0.8"
+  - user_satisfaction: ">= 0.85"
+metadata:
+  created_by: "BMAD-V6-Auto-Generator"
+  created_date: "2025-11-04"
+  last_updated: "2025-11-04"
+  compatibility: "v6.0+"
+  dependencies:
+    - "bmad-core>=6.0.0"
+    - "fusion-framework>=6.0.0"
+
+# Agent 专用配置
+agent_config:
+  # 专业工具配置
+  specialized_tools:
+    - name: "专业分析工具"
+      type: "internal"
+      priority: "high"
+
+  # 思维模式配置
+  thinking_patterns:
+    - "结构化分析"
+    - "系统性思考"
+    - "创新性解决方案"
+
+  # 交互风格配置
+  interaction_style:
+    tone: "专业且友好"
+    detail_level: "适中"
+    proactive_suggestions: true
+    question_clarification: true
+
+# 工作流程定义
+workflows:
+  standard_workflow:
+    steps:
+      - name: "需求理解"
+        description: "深入理解用户需求和上下文"
+        estimated_time: 30
+      - name: "信息收集"
+        description: "收集相关信息和数据"
+        estimated_time: 60
+      - name: "分析评估"
+        description: "进行专业分析和评估"
+        estimated_time: 120
+      - name: "方案设计"
+        description: "设计解决方案"
+        estimated_time: 90
+      - name: "实施指导"
+        description: "提供实施指导和建议"
+        estimated_time: 60
+
+  quick_workflow:
+    steps:
+      - name: "快速理解"
+        description: "快速理解核心需求"
+        estimated_time: 15
+      - name: "关键分析"
+        description: "进行关键点分析"
+        estimated_time: 30
+      - name: "即时建议"
+        description: "提供即时建议"
+        estimated_time: 15
+
+# 错误处理配置
+error_handling:
+  fallback_strategies:
+    - "简化分析模式"
+    - "请求用户澄清"
+    - "转交专家agent"
+
+  recovery_actions:
+    - "重新分析需求"
+    - "调整分析方法"
+    - "寻求协作支持"
+
+# 性能优化配置
+performance_optimization:
+  caching_enabled: true
+  cache_duration: 3600
+  parallel_processing: true
+  batch_size: 10
+
+# 安全配置
+security_config:
+  data_privacy: "high"
+  access_control: "role_based"
+  audit_logging: true
+
+# 扩展性配置
+extensibility:
+  plugin_support: true
+  custom_tools: true
+  api_integration: true
+
+# 监控配置
+monitoring:
+  performance_tracking: true
+  usage_analytics: true
+  error_reporting: true
+  feedback_collection: true

@@ -1,0 +1,211 @@
+{
+  "name": "quality-validation-protocol",
+  "version": "1.0.0",
+  "description": "质量验证协议 - 适用于输出质量评估、验证的标准流程，确保所有产出符合质量标准",
+  "category": "methodology",
+  "priority": "high",
+  "tags": ["quality", "validation", "assessment", "protocol", "standards"],
+  "created": "2025-11-03",
+  "last_updated": "2025-11-03",
+  "author": "LaunchX Skills Team",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "validation_request": {
+        "type": "object",
+        "description": "验证请求信息",
+        "properties": {
+          "target_content": {
+            "type": "string",
+            "description": "待验证内容路径或描述"
+          },
+          "content_type": {
+            "type": "string",
+            "enum": ["document", "code", "plan", "analysis", "specification", "implementation"],
+            "description": "内容类型"
+          },
+          "validation_level": {
+            "type": "string",
+            "enum": ["basic", "standard", "comprehensive", "critical"],
+            "description": "验证级别"
+          },
+          "quality_dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "质量维度列表"
+          }
+        },
+        "required": ["target_content", "content_type", "validation_level"]
+      },
+      "quality_requirements": {
+        "type": "object",
+        "description": "质量需求",
+        "properties": {
+          "quality_standards": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "质量标准"
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "验收标准"
+          },
+          "quality_metrics": {
+            "type": "object",
+            "description": "质量指标"
+          },
+          "quality_gates": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "质量门控"
+          }
+        },
+        "required": ["quality_standards", "acceptance_criteria"]
+      },
+      "validation_context": {
+        "type": "object",
+        "description": "验证上下文",
+        "properties": {
+          "business_context": {
+            "type": "string",
+            "description": "业务背景"
+          },
+          "user_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "用户需求"
+          },
+          "technical_constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "技术约束"
+          },
+          "stakeholder_expectations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "利益相关者期望"
+          }
+        }
+      }
+    },
+    "required": ["validation_request", "quality_requirements"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "validation_protocol": {
+        "type": "object",
+        "description": "验证协议"
+      },
+      "quality_assessment": {
+        "type": "object",
+        "description": "质量评估结果"
+      },
+      "validation_results": {
+        "type": "object",
+        "description": "验证结果"
+      },
+      "quality_metrics": {
+        "type": "object",
+        "description": "质量指标"
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "description": "改进建议"
+      },
+      "approval_status": {
+        "type": "object",
+        "description": "审批状态"
+      }
+    }
+  },
+  "execution_flow": [
+    {
+      "step": "analyze_validation_requirements",
+      "description": "分析验证需求",
+      "skills_required": []
+    },
+    {
+      "step": "establish_validation_protocol",
+      "description": "建立验证协议",
+      "skills_required": []
+    },
+    {
+      "step": "execute_quality_assessment",
+      "description": "执行质量评估",
+      "skills_required": []
+    },
+    {
+      "step": "validate_quality_gates",
+      "description": "验证质量门控",
+      "skills_required": []
+    },
+    {
+      "step": "generate_quality_report",
+      "description": "生成质量报告",
+      "skills_required": []
+    }
+  ],
+  "dependencies": {
+    "skills": [
+      "source-analysis-method",
+      "content-modification-strategy"
+    ],
+    "hooks": [
+      "content-quality-hook",
+      "reference-validation-hook",
+      "file-naming-hook"
+    ],
+    "tools": [
+      "workspace-filesystem",
+      "git-local"
+    ]
+  },
+  "triggers": [
+    {
+      "condition": "quality_validation_required",
+      "description": "需要质量验证时触发",
+      "priority": "high"
+    },
+    {
+      "condition": "content_approval_needed",
+      "description": "内容审批需求",
+      "priority": "high"
+    },
+    {
+      "condition": "quality_assessment_requested",
+      "description": "质量评估请求",
+      "priority": "medium"
+    }
+  ],
+  "integration_points": {
+    "pre_execution": [
+      "load_quality_standards",
+      "prepare_validation_environment",
+      "initialize_quality_metrics"
+    ],
+    "post_execution": [
+      "archive_validation_results",
+      "update_quality_knowledge",
+      "improve_validation_protocols"
+    ]
+  }
+}

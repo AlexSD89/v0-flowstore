@@ -1,0 +1,353 @@
+{
+  "summary": {
+    "total": 49,
+    "successful": 49,
+    "failed": 0
+  },
+  "details": [
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/bonus/joker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-joker.agent.yaml",
+      "agent_id": "claude-joker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.001Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/bonus/studio-coach.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-studio-coach.agent.yaml",
+      "agent_id": "claude-studio-coach",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.002Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/data/concurrent-search-orchestrator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-concurrent-search-orchestrator.agent.yaml",
+      "agent_id": "claude-concurrent-search-orchestrator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.003Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/data/cross-validation-engine.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-cross-validation-engine.agent.yaml",
+      "agent_id": "claude-cross-validation-engine",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.003Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/data/data-analyst.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-data-analyst.agent.yaml",
+      "agent_id": "claude-data-analyst",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.004Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/data/database-optimizer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-database-optimizer.agent.yaml",
+      "agent_id": "claude-database-optimizer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.004Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/data/methodology-fusion-analyst.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-methodology-fusion-analyst.agent.yaml",
+      "agent_id": "claude-methodology-fusion-analyst",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.005Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/design/brand-guardian.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-brand-guardian.agent.yaml",
+      "agent_id": "claude-brand-guardian",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.005Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/design/ui-designer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-ui-designer.agent.yaml",
+      "agent_id": "claude-ui-designer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.006Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/design/ux-researcher.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-ux-researcher.agent.yaml",
+      "agent_id": "claude-ux-researcher",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.007Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/design/visual-storyteller.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-visual-storyteller.agent.yaml",
+      "agent_id": "claude-visual-storyteller",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.007Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/design/whimsy-injector.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-whimsy-injector.agent.yaml",
+      "agent_id": "claude-whimsy-injector",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.008Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/ai-engineer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-ai-engineer.agent.yaml",
+      "agent_id": "claude-ai-engineer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.008Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/backend-architect.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-backend-architect.agent.yaml",
+      "agent_id": "claude-backend-architect",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.009Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/code-reviewer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-code-reviewer.agent.yaml",
+      "agent_id": "claude-code-reviewer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.009Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/devops-automator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-devops-automator.agent.yaml",
+      "agent_id": "claude-devops-automator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.009Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/frontend-developer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-frontend-developer.agent.yaml",
+      "agent_id": "claude-frontend-developer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.009Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/mobile-app-builder.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-mobile-app-builder.agent.yaml",
+      "agent_id": "claude-mobile-app-builder",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.010Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/python-expert.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-python-expert.agent.yaml",
+      "agent_id": "claude-python-expert",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.010Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/rapid-prototyper.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-rapid-prototyper.agent.yaml",
+      "agent_id": "claude-rapid-prototyper",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.010Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/security-auditor.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-security-auditor.agent.yaml",
+      "agent_id": "claude-security-auditor",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.010Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/test-writer-fixer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-test-writer-fixer.agent.yaml",
+      "agent_id": "claude-test-writer-fixer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.011Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/typescript-expert.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-typescript-expert.agent.yaml",
+      "agent_id": "claude-typescript-expert",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.011Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/engineering/ui-component-advisor.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-ui-component-advisor.agent.yaml",
+      "agent_id": "claude-ui-component-advisor",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.011Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/app-store-optimizer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-app-store-optimizer.agent.yaml",
+      "agent_id": "claude-app-store-optimizer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.011Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/content-creator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-content-creator.agent.yaml",
+      "agent_id": "claude-content-creator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.012Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/growth-hacker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-growth-hacker.agent.yaml",
+      "agent_id": "claude-growth-hacker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.012Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/instagram-curator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-instagram-curator.agent.yaml",
+      "agent_id": "claude-instagram-curator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.012Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/reddit-community-builder.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-reddit-community-builder.agent.yaml",
+      "agent_id": "claude-reddit-community-builder",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.012Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/tiktok-strategist.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-tiktok-strategist.agent.yaml",
+      "agent_id": "claude-tiktok-strategist",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.013Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/marketing/twitter-engager.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-twitter-engager.agent.yaml",
+      "agent_id": "claude-twitter-engager",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.013Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/orchestration/task-router.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-task-router.agent.yaml",
+      "agent_id": "claude-task-router",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.013Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/product/feedback-synthesizer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-feedback-synthesizer.agent.yaml",
+      "agent_id": "claude-feedback-synthesizer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.013Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/product/sprint-prioritizer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-sprint-prioritizer.agent.yaml",
+      "agent_id": "claude-sprint-prioritizer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.014Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/product/trend-researcher.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-trend-researcher.agent.yaml",
+      "agent_id": "claude-trend-researcher",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.014Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/project-management/experiment-tracker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-experiment-tracker.agent.yaml",
+      "agent_id": "claude-experiment-tracker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.014Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/project-management/project-shipper.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-project-shipper.agent.yaml",
+      "agent_id": "claude-project-shipper",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.014Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/project-management/studio-producer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-studio-producer.agent.yaml",
+      "agent_id": "claude-studio-producer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.015Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/studio-operations/analytics-reporter.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-analytics-reporter.agent.yaml",
+      "agent_id": "claude-analytics-reporter",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.015Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/studio-operations/finance-tracker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-finance-tracker.agent.yaml",
+      "agent_id": "claude-finance-tracker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.015Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/studio-operations/infrastructure-maintainer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-infrastructure-maintainer.agent.yaml",
+      "agent_id": "claude-infrastructure-maintainer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.016Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/studio-operations/legal-compliance-checker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-legal-compliance-checker.agent.yaml",
+      "agent_id": "claude-legal-compliance-checker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.016Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/studio-operations/support-responder.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-support-responder.agent.yaml",
+      "agent_id": "claude-support-responder",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.016Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/api-tester.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-api-tester.agent.yaml",
+      "agent_id": "claude-api-tester",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.016Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/performance-benchmarker.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-performance-benchmarker.agent.yaml",
+      "agent_id": "claude-performance-benchmarker",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.017Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/test-automator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-test-automator.agent.yaml",
+      "agent_id": "claude-test-automator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.017Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/test-results-analyzer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-test-results-analyzer.agent.yaml",
+      "agent_id": "claude-test-results-analyzer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.017Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/tool-evaluator.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-tool-evaluator.agent.yaml",
+      "agent_id": "claude-tool-evaluator",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.017Z"
+    },
+    {
+      "original": "/Users/dangsiyuan/Documents/obsidion/launch x/.claude/agents/testing/workflow-optimizer.md",
+      "converted": "/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /src/core/agents/claude-workflow-optimizer.agent.yaml",
+      "agent_id": "claude-workflow-optimizer",
+      "status": "success",
+      "timestamp": "2025-11-04T08:07:16.017Z"
+    }
+  ],
+  "timestamp": "2025-11-04T08:07:16.018Z"
+}

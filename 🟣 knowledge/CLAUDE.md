@@ -67,7 +67,9 @@ impact: "Claude增强知识生产流程，90%+分析准确率，95%+内容质量
    - 明确内容类型、分析维度、验证方式
    - 确认BMAD知识Agent协作需求和Claude Skills使用计划
 
-> **智能内容管理**：使用AI生成的知识内容，统一存放在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，经AI质量审核后24小时内迁移至目标目录，同时更新frontmatter与知识价值评估。
+> **智能内容管理**：使用AI生成的知识内容，按项目规模分级存放：
+> - **小项目**：统一存放在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，经AI质量审核后24小时内迁移至目标目录
+> - **大项目**：直接在项目文件夹内生成所有知识内容，同时更新frontmatter与知识价值评估
 
 ## 🔄 Claude增强知识生产流程
 

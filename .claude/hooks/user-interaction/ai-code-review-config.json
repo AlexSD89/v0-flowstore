@@ -1,0 +1,80 @@
+{
+  "hookName": "ai-code-review",
+  "version": "1.0.0",
+  "description": "AI代码审查Hook - Reddit指南工程化实践",
+  "source": "Reddit指南 + LaunchX质量保障系统",
+
+  "reviewTriggers": {
+    "automatic": true,
+    "filePatterns": ["*.js", "*.ts", "*.jsx", "*.tsx", "*.py", "*.go", "*.java"],
+    "complexityThresholds": {
+      "lines": 500,
+      "functions": 10,
+      "imports": 20,
+      "riskPatterns": ["eval", "innerHTML", "document.write", "setTimeout(callback)", "setInterval(callback)"]
+    },
+    "blockThreshold": {
+      "riskLevel": "high",
+      "score": 60
+    }
+  },
+
+  "reviewDimensions": {
+    "architecture": {
+      "weight": 0.2,
+      "checks": ["singleResponsibility", "dependencyInjection", "modularity", "coupling"],
+      "threshold": 0.7
+    },
+    "performance": {
+      "weight": 0.2,
+      "checks": ["loops", "domQueries", "jsonParsing", "eventListeners"],
+      "threshold": 0.7
+    },
+    "security": {
+      "weight": 0.25,
+      "checks": ["eval", "innerHTML", "documentWrite", "functionConstructor"],
+      "threshold": 0.8
+    },
+    "maintainability": {
+      "weight": 0.2,
+      "checks": ["functionLength", "naming", "comments", "structure"],
+      "threshold": 0.7
+    },
+    "testability": {
+      "weight": 0.15,
+      "checks": ["pureFunctions", "dependencies", "sideEffects", "exports"],
+      "threshold": 0.6
+    }
+  },
+
+  "reportSettings": {
+    "format": "markdown",
+    "location": "same-directory",
+    "filename": "_ai-review.md",
+    "includeMetrics": true,
+    "includeRecommendations": true,
+    "includeCodeSnippets": false
+  },
+
+  "integration": {
+    "hooks": true,
+    "skills": true,
+    "slashCommands": true,
+    "buildSystem": true
+  },
+
+  "redditGuidePrinciples": {
+    "aiSelfReview": true,
+    "automatedQualityGates": true,
+    "zeroErrorOmission": true,
+    "observability": true,
+    "engineeringFirst": true
+  },
+
+  "notifications": {
+    "soundEnabled": true,
+    "visualAlerts": true,
+    "blockCommitAlert": true,
+    "passReviewAlert": false
+  }
+}

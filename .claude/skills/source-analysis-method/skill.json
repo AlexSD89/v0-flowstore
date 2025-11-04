@@ -1,0 +1,215 @@
+{
+  "name": "source-analysis-method",
+  "version": "1.0.0",
+  "description": "原文分析方法论 - 适用于深度分析原文内容、识别结构、提取信息的完整方法",
+  "category": "methodology",
+  "priority": "high",
+  "tags": ["analysis", "source", "content", "methodology", "extraction"],
+  "created": "2025-11-03",
+  "last_updated": "2025-11-03",
+  "author": "LaunchX Skills Team",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_request": {
+        "type": "object",
+        "description": "分析请求信息",
+        "properties": {
+          "source_content": {
+            "type": "string",
+            "description": "原文内容路径或文本"
+          },
+          "analysis_type": {
+            "type": "string",
+            "enum": ["structure", "content", "quality", "dependencies", "comprehensive"],
+            "description": "分析类型"
+          },
+          "analysis_depth": {
+            "type": "string",
+            "enum": ["surface", "detailed", "deep"],
+            "description": "分析深度"
+          },
+          "focus_areas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "重点关注领域"
+          }
+        },
+        "required": ["source_content", "analysis_type"]
+      },
+      "analysis_context": {
+        "type": "object",
+        "description": "分析上下文",
+        "properties": {
+          "business_context": {
+            "type": "string",
+            "description": "业务背景"
+          },
+          "technical_context": {
+            "type": "string",
+            "description": "技术背景"
+          },
+          "stakeholder_needs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "利益相关者需求"
+          },
+          "previous_analysis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "之前的分析结果"
+          }
+        }
+      },
+      "analysis_requirements": {
+        "type": "object",
+        "description": "分析需求",
+        "properties": {
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "分析目标"
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "约束条件"
+          },
+          "output_format": {
+            "type": "string",
+            "enum": ["summary", "detailed", "structured", "visual"],
+            "description": "输出格式"
+          },
+          "time_constraints": {
+            "type": "string",
+            "description": "时间约束"
+          }
+        },
+        "required": ["objectives"]
+      }
+    },
+    "required": ["analysis_request", "analysis_requirements"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "analysis_methodology": {
+        "type": "object",
+        "description": "分析方法论"
+      },
+      "content_analysis": {
+        "type": "object",
+        "description": "内容分析结果"
+      },
+      "structure_analysis": {
+        "type": "object",
+        "description": "结构分析结果"
+      },
+      "quality_assessment": {
+        "type": "object",
+        "description": "质量评估结果"
+      },
+      "dependency_analysis": {
+        "type": "object",
+        "description": "依赖分析结果"
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "description": "分析建议"
+      }
+    }
+  },
+  "execution_flow": [
+    {
+      "step": "prepare_analysis",
+      "description": "准备分析环境",
+      "skills_required": []
+    },
+    {
+      "step": "collect_content",
+      "description": "收集原文内容",
+      "skills_required": []
+    },
+    {
+      "step": "analyze_content",
+      "description": "分析内容",
+      "skills_required": []
+    },
+    {
+      "step": "analyze_structure",
+      "description": "分析结构",
+      "skills_required": []
+    },
+    {
+      "step": "assess_quality",
+      "description": "评估质量",
+      "skills_required": []
+    },
+    {
+      "step": "identify_dependencies",
+      "description": "识别依赖",
+      "skills_required": []
+    },
+    {
+      "step": "generate_insights",
+      "description": "生成洞察",
+      "skills_required": []
+    }
+  ],
+  "dependencies": {
+    "skills": [
+      "content-quality-assessment",
+      "structural-analysis"
+    ],
+    "hooks": [
+      "content-quality-hook",
+      "reference-validation-hook"
+    ],
+    "tools": [
+      "workspace-filesystem",
+      "git-local"
+    ]
+  },
+  "triggers": [
+    {
+      "condition": "content_analysis_needed",
+      "description": "需要内容分析时触发",
+      "priority": "high"
+    },
+    {
+      "condition": "source_understanding_required",
+      "description": "需要理解原文时触发",
+      "priority": "high"
+    },
+    {
+      "condition": "structure_identification_needed",
+      "description": "需要识别结构时触发",
+      "priority": "medium"
+    }
+  ],
+  "integration_points": {
+    "pre_execution": [
+      "validate_analysis_request",
+      "prepare_analysis_environment",
+      "load_reference_materials"
+    ],
+    "post_execution": [
+      "validate_analysis_results",
+      "archive_analysis_experience",
+      "update_reference_knowledge"
+    ]
+  }
+}
