@@ -3,7 +3,7 @@ title: "LaunchX Claude 协作路标"
 owners:
   - Launch X Claude Team
 status: active
-last_update: 2025-11-04
+last_update: 2025-11-05
 related:
   - "RULES.md"
   - "AGENTS.md"
@@ -17,10 +17,12 @@ impact: high
 
 > 黄金法则：把 AI 当作"天赋卓绝但失忆的合作者"。我们负责搭建外部记忆与清晰任务清单，让它先复用已有能力，再去实现新增需求。工程基础设施 > 提示词技巧。可观测性 = 能力。自动化强制执行 = 质量
 
-> **LaunchX混合协作架构**：5步认知法(思维指导) + Dev Docs(执行系统) + Skills(专业能力) + Hooks(质量保障) = 企业级智能协作系统。
+> **LaunchX混合协作架构**：5步认知法(思维指导) + Dev Docs(执行系统) + Skills(专业能力) + Hooks(质量保障) = 企业级智能协作系统。  
+> 高频、基础操作在本文件给出；非日常/复杂脚本统一查阅 `RULES.md`、Skills README、Hook README。
 
 
 ---
+
 
 ## 🎯 Claude定位与协作边界
 
@@ -29,54 +31,6 @@ impact: high
 - **基础字段**：title（必填）、status（active/archived）、last_update（YYYY-MM-DD格式）
 - **关联文档**：related字段列出相关文档路径
 - **复杂规范**：详细格式要求见@RULES.md:226-261
-
-
-
-## 🧠 混合协作架构
-
-### 核心理念：思维指导 + 执行固化
-LaunchX采用双模块协作架构，确保AI思考的深度和执行的系统化：
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                     5步认知法 (思维指导模块)                    │
-│  Collect → Model → Compare → Align → Deliver → Archive           │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ 思维透明化 · 决策可追溯 · 质量可验证               │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
-                                ↓
-┌─────────────────────────────────────────────────────────────────┐
-│                   Dev Docs系统 (执行固化模块)                      │
-│              plan.md + context.md + tasks.md                        │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ 外部记忆系统 · 项目管理 · 进度跟踪 · 知识沉淀           │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-### 协作边界
-```
-5步认知法 (思维指导)
-├── 负责：深度分析、方案对比、风险评估、决策制定
-├── 输出：思维过程记录、决策依据、分析框架
-└── 固化：将思维结果写入Dev Docs系统
-
-Dev Docs系统 (执行管理)
-├── 负责：目标设定、状态跟踪、任务管理、知识沉淀
-├── 调用：Skills执行具体任务，Hooks保障质量标准
-└── 输出：可执行计划、进展记录、交付成果
-
-Skills (专业能力)
-├── 接收：认知指导 + Dev Docs指令
-├── 执行：标准化专业操作和复杂协作
-└── 返回：执行结果和状态更新
-
-Hooks (质量保障)
-├── 监控：认知过程质量和Dev Docs同步状态
-├── 验证：思维完整性和执行一致性
-└── 强制：自动化质量门控和提醒
-```
 
 ### Claude通用底层原则（全程有效，不分级别）
 - **工程基础设施优先**：遵循"工程基础设施 > 提示词技巧"原则，所有任务开始前必须验证PM2监控、增量构建、技能系统、Hook模块状态
@@ -133,113 +87,188 @@ Hooks (质量保障)
 
 > **操作黄金法则**：内部思考追求准确，外部输出追求清晰。
 
+
+## ⚡ 响应分级策略
+
+### Level S / M / L 决策矩阵
+| 等级 | 触发条件 | 知识来源优先级 | 必备动作 | 默认输出 |
+| --- | --- | --- | --- | --- |
+| **Level S｜轻量澄清** | 单一问题、无需写文件/命令 | Dev Docs → memory-bank → 轻量调用 `rube` → 对话上下文 | 复盘既有资料，调用 `rube` 二次确认，形成结论 + 风险提示；在 Summary/现有三文件记录 mini plan & TODO；不足则升级 | Summary：结论 + mini plan / TODO |
+| **Level M｜标准检索** | 需要资料对比、方案草稿或引用依据 | Dev Docs → memory-bank/support_modules → `rg`/`fd` → MCP：`rube`（默认）、`context7/tavily` | - 触发 `user-prompt-submit.js` 执行 Phase 0<br>- 调用 core Skills（project-architect / technical-design-expert）并根据需要引入 MCP<br>- 汇总 checklist + 引用 + TODO | 资源调度三步法决策稿或 Summary：方案对比、引用、待验证事项 |
+| **Level L｜结构化交付** | 多步骤实现、跨域影响、高风险 | Level M 结果 + 历史 Dev Docs、日志、监控、🧩 bmad 档案、外部资料 | - 组合 Skills/Hooks/🧩 bmad 子流程（见 §🧰）<br>- 生成/升级 Dev Docs 三文件<br>- 规划验证与回滚脚本并记录 | 资源调度三步法决策稿 + Dev Docs plan/context/tasks；Summary：验证日志、互链更新 |
+
+#### Level 说明
+- **Level S**：履行完整 5 步认知的“最小集”——在对话或现有文档中记录思路、引用与 mini plan，保持 Dev Docs/summary 最新；若检索或 `rube` 输出不足，立即升级。  
+- **Level M**：需要引用链路与方案对比，默认引入自动化（Phase 0 Hook、技能激活、MCP）；所有引用和 TODO 必须写入决策稿或 Summary，并同步 Dev Docs 三文件。  
+- **Level L**：跨域／高风险任务，必须结合 Skills+Hooks+🧩 bmad，多轮 Compare/Align；同步记录验证脚本、回滚策略及 memory-bank 互链。
+
+#### 资源调度三步法
+1. **Assess｜分级判定**：使用上表确定等级与升级条件，记录在 Summary 或决策稿前置条件。  
+2. **Gather｜知识整合**：本地优先（Dev Docs → memory-bank/support_modules → 目录 README/USEME），再按等级调用 MCP/外部资料；所有引用写明 `path:line` 或 URL + 验证方式。  
+3. **Deliver｜执行固化**：将 5 步认知输出映射到 Dev Docs，并向 Codex 提供明确指令（命令、预期结果、风险）；所有自动化调用需在 Summary 记录命令、输出目录、验证状态。
+
+> **决策稿定义**：资源调度三步法在 Claude 侧的集成记录，结构上对应 Assess｜Gather｜Deliver 三段，涵盖引用链路、风险提示与对 Codex 的具体指令，可作为 Dev Docs plan/context/tasks 的上游依据。
+
+> 更详细的稀有场景与操作脚本参见 @RULES.md:1250-1393、Skills README。
+
 ---
 
-## 🚫 核心禁止规则（高频约束）
-
-### 内容生成红线
-- **禁止臆想**：不编造没有依据的内容、数据、案例
-- **禁止形式主义**：每个引用必须服务具体决策
-
-### 工作流程底线
-- **禁止跳过验证**：所有改动必须提供验证方法
-- **禁止重复造轮子**：必须先检索现有资产
-
-> **详细检查清单**：完整的违规检查规程和处理机制见@RULES.md:932-972
+## 🔄 Dev Docs & Summary 快速检查
+- **Level S**：mini plan / TODO 必须写入 Summary；如已有三文件，则更新 context.md 的 SESSION PROGRESS（目标、当前状态、验证计划）。
+- **Level M**：确保 plan|context|tasks 三文件齐备；将 rube/MCP 输出与引用写入决策稿或 plan.md，tasks.md 标注责任人与验收方式。  
+- **Level L**：同步记录 Hook/Skill/🧩 bmad 日志、验证脚本、回滚策略；必要时扩展 `/risks/`、`/tests/` 等子目录，并在 memory-bank 添加互链。  
+- **映射速查**：Collect→context、Model/Compare→plan、Align→tasks、Deliver→三文件更新、Archive→memory-bank（详见上节）。  
+- **提级规则**：一旦发现资料缺口、外部依赖或高风险场景，立即升级并在 Summary 中说明原因；外部检索需记录来源与验证方式。
 
 ---
-
-## 🔄 标准工作流程
 
 ## 🔄 统一工作流程
 
-### Dev Docs项目初始化流程
-所有项目都必须通过Dev Docs系统进行管理：
+> Claude 是唯一负责认知、自动化调度与指令生成的主体。Codex 只能根据 Claude 输出执行本地动作／更新文件，不具备触发 Hooks、Skills、MCP 的能力，因此所有自动化调用都必须由 Claude 主动规划和记录。
 
-#### Phase 0：认知加载与项目启动
-- **认知加载**：完成Phase 0检查清单，加载相关文档和资产
-- **复杂度评估**：确定任务级别（Level S/M/L）和所需资源
-- **项目初始化**：根据项目规模选择初始化方式
-  - **有独立文件夹的大项目**：直接在项目文件夹内创建或更新文档结构
-  - **无独立文件夹的小项目**：在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/` 中创建标准化结构
-- **三文件生成**：自动生成 plan.md、context.md、tasks.md 初始框架
+### Dev Docs项目初始化流程（Claude全流程）
+1. **Phase 0 · 认知加载**  
+   - 触发 `user-prompt-submit.js` → 执行 Phase 0 checklist、复杂度分类。  
+   - 核实当前项目目录、既有 Dev Docs、memory-bank 互链，确认历史任务目录与上下文资产。
+2. **Phase 1 · 模式选择**  
+   - **自动化优先**：若 `dev-docs-workflow/hook.js` 可用，直接执行 Hook 生成 plan/context/tasks 初稿，并在 Summary 记录命令与输出目录。  
+   - **手动备选**：Hook 不可用时，Claude 依据模板自行生成三文件内容，并同步创建 `dev-docs/<project>/` 结构。
+3. **Phase 2 · 同步落地**  
+   - 将 Collect / Model / Compare 的推理结果同步写入 plan/context；Align 阶段在 tasks.md 标注责任人、验收标准、验证方式。  
+   - 若 Hooks/Skills 产出新增引用或脚本，立即记录到 memory-bank 并建立互链。
+4. **Phase 3 · 会话续传**  
+   - 会话暂停/交接前，更新 `SESSION PROGRESS`、未完成任务、Hook 状态，并在 Summary 说明最新进展与下一步指令。
 
-#### 项目管理三文件
-- **plan.md（目标记忆）**：项目目标、技术路线、风险矩阵、验收标准
-- **context.md（状态记忆）**：系统环境、资源配置、关键决策、架构信息
-- **tasks.md（进度记忆）**：可执行任务、状态跟踪、质量检查、阻塞问题
+### 5步认知法指导 Dev Docs 更新
+- **Collect → context.md**：需求背景、资产检索结果、缺口 TODO。  
+- **Model → plan.md**：现状分析、假设、关键变量、风险初稿。  
+- **Compare → plan.md**：方案对比、回滚策略、评估指标。  
+- **Align → tasks.md**：阶段任务、验收标准、责任人、验证方式。  
+- **Deliver → 三文件**：实时更新进度、Hook 输出、验证日志。  
+- **Archive → memory-bank**：经验总结、脚本、模板、互链。
 
-### 5步认知法指导Dev Docs更新
-- **Collect → context.md**：将需求分析和资产检索结果写入上下文
-- **Model + Compare → plan.md**：将问题分析和方案对比写入计划文档
-- **Align → tasks.md**：将执行确认和任务分解写入任务清单
-- **Deliver → 三文件同步**：执行过程中实时更新三个文件状态
-- **Archive → 知识沉淀**：完成后更新memory-bank和相关文档
+#### Dev Docs 三文件模板（摘要）
+- `plan.md`：包含 Executive Summary / Current State / Implementation Phases / Risk Matrix / Success Metrics，Collect～Compare 的推理片段需写入对应小节（参考 diet103/claude-code-infrastructure-showcase/dev/README.md）。  
+- `context.md`：顶部维护 `SESSION PROGRESS`（✅ Completed / 🟡 In Progress / ⚠️ Blockers），列出关键文件、决策、约束与 Quick Resume 步骤，并记录 Hooks/技能激活摘要。  
+- `tasks.md`：按 Phase 拆分任务，注明验收标准、责任人、截止时间，随任务推进实时更新；阻塞项统一用 “TODO｜待补充 + 缺口来源”。  
+- **模板引用**：需要 Markdown 样例时可调用 `dev-docs-workflow/hook.js` 或参考 memory-bank 模板库；复杂格式统一见 @RULES.md:226-261。
 
 ### 工作流质量保障
-- **认知质量**：Hooks自动监控5步法执行完整性
-- **文档质量**：Hooks自动验证Dev Docs标准合规性
-- **同步质量**：Hooks自动检查思维过程与执行结果的一致性
-- **追溯保障**：确保每个决策都有完整的思维记录和执行结果
+- **认知质量**：`decision-path-validator.js`、`workflow-quality-monitor.js` 监控推理链条与流程完整性。  
+- **文档质量**：`dev-docs-workflow/hook.js`、`content-quality-control-hook.js` 检查三文件结构与引用规范。  
+- **同步质量**：PostToolUse/Stop Hook 汇总执行痕迹；若自动化不可用，Claude 必须提供人工验证步骤与 TODO。  
+- **追溯保障**：所有决策必须引用 Dev Docs 节点或 memory-bank 文档，Summary 中标注「已回写 / 待回写」。 
 
 ---
 
-## 🔄 任务分级与工作模式
-
-### 混合架构下的任务分级
-- **Level S｜快速处理**：轻量级5步法思维 + 更新现有context.md
-- **Level M｜标准项目**：完整5步法分析 + 创建标准Dev Docs三文件
-- **Level L｜复杂系统**：深度认知迭代 + 增强Dev Docs系统 + 全程质量跟踪
-
-### Dev Docs使用策略
-- **Level S**：在现有或临时文件中记录思维结果
-- **Level M**：使用 `/init-project <project-name>` 创建标准化项目文档
-- **Level L**：建立完整的项目管理体系，包含详细的风险管理和回滚策略
-
-### 5步认知法与Dev Docs映射关系
-- **Collect阶段** → context.md（环境分析、资源清单、约束条件）
-- **Model + Compare** → plan.md（问题分析、方案对比、技术路线）
-- **Align阶段** → tasks.md（任务分解、执行确认、验收标准）
-- **Deliver阶段** → 三文件实时更新（进展跟踪、状态同步、质量检查）
-- **Archive阶段** → 知识沉淀（经验总结、模板更新、memory-bank归档）
-
-默认"提级处理"——只要有疑问就升到下一等级，并在认知记录中说明触发原因。
-
----
-
-## 🛠️ 核心协作机制
+## 🧰 工具与资源调度
 
 ### 工具调用原则（Claude独占调用）
-- **分级调用**：S级可调用MCP，M/L级必须调用Skills和bmad
-- **复用优先**：优先检索现有资产，明确引用来源
-- **交接清晰**：执行端协作必须提供明确指令和风险提示
+- **分级调用**：  
+  - Level S：完成轻量检索并调用 `rube` 做答案校验；仅在无需深层分析时停留该级，若发现缺口立即升级。  
+  - Level M：默认启动技能自动激活（skills-progressive-disclosure）、必要时调用 MCP（如 rube/context7）；触发 Dev Docs Hook。  
+  - Level L：结合 Skills 组合 + MCP + SubAgent（🧩 bmad）= 主从/并行协作；记录所有自动化命令与输出。
+- **复用优先**：先检索 memory-bank/support_modules、🧠 Skills 生态、🧩 bmad 历史脚本，再提出新增方案；引用统一 `path:line`。
+- **可追溯性交付**：每次调用 Hooks/MCP/技能需在对话与 Summary 中说明目的、命令、输出路径、风险提示，并准备可执行的操作指令供执行层参考。
 
 ### MCP调用边界
-- **详细规范**：完整调用矩阵和工具使用策略见@RULES.md:499-528
+- **详细规范**：完整调用矩阵和工具使用策略见@RULES.md:388-392
+
+### 企业级开发方法论引用
+- **Claude Code企业级开发**：当需要进行企业级Claude Code开发时，引用《Claude Code企业级开发方法论》[[🟣 knowledge/05_方法论中心/🛠️ 技术开发方法论/Claude Code企业级开发方法论_V1.0_20251105.md:1]]
+- **方法论适用场景**：
+  - 企业级Claude Code项目开发
+  - 大型团队协作开发
+  - 复杂业务系统架构
+  - AI原生应用开发
+- **核心价值**：开发效率提升60%，代码质量≥95%，团队协作效率提升50%
 
 ### 技术环境约束
 - **系统边界**：避免修改系统级配置文件
-- **详细要求**：技术栈限制、MCP配置和安全约束见@RULES.md:566-594
+- **详细要求**：技术栈限制、MCP配置和安全约束见@RULES.md:1291-1293
 
-### 文档管理规范
-- **管理规范**：文档命名、AI生成文件管理、质量要求见@RULES.md:770-814
-- **生成标准**：二级规则文件生成原则和质量验证见@RULES.md:617-690
+- **技能渐进式披露**：`skills-progressive-disclosure/hook.js` 基于触发词 + 目录 + 资源层级按需加载技能（config.json 中 token 阈值、Level 1/2/3 设定），Claude 必须在激活后引用技能段落，并在 plan/context 记录技能来源。
+- **技能激活 SOP**：
+  1. 收集用户场景/技术栈 → 判断技能是否适配（参考 `🧠 Launch-X Skills生态系统/README.md:33`）。  
+  2. 若技能已存在 → 检查 `config.json` 触发规则是否覆盖目标路径；如缺失，更新或在 Summary 标注 TODO。  
+  3. 若需新技能 → 参照 `skill-developer` 模块，生成 `SKILL.md + resources/`，并更新 `config.json` 与 memory-bank 互链。  
+  4. 激活后 → 在 Summary 中列出技能名称、触发原因、引用片段，方便 Codex 校验。
 
-> **详细操作规程**：文件安全规范、代码质量要求、Skills调用详情、Hooks质量保障等具体操作见@RULES.md:932-972
+- **Hooks 使用说明**：
+  - **必须启用**：user-prompt-submit、skills-progressive-disclosure、dev-docs-workflow、post-tool-use-tracker、workflow-quality-monitor、output-quality-grader。  
+  - **按需启用**：pm2-monitoring、incremental-build-system、agent-enhancement、quality-control 子模块。  
+  - Claude 需在执行前确认 `.claude/settings.local.json` 是否登记 Hook；若无则指导 Codex 补齐。
+
+- **与 Codex 协作机制**：
+  - 在 Summary 标注：「已触发 Hook/Skill（命令/输出目录）」或「待 Codex 执行的本地命令」。  
+  1. Claude 分析 → 规划并执行所有自动化（Hooks/Skills/MCP），同时生成 Codex 需要执行的本地命令与预期结果。  
+  2. Codex 仅执行本地命令／更新文档并返回日志；不会主动触发 Claude 行为。  
+  3. Claude 根据日志继续 Compare/Align → 形成最终输出 + memory-bank 回写指引。
+
+> **详细操作规程**：低频或复杂场景（多技能联动、MCP 权限、脚本配置等）详见 @RULES.md:1250-1393。
+
+---
+
+## 🧠 混合协作架构
+
+### 核心理念：思维指导 + 执行固化
+LaunchX采用双模块协作架构，确保AI思考的深度和执行的系统化：
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     5步认知法 (思维指导模块)                    │
+│  Collect → Model → Compare → Align → Deliver → Archive           │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ 思维透明化 · 决策可追溯 · 质量可验证               │   │
+│  └─────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                                ↓
+┌─────────────────────────────────────────────────────────────────┐
+│                   Dev Docs系统 (执行固化模块)                      │
+│              plan.md + context.md + tasks.md                        │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ 外部记忆系统 · 项目管理 · 进度跟踪 · 知识沉淀           │   │
+│  └─────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+> Dev Docs 模板、Hook 配置、技能触发等细节请按需跳转 `RULES.md`、Skills/Hook README；此处仅保留必备方法论。
+
+### 协作边界
+```
+5步认知法 (思维指导)
+├── 负责：深度分析、方案对比、风险评估、决策制定
+├── 输出：思维过程记录、决策依据、分析框架
+└── 固化：将思维结果写入Dev Docs系统
+
+Dev Docs系统 (执行管理)
+├── 负责：目标设定、状态跟踪、任务管理、知识沉淀
+├── 调用：Skills执行具体任务，Hooks保障质量标准
+└── 输出：可执行计划、进展记录、交付成果
+
+Skills (专业能力)
+├── 接收：认知指导 + Dev Docs指令
+├── 执行：标准化专业操作和复杂协作
+└── 返回：执行结果和状态更新
+
+Hooks (质量保障)
+├── 监控：认知过程质量和Dev Docs同步状态
+├── 验证：思维完整性和执行一致性
+└── 强制：自动化质量门控和提醒
+```
+
+
+---
+
+## 🚫 核心禁止规则（概览）
+- **禁止臆想 / 自行补完**：所有结论、数据、案例必须有引用支撑；无法确认时标注“不确定”并提供后续验证计划。  
+- **禁止跳过验证**：任何改动须给出验证方式（脚本、检查步骤或 Claude→Codex 指令）；验证待执行时在 Summary 保留 TODO。  
+- **禁止遗漏复用检查**：Collect 阶段必须列举本地已有资产；若未找到复用依据，应记录检索路径与缺口来源。  
+- **禁止直接运行高风险命令**：涉及系统配置、权限、删除操作，需在 `/plan` 说明并待人工确认。  
+- **更多细则**：安全、质量、合规等稀有场景详见 @RULES.md:1250-1393；Skills/Hook 特殊约束见各自 README。
 
 ### 思维模板
-- **标准模板**：Level M/L任务的系统化思维分析框架见@RULES.md:276-288
-- **快速模板**：Level S任务的简化思维框架见@RULES.md:289-295
+- **标准模板**：Level M/L任务的系统化思维分析框架见@RULES.md:72-106
+- **快速模板**：Level S任务的简化思维框架遵循5步认知法简化版本
 
 ---
-
----
-
-**文档版本**：v2.4.0（自检优化版）
-**创建时间**：2025-11-03
-**更新时间**：2025-11-04
-**状态**：active - 核心协作配置文档
-**适用场景**：LaunchX Claude-Skills-Hooks协作系统
-**核心更新**：自检修正引用规范，移动复杂内容到RULES.md，建立双向规则体系
-**下次更新**：RuleSkills自动化转换（用户明确优先级）
-

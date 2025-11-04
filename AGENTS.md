@@ -3,7 +3,7 @@ title: "LaunchX 指挥总则"
 owners:
   - Launch X Codex Team
 status: active
-last_update: 2025-10-30
+last_update: 2025-11-05
 related:
   - CLAUDE.md
   - 📖README-LaunchX系统总体指南.md
@@ -17,33 +17,18 @@ impact: high
 
 **核心定位**：本文件规定 Codex CLI 的协作边界、执行流程与风险机制，确保所有操作与 LaunchX 全局策略一致。
 
----
-
-## 导航索引
-- [0. 使用前速览](#0-使用前速览)
-- [1. 协作角色矩阵](#1-协作角色矩阵)
-- [2. 任务分级决策树](#2-任务分级决策树)
-- [3. Phase 0｜外部大脑加载](#3-phase-0外部大脑加载)
-- [4. Collect → Align → Deliver](#4-collect--align--deliver)
-- [5. 工具矩阵](#5-工具矩阵)
-- [6. 输出与引用规范](#6-输出与引用规范)
-- [7. 子目录指挥文档继承规范](#7-子目录指挥文档继承规范)
-- [8. 升级、同步与安全](#8-升级同步与安全)
-- [9. 任务识别与阅读路径](#9-任务识别与阅读路径)
-
----
-
-## 核心原则（LLM 导航提示）
-- **上下文先行**：先读根级 `CLAUDE.md` 与目标域 `USEME.md`，再决定是否生成 `/spec` / `/plan`（RULES.md:18-40）。
+## 1. 核心原则（LLM 导航提示）
+- **上下文先行**：先读根级 `CLAUDE.md` 与目标域 `USEME.md`，再判定资源调度三步法（Assess｜Gather｜Deliver）与 Dev Docs 三文件的更新范围（CLAUDE.md:48-95；RULES.md:18-40）。
 - **精准检索**：使用 `rg`、`fd` 搜索“最佳实践”“USEME”等关键词，优先复用已有段落，减少空写。
 - **最小必要写作**：Collect/Align 未确认前禁止新建文档；缺口用“TODO｜待补充 + 缺口来源”标注（🛠️ 系统管理/⚙️内容归档规则.md:16）。
 - **引用可追溯**：引用统一使用 `path:line` 或 README 小节；新增内容需同步 memory-bank 与相关 README 的互链（🛠️ 系统管理/memory-bank/README.md:5）。
 - **先评测后放量**：涉及 AI 输出或关键流程时，优先复用/编写评测脚本，遵循 OpenAI `evals`“先建立评测再迭代”的理念。
 - **目录策略**：参考 `📖README-LaunchX系统总体指南.md` 的“信息来源与输出颗粒度指南”，按目录规则选择信息来源与输出形态。
+- **能力边界**：Codex 仅执行本地命令与最小文档改动；涉及 Skills/Hooks/SubAgents 的动作需提前与 Claude 对齐，并在 Summary 记录交接。
 
 ---
 
-## 0. 使用前速览
+## 2. 使用前速览
 - [ ] 阅读 `📖README-LaunchX系统总体指南.md`、本文件、`CLAUDE.md`、`RULES.md`、`🛠️ 系统管理/memory-bank/README.md`
 - [ ] 参考 `🧭 LaunchX能力导航指南.md` 确认目标域，并加载该域 `README` / `CLAUDE` / `RULES` / `AGENTS`
 - [ ] 使用 `rg "最佳实践" -g 'CLAUDE.md'`、`rg "USEME"` 等命令寻找可复用片段
@@ -53,234 +38,94 @@ impact: high
 
 ---
 
-## 1. 协作角色矩阵
-| 角色 | 关键职责 | 主要产出 |
-| --- | --- | --- |
-| **LaunchX Codex** | 执行实现、脚本运行、文档更新 | `/plan` 拆解、代码改动、验证日志 |
-| **Claude Code** | 深度分析、方案设计、质量审查 | `/spec` 方案、风控建议、审查记录 |
-| **域负责人** | 业务/知识/设计等领域的优先级、风险把关 | 需求确认、验收、跨域协调 |
-| **Automation Steward** | 维护 `🧩 bmad`、MCP 配置、工具链 | 自动化脚本、使用说明、回滚策略 |
-| **Memory Curator** | 维护 memory-bank、索引与互链 | 项目快照、索引更新、方法论回写 |
-
-使命三线（运营守正 / 智能沉淀 / 自动化提效）在所有交付中保持同步，成果需在 24h 内归档并建立互链。
+### Codex ↔ Claude 协同提示
+- **执行范围**：Codex 聚焦仓内检索、最小化代码/文档改动与验证记录；Claude 负责 Skills、Hooks、SubAgents 调度及方案推演。
+- **交接机制**：需要 Claude 介入（如触发 Hook、调用 MCP、编写复杂决策稿）时需在对话中显式说明，并在 Summary 标注“交接给 Claude”与预期输出。
+- **结果同步**：Claude 返回的分析或自动化结果由 Codex 落地到仓库（代码、Dev Docs、memory-bank），确保双侧上下文保持一致。
 
 ---
 
-## 2. 任务分级决策树 - 思维清晰度升级版
-- **Level S｜直接对话**
-  条件：问题单一、无需写文件或执行命令。
-  行动：口头确认需求 → 给出答案或轻量建议 → Summary 记录结论与风险。
-  - **思维要求**：1-2句话说明推理依据，结论清晰可追溯
-- **Level M｜搜索 / MCP 驱动**
-  条件：需要查找资料、比对资产或生成方案草稿。
-  行动：
-  1. 检索本地资产（`rg` / `find`）→ 复用 `memory-bank/support_modules`。
-  2. 通过 MCP（优先 `rube`、`context7` 等）获取额外建议；若 `rube` 未就绪，记录阻塞并参考 `🛠️ 系统管理/memory-bank/Codex-Claude-配置指南.md` 申请配置。
-  3. 输出包含引用来源与复用路径的 checklist，再执行。
-  结果写入 Summary，并记录使用的工具、命令。
-  - **思维要求**：简版方案对比（至少2个选项），说明选择理由
-- **Level L｜结构化交付**
-  条件：涉及多步实现、代码修改、跨域影响或风险较高。
-  行动：
-  1. `/spec`：在 `specs/` 下描述目标、验收、引用资产、风险 / 回滚。
-  2. `/plan`：在 `plans/` 下拆解步骤 ≤3 个，保持 `update_plan` 同步，单一 `in_progress`。
-  3. `/do`：严格按计划执行，范围变化立即回到 `/plan` 或 `/spec`。
-  4. 验证 → Summary（含测试命令、日志路径）→ README / memory-bank 回写。
-  - **思维要求**：完整思维分析 + 多方案对比 + 详细决策依据  
+## 4. 统一工作流程（Codex视角）
 
-遇到 Level 模糊时，默认提级处理。高风险事件（安全、合规、客户升级、预算超支）立即升级至域负责人并标注 `#需要人工介入`。
+> Claude 负责认知与自动化调度，Codex 仅执行本地命令和文档更新；详细流程见 `CLAUDE.md`“统一工作流程”。
+## 5. 响应分级策略（Codex执行）
 
----
+| 等级 | Codex 行动 | Claude 行动 | Dev Docs / Summary 要求 |
+| --- | --- | --- | --- |
+| **Level S** | 复盘 Dev Docs/memory-bank，整理轻量 5 步 mini plan；执行可行本地命令 | 触发 `rube` 校验或补充答案；信息不足时升级 | Summary 记录结论 + mini plan/TODO + 待 Claude 操作 |
+| **Level M** | 输出 checklist、引用、待验证事项；更新或创建三文件 | 启动 Phase 0 Hook、核心 Skills、MCP，回传自动化结果 | plan/context/tasks 同步更新；Summary 标注命令/日志引用 |
+| **Level L** | 跟踪风险、验证状态、知识回写需求；维护 Dev Docs（plan/context/tasks）中本地部分 | 组合 Skills/Hooks/🧩 bmad，多轮 Compare/Align，生成验证/回滚脚本 | Dev Docs 扩展 `/risks` `/tests`；memory-bank 互链由 Claude 回写 |
 
-## 3. Phase 0｜外部大脑加载
-```
-[ ] 读取 `CLAUDE.md`，对齐协作规则与优先级
-[ ] 阅读 `RULES.md`，明确硬性限制与禁令
-[ ] 加载 `🛠️ 系统管理/memory-bank/README.md`，确认项目快照、工具、常用命令
-[ ] 查看目标域 `CLAUDE.md` / `RULES.md` / `USEME.md`，明确能力与禁区
-[ ] 复用检查：搜索 support_modules、🧩 bmad、🧰 tools 是否已有解决方案
-[ ] 若需定位能力域，先查 `🧭 LaunchX能力导航指南.md`
-[ ] 按照 [9. 任务识别与阅读路径](#9-任务识别与阅读路径) 进行关键词分类与 Level S/M/L + 🔴🟡🟢🔵 映射
-[ ] 核实引用文档的 `last_update`、`layer`、`source` 是否与当前任务匹配
-[ ] 在 `/spec` 或对话中列出 checklist，确认输入、依赖、验证方式
-```
-缺失 `USEME.md` 或关键配置时，先标注责任人与补齐计划，再进入执行。
+> 分级依据与自动化策略以 `CLAUDE.md` 为准；Codex 只需落实表内本地动作并准确记录交接。
+
+
+### Phase 0｜认知加载
+- 阅读 `CLAUDE.md`、目标域 `README/USEME`、现有 Dev Docs，记录已加载的上下文与缺口。
+- 列出可复用资产（Dev Docs、memory-bank、support_modules）；不足之处使用 “TODO｜待补充 + 来源” 标注。
+- 若缺少 Dev Docs，在 Summary 写明“待 Claude 初始化 dev-docs/<project>/”。
+
+### Phase 1｜计划定位
+- 梳理 mini plan（目标、范围、阻塞、验证方式），写入 Summary 或 plan.md。
+- 标注需要 Claude 执行的自动化（Hook/MCP/Skill 等），准备命令与风险说明。
+
+### Phase 2｜执行与记录
+- 按 mini plan / tasks.md 执行本地命令；命令前说明目的，失败时保留日志。
+- 无法执行的自动化项，在 Summary 标注“待 Claude：<命令/脚本 + 目的 + 风险>”，等待 Claude 处理。
+
+### Phase 3｜收尾与沉淀
+- 会话结束或交接前更新 context.md 的 SESSION PROGRESS（或在 Summary 维持同结构）。
+- 回写验证命令、日志路径、未完成事项；如需知识沉淀，提出 memory-bank 更新建议，由 Claude 回写。
 
 ---
 
-## 4. LaunchX混合协作系统：5步认知法 + Dev Docs
 
-> **核心理念**：将5步认知法的思维指导与Dev Docs的执行系统相结合，形成完整的"思考-执行-记忆"闭环，解决AI失忆问题同时保持思维深度。
-
-### 4.1 思维指导层：5步认知法
-5步认知法作为思维指导框架，为Dev Docs提供输入内容：
-
-- **Collect（收集）**：
-  - 需求分析与目标梳理
-  - 资产检索与上下文加载
-  - 缺口识别与责任人标注
-  - **输出**：需求清单、资产目录、信息缺口
-
-- **Model（建模）**：
-  - 问题拆解与假设建立
-  - 推理链构建与关键因素识别
-  - 思维透明化与可追溯性保证
-  - **输出**：问题分析框架、假设清单、推理路径
-
-- **Compare（对比）**：
-  - 多方案生成与优劣分析
-  - 风险评估与回滚策略
-  - 成本效益分析与选择建议
-  - **输出**：方案对比表、风险矩阵、选择理由
-
-- **Align（对齐）**：
-  - 目标/方案/风险/TODO总结
-  - 责任人确认与验收标准
-  - 依赖关系与验证方式
-  - **输出**：执行确认书、验收标准、风险预案
-
-- **Deliver（交付）**：
-  - 结构化输出与质量检查
-  - 经验总结与知识沉淀
-  - 后续建议与开放问题
-  - **输出**：最终交付物、质量报告、改进建议
-
-### 4.2 执行系统层：Dev Docs三文件
-Dev Docs作为执行系统和外部记忆，固化思维成果：
-
-- **Plan.md = 目标记忆**：
-  - 来自Collect的需求和目标
-  - 来自Compare的方案选择和路线图
-  - 来自Align的验收标准和风险策略
-  - **功能**：项目目标、技术路线、里程碑、验证标准
-
-- **Context.md = 状态记忆**：
-  - 来自Collect的上下文和约束
-  - 来自Model的环境分析和关键因素
-  - 执行过程中的状态更新
-  - **功能**：系统状态、环境配置、决策记录、架构信息
-
-- **Tasks.md = 进度记忆**：
-  - 来自Model的问题拆解
-  - 来自Align的任务清单和责任人
-  - 执行过程中的进度跟踪
-  - **功能**：任务清单、完成状态、阻塞问题、质量检查点
-
-### 4.3 协作流程：思维到执行的映射
-```
-5步认知法 → Dev Docs映射关系：
-
-Collect → Plan.md(目标) + Context.md(状态)
-├── 需求分析 → 项目目标与成功标准
-├── 上下文加载 → 系统状态与环境配置
-└── 资产检索 → 已有资源与依赖关系
-
-Model → Context.md(状态) + Tasks.md(进度)
-├── 问题拆解 → 任务清单与分解结构
-├── 关键因素 → 环境配置与约束条件
-└── 推理链 → 决策记录与架构信息
-
-Compare → Plan.md(目标) + Context.md(状态)
-├── 方案对比 → 技术路线图与里程碑
-├── 风险评估 → 风险矩阵与缓解策略
-└── 选择分析 → 决策记录与原因说明
-
-Align → Plan.md(目标) + Tasks.md(进度)
-├── 验收标准 → 验证标准与测试计划
-├── 责任分工 → 任务责任人依赖关系
-└── 确认结果 → 质量检查点与验证结果
-
-Deliver → 三文件同步更新
-├── 交付物 → Plan.md目标达成记录
-├── 质量报告 → Tasks.md完成状态
-└── 经验总结 → Context.md决策记录
-```
-
-### 4.4 执行与质量控制
-- **分阶段执行**：按 `tasks.md` 清单逐项执行，使用最小改动原则
-- **实时验证**：Hooks集成自动运行构建检查，实时验证质量
-- **动态更新**：每个阶段完成后更新对应的Dev Docs文件
-- **断点续传**：会话压缩前必须更新 `context.md` 和 `tasks.md`
-- **质量保障**：通过Hooks自动监控Dev Docs的更新质量
-
-### 4.5 Dev Docs项目启动流程
-```bash
-# 混合协作项目启动流程
-/init-project <project-name>
-├── 阶段1: 5步认知思维指导
-│   ├── Collect: 需求分析与资产检索
-│   ├── Model: 问题拆解与推理构建
-│   ├── Compare: 方案生成与风险评估
-│   ├── Align: 目标对齐与确认
-│   └── Deliver: 输出结构化内容
-├── 阶段2: Dev Docs三文件创建
-│   ├── 创建 dev-docs/<project-name>/ 目录
-│   ├── 初始化 plan.md, context.md, tasks.md
-│   ├── 将5步认知结果映射到三文件
-│   └── 建立项目上下文和记忆锚点
-├── 阶段3: 执行与质量保障
-│   ├── 按 tasks.md 分阶段执行
-│   ├── 实时更新进度状态
-│   ├── Hooks质量检查和错误修复
-│   └── 动态更新 plan.md/context.md
-└── 阶段4: 记忆沉淀
-    ├── 定期更新三文件状态
-    ├── 会话压缩前同步上下文
-    ├── 项目里程碑记录和归档
-    └── 经验总结和知识沉淀
-```
-
-### 4.6 会话管理与断点续传
-- **思维状态保存**：5步认知的中间结果保存到对应Dev Docs文件
-- **执行状态恢复**：通过 "继续" 命令从 `dev-docs/` 恢复完整状态
-- **动态同步**：认知思考与执行状态实时同步到三文件
-- **质量监控**：Hooks自动监控思维到执行的完整链条
-
-### 4.7 操作准则与质量要求
-**基础操作准则：**
-- **命令说明**：每个 shell 命令前说明目的，失败时保留输出与假设，必要时提请重试
-- **搜索顺序**：`fd`（若不可用则 `find`）→ `rg` → `sg`，排除 `.git`、`node_modules`、`dist` 等噪音目录
-- **复用优先**：优先调用 `memory-bank/support_modules`、`🧩 bmad` 现有脚本，禁止重复造轮子
-- **验证优先**：所有改动必须提供最小化验证，遵循"先评测后放量"原则
-
-**混合协作特定要求：**
-- **思维透明化**：Level M/L 任务必须完成5步认知思维，在Model和Compare阶段产出详细推理过程
-- **映射完整性**：5步认知的每个阶段输出必须完整映射到对应的Dev Docs文件
-- **认知记录**：思维过程和推理链条必须在Dev Docs中保持可追溯性
-- **执行一致性**：执行过程必须严格遵循Align阶段确认的方案和标准
-
-**项目执行规范：**
-- **计划粒度**：`tasks.md` 中的任务拆解保持可执行粒度，完成即勾选
-- **状态同步**：每个认知阶段完成后立即更新对应的Dev Docs文件
-- **质量检查**：Hooks自动监控思维到执行的完整性和一致性
-- **经验沉淀**：每个项目完成后总结认知模式与执行效果，优化后续协作
 
 ---
 
-## 5. 输出与引用规范
+## 6. Dev Docs & Summary 快速检查
+- **plan / mini plan**：写明目标、范围、风险；无三文件时在 Summary 维护最新 mini plan。
+- **context / SESSION PROGRESS**：更新 ✅ 已完成 / 🟡 进行中 / ⚠️ 阻塞，并注明关键文件、负责人。
+- **tasks / Checklist**：拆解任务并标注状态，Codex 仅勾选本地完成项。
+- **Summary 模板**：使用 `Summary / Testing / Next Steps`；Next Steps 中注明“待 Claude：<命令/风险>”与 Codex TODO。
+- **验证与互链**：所有命令、日志路径、引用来源需记录；需要 memory-bank 更新时提出建议，等待 Claude 回写。
+
+---
+
+## 7. 工具与资源边界
+- Codex 只能执行仓库内命令、编辑文件、记录日志；不得触发 Hooks、Skills、MCP、🧩 bmad。
+- 如需自动化支持：
+  1. 在 Summary 或 plan/context 中写明命令/脚本、目的与风险；
+  2. 标注“待 Claude：<说明>”，并给出期望输出位置；
+  3. 收到结果后更新 Dev Docs 与 Summary。
+- 本地工具默认顺序：`rg`/`fd`/`sg` → 仓库脚本 → lint/测试命令；执行前说明目的，失败时保留输出。
+- 复用优先：先查 `memory-bank/support_modules`、目标域 README/USEME；仍缺信息再请求 Claude 调用 Skills/MCP。
+
+---
+
+## 8. 输出与引用规范
 - **Summary 模板**：固定使用 `Summary / Testing / Next Steps`，未验证需说明风险与代办。  
-- **最小必要写作**：Collect/Align checklist 未完成前禁止新建文件；缺信息时保持在对话或 `/spec` 中，以 “TODO｜待补充 + 缺口来源” 标注（🛠️ 系统管理/⚙️内容归档规则.md:16）。  
+- **最小必要写作**：Collect/Align checklist 未完成前禁止新建文件；缺信息时保持在对话或 plan/context 中，以 “TODO｜待补充 + 缺口来源” 标注（🛠️ 系统管理/⚙️内容归档规则.md:16）。  
 - **Frontmatter 完整**：所有 Markdown 必含 `title / owners / status / last_update / related / source / impact`。  
 - **引用闭环**：引用现有资产或外部资料时标注 `path:line` 或 README 小节；新增互链需同步 memory-bank 与相关 README（🛠️ 系统管理/memory-bank/README.md:5）。  
 - **验证记录**：在 Summary 中写明测试命令、脚本或人工检查步骤；无法验证时说明风险与补救。  
 - **草稿治理**：AI 草稿统一保存在 `🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`，24h 内迁移或删除并在 Summary 标注处理结果。
 - **思维产出**：Level M/L 任务的 Summary 必须附上 Model/Compare 摘要或链接，说明推理链条与方案取舍。
 
-## 6. 工具与资源矩阵
+## 9. 工具与资源矩阵
 | 工具/资产 | 用途 | 使用说明 |
 | --- | --- | --- |
-| **MCP：rube** | 拉取外部建议、自动化请求 | Level M/L 任务默认预留；Summary 标注命令与结果要点 |
-| **MCP：context7 / tavily / jina** | 技术文档、网络资料、内容提取 | 在 `/spec` 记录来源与复用链接 |
-| **🧩 bmad** | 多 Agent 自动化脚本、SOP | 运行前确认版本；结果写入 Summary 与相关 README |
+| **MCP：rube** | 拉取外部建议、自动化请求 | Codex 记录命令与目的，待 Claude 执行并回传结果 |
+| **MCP：context7 / tavily / jina** | 技术文档、网络资料、内容提取 | 在 plan.md 或 context.md 记录来源与复用链接，标注“待 Claude 调用” |
+| **🧩 bmad** | 多 Agent 自动化脚本、SOP | 编制运行指令与风险提示；执行与结果由 Claude 记录 |
 | **support_modules/** | 公共 API、脚本、提示片段 | 引用时标注路径与函数；发现缺口先补齐 USEME |
 | **🧰 tools** | 现成子项目或脚手架 | 阅读各自 README；使用后更新互链 |
-| **通知/配置脚本** | Codex 配置、MCP 预热 | `bash scripts/mcp-prewarm.sh` 等命令执行后记录状态 |
+| **质量/配置 Hooks** | 自动化质量检查、配置校验 | 仅准备 `.claude/hooks/*` 执行指令与备注，由 Claude 触发并反馈日志 |
 
 调用任何外部或新增工具时，在 Summary 中写明名称、子路径、目的与风险。
 
 ---
 
-## 7. 子目录指挥文档继承规范
+## 10. 子目录指挥文档继承规范
 - **强制继承**：子目录内的 `AGENTS.md` / `CLAUDE.md` 必须沿用根级语言策略、内容禁区、Summary 模板、工具记录要求与使命三线，并使用完整 frontmatter。
 - **定制步骤**：依据 `🧭 LaunchX能力导航指南.md` 选择目标域后，阅读该域 `README.md` / `CLAUDE.md` / `RULES.md` / `USEME.md`，将域内角色分工、流程、质量指标写入子目录 `AGENTS.md`。
 - **互链要求**：新增或更新子目录规则时，在根级本文件的相关节中登记互链，同时在目标域 README、memory-bank 索引中注明“引用于根级 AGENTS.md`path`”。
@@ -288,56 +133,18 @@ Deliver → 三文件同步更新
 
 ---
 
-## 8. 升级、同步与安全
+## 11. 升级、同步与安全
 - **升级触发**：高风险事件、资源冲突、重大缺陷、跨域变更立即升级域负责人，并在 Summary 标记。  
 - **变更同步**：涉及流程、工具或方法论的更新，需同步 `📖README-LaunchX系统总体指南.md`、`CLAUDE.md`、memory-bank 及相关目录 README，并在 Summary 声明“互链已更新”。  
-- **安全约束**：禁止运行未确认的毁坏性命令；环境或权限异常需在 `/spec` 说明并等待批准。  
+- **安全约束**：禁止运行未确认的毁坏性命令；环境或权限异常需在 plan.md 或 Summary 说明并等待批准。  
 - **记录回滚**：对配置、脚本、自动化的修改必须写明回滚方法与影响范围。  
 
 ---
 
-## 9. 任务识别与阅读路径
-
-> 目标：确保请求到来后，系统先完成 Level / 方法论判定与资料加载，再进入 `/spec → /plan → /do`。
-
-### 9.1 复杂度 × 方法论双分类
-- **Level S｜直接对话**：单问题、策略建议；输出结论与风险提示。
-- **Level M｜搜索 / MCP 驱动**：需要查阅仓库资产或外部资料；先复用本地文档，再调用 `rube`、`context7`、`tavily` 等 MCP，产出 checklist 或 `/spec` 草案。
-- **Level L｜结构化执行**：涉及代码、流程、跨域影响；必须生成 `/spec`（含风险/回滚）并经 `/plan` 审核后执行。
-
-配合 🟣 `knowledge/05_方法论中心` 的方法论层级：
-- **🔴 系统级**：整体架构、核心协议、战略决策。
-- **🟡 技术级**：实现细节、自动化脚本、系统集成。
-- **🟢 管理级**：业务流程、运营规范、知识生产。
-- **🔵 项目级**：具体项目、执行清单、操作 SOP。
-
-### 9.2 关键词触发的阅读顺序
-```
-Phase 0: 任务识别
-    → 阅读 📖README-LaunchX系统总体指南.md
-    → 根据关键词加载优先级 0 指南
-        skill / skills / 技能      → 🧠 Launch-X Skills生态系统/
-        bmad / agent / 协作        → 🧩 bmad/
-        knowledge / 知识 / 分析     → 🟣 knowledge/
-        git / 版本 / 协作          → Git 规范 + memory-bank/support_modules/dev/USEME.md
-    → 结合 Level S/M/L + 🔴🟡🟢🔵 决定执行模式
-```
-复合任务需并行加载多个目录指南；优先确认是否存在 `USEME.md`、`RULES.md` 或领域 `AGENTS.md`。
-
-### 9.3 协作协议分层
-| 协议层级 | 场景 | 必读资料 |
-|---------|------|-----------|
-| **Level 0｜模糊指令** | 需求不清晰 | 根级 `AGENTS.md` + 关键词触发指南，先完成澄清 |
-| **Level 1｜精准反馈** | 明确改动/修复 | Phase 0 全部 + 目标目录 `CLAUDE.md` |
-| **Level 2｜标杆确立** | 需制定质量标准 | 方法论中心模板 + 历史案例 |
-| **Level 3｜规则抽象** | 升级流程/协议 | 方法论文档 + 领域 `RULES.md` |
-| **Level 4｜协议内化** | 核心协议优化 | 系统级资料、架构图、回滚策略 |
-
-执行中如需升级/降级协议层级，必须在 Summary 记录触发原因与新增引用文档。
 
 ### 9.4 输出前校验
 - [ ] 在活动记录或命令输出中标注完成的关键词搜索与读取的指南。
-- [ ] `/spec` 或 checklist 中引用需遵循的规范文件。
+- [ ] plan.md 或 checklist 中引用需遵循的规范文件。
 - [ ] 产出物满足 frontmatter、命名、互链闭环要求。
 - [ ] 核对引用文档的 `last_update` / `layer` / `source`，确认为最新版本且适用。
 - [ ] Summary 说明分类结果、引用资料、风险与下一步。

@@ -1,15 +1,32 @@
+---
+title: "USEME"
+owners:
+  - LaunchX Claude Team
+status: active
+last_update: 2025-11-05
+related:
+  - "../README.md"
+  - "../CLAUDE.md"
+source: "LaunchX 系统管理模块指南"
+impact: medium
+tags:
+  - support_module
+  - launchx
+---
+
+
 # LaunchX 业务服务模块 · USEME
 
-> 面向 `🚀 Launchx业务服务/`，统一企业交付、品牌传播与运营管理能力。
+> 面向 `support_modules/launchx/`，统一企业交付、品牌传播与运营管理能力。
 
 ## 导入说明
-- 根路径：`🚀 Launchx业务服务/`
+- 根路径：`support_modules/launchx/`
 - 示例：
   ```md
-  ![[🚀 Launchx业务服务/a_企业AI转型服务策略与案例/客户方案模板.md]]
+  ![[support_modules/launchx/a_企业AI转型服务策略与案例/客户方案模板.md]]
   ```
 - 依赖：企业交付方法论、品牌规范、运营SOP
-- 方法论指引：`🟣 knowledge/05_方法论中心/企业服务方法论/`
+- 方法论指引：support_modules/knowledge/05_方法论中心/企业服务方法论/`
 
 ## 重点 API 参数表
 | 组件 | 属性 | 类型 | 默认值 | 说明 |
@@ -38,11 +55,11 @@ cat support_modules/launchx/checklists/meeting.md
 ```
 
 ## 注意事项
-- 任何客户交付方案需遵循 LaunchX 品牌规范，并在 `🎨 设计美学资源库/` 获取最新素材
-- 企业服务方法论需结合 `🟣 knowledge/05_方法论中心/` 的最新研究成果
-- 运营数据需定期同步到 `🔬 Deep study/` 进行深度分析
+- 任何客户交付方案需遵循 LaunchX 品牌规范，并在 `support_modules/design/` 获取最新素材
+- 企业服务方法论需结合 support_modules/knowledge/05_方法论中心/` 的最新研究成果
+- 运营数据需定期同步到 `support_modules/deep-study/` 进行深度分析
 - 品牌传播内容需在 `memory-bank/` 建立素材档案
-- 所有对外材料需同步到 `🎨 设计美学资源库` 的视觉稿
+- 所有对外材料需同步到 `support_modules/design` 的视觉稿
 - 回滚与验收步骤必须写在方案文档中
 
 ## 最佳实践
@@ -53,9 +70,9 @@ cat support_modules/launchx/checklists/meeting.md
 - 方案 = 数据洞察 + 方法论引用 + 回滚策略
 
 ## 故障排除
-- 提案模板不一致 → 检查 `🚀 Launchx业务服务/templates/` 最新版本
+- 提案模板不一致 → 检查 support_modules/launchx/templates/` 最新版本
 - 客户访谈效果不佳 → 使用 `checklists/meeting.md` 标准流程
-- 品牌素材缺失 → 联系 `🎨 设计美学资源库/` 获取最新资源
-- 运营指标异常 → 检查 `🔬 Deep study/` 分析框架
+- 品牌素材缺失 → 联系 `support_modules/design/` 获取最新资源
+- 运营指标异常 → 检查 `support_modules/deep-study/` 分析框架
 - 依赖缺失 → 检查 `tools/Weibo_PublicOpinion_AnalysisSystem` 日志
 - 案例冲突 → 在 README 添加版本说明并指向最新文档

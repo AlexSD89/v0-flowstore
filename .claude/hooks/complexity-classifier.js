@@ -232,6 +232,95 @@ module.exports = {
   },
 
   /**
+   * 获取技术复杂度因素
+   */
+  getTechnicalFactors(userInput, workspace) {
+    const factors = [];
+
+    const techKeywords = {
+      'API集成': 15, '数据库': 12, '微服务': 18, '云部署': 16,
+      '机器学习': 20, '区块链': 22, '实时系统': 18, '高并发': 16,
+      '容器化': 14, 'CI/CD': 12, '监控系统': 10, '安全加密': 15
+    };
+
+    for (const [keyword, weight] of Object.entries(techKeywords)) {
+      if (userInput.includes(keyword)) {
+        factors.push(`${keyword} (+${weight})`);
+      }
+    }
+
+    if (workspace.fileCount > 50) {
+      factors.push('大文件量 (+10)');
+    }
+
+    if (workspace.hasMultipleLanguages) {
+      factors.push('多语言项目 (+12)');
+    }
+
+    if (userInput.includes('集成') || userInput.includes('对接')) {
+      factors.push('系统集成 (+15)');
+    }
+
+    return factors;
+  },
+
+  /**
+   * 获取业务复杂度因素
+   */
+  getBusinessFactors(userInput) {
+    const factors = [];
+
+    const businessScope = {
+      '企业级': 20, '全公司': 18, '跨部门': 15, '核心业务': 16,
+      '客户数据': 14, '支付系统': 18, '合规要求': 16, '审计': 12
+    };
+
+    for (const [scope, weight] of Object.entries(businessScope)) {
+      if (userInput.includes(scope)) {
+        factors.push(`${scope} (+${weight})`);
+      }
+    }
+
+    if (userInput.includes('流程优化') || userInput.includes('业务重构')) {
+      factors.push('业务流程改造 (+14)');
+    }
+
+    if (userInput.includes('大数据') || userInput.includes('数据分析')) {
+      factors.push('数据密集型 (+12)');
+    }
+
+    return factors;
+  },
+
+  /**
+   * 获取协作复杂度因素
+   */
+  getCollaborationFactors(userInput) {
+    const factors = [];
+
+    const teamSize = {
+      '团队': 8, '多人': 10, '跨团队': 15, '外部合作': 18,
+      '供应商': 12, '客户': 14, '合作伙伴': 16
+    };
+
+    for (const [size, weight] of Object.entries(teamSize)) {
+      if (userInput.includes(size)) {
+        factors.push(`${size} (+${weight})`);
+      }
+    }
+
+    if (userInput.includes('协调') || userInput.includes('沟通')) {
+      factors.push('需要多方协调 (+10)');
+    }
+
+    if (userInput.includes('依赖') || userInput.includes('阻塞')) {
+      factors.push('复杂依赖关系 (+12)');
+    }
+
+    return factors;
+  },
+
+  /**
    * 计算置信度
    */
   calculateConfidence(tech, business, collab) {

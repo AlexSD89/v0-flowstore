@@ -1,0 +1,309 @@
+{
+  "timestamp": "2025-11-05T17:01:30.372432",
+  "memory_bank_path": "..",
+  "files": [
+    {
+      "path": "README.md",
+      "absolute_path": "../README.md",
+      "access_frequency": "high",
+      "value_score": 1.36,
+      "last_access": "2025-11-05T16:41:37.680037",
+      "last_modified": "2025-11-05T16:41:36.454556",
+      "git_commit_time": "2025-10-31T17:20:00",
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 3631,
+        "word_count": 214,
+        "line_count": 75,
+        "has_frontmatter": true,
+        "has_links": false,
+        "has_code_blocks": false,
+        "completeness_score": 3
+      }
+    },
+    {
+      "path": "support_modules/20251105-bmad-system-optimization-plan.md",
+      "absolute_path": "../support_modules/20251105-bmad-system-optimization-plan.md",
+      "access_frequency": "high",
+      "value_score": 1.69,
+      "last_access": "2025-11-05T16:08:27.501643",
+      "last_modified": "2025-11-05T16:08:26.285746",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 4561,
+        "word_count": 295,
+        "line_count": 184,
+        "has_frontmatter": true,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 4
+      }
+    },
+    {
+      "path": "support_modules/20251105-todo-component.md",
+      "absolute_path": "../support_modules/20251105-todo-component.md",
+      "access_frequency": "high",
+      "value_score": 1.67,
+      "last_access": "2025-11-05T16:05:24.222914",
+      "last_modified": "2025-11-05T16:05:22.093363",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 3845,
+        "word_count": 245,
+        "line_count": 159,
+        "has_frontmatter": true,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 4
+      }
+    },
+    {
+      "path": "scripts/README.md",
+      "absolute_path": "../scripts/README.md",
+      "access_frequency": "high",
+      "value_score": 1.69,
+      "last_access": "2025-11-05T17:01:27.969619",
+      "last_modified": "2025-11-05T17:01:26.741357",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 5073,
+        "word_count": 285,
+        "line_count": 214,
+        "has_frontmatter": true,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 4
+      }
+    },
+    {
+      "path": "MCP服务资产库/小红书MCP服务器.md",
+      "absolute_path": "../MCP服务资产库/小红书MCP服务器.md",
+      "access_frequency": "high",
+      "value_score": 0.98,
+      "last_access": "2025-11-05T10:35:31.796079",
+      "last_modified": "2025-11-03T20:17:47.312937",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 3625,
+        "word_count": 281,
+        "line_count": 124,
+        "has_frontmatter": false,
+        "has_links": true,
+        "has_code_blocks": true,
+        "completeness_score": 3
+      }
+    },
+    {
+      "path": "indexes/README.md",
+      "absolute_path": "../indexes/README.md",
+      "access_frequency": "high",
+      "value_score": 1.63,
+      "last_access": "2025-11-05T15:57:03.749118",
+      "last_modified": "2025-11-05T15:57:03.422842",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 1556,
+        "word_count": 115,
+        "line_count": 57,
+        "has_frontmatter": true,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 4
+      }
+    },
+    {
+      "path": "support_modules/design/USEME.md",
+      "absolute_path": "../support_modules/design/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.63,
+      "last_access": "2025-11-05T10:35:32.310869",
+      "last_modified": "2025-11-03T20:17:47.314211",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 1465,
+        "word_count": 103,
+        "line_count": 41,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/deep-study/USEME.md",
+      "absolute_path": "../support_modules/deep-study/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.66,
+      "last_access": "2025-11-05T10:35:32.310840",
+      "last_modified": "2025-11-03T20:17:47.314015",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 2796,
+        "word_count": 196,
+        "line_count": 64,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/knowledge/USEME.md",
+      "absolute_path": "../support_modules/knowledge/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.68,
+      "last_access": "2025-11-05T10:35:32.192936",
+      "last_modified": "2025-11-03T20:17:47.314656",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 3277,
+        "word_count": 256,
+        "line_count": 68,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/bmad_core/USEME.md",
+      "absolute_path": "../support_modules/bmad_core/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.85,
+      "last_access": "2025-11-05T16:37:56.052724",
+      "last_modified": "2025-11-05T16:09:31.018460",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 0,
+      "content_info": {
+        "file_size": 11759,
+        "word_count": 842,
+        "line_count": 384,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/launchx/USEME.md",
+      "absolute_path": "../support_modules/launchx/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.65,
+      "last_access": "2025-11-05T10:35:32.310948",
+      "last_modified": "2025-11-03T20:17:47.315905",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 2731,
+        "word_count": 171,
+        "line_count": 61,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/dev/USEME.md",
+      "absolute_path": "../support_modules/dev/USEME.md",
+      "access_frequency": "high",
+      "value_score": 0.72,
+      "last_access": "2025-11-05T10:35:31.967186",
+      "last_modified": "2025-11-03T20:17:47.314451",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 6066,
+        "word_count": 413,
+        "line_count": 87,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": true,
+        "completeness_score": 2
+      }
+    },
+    {
+      "path": "support_modules/launchx/checklists/meeting.md",
+      "absolute_path": "../support_modules/launchx/checklists/meeting.md",
+      "access_frequency": "high",
+      "value_score": 0.37,
+      "last_access": "2025-11-05T10:35:32.310981",
+      "last_modified": "2025-11-03T20:17:47.316120",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 2947,
+        "word_count": 220,
+        "line_count": 137,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": false,
+        "completeness_score": 1
+      }
+    },
+    {
+      "path": "support_modules/knowledge/reports/knowledge_audit_report.md",
+      "absolute_path": "../support_modules/knowledge/reports/knowledge_audit_report.md",
+      "access_frequency": "high",
+      "value_score": 0.6,
+      "last_access": "2025-11-05T10:35:32.193417",
+      "last_modified": "2025-11-03T20:17:47.315394",
+      "git_commit_time": null,
+      "days_since_access": 0,
+      "days_since_modified": 1,
+      "content_info": {
+        "file_size": 27300,
+        "word_count": 2020,
+        "line_count": 192,
+        "has_frontmatter": false,
+        "has_links": false,
+        "has_code_blocks": false,
+        "completeness_score": 1
+      }
+    }
+  ],
+  "statistics": {
+    "total_files": 14,
+    "access_frequency": {
+      "high": 14,
+      "medium": 0,
+      "low": 0,
+      "archived": 0,
+      "unknown": 0
+    },
+    "average_value_score": 1.01,
+    "total_size_bytes": 80632,
+    "average_file_size_bytes": 5759,
+    "analysis_date": "2025-11-05T17:01:30.558250"
+  },
+  "recommendations": [
+    {
+      "type": "content_enhancement",
+      "priority": "high",
+      "description": "发现 1 个高频访问但内容价值较低的文件，建议优先优化",
+      "affected_files": 1,
+      "action": "为高频访问的文件补充更完整的内容和结构"
+    }
+  ]
+}

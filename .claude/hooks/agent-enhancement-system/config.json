@@ -1,0 +1,263 @@
+{
+  "version": "1.0.0",
+  "systemName": "LaunchX Subagent Orchestrator",
+  "redditGuidePrinciples": {
+    "engineeringInfrastructure": {
+      "principle": "工程基础设施优先",
+      "implementation": "active",
+      "status": "✅ 集成Claude原生subagents和BMAD subagent军团"
+    },
+    "observability": {
+      "principle": "可观测性 = 能力",
+      "implementation": "active", 
+      "status": "✅ 实时Subagent调度监控和性能追踪"
+    },
+    "automation": {
+      "principle": "自动化强制执行",
+      "implementation": "active",
+      "status": "✅ 智能任务分析和Subagent自动化调度"
+    },
+    "assetReuse": {
+      "principle": "资产复用优先",
+      "implementation": "active",
+      "status": "✅ 复用现有Subagent生态系统"
+    }
+  },
+  "claudeNativeSubagents": {
+    "engineering": {
+      "ai-engineer": {
+        "name": "ai-engineer",
+        "path": ".claude/agents/engineering/ai-engineer.md",
+        "capabilities": ["AI/ML集成", "LLM实现", "计算机视觉", "推荐系统"],
+        "expertise": "实用AI工程实现",
+        "tools": ["Write", "Read", "MultiEdit", "Bash", "WebFetch"],
+        "activationKeywords": ["AI", "ML", "机器学习", "语言模型", "图像识别", "推荐算法", "智能自动化"],
+        "complexityLevel": "high"
+      },
+      "backend-architect": {
+        "name": "backend-architect",
+        "path": ".claude/agents/engineering/backend-architect.md",
+        "capabilities": ["API设计", "数据库架构", "系统设计", "安全实现"],
+        "expertise": "可扩展后端系统架构",
+        "tools": ["Write", "Read", "MultiEdit", "Bash", "Grep"],
+        "activationKeywords": ["API", "后端", "数据库", "架构", "微服务", "认证", "授权"],
+        "complexityLevel": "high"
+      },
+      "frontend-developer": {
+        "name": "frontend-developer",
+        "path": ".claude/agents/engineering/frontend-developer.md",
+        "capabilities": ["React开发", "UI组件", "状态管理", "性能优化"],
+        "expertise": "现代前端界面开发",
+        "tools": ["Write", "Read", "MultiEdit", "Bash"],
+        "activationKeywords": ["前端", "React", "Vue", "UI", "界面", "组件", "状态管理"],
+        "complexityLevel": "medium"
+      },
+      "devops-automator": {
+        "name": "devops-automator",
+        "path": ".claude/agents/engineering/devops-automator.md",
+        "capabilities": ["CI/CD", "Docker", "云部署", "监控", "自动化"],
+        "expertise": "DevOps自动化和基础设施",
+        "tools": ["Write", "Read", "MultiEdit", "Bash"],
+        "activationKeywords": ["DevOps", "CI/CD", "Docker", "部署", "监控", "自动化", "云服务"],
+        "complexityLevel": "medium"
+      },
+      "test-writer-fixer": {
+        "name": "test-writer-fixer",
+        "path": ".claude/agents/engineering/test-writer-fixer.md",
+        "capabilities": ["单元测试", "集成测试", "E2E测试", "测试修复"],
+        "expertise": "全面测试代码编写和修复",
+        "tools": ["Write", "Read", "MultiEdit", "Bash"],
+        "activationKeywords": ["测试", "单元测试", "集成测试", "E2E", "测试修复", "测试覆盖"],
+        "complexityLevel": "medium"
+      }
+    },
+    "product": {
+      "feedback-synthesizer": {
+        "name": "feedback-synthesizer",
+        "path": ".claude/agents/product/feedback-synthesizer.md",
+        "capabilities": ["用户反馈分析", "产品改进", "投诉处理", "需求识别"],
+        "expertise": "用户反馈转化为产品功能",
+        "tools": ["Write", "Read", "MultiEdit", "WebFetch"],
+        "activationKeywords": ["反馈", "用户意见", "产品改进", "投诉", "需求分析"],
+        "complexityLevel": "medium"
+      },
+      "sprint-prioritizer": {
+        "name": "sprint-prioritizer",
+        "path": ".claude/agents/product/sprint-prioritizer.md",
+        "capabilities": ["功能优先级", "Sprint规划", "产品路线图", "ROI分析"],
+        "expertise": "6天Sprint最大价值交付",
+        "tools": ["Write", "Read", "MultiEdit", "WebFetch"],
+        "activationKeywords": ["Sprint", "优先级", "产品规划", "功能排序", "ROI"],
+        "complexityLevel": "medium"
+      },
+      "trend-researcher": {
+        "name": "trend-researcher",
+        "path": ".claude/agents/product/trend-researcher.md",
+        "capabilities": ["市场趋势", "病毒机会", "竞品分析", "用户行为研究"],
+        "expertise": "市场机会识别和病毒传播机制",
+        "tools": ["Write", "Read", "MultiEdit", "WebFetch", "WebSearch"],
+        "activationKeywords": ["趋势", "市场研究", "病毒传播", "竞品分析", "用户行为"],
+        "complexityLevel": "medium"
+      }
+    },
+    "marketing": {
+      "tiktok-strategist": {
+        "name": "tiktok-strategist",
+        "path": ".claude/agents/marketing/tiktok-strategist.md",
+        "capabilities": ["TikTok营销", "病毒内容", "增长策略", "用户参与"],
+        "expertise": "TikTok平台营销和病毒传播",
+        "tools": ["Write", "Read", "MultiEdit", "WebFetch", "WebSearch"],
+        "activationKeywords": ["TikTok", "短视频", "病毒营销", "社交媒体", "增长策略"],
+        "complexityLevel": "medium"
+      },
+      "app-store-optimizer": {
+        "name": "app-store-optimizer",
+        "path": ".claude/agents/marketing/app-store-optimizer.md",
+        "capabilities": ["ASO优化", "应用商店", "关键词研究", "转化率优化"],
+        "expertise": "应用商店搜索优化和下载增长",
+        "tools": ["Write", "Read", "MultiEdit", "WebFetch", "WebSearch"],
+        "activationKeywords": ["ASO", "应用商店", "关键词", "转化率", "下载优化"],
+        "complexityLevel": "low"
+      }
+    }
+  },
+  "bmadSubagents": {
+    "universal_enterprise_methodologist": {
+      "name": "universal_enterprise_methodologist",
+      "path": "🧩 bmad-old/bmad-core/agents/universal_enterprise_methodologist.ts",
+      "type": "bmad_ts_agent",
+      "capabilities": ["企业方法论", "业务分析", "解决方案设计", "质量验证"],
+      "expertise": "通用企业方法论专家",
+      "methodology": {
+        "rounds": ["production", "validation", "critical", "integration"],
+        "patternFramework": {
+          "complexityAssessment": ["利益相关者复杂性", "技术复杂性", "业务复杂性", "执行复杂性"],
+          "dialogueConfirmation": ["初始理解", "分层深化", "迭代优化"],
+          "qualityAssurance": ["价值层", "战略层", "执行层", "实施层"],
+          "externalValidation": ["行业最佳实践", "学术研究", "市场标准", "监管要求"]
+        }
+      },
+      "activationKeywords": ["企业分析", "方法论", "业务分析", "解决方案设计", "质量验证"],
+      "complexityLevel": "high"
+    },
+    "research_intelligence_specialist": {
+      "name": "research_intelligence_specialist",
+      "path": "🧩 bmad-old/bmad-core/agents/research_intelligence_specialist.ts",
+      "type": "bmad_ts_agent",
+      "capabilities": ["研究分析", "情报收集", "数据洞察", "趋势预测"],
+      "expertise": "研究和情报分析专家",
+      "activationKeywords": ["研究", "情报", "数据分析", "趋势预测", "市场洞察"],
+      "complexityLevel": "high"
+    }
+  },
+  "collaborationModes": {
+    "primaryAgent": {
+      "description": "主导Agent，负责任务分解和整体协调",
+      "适用场景": "复杂多专业协作项目",
+      "典型组合": "产品经理 + 技术架构 + UI设计"
+    },
+    "parallel": {
+      "description": "多Agent并行处理任务的不同方面",
+      "适用场景": "需要快速交付的多维度分析",
+      "典型组合": "市场研究 + 竞品分析 + 技术可行性"
+    },
+    "sequential": {
+      "description": "Agent按序处理任务的不同阶段",
+      "适用场景": "需要分阶段实施的复杂流程",
+      "典型组合": "需求分析 → 架构设计 → 开发实现 → 测试验证"
+    },
+    "expertReview": {
+      "description": "专家Agent进行质量审查和优化建议",
+      "适用场景": "关键决策和质量门控",
+      "典型组合": "安全审计 + 性能优化 + 代码审查"
+    }
+  },
+  "taskComplexityAssessment": {
+    "indicators": {
+      "domainSpecificity": {
+        "weight": 0.25,
+        "indicators": ["专业术语", "行业概念", "技术深度"],
+        "threshold": 0.6
+      },
+      "dataComplexity": {
+        "weight": 0.20,
+        "indicators": ["数据量", "数据类型", "处理难度"],
+        "threshold": 0.5
+      },
+      "collaborationNeeds": {
+        "weight": 0.20,
+        "indicators": ["协作需求", "团队规模", "沟通复杂度"],
+        "threshold": 0.7
+      },
+      "timeCriticality": {
+        "weight": 0.15,
+        "indicators": ["紧急程度", "时间压力", "截止日期"],
+        "threshold": 0.8
+      },
+      "uncertaintyLevel": {
+        "weight": 0.20,
+        "indicators": ["信息不完整", "需求模糊", "风险因素"],
+        "threshold": 0.6
+      }
+    },
+    "schedulingStrategy": {
+      "simple": {
+        "threshold": "< 0.3",
+        "approach": "单Agent处理",
+        "recommendedAgents": 1
+      },
+      "moderate": {
+        "threshold": "0.3 - 0.6",
+        "approach": "主从协作模式",
+        "recommendedAgents": "2-3"
+      },
+      "complex": {
+        "threshold": "≥ 0.6",
+        "approach": "多Agent并行或链式协作",
+        "recommendedAgents": "3-5"
+      }
+    }
+  },
+  "performanceOptimization": {
+    "tokenEfficiency": {
+      "maxTokensPerAgent": 2000,
+      "contextSharing": true,
+      "resultCaching": true
+    },
+    "resourceAllocation": {
+      "maxConcurrentAgents": 5,
+      "loadBalancing": true,
+      "priorityQueue": true
+    },
+    "qualityControl": {
+      "outputValidation": true,
+      "consistencyCheck": true,
+      "errorHandling": "graceful_degradation"
+    }
+  },
+  "monitoring": {
+    "metrics": {
+      "taskCompletionRate": "> 95%",
+      "agentCollaborationEfficiency": "> 80%",
+      "responseTime": "< 3秒",
+      "userSatisfaction": "> 4.5/5.0"
+    },
+    "logging": {
+      "level": "info",
+      "includeAgentInteractions": true,
+      "trackResourceUsage": true,
+      "storeExecutionHistory": true
+    }
+  },
+  "skillsIntegration": {
+    "enhancementCapabilities": {
+      "business-decision-support": ["商业分析", "ROI评估", "风险判断"],
+      "technical-design-expert": ["技术设计", "架构决策", "最佳实践"],
+      "market-intelligence-expert": ["市场情报", "竞争分析", "趋势预测"],
+      "knowledge-master": ["知识管理", "信息组织", "文档化"]
+    },
+    "integrationPattern": "skills_enhanced_subagent_call"
+  },
+  "lastUpdated": "2025-11-04",
+  "status": "active - Reddit指南工程化实践Subagent调度系统"
+}

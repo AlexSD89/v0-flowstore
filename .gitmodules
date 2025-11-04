@@ -1,0 +1,3 @@
+[submodule "bmad-upstream"]
+	path = bmad-upstream
+	url = https://github.com/bmad-code-org/BMAD-METHOD

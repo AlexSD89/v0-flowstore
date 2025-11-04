@@ -1,15 +1,32 @@
+---
+title: "USEME"
+owners:
+  - LaunchX Claude Team
+status: active
+last_update: 2025-11-05
+related:
+  - "../README.md"
+  - "../CLAUDE.md"
+source: "LaunchX 系统管理模块指南"
+impact: medium
+tags:
+  - support_module
+  - knowledge
+---
+
+
 # 知识生产模块 · USEME
 
 版本：2025-10-11
 
-> 使用前请阅读 `🟣 knowledge/CLAUDE.md`，并加载 `memory-bank/README.md` 中的提示片段。
+> 使用前请阅读 `support_modules/knowledge/CLAUDE.md`，并加载 `memory-bank/README.md` 中的提示片段。
 
 ## 导入说明
-- 根路径：`🟣 knowledge/`
+- 根路径：`support_modules/knowledge/`
 - 常用引用：
   ```md
-  ![[🟣 knowledge/03_研究报告/20251001-AI产业趋势洞察.md]]
-  ![[🟣 knowledge/02_分析与洞察/20250928-新能源行业深度分析.md]]
+  ![[support_modules/knowledge/03_研究报告/20251001-AI产业趋势洞察.md]]
+  ![[support_modules/knowledge/02_分析与洞察/20250928-新能源行业深度分析.md]]
   ```
 - 标签与 frontmatter 模板：见 `memory-bank/README.md`
 - 方法论索引：`05_方法论中心/方法论中心索引_新结构.md`
@@ -36,7 +53,7 @@
 ## 常用脚本与 MCP
 ```bash
 # 趋势分析示例
-python study/tools/trend_analyzer.py --input data/ai.csv --output "🟣 knowledge/02_分析与洞察/20251001-AI趋势分析.md"
+python support_modules/knowledge/tools/trend_analyzer.py --input data/ai.csv --output "support_modules/knowledge/02_分析与洞察/20251001-AI趋势分析.md"
 
 # 周报生成（若存在）
 python study/tools/report_generator.py --config configs/weekly.yaml

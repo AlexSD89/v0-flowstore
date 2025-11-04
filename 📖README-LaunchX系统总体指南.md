@@ -1,11 +1,36 @@
 # 📖 LaunchX 系统总体指南
 
-版本：2025-11-01 · 维护：Launch X Core
+版本：2025-11-04 · 维护：Launch X Core
+更新：新增Skills生态系统v2.4.0、Slack Hooks企业级集成、BMAD SubAgent军团v6.0详细说明
 
 > 本指南提供根级视角的“看板”，说明组织使命、层级架构、核心流程、目录地图与引用关系。执行细节请参阅 `AGENTS.md`（Codex）与 `CLAUDE.md`（Claude Code），快速上下文请加载 `memory-bank/README.md`。
 
 ---
+         Claude Code (协调中心)
+                       ↓
+  ┌─────────────────────────────────────────────────────────┐
+  │              🎯 智能编排层 (Orchestration Layer)          │
+  │  ┌─────────────────────────────────────────────────┐   │
+  │  │     🔄 统一调度引擎 (Unified Dispatch Engine)     │   │
+  │  │  - MCP ↔ Skills ↔ BMAD 双向通道                  │   │
+  │  │  - 智能路由和负载均衡                             │   │
+  │  │  - 资源池管理和优化                               │   │
+  │  └─────────────────────────────────────────────────┘   │
+  └─────────────────────────────────────────────────────────┘
+             ↓                    ↓                    ↓
+  ┌─────────────┐  ┌────────────────┐  ┌─────────────────┐
+  │  MCP服务池   │  │   Skills生态    │  │  BMAD Agent军团  │
+  │ (21个服务)   │  │ (专业能力库)     │  │ (执行协作网络)    │
+  │ • 工具能力    │  │ • 垂直skills     │  │ • 专业agents     │
+  │ • 数据访问    │  │ • 方法论skills   │  │ • 工作流引擎     │
+  │ • 外部集成    │  │ • 系统级skills   │  │ • 融合agents     │
+  └─────────────┘  └────────────────┘  └─────────────────┘
+             ↓                    ↓                    ↓
+  ┌─────────────────────────────────────────────────────────┐
+  │            🎯 业务交付层 (Business Delivery)            │
+  │    - 价值输出 | - 成果交付 | - 质量保障 | - 持续优化      │
 
+  
 ## 1. 使命与三大核心能力体系
 - **使命三线**：运营守正 / 智能沉淀 / 自动化提效。
 - **三大核心能力**：
@@ -79,7 +104,81 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 5. 三大核心能力流程链路
+## 5.1 🧠 Launch-X Skills生态系统 (v2.4.0)
+**目的**：提供专业化、可复用的AI技能，支撑复杂任务的标准化执行
+**逻辑**：基于Reddit指南工程化实践，实现技能的渐进式披露、自动化激活和质量保障
+**结构**：三层技能架构 + 自动化Hook系统
+
+### 核心技能类别
+- **Level 1 核心技能包**：商业决策支持、项目架构规划、技术设计专家 (自动加载，max 2000 tokens)
+- **Level 2 专业扩展包**：企业研究分析、市场情报专家、知识管理大师 (按需加载，max 3000 tokens)
+- **Level 3 高级专家包**：Gate-OS企业AI专家、深度学习专家、认知策略大师 (复杂任务专用，max 5000 tokens)
+
+### 自动化Hook系统
+- **技能渐进披露Hook**：`skills-progressive-disclosure/hook.js` - 智能技能加载与Token效率优化
+- **用户交互Hook**：`user-interaction/hook.js` - 用户体验优化和交互流程管理
+- **技能激活Hook**：`skill-activation/hook.js` - 技能自动激活和性能监控
+
+### Reddit指南集成
+- 工程基础设施优先：核心技能强制加载
+- 可观测性 = 能力：全面的技能使用状态追踪
+- 资产复用优先：智能检测技能复用机会
+- 自动化强制执行：技能自动激活和质量门禁
+
+---
+
+## 5.2 🔗 Slack Hooks系统 (企业级集成)
+**目的**：实现企业级工作流自动化，保障关键流程的质量和合规性
+**逻辑**：基于Hook机制实现前置验证、过程监控、结果验证的完整质量闭环
+**结构**：多层Hook架构 + 企业级监控
+
+### 核心Hook组件
+- **Dev Docs工作流Hook**：`dev-docs-workflow/hook.js` - 复杂任务自动创建三文件工作环境
+- **AI代码审查Hook**：`user-interaction/ai-code-review-hook.js` - Reddit指南"让AI审查自己的代码"
+- **文件编辑追踪Hook**：`file-edit-tracker/basic-error-check-hook.js` - 零错误遗漏机制实现
+- **增量构建Hook**：`incremental-build-system/hook.js` - 自动化构建和质量检查
+
+### 企业级监控 (PM2集成)
+- **PM2监控Hook**：`pm2-monitoring/pm2-monitor.js` - 实时进程监控和系统健康检查
+- **外部记忆加载器**：`pm2-monitoring/external-memory-loader.js` - 核心资产强制加载和完整性验证
+- **资产复用验证器**：`pm2-monitoring/asset-reuse-validator.js` - 智能资产复用检测和优化建议
+
+### 质量保障机制
+- **前置验证**：操作前的质量检查和风险评估
+- **过程监控**：任务执行中的实时状态追踪
+- **结果验证**：输出结果的自动质量评估和合规检查
+- **持续优化**：基于反馈的Hook能力提升和知识积累
+
+---
+
+## 5.3 🧩 BMAD SubAgent军团 (v6.0)
+**目的**：提供企业级多智能体协作能力，实现复杂任务的分布式处理
+**逻辑**：基于Reddit指南企业级Agent架构，实现智能调度、协作机制和知识增强
+**结构**：Fusion架构 + SubAgent军团 + 专业协作模式
+
+### 专业Agent类别
+- **Level 1 核心专业Agent**：商业决策支持、项目架构、技术设计 (高频使用)
+- **Level 2 专业分析Agent**：企业研究、市场情报、知识管理 (专业分析)
+- **Level 3 高级系统Agent**：Gate-OS企业AI、深度学习、认知策略 (复杂任务)
+
+### SubAgent协作模式
+- **主从协作模式**：主Agent负责任务分解，从Agent执行具体子任务
+- **并行协作模式**：多Agent同时处理不同方面，结果合并优化
+- **链式协作模式**：Agent按序处理不同阶段，质量传递优化
+
+### 智能调度系统
+- **任务复杂度评估**：基于5维度指标（领域特异性、技术复杂度、协作需求、时间紧迫性、不确定性）
+- **SubAgent选择策略**：简单任务单Agent、中等任务主从协作、复杂任务多Agent并行
+- **资源优化调度**：Agent负载均衡、Token效率优化、质量优先原则
+
+### 知识增强引擎
+- **知识共享机制**：Agent间知识共享和经验积累
+- **自适应学习**：基于任务反馈的Agent能力持续优化
+- **协作历史**：Agent协作模式历史记录和优化建议
+
+---
+
+## 6. 三大核心能力流程链路
 
 ### 🎯 判断能力流程
 ```
@@ -112,7 +211,7 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 6. 工具与脚本提示
+## 7. 工具与脚本提示
 - **MCP 预热**：`bash scripts/mcp-prewarm.sh`
 - **环境校验**（若存在）：`bash scripts/validate-ai-context.sh`
 - **静态检查**（建议实现）：`check-no-barrel-imports`、`check-duplicate-utils`、`check-ssr-dangerous-api`
@@ -123,7 +222,7 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 7. 维护与责任
+## 8. 维护与责任
 - **每日**：清理 `🤖 AI生成 auto-generated/`、更新周报/README、检查 pending TODO。
 - **每周一**：复查计划与遗留项，迁移必要任务；同步 `🟣 knowledge/09_周报月报`。
 - **定期**：备份 `🧩 bmad`，校验 frontmatter/索引，确认 MCP 配置有效，验证自动化脚本。
@@ -131,7 +230,7 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 8. 信息来源与输出颗粒度指南
+## 9. 信息来源与输出颗粒度指南
 | 类型 / 目录 | 信息来源优先级 | 主要输出形态 | AI / 外部资料使用策略 |
 | --- | --- | --- | --- |
 | 根级指挥文档（`AGENTS.md`、`CLAUDE.md`、`RULES.md`、本指南、`🛠️ 系统管理/memory-bank/README.md`） | 内部流程复盘 > 外部最佳实践 | Guardrails、流程、Checklist | 外部资料仅作对照，必须结合本地事实并标注来源 |
@@ -147,14 +246,14 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 9. 指挥文档分层提示
+## 10. 指挥文档分层提示
 - 根级：`AGENTS.md` 提供任务路由与最小执行要求；`CLAUDE.md` 面向分析与调度；`RULES.md` 汇总硬性禁令与必须遵守事项；本指南负责目录地图与信息来源指引。  
 - 域级：各目录下的 `CLAUDE.md` / `AGENTS.md` / `RULES.md` / `USEME.md` 承载域专属能力、约束与回滚策略，仅在任务涉及该域时加载。  
 - 执行流程：通常流程为 `AGENTS.md` 定级 → 参阅本指南定位目录 → 加载目标域文档 → 使用 `support_modules`、`🧩 bmad`、Skills 等资产完成任务。
 
 ---
 
-## 10. 目录配套文件约定
+## 11. 目录配套文件约定
 | 目录 | 必备文件 | 内容要求 | 备注 / 更新入口 |
 | --- | --- | --- | --- |
 | `/` 根目录 | `AGENTS.md`、`CLAUDE.md`、`RULES.md`、本指南 | 指挥总则、协作路标、硬性约束、目录地图；以本地流程与事实为准 | 修改需同步四个文件，并在 Summary 标注 |

@@ -1,8 +1,9 @@
 # BMAD Core - AI 原生 Tasks 使用指南
 
-> **最后更新**: 2025-10-14
+> **最后更新**: 2025-11-05
 > **适用对象**: Claude Code / AI Assistant
-> **强制导入**: `const { BMADNativeTasks } = require('../../🧩 bmad /bmad-core/src/bmad-native-tasks.js');`
+> **强制导入**: `const { BMADCore } = require('../../🧩 bmad/index.js');`
+> **状态**: 已修复路径引用，新增向后兼容支持
 
 ---
 
@@ -13,17 +14,19 @@
 support_modules/
 └── bmad_core/
     ├── USEME.md                    # 本文档
-    └── ../../🧩 bmad /              # 实际实现路径 (强制使用绝对路径)
+    └── ../../🧩 bmad/              # 实际实现路径 (相对路径，已验证存在)
 ```
 
 ### 🔴 强制导入说明
 ```javascript
-// ✅ 正确: 使用绝对路径导入
-const { BMADNativeTasks } = require('/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /bmad-core/src/bmad-native-tasks.js');
+// ✅ 正确: 使用相对路径导入
+const { BMADCore } = require('../../🧩 bmad/index.js');
 
-// ❌ 错误: 不要使用相对路径或重新实现
-// require('../../../bmad-core/src/bmad-native-tasks.js')  // 路径可能错误
-// 不要重新实现这些功能
+// ✅ 向后兼容: 也可以使用旧接口名
+const { BMADNativeTasks } = BMADCore.tasks;
+
+// ❌ 错误: 不要使用错误的相对路径
+// require('../../🧩 bmad/src/bmad-native-tasks.js')  // 路径不存在
 ```
 
 ---
@@ -99,7 +102,8 @@ generateBusinessInnovation()    // 商业创新方案生成
 ### 🤖 智能路由系统
 ```javascript
 // 自动路由系统 (高级功能)
-const { NativeFirstBMADSystem } = require('/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /bmad-core/src/native-first-bmad-system.js');
+// 注意：NativeFirstBMADSystem 当前不可用，仅使用 BMADCore
+// const { NativeFirstBMADSystem } = require('../../🧩 bmad/src/native-first-bmad-system.js');
 
 await bmadSystem.routeAndExecute(
   '分析这家AI公司的投资价值',         // 用户请求
@@ -113,7 +117,8 @@ await bmadSystem.routeAndExecute(
 
 ### 示例 1: 完整的市场分析流程
 ```javascript
-const { BMADNativeTasks } = require('/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /bmad-core/src/bmad-native-tasks.js');
+const { BMADCore } = require('../../🧩 bmad/index.js');
+const { BMADNativeTasks } = BMADCore.tasks;
 
 // 初始化 BMAD Tasks
 const bmadTasks = new BMADNativeTasks();
@@ -160,25 +165,33 @@ async function performMarketAnalysis() {
 
 ### 示例 2: 智能路由使用
 ```javascript
-const { NativeFirstBMADSystem } = require('/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /bmad-core/src/native-first-bmad-system.js');
+// 注意：NativeFirstBMADSystem 当前不可用，请使用 BMADCore
+// const { NativeFirstBMADSystem } = require('../../🧩 bmad/src/native-first-bmad-system.js');
 
+// 注意：此示例当前不可用，NativeFirstBMADSystem 尚未实现
 async function intelligentAnalysis(query) {
-  const bmadSystem = new NativeFirstBMADSystem();
+  // const bmadSystem = new NativeFirstBMADSystem();
+  // 替代方案：使用 BMADCore
+  const { BMADCore } = require('../../🧩 bmad/index.js');
+  const bmadCore = new BMADCore();
 
   try {
     // 自动路由到最佳 Agent 组合
-    const result = await bmadSystem.routeAndExecute(
-      query,
-      {
-        collaboration_type: 'swarm',      // 群体智能协作
-        include_synergy_metrics: true,    // 包含协同效应指标
-        timeout: 60000                    // 60秒超时
-      }
-    );
+    // 注意：routeAndExecute 方法当前不可用
+    // const result = await bmadSystem.routeAndExecute(
+    //   query,
+    //   {
+    //     collaboration_type: 'swarm',      // 群体智能协作
+    //     include_synergy_metrics: true,    // 包含协同效应指标
+    //     timeout: 60000                    // 60秒超时
+    //   }
+    // );
 
-    console.log('路由决策:', result.routing_decision);
-    console.log('协同效应:', result.synergy_metrics);
-    console.log('执行摘要:', result.execution_summary);
+    // 替代方案：直接使用 BMADCore 的方法
+    const result = await bmadCore.tasks.analyzeMarketOpportunity(query, ['basic']);
+
+    console.log('分析结果:', result);
+    // 注意：routing_decision 等字段当前不可用
 
     return result;
 
@@ -314,7 +327,7 @@ try {
 ```javascript
 // ✅ 解决方案: 验证路径存在
 const fs = require('fs');
-const bmadPath = '/Users/dangsiyuan/Documents/obsidion/launch x/🧩 bmad /bmad-core/src/bmad-native-tasks.js';
+const bmadPath = '../../🧩 bmad/index.js';
 
 if (!fs.existsSync(bmadPath)) {
   console.error('❌ BMAD 模块文件不存在:', bmadPath);
@@ -365,9 +378,9 @@ async function streamAnalysis(largeDataset) {
 ## 📞 技术支持
 
 ### 获取帮助
-- **API 文档**: 查看 `🧩 bmad /bmad-core/docs/` 下的详细文档
-- **演示示例**: 运行 `🧩 bmad /bmad-core/demo/` 下的演示脚本
-- **配置参考**: 查看 `🧩 bmad /bmad-core/config/` 下的配置文件
+- **API 文档**: 查看 `🧩 bmad/README.md` 下的详细文档
+- **演示示例**: 运行 `🧩 bmad/demo/` 下的演示脚本
+- **配置参考**: 查看 `🧩 bmad/config/` 下的配置文件
 
 ### 问题上报
 遇到技术问题时，请提供以下信息：

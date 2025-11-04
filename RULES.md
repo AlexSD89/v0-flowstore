@@ -344,6 +344,12 @@ Claude在处理任何任务前必须完成以下检查：
 - **可用性确认**：确认检索到的资产可以直接使用
 - **风险标记**：明确标记所有潜在风险点
 - **依赖确认**：确认所有外部依赖都可用
+- **路径对齐强制要求**：
+  - **零容忍原则**：任何memory-bank路径不一致问题都必须立即修复
+  - **自动检查机制**：每次Phase 0认知加载必须执行路径对齐验证
+  - **问题追踪**：所有路径问题必须记录在案并制定修复时间表
+  - **回滚机制**：发现路径问题时必须回滚到安全状态并报告
+  - **质量门控**：路径对齐不通过不得进入任何执行阶段
 
 ---
 
@@ -576,11 +582,11 @@ Level L交付要求：
 
 ```bash
 [ ] 确认 Claude 身份（不直接执行命令）与交接边界
-[ ] 工程基础设施优先原则检查：
-  [ ] 确认PM2监控服务状态（./scripts/pm2-management.sh status）
-  [ ] 验证增量构建系统就绪（./scripts/incremental-build-checker.sh）
-  [ ] 检查技能渐进式披露系统（./scripts/skills-manager.sh status）
-  [ ] 确认Hook模块化结构完整性
+  [ ] 工程基础设施优先原则检查：
+    [ ] 确认PM2监控服务状态（参考 `.claude/hooks/pm2-monitoring/pm2-monitor.js`；无法执行时在 Summary 标注 TODO）
+    [ ] 验证增量构建系统就绪（`.claude/hooks/incremental-build-system/hook.js` 或手动检查增量构建日志）
+    [ ] 检查技能渐进式披露系统（`.claude/hooks/skills-progressive-disclosure/hook.js`，需 Claude 触发时记录交接）
+    [ ] 确认Hook模块化结构完整性
 [ ] 加载根级文档：CLAUDE.md · AGENTS.md · RULES.md
 [ ] 加载任务域文档：README / CLAUDE / RULES / USEME
 [ ] 检索 memory-bank 与 support_modules，列出可复用资产
@@ -588,6 +594,12 @@ Level L交付要求：
   [ ] 使用 `rg "最佳实践" -g 'CLAUDE.md'` 检索最佳实践
   [ ] 使用 `rg "USEME"` 检索模块使用指南
   [ ] 验证脚本和模板的可访问性
+[ ] **Memory-Bank路径对齐强制验证**：
+  [ ] 检查support_modules中所有USEME.md的路径引用
+  [ ] 验证memory-bank模块路径与实际目录结构一致性
+  [ ] 确认所有@AT引用路径存在性和可访问性
+  [ ] 发现路径不一致时立即报错并中止执行
+  [ ] 记录路径对齐检查结果和修复计划
 [ ] 任务复杂度评估：
   [ ] 对照 AGENTS.md 第9节完成关键词分类
   [ ] 确定 Level S/M/L + 🔴🟡🟢🔵 映射

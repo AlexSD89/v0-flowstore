@@ -1,3 +1,20 @@
+---
+title: "knowledge_audit_report"
+owners:
+  - LaunchX Claude Team
+status: active
+last_update: 2025-11-05
+related:
+  - "../README.md"
+  - "../CLAUDE.md"
+source: "LaunchX 系统管理模块指南"
+impact: medium
+tags:
+  - support_module
+  - knowledge_report
+---
+
+
 # 🟣 Knowledge Audit Report
 
 - 生成时间：2025-10-23T13:35:43.142301+00:00

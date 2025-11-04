@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "🚀 Launchx业务服务/Ⅲ_公司运营/内部项目开发/AI-Link Gate_202510/20251021-ai-link-gate-技术交付与验收标准.md",
+                "file": "gate项目应用运营/AI应用场景识别引导工具-勾选版.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "20251021-ai-link-gate-技术交付与验收标准"
+              "title": "AI应用场景识别引导工具-勾选版"
             }
           }
         ]
@@ -171,14 +171,45 @@
   },
   "active": "7d47e48759927443",
   "lastOpenFiles": [
-    "🚀 Launchx业务服务/Ⅲ_公司运营/内部项目开发/AI-Link Gate_202510/README.md",
-    "🚀 Launchx业务服务/Ⅲ_公司运营/内部项目开发/AI-Link Gate_202510/20251021-ai-link-gate-项目工时与工作量说明.md",
-    "🚀 Launchx业务服务/Ⅲ_公司运营/内部项目开发/AI-Link Gate_202510/20251021-ai-link-gate-技术交付与验收标准.md",
-    "🟣 knowledge/市场情报验证报告_2025年10月.md",
-    "🟣 knowledge/Launch-X_Knowledge体系更新项目启动建议书_2025-10-23.md",
-    "🟣 knowledge/Launch-X_Knowledge体系更新执行仪表板_2025-10-23.md",
-    "🟣 knowledge/Launch-X_Knowledge体系商业决策支持策略_2025-10-23.md",
-    "📖SKILLS-DEVELOPMENT-GUIDE.md",
-    "📖LAUNCHX-TASK-ROUTING-SYSTEM.md"
+    "android-battery",
+    "android-performance",
+    "custom-templates",
+    "android-logs",
+    "android-screenshots",
+    "learning",
+    "codegen",
+    "collaboration",
+    "memory",
+    "analytics",
+    "cache",
+    "plans/launchx-cognitive-first-management-system.md",
+    "plans/launchx-cognitive-first-execution-plan.md",
+    "plans/5-steps-cognitive-bmad-v6-mapping.md",
+    "plans/complete-plan-then-execute.md",
+    "plans/thinking-first-execution-second.md",
+    "plans/launchx-m-level-project-workflow.md",
+    "plans/cognitive-execution-fusion-architecture.md",
+    "BMAD-METHOD-main-6/bmad/fusion/README.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/trend_researcher.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/studio_producer.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/risk_manager.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/product_manager.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/frontend_developer.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/data_scientist.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/code_reviewer.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/business_analyst.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/backend_architect.md",
+    "BMAD-METHOD-main-6/bmad/fusion/agents/ai_engineer.md",
+    "BMAD-METHOD-main-6/bmad/fusion/tasks/backend_architect.md",
+    "BMAD-METHOD-main-6/bmad/fusion/tasks/business_analyst.md",
+    "BMAD-METHOD-main-6/bmad/fusion/tasks/trend_researcher.md",
+    "BMAD-METHOD-main-6/bmad/fusion/tasks/risk_manager.md",
+    "BMAD-METHOD-main-6/bmad/fusion/tasks/ai_engineer.md",
+    "plans/launchx-fusion-architecture-v2.0.md",
+    "🧩 bmad /docs/subagent-workflow-optimization-plan.md",
+    "🧩 bmad /node_modules copy/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png",
+    "🧩 bmad /node_modules copy/istanbul-reports/lib/html/assets/sort-arrow-sprite.png",
+    "🧩 bmad /node_modules copy/istanbul-reports/lib/html/assets/favicon.png",
+    "🧩 bmad /node_modules copy/@jest/reporters/assets/jest_logo.png"
   ]
 }

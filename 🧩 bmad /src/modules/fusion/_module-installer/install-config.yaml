@@ -1,6 +1,0 @@
-code: fusion
-name: "Fusion CLI 集成模块"
-description: "生成并导出 Fusion agents / workflows / tasks，使 Codex 与 Claude Code CLI 获得统一命令集。"
-version: "1.0.0"
-default_selected: false
-prompt: "Fusion 模块会在安装阶段复制配置模板并运行 CLI 资源生成脚本。"

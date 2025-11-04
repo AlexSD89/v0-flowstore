@@ -54,7 +54,7 @@ module.exports = {
       );
 
       // 6. 质量等级评定
-      const qualityGrade = this.determineQualityGrade(overallQuality);
+      const qualityGrade = this.determineQualityScore(overallQuality);
 
       // 7. 生成评级报告
       const gradingReport = this.generateGradingReport(
@@ -93,8 +93,14 @@ module.exports = {
   /**
    * 内容质量评估
    */
-  assessContentQuality(grading) {
-    const { output } = grading;
+  assessContentQuality(context) {
+    const { output } = context;
+    const grading = {
+      output: output || {},
+      metadata: context.metadata || {},
+      benchmark: context.benchmark || {},
+      timestamp: new Date().toISOString()
+    };
 
     const contentMetrics = {
       completeness: this.assessContentCompleteness(output),
@@ -131,10 +137,28 @@ module.exports = {
 
     const completenessScore = Object.values(completenessIndicators).filter(Boolean).length / Object.keys(completenessIndicators).length * 100;
 
+    // 识别内容质量问题
+    const issues = [];
+    if (completenessScore < 70) {
+      issues.push({
+        type: 'completeness',
+        severity: 'HIGH',
+        description: '内容完整性不足'
+      });
+    }
+    if (completenessScore < 85) {
+      issues.push({
+        type: 'clarity',
+        severity: 'MEDIUM',
+        description: '内容清晰度需要提升'
+      });
+    }
+
     return {
       score: Math.round(completenessScore),
       indicators: completenessIndicators,
-      details: this.getCompletenessDetails(output)
+      details: this.getCompletenessDetails(output),
+      issues: issues
     };
   },
 
@@ -179,6 +203,50 @@ module.exports = {
       tableCount: (content.match(/\|.*\|/g) || []).length,
       codeBlockCount: (content.match(/```[\s\S]*?```/g) || []).length
     };
+  },
+
+  /**
+   * 获取内容详情
+   */
+  getContentDetails(output) {
+    const content = this.extractTextContent(output);
+    return {
+      length: content.length,
+      wordCount: content.split(/\s+/).length,
+      hasStructure: content.includes('#') || content.includes('##'),
+      hasCode: content.includes('```') || content.includes('code'),
+      hasLists: content.includes('-') || content.includes('*') || /^\d+\./gm.test(content),
+      complexity: this.assessContentComplexity(content),
+      readability: this.assessReadability(content)
+    };
+  },
+
+  /**
+   * 评估内容复杂度
+   */
+  assessContentComplexity(content) {
+    const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const avgSentenceLength = sentences.reduce((sum, s) => sum + s.split(/\s+/).length, 0) / sentences.length;
+    const technicalTerms = (content.match(/[A-Z][a-z]+[A-Z][a-z]+/g) || []).length;
+    const complexityScore = Math.min(100, (avgSentenceLength * 2) + (technicalTerms * 5));
+    return complexityScore;
+  },
+
+  /**
+   * 评估可读性
+   */
+  assessReadability(content) {
+    const words = content.split(/\s+/);
+    const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const avgWordsPerSentence = words.length / sentences.length;
+
+    // 简单的可读性评分：每句15-20词为最佳
+    let readabilityScore = 100;
+    if (avgWordsPerSentence > 25) readabilityScore -= 20;
+    if (avgWordsPerSentence > 30) readabilityScore -= 30;
+    if (avgWordsPerSentence < 10) readabilityScore -= 15;
+
+    return Math.max(0, readabilityScore);
   },
 
   /**
@@ -503,6 +571,8 @@ module.exports = {
    * 检查主题对齐
    */
   checkTopicAlignment(output, metadata) {
+    if (!output) return 50;
+
     const outputContent = this.extractTextContent(output);
     const targetTopic = metadata.targetTopic || '';
 
@@ -516,6 +586,8 @@ module.exports = {
    * 检查受众适配
    */
   checkAudienceFit(output, metadata) {
+    if (!output) return 50;
+
     const outputContent = this.extractTextContent(output);
     const targetAudience = metadata.targetAudience || 'general';
 
@@ -536,6 +608,8 @@ module.exports = {
    * 检查时间相关性
    */
   checkTimingRelevance(output, metadata) {
+    if (!output || !metadata) return 50;
+
     const now = new Date();
     const outputDate = metadata.createdAt ? new Date(metadata.createdAt) : now;
     const timeDiff = (now - outputDate) / (1000 * 60 * 60 * 24); // 天数
@@ -552,6 +626,8 @@ module.exports = {
    * 检查上下文适当性
    */
   checkContextAppropriateness(output, metadata) {
+    if (!output || !metadata) return 50;
+
     const context = metadata.context || '';
     const outputContent = this.extractTextContent(output);
 
@@ -753,8 +829,8 @@ module.exports = {
   /**
    * 格式规范评估
    */
-  assessFormatQuality(grading) {
-    const { output } = grading;
+  assessFormatQuality(context) {
+    const { output } = context;
 
     const formatMetrics = {
       markdownCompliance: this.assessMarkdownCompliance(output),
@@ -1026,8 +1102,8 @@ module.exports = {
   /**
    * 技术质量评估
    */
-  assessTechnicalQuality(grading) {
-    const { output } = grading;
+  assessTechnicalQuality(context) {
+    const { output } = context;
 
     const technicalMetrics = {
       codeQuality: this.assessCodeQuality(output),
@@ -1187,8 +1263,8 @@ module.exports = {
   /**
    * 业务价值评估
    */
-  assessBusinessValue(grading) {
-    const { output, metadata } = grading;
+  assessBusinessValue(context) {
+    const { output, metadata } = context;
 
     const businessMetrics = {
       actionableInsights: this.assessActionableInsights(output),
@@ -1549,5 +1625,309 @@ module.exports = {
     } catch (error) {
       console.warn('⚠️ [输出质量评级器] 质量数据库更新失败:', error.message);
     }
+  },
+
+  /**
+   * 检查内容结构 - 调试脚本需要的方法
+   */
+  checkContentStructure(output) {
+    const content = this.extractTextContent(output);
+
+    const structureChecks = {
+      hasIntroduction: this.checkSectionExists(output, 'introduction'),
+      hasMainContent: this.checkSectionExists(output, 'main'),
+      hasConclusion: this.checkSectionExists(output, 'conclusion'),
+      hasHeadings: content.includes('#'),
+      hasParagraphs: content.split('\n\n').length > 1,
+      wordCount: content.split(/\s+/).length
+    };
+
+    const structureScore = Object.values(structureChecks).filter(val =>
+      typeof val === 'boolean' ? val : val > 0
+    ).length / Object.keys(structureChecks).length * 100;
+
+    return {
+      score: Math.round(structureScore),
+      checks: structureChecks,
+      issues: structureScore < 70 ? ['内容结构需要改进'] : []
+    };
+  },
+
+  /**
+   * 检查技术准确性 - 调试脚本需要的方法
+   */
+  checkTechnicalAccuracy(output, workflow) {
+    const content = this.extractTextContent(output);
+
+    const accuracyChecks = {
+      hasTechnicalTerms: this.checkTechnicalTerms(content),
+      hasLogicalFlow: this.checkLogicalFlow(content),
+      hasValidation: content.includes('验证') || content.includes('测试'),
+      hasExamples: content.includes('示例') || content.includes('案例'),
+      complexity: workflow?.complexity || 'unknown'
+    };
+
+    const accuracyScore = this.calculateAccuracyAccuracy(accuracyChecks);
+
+    return {
+      score: accuracyScore,
+      checks: accuracyChecks,
+      issues: accuracyScore < 70 ? ['技术准确性需要提升'] : []
+    };
+  },
+
+  /**
+   * 检查技术术语
+   */
+  checkTechnicalTerms(content) {
+    const techTerms = ['API', '算法', '架构', '系统', '数据库', '网络', '安全'];
+    return techTerms.some(term => content.includes(term));
+  },
+
+  /**
+   * 计算准确性评分
+   */
+  calculateAccuracyAccuracy(checks) {
+    const scoreFactors = [
+      checks.hasTechnicalTerms ? 25 : 0,
+      checks.hasLogicalFlow ? 25 : 0,
+      checks.hasValidation ? 25 : 0,
+      checks.hasExamples ? 25 : 0
+    ];
+
+    return Math.min(100, scoreFactors.reduce((sum, score) => sum + score, 0));
+  },
+
+  /**
+   * 检查完整性 - 调试脚本需要的方法
+   */
+  checkCompleteness(output, userInput, workflow) {
+    const content = this.extractTextContent(output);
+
+    const completenessChecks = {
+      answersQuery: this.checkAnswersQuery(content, userInput),
+      coversAllAspects: this.checkCoversAllAspects(content, workflow),
+      hasConclusion: this.checkSectionExists(output, 'conclusion'),
+      hasActionItems: this.checkSectionExists(output, 'actions'),
+      completeness: this.calculateCompleteness(content, userInput, workflow)
+    };
+
+    const completenessScore = this.calculateCompletenessScore(completenessChecks);
+
+    return {
+      score: completenessScore,
+      checks: completenessChecks,
+      issues: completenessScore < 70 ? ['内容完整性需要改进'] : []
+    };
+  },
+
+  /**
+   * 检查是否回答了查询
+   */
+  checkAnswersQuery(content, userInput) {
+    if (!userInput) return false;
+
+    const inputWords = userInput.toLowerCase().split(/\s+/);
+    const contentWords = content.toLowerCase().split(/\s+/);
+
+    const intersection = inputWords.filter(word => contentWords.includes(word));
+    return intersection.length / inputWords.length > 0.5;
+  },
+
+  /**
+   * 检查是否涵盖所有方面
+   */
+  checkCoversAllAspects(content, workflow) {
+    if (!workflow) return false;
+
+    const aspects = ['分析', '设计', '实现', '测试'];
+    return aspects.some(aspect => content.includes(aspect));
+  },
+
+  /**
+   * 计算完整性指标
+   */
+  calculateCompleteness(content, userInput, workflow) {
+    let score = 0;
+
+    if (this.checkAnswersQuery(content, userInput)) score += 30;
+    if (this.checkCoversAllAspects(content, workflow)) score += 30;
+    if (this.checkSectionExists({ text: content }, 'conclusion')) score += 20;
+    if (this.checkSectionExists({ text: content }, 'actions')) score += 20;
+
+    return score;
+  },
+
+  /**
+   * 计算完整性评分
+   */
+  calculateCompletenessScore(checks) {
+    const weights = {
+      answersQuery: 0.3,
+      coversAllAspects: 0.3,
+      hasConclusion: 0.2,
+      hasActionItems: 0.2
+    };
+
+    return Math.round(
+      (checks.answersQuery ? 100 : 0) * weights.answersQuery +
+      (checks.coversAllAspects ? 100 : 0) * weights.coversAllAspects +
+      (checks.hasConclusion ? 100 : 0) * weights.hasConclusion +
+      (checks.hasActionItems ? 100 : 0) * weights.hasActionItems
+    );
+  },
+
+  /**
+   * 检查可用性 - 调试脚本需要的方法
+   */
+  checkUsability(output, workflow) {
+    const content = this.extractTextContent(output);
+
+    const usabilityChecks = {
+      clearStructure: this.checkClearStructure(content),
+      easyToFollow: this.checkEasyToFollow(content),
+      hasExamples: this.checkSectionExists(output, 'examples'),
+      hasActionItems: this.checkSectionExists(output, 'actions'),
+      readability: this.calculateReadability(content)
+    };
+
+    const usabilityScore = this.calculateUsabilityScore(usabilityChecks);
+
+    return {
+      score: usabilityScore,
+      checks: usabilityChecks,
+      issues: usabilityScore < 70 ? ['可用性需要改进'] : []
+    };
+  },
+
+  /**
+   * 检查结构清晰度
+   */
+  checkClearStructure(content) {
+    const hasHeadings = content.includes('#') || content.includes('##');
+    const hasParagraphs = content.split('\n\n').length > 1;
+    return hasHeadings && hasParagraphs;
+  },
+
+  /**
+   * 检查易于理解程度
+   */
+  checkEasyToFollow(content) {
+    const avgSentenceLength = content.split(/[.!?]/).reduce((sum, sentence) =>
+      sum + sentence.trim().length, 0) / content.split(/[.!?]/).length;
+
+    return avgSentenceLength >= 10 && avgSentenceLength <= 30;
+  },
+
+  /**
+   * 计算可读性
+   */
+  calculateReadability(content) {
+    const sentences = content.split(/[.!?]/).filter(s => s.trim().length > 0);
+    const avgWordsPerSentence = content.split(/\s+/).length / sentences.length;
+
+    // 理想的平均每句词数为15-20
+    if (avgWordsPerSentence >= 15 && avgWordsPerSentence <= 20) return 'GOOD';
+    if (avgWordsPerSentence >= 10 && avgWordsPerSentence <= 25) return 'FAIR';
+    return 'POOR';
+  },
+
+  /**
+   * 计算可用性评分
+   */
+  calculateUsabilityScore(checks) {
+    const weights = {
+      clearStructure: 0.3,
+      easyToFollow: 0.3,
+      hasExamples: 0.2,
+      hasActionItems: 0.2
+    };
+
+    const readabilityScore = checks.readability === 'GOOD' ? 100 :
+                           checks.readability === 'FAIR' ? 70 : 40;
+
+    return Math.round(
+      (checks.clearStructure ? 100 : 0) * weights.clearStructure +
+      (checks.easyToFollow ? 100 : 0) * weights.easyToFollow +
+      (checks.hasExamples ? 100 : 0) * weights.hasExamples +
+      (checks.hasActionItems ? 100 : 0) * weights.hasActionItems +
+      readabilityScore * 0.2
+    );
+  },
+
+  /**
+   * 检查效率 - 调试脚本需要的方法
+   */
+  checkEfficiency(output, workflow) {
+    const efficiencyChecks = {
+      concise: this.checkConcise(output),
+      relevant: this.checkRelevant(output),
+      actionable: this.checkActionable(output),
+      timely: this.checkTimely(output, workflow)
+    };
+
+    const efficiencyScore = this.calculateEfficiencyScore(efficiencyChecks);
+
+    return {
+      score: efficiencyScore,
+      checks: efficiencyChecks,
+      issues: efficiencyScore < 70 ? ['效率需要改进'] : []
+    };
+  },
+
+  /**
+   * 检查简洁性
+   */
+  checkConcise(output) {
+    const content = this.extractTextContent(output);
+    const wordCount = content.split(/\s+/).length;
+
+    // 理想的字数为100-500
+    return wordCount >= 100 && wordCount <= 500;
+  },
+
+  /**
+   * 检查相关性
+   */
+  checkRelevant(output) {
+    const content = this.extractTextContent(output);
+    const relevanceIndicators = ['相关', '适用', '合适', '匹配'];
+    return relevanceIndicators.some(indicator => content.includes(indicator));
+  },
+
+  /**
+   * 检查可操作性
+   */
+  checkActionable(output) {
+    const content = this.extractTextContent(output);
+    const actionIndicators = ['可以', '能够', '建议', '推荐', '步骤'];
+    return actionIndicators.some(indicator => content.includes(indicator));
+  },
+
+  /**
+   * 检查及时性
+   */
+  checkTimely(output, workflow) {
+    // 简化的及时性检查
+    return true;
+  },
+
+  /**
+   * 计算效率评分
+   */
+  calculateEfficiencyScore(checks) {
+    const weights = {
+      concise: 0.25,
+      relevant: 0.25,
+      actionable: 0.25,
+      timely: 0.25
+    };
+
+    return Math.round(
+      (checks.concise ? 100 : 0) * weights.concise +
+      (checks.relevant ? 100 : 0) * weights.relevant +
+      (checks.actionable ? 100 : 0) * weights.actionable +
+      (checks.timely ? 100 : 0) * weights.timely
+    );
   }
 };

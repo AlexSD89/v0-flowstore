@@ -1,0 +1,43 @@
+{
+  "name": "@launchx/bmad",
+  "version": "1.0.0",
+  "description": "Business Methodology & Development - LaunchX智能协作系统核心组件",
+  "main": "index.js",
+  "keywords": [
+    "bmad",
+    "business-analysis",
+    "decision-support",
+    "launchx",
+    "ai-methodology"
+  ],
+  "author": "LaunchX BMAD Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "test": "node test/test-bmad.js",
+    "demo": "node examples/demo.js",
+    "lint": "eslint .",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "jsdoc": "^3.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/launchx/bmad.git"
+  },
+  "bugs": {
+    "url": "https://github.com/launchx/bmad/issues"
+  },
+  "homepage": "https://github.com/launchx/bmad#readme",
+  "status": "基础架构搭建完成",
+  "launchx": {
+    "integration": "core-component",
+    "compatibility": "backward-compatible",
+    "last-update": "2025-11-05"
+  }
+}

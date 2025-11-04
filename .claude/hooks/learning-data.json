@@ -1,0 +1,144 @@
+{
+  "records": [
+    {
+      "timestamp": "2025-11-04T08:06:35.329Z",
+      "userInput": "需要修改前端页面的样式，优化加载速度",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:06:35.330Z",
+      "userInput": "构建企业级微服务架构，包含API集成、数据库设计、云部署，需要团队协作，涉及多个部门协调，有合规要求和审计需求",
+      "classification": {
+        "score": 59,
+        "level": "L",
+        "confidence": "0.67"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:06:35.331Z",
+      "userInput": "开发一个数据分析系统，需要处理大数据，涉及技术实现和业务流程改进",
+      "classification": {
+        "score": 4,
+        "level": "XL",
+        "confidence": "0.94"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:07:53.725Z",
+      "userInput": "需要修改前端页面的样式，优化加载速度",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:07:53.727Z",
+      "userInput": "构建企业级微服务架构，包含API集成、数据库设计、云部署，需要团队协作，涉及多个部门协调，有合规要求和审计需求",
+      "classification": {
+        "score": 59,
+        "level": "L",
+        "confidence": "0.67"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:07:53.727Z",
+      "userInput": "开发一个数据分析系统，需要处理大数据，涉及技术实现和业务流程改进",
+      "classification": {
+        "score": 4,
+        "level": "XL",
+        "confidence": "0.94"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:10:20.007Z",
+      "userInput": "需要修改前端页面的样式，优化加载速度",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:10:20.009Z",
+      "userInput": "构建企业级微服务架构，包含API集成、数据库设计、云部署，需要团队协作，涉及多个部门协调，有合规要求和审计需求",
+      "classification": {
+        "score": 59,
+        "level": "L",
+        "confidence": "0.67"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:10:20.009Z",
+      "userInput": "开发一个数据分析系统，需要处理大数据，涉及技术实现和业务流程改进",
+      "classification": {
+        "score": 4,
+        "level": "XL",
+        "confidence": "0.94"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:20:14.034Z",
+      "userInput": "需要修改前端页面的样式，优化加载速度",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:20:14.036Z",
+      "userInput": "构建企业级微服务架构，包含API集成、数据库设计、云部署，需要团队协作，涉及多个部门协调，有合规要求和审计需求",
+      "classification": {
+        "score": 59,
+        "level": "L",
+        "confidence": "0.67"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-04T08:20:14.036Z",
+      "userInput": "开发一个数据分析系统，需要处理大数据，涉及技术实现和业务流程改进",
+      "classification": {
+        "score": 4,
+        "level": "XL",
+        "confidence": "0.94"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-05T07:57:33.027Z",
+      "userInput": "我要开发一个新功能，请立即开始实现",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    },
+    {
+      "timestamp": "2025-11-05T08:04:48.531Z",
+      "userInput": "创建一个简单的待办事项管理组件，包含添加、删除、标记完成功能",
+      "classification": {
+        "score": 0,
+        "level": "XL",
+        "confidence": "1.00"
+      },
+      "feedback": null
+    }
+  ]
+}

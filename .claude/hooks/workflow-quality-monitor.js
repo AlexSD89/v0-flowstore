@@ -121,10 +121,28 @@ module.exports = {
 
     const inputScore = this.calculateInputScore(inputIndicators);
 
+    // 识别输入质量问题
+    const issues = [];
+    if (inputIndicators.completeness.score < 70) {
+      issues.push({
+        type: 'completeness',
+        severity: 'HIGH',
+        description: '输入完整性不足'
+      });
+    }
+    if (inputIndicators.accuracy.score < 70) {
+      issues.push({
+        type: 'accuracy',
+        severity: 'MEDIUM',
+        description: '输入准确性有待提升'
+      });
+    }
+
     return {
       score: inputScore,
       indicators: inputIndicators,
-      details: this.getInputDetails(stage, workflow)
+      details: this.getInputDetails(stage, workflow),
+      issues: issues
     };
   },
 
@@ -559,15 +577,15 @@ module.exports = {
       issues.push('处理效率低下');
     }
 
-    if (indicators.correctness < 80) {
+    if (indicators.correctness.score < 80) {
       issues.push('处理正确性不足');
     }
 
-    if (indicators.compliance < 80) {
+    if (indicators.compliance.score < 80) {
       issues.push('合规性不达标');
     }
 
-    if (indicators.traceability < 70) {
+    if (indicators.traceability.score < 70) {
       issues.push('可追溯性不足');
     }
 
@@ -580,7 +598,7 @@ module.exports = {
   checkOutputQuality(stage, workflow) {
     const outputIndicators = {
       completeness: this.checkOutputCompleteness(stage, workflow),
-      quality: this.checkOutputQuality(workflow),
+      quality: this.checkOutputQualityScore(workflow),
       usability: this.checkOutputUsability(workflow),
       documentation: this.checkOutputDocumentation(workflow)
     };
@@ -637,7 +655,7 @@ module.exports = {
   /**
    * 检查输出质量
    */
-  checkOutputQuality(workflow) {
+  checkOutputQualityScore(workflow) {
     const qualityChecks = {
       functionalQuality: workflow.functionalQuality || 50,
       performanceQuality: workflow.performanceQuality || 50,
@@ -647,7 +665,13 @@ module.exports = {
 
     const averageQuality = Object.values(qualityChecks).reduce((sum, score) => sum + score, 0) / Object.keys(qualityChecks).length;
 
-    return Math.round(averageQuality);
+    return {
+      score: Math.round(averageQuality),
+      functional: qualityChecks.functionalQuality,
+      performance: qualityChecks.performanceQuality,
+      security: qualityChecks.securityQuality,
+      maintainability: qualityChecks.maintainability
+    };
   },
 
   /**
@@ -707,7 +731,7 @@ module.exports = {
 
     return Math.round(
       indicators.completeness.score * weights.completeness +
-      indicators.quality * weights.quality +
+      indicators.quality.score * weights.quality +
       indicators.usability * weights.usability +
       indicators.documentation * weights.documentation
     );
@@ -723,15 +747,15 @@ module.exports = {
       issues.push('输出不完整');
     }
 
-    if (indicators.quality < 70) {
+    if (indicators.quality.score < 70) {
       issues.push('输出质量不达标');
     }
 
-    if (indicators.usability < 70) {
+    if (indicators.usability.score < 70) {
       issues.push('输出可用性不足');
     }
 
-    if (indicators.documentation < 70) {
+    if (indicators.documentation.score < 70) {
       issues.push('文档不充分');
     }
 
@@ -842,15 +866,15 @@ module.exports = {
   identifyTransitionIssues(indicators) {
     const issues = [];
 
-    if (indicators.handoffQuality < 70) {
+    if (indicators.handoffQuality.score < 70) {
       issues.push('交接质量不佳');
     }
 
-    if (indicators.integrationQuality < 70) {
+    if (indicators.integrationQuality.score < 70) {
       issues.push('集成问题');
     }
 
-    if (indicators.coordinationQuality < 70) {
+    if (indicators.coordinationQuality.score < 70) {
       issues.push('协调问题');
     }
 
@@ -1134,7 +1158,8 @@ module.exports = {
    */
   calculateResourceEfficiency(utilization) {
     const targetUtilization = 75;
-    const efficiency = 100 - Math.abs(averageUtilization - targetUtilization);
+    const average = Object.values(utilization).reduce((sum, util) => sum + util, 0) / Object.keys(utilization).length;
+    const efficiency = 100 - Math.abs(average - targetUtilization);
     return Math.max(0, Math.round(efficiency));
   },
 
@@ -1225,10 +1250,11 @@ module.exports = {
    * 分析性能趋势
    */
   analyzePerformanceTrends(workflow) {
+    // For now, return neutral trends since we don't have historical data
     const trends = {
-      cycleTime: metrics.cycleTime.trend,
-      throughput: metrics.throughput.trend,
-      quality: metrics.qualityMetrics.trend
+      cycleTime: 'STABLE',
+      throughput: 'STABLE',
+      quality: 'STABLE'
     };
 
     const improvingCount = Object.values(trends).filter(trend => trend === 'IMPROVING').length;
@@ -1553,11 +1579,11 @@ module.exports = {
    * 检查警报条件
    */
   checkAlertConditions(monitoringReport) {
-    const { overall, anomalyDetection, recommendations } = monitoringReport;
+    const { workflow, anomalyDetection, recommendations } = monitoringReport;
 
     const alertConditions = {
       criticalAnomalies: anomalyDetection.severity === 'CRITICAL',
-      lowQuality: overall.score < 50,
+      lowQuality: workflow.overall.score < 50,
       highPriorityIssues: recommendations.some(rec => rec.priority === 'HIGH'),
       multipleAnomalies: anomalyDetection.detected.length > 5
     };
@@ -1597,7 +1623,7 @@ module.exports = {
     }
 
     if (conditions.highPriorityIssues) {
-      messages.push(`⚠️ 存在${recommendations.filter(r => r.priority === 'HIGH').length}个高优先级问题`);
+      messages.push(`⚠️ 存在${report.recommendations.filter(r => r.priority === 'HIGH').length}个高优先级问题`);
     }
 
     if (conditions.multipleAnomalies) {

@@ -1,15 +1,32 @@
+---
+title: "USEME"
+owners:
+  - LaunchX Claude Team
+status: active
+last_update: 2025-11-05
+related:
+  - "../README.md"
+  - "../CLAUDE.md"
+source: "LaunchX 系统管理模块指南"
+impact: medium
+tags:
+  - support_module
+  - deep-study
+---
+
+
 # 深度研究模块 · USEME
 
-> 面向 `🔬 Deep study/`，统一长周期研究、投资重构与深度分析能力。
+> 面向深度研究支持模块，统一长周期研究、投资重构与深度分析能力。
 
 ## 导入说明
-- 根路径：`🔬 Deep study/`
+- 根路径：`support_modules/deep-study/`
 - 示例：
   ```md
-  ![[🔬 Deep study/投资框架重构/SPELO决策框架_2025-10-15.md]]
+  ![[support_modules/deep-study/SPELO决策框架_2025-10-15.md]]
   ```
 - 依赖：研究数据集、分析模型、投资框架
-- 方法论指引：`🟣 knowledge/05_方法论中心/投资研究方法论/`
+- 方法论指引：`support_modules/knowledge/投资研究方法论/`
 
 ## 重点 API 参数表
 | 组件 | 属性 | 类型 | 默认值 | 说明 |
@@ -28,25 +45,25 @@
 ## 组件用法示例
 ```bash
 # 趋势分析
-python study/tools/trend_analyzer.py --input data/energy.csv --output 🔬Deep study/...
+python support_modules/deep-support_modules/deep-study/tools/trend_analyzer.py --input data/energy.csv --output support_modules/deep-study/...
 
 # SPELO框架评估
-python study/tools/spelo_analyzer.py --project "startup-xyz" --dimensions 7
+python support_modules/deep-support_modules/deep-study/tools/spelo_analyzer.py --project "startup-xyz" --dimensions 7
 
 # 投资组合分析
-python study/tools/portfolio_analyzer.py --config config/portfolio.yaml
+python support_modules/deep-support_modules/deep-study/tools/portfolio_analyzer.py --config config/portfolio.yaml
 
 # 研究报告生成
-python study/tools/report_generator.py --template "investment-analysis" --data data/analysis.json
+python support_modules/deep-support_modules/deep-study/tools/report_generator.py --template "investment-analysis" --data data/analysis.json
 ```
 
 ## 注意事项
-- 所有研究数据需在 `study/` 目录建立原始数据档案
-- 投资决策需结合 `💻 技术开发/04_成熟项目/pocketcorn_*` 的分析工具
-- 深度洞察需回写到 `🟣 knowledge/03_研究报告/` 形成知识沉淀
-- 研究方法论需与 `🟣 knowledge/05_方法论中心/` 保持同步
+- 所有研究数据需在 `support_modules/deep-study/study/` 目录建立原始数据档案
+- 投资决策需结合 `support_modules/dev/pocketcorn_*` 的分析工具
+- 深度洞察需回写到 `support_modules/knowledge/03_研究报告/` 形成知识沉淀
+- 研究方法论需与 `support_modules/knowledge/05_方法论中心/` 保持同步
 - 标注信息来源与数据更新时间
-- 与 `🟣 knowledge` 互通：成果需回写方法论或市场档案
+- 与 `support_modules/knowledge` 互通：成果需回写方法论或市场档案
 
 ## 最佳实践
 - 遵循SPELO七维度评分体系，确保投资决策科学性
