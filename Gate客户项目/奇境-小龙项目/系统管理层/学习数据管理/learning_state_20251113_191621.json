@@ -1,0 +1,56 @@
+{
+  "customer_preferences": {
+    "excel_collector_001": {
+      "content_preferences": {
+        "完整性要求": "极高（100%字段完整）",
+        "准确性要求": "零容错标准"
+      },
+      "style_preferences": {
+        "品牌一致性": "严格执行"
+      },
+      "structure_preferences": {
+        "布局稳定性": "高稳定性要求"
+      },
+      "compliance_preferences": {},
+      "modification_patterns": [],
+      "learning_confidence": 0.1
+    }
+  },
+  "learning_history": [
+    {
+      "iteration_id": 1,
+      "timestamp": "2025-11-13T19:16:21.336580",
+      "customer_id": "excel_collector_001",
+      "baseline_score": 0.8067,
+      "optimized_score": 0.8067,
+      "improvements_applied": [
+        "优化content_diff中的missing_elements",
+        "优化content_diff中的inaccurate_elements",
+        "优化content_diff中的priority_misalignment",
+        "优化structure_diff中的layout_variance",
+        "优化structure_diff中的hierarchy_changes",
+        "优化style_diff中的visual_consistency",
+        "优化style_diff中的typography_compliance",
+        "优化compliance_diff中的risk_disclosure_missing"
+      ],
+      "confidence_gained": 0.1
+    }
+  ],
+  "preference_templates": {
+    "excel_collector": {
+      "双语处理偏好": "中英文并行，保持语义一致性",
+      "字段完整性要求": "所有必填字段完整率≥95%",
+      "翻译质量标准": "专业术语准确，文化适配",
+      "示例驱动原则": "使用具体示例指导填写",
+      "结构化程度": "纵向Q&A，横向功能分层"
+    },
+    "design_reviewer": {
+      "迭代流程偏好": "初稿→修改→终稿，每轮都有明确反馈",
+      "质量门禁标准": "多维评分≥0.85方可出关",
+      "品牌一致性": "严格遵循品牌规范和视觉识别",
+      "合规重视度": "合规相关修改为P0优先级",
+      "客户反馈处理": "每轮修改都要记录和归因分析"
+    }
+  },
+  "last_updated": "2025-11-13T19:16:21.336729"
+}

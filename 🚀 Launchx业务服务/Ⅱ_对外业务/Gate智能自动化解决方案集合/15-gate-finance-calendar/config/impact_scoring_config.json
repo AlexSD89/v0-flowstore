@@ -1,0 +1,42 @@
+{
+  "impact_thresholds": {
+    "very_high": 5.0,
+    "high": 3.0,
+    "medium": 1.0,
+    "low": 1.0
+  },
+  "sector_weights": {
+    "technology": 1.2,
+    "finance": 1.5,
+    "healthcare": 0.8,
+    "energy": 1.3,
+    "consumer": 0.9,
+    "real_estate": 1.1,
+    "industrial": 1.0,
+    "utilities": 0.7,
+    "materials": 1.1,
+    "telecommunication": 1.0
+  },
+  "time_decay_factor": 0.95,
+  "confidence_threshold": 0.7,
+  "scoring_weights": {
+    "event_type": 0.3,
+    "importance_level": 0.25,
+    "urgency_level": 0.2,
+    "affected_scope": 0.15,
+    "source_priority": 0.1
+  },
+  "event_type_scores": {
+    "macro": 40.0,
+    "policy": 45.0,
+    "company": 35.0,
+    "market": 25.0,
+    "geopolitical": 50.0,
+    "regulatory": 30.0
+  },
+  "historical_impact_factors": {
+    "similar_events": 0.2,
+    "market_conditions": 0.15,
+    "sentiment_indicators": 0.1
+  }
+}

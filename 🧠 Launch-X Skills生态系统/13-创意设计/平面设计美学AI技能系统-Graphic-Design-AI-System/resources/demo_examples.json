@@ -1,0 +1,361 @@
+{
+  "demo_examples": {
+    "name": "平面设计美学AI技能系统演示示例",
+    "description": "展示系统在不同设计场景下的应用效果",
+    "examples": {
+      "logo_design_analysis": {
+        "title": "Logo设计美学分析",
+        "scenario": "科技初创公司Logo设计评审",
+        "input": {
+          "design_file": "tech_startup_logo.png",
+          "company_info": {
+            "name": "DataFlow Analytics",
+            "industry": "数据分析和人工智能",
+            "target_audience": "企业级客户",
+            "brand_values": ["创新", "可靠", "专业", "高效"]
+          },
+          "design_requirements": {
+            "application_scenarios": ["website", "business_cards", "app_icons", "presentations"],
+            "color_preferences": ["blue", "tech_colors", "minimalist"],
+            "style_requirements": "现代、简洁、专业"
+          }
+        },
+        "analysis_result": {
+          "composition_analysis": {
+            "golden_ratio_check": {
+              "score": 0.75,
+              "assessment": "部分符合黄金分割原则",
+              "issues": ["主元素位置偏左", "整体比例略偏离1.618"],
+              "suggestions": ["将主元素向右移动15%", "调整整体宽高比例"]
+            },
+            "balance_assessment": {
+              "score": 0.85,
+              "assessment": "整体平衡良好",
+              "strengths": ["视觉重心稳定", "左右重量均衡"]
+            }
+          },
+          "color_analysis": {
+            "harmony_evaluation": {
+              "scheme_type": "analogous",
+              "harmony_score": 0.88,
+              "colors_used": ["#2E86AB", "#A23B72", "#F18F01", "#C73E1D"],
+              "assessment": "色彩搭配和谐，符合科技行业特征"
+            },
+            "contrast_check": {
+              "text_contrast_ratio": 5.2,
+              "wcag_compliance": "AA标准达标",
+              "readability": "良好"
+            }
+          },
+          "typography_analysis": {
+            "font_hierarchy": {
+              "primary_font": "Helvetica Neue Bold",
+              "secondary_font": "Helvetica Neue Regular",
+              "hierarchy_score": 0.92,
+              "assessment": "字体层次清晰，专业感强"
+            },
+            "readability_assessment": {
+              "minimum_font_size": "16px",
+              "line_height_ratio": 1.5,
+              "character_count_per_line": 65,
+              "readability_score": 0.95
+            }
+          },
+          "improvement_suggestions": [
+            {
+              "priority": "high",
+              "issue": "Logo在小尺寸下的可识别性",
+              "solution": "简化细节，增加视觉权重",
+              "implementation": "减少装饰元素，增强主体形状"
+            },
+            {
+              "priority": "medium",
+              "issue": "色彩在不同背景下的适应性",
+              "solution": "创建黑白版本和反色版本",
+              "implementation": "生成完整的色彩变体系统"
+            },
+            {
+              "priority": "low",
+              "issue": "动画应用的可行性",
+              "solution": "设计Logo动画版本",
+              "implementation": "创建简单的缩放和淡入动画"
+            }
+          ],
+          "alternative_concepts": [
+            {
+              "concept_name": "极简抽象版",
+              "description": "将数据流概念抽象化为简洁的几何形状",
+              "key_features": ["几何抽象", "单色应用", "强识别性"],
+              "suitable_for": ["app_icons", "small_printing"]
+            },
+            {
+              "concept_name": "文字结合版",
+              "description": "将首字母'D'与数据流元素结合",
+              "key_features": ["字母融合", "动态表现", "品牌识别"],
+              "suitable_for": ["website_headers", "business_cards"]
+            }
+          ]
+        },
+        "ai_generated_visuals": {
+          "concept_sketches": [
+            "sketch_01_concept_variation.png",
+            "sketch_02_color_exploration.png",
+            "sketch_03_application_mockup.png"
+          ],
+          "mockups": [
+            "mockup_website_header.png",
+            "mockup_mobile_app.png",
+            "mockup_business_card.png"
+          ]
+        }
+      },
+      "poster_design_optimization": {
+        "title": "宣传海报设计优化",
+        "scenario": "音乐节海报设计改进",
+        "input": {
+          "original_design": "music_festival_poster_original.jpg",
+          "event_info": {
+            "name": "城市音乐节2024",
+            "date": "2024年7月15-17日",
+            "venue": "中央公园露天剧场",
+            "performers": ["知名乐队A", "独立音乐人B", "DJ组合C"],
+            "ticket_prices": ["早鸟票¥199", "普通票¥299", "VIP票¥599"]
+          },
+          "design_brief": {
+            "target_audience": "18-35岁音乐爱好者",
+            "required_info": ["演出时间地点", "票价信息", "购票方式"],
+            "design_style": "活力、年轻、艺术感",
+            "distribution_channels": ["社交媒体", "户外广告", "印刷海报"]
+          }
+        },
+        "analysis_result": {
+          "current_assessment": {
+            "visual_impact": 0.72,
+            "information_clarity": 0.65,
+            "brand_consistency": 0.78,
+            "readability": 0.58,
+            "overall_score": 0.68
+          },
+          "identified_issues": [
+            {
+              "category": "信息层次",
+              "severity": "high",
+              "description": "重要信息（时间、地点）不够突出",
+              "impact": "观众无法快速获取关键信息"
+            },
+            {
+              "category": "视觉平衡",
+              "severity": "medium", 
+              "description": "右侧信息过于拥挤，视觉重量不均",
+              "impact": "整体构图感觉不稳定"
+            },
+            {
+              "category": "色彩运用",
+              "severity": "medium",
+              "description": "色彩对比不足，文字在背景上不清晰",
+              "impact": "信息传达效果差"
+            },
+            {
+              "category": "字体选择",
+              "severity": "low",
+              "description": "装饰字体过多使用，影响可读性",
+              "impact": "部分观众难以阅读"
+            }
+          ],
+          "optimization_suggestions": {
+            "layout_improvements": [
+              {
+                "change": "信息层次重构",
+                "details": "将时间地点信息移至视觉焦点区域",
+                "benefit": "提高信息获取效率30%"
+              },
+              {
+                "change": "网格系统应用",
+                "details": "使用12栏网格重新组织布局",
+                "benefit": "改善整体构图平衡感"
+              }
+            ],
+            "color_enhancements": [
+              {
+                "change": "对比度优化",
+                "details": "增加文字与背景的对比度",
+                "specific_actions": [
+                  "背景色从#E8E8E8改为#F5F5F5",
+                  "文字颜色加深至#333333",
+                  "关键信息使用强调色#FF6B6B"
+                ]
+              },
+              {
+                "change": "色彩心理学应用",
+                "details": "使用更具活力的色彩组合",
+                "palette": ["#FF6B6B", "#4ECDC4", "#45B7D1", "#F7DC6F"]
+              }
+            ],
+            "typography_improvements": [
+              {
+                "change": "字体层次优化",
+                "details": "建立清晰的字体层次系统",
+                "font_pairing": {
+                  "headline": "Montserrat Bold",
+                  "subhead": "Montserrat Medium", 
+                  "body": "Open Sans Regular"
+                }
+              },
+              {
+                "change": "可读性增强",
+                "details": "优化文字大小和间距",
+                "specifications": {
+                  "headline_size": "48px",
+                  "subhead_size": "24px",
+                  "body_size": "16px",
+                  "line_height": "1.4"
+                }
+              }
+            ]
+          },
+          "optimized_variations": [
+            {
+              "version": "社交媒体版",
+              "format": "1080x1080px",
+              "features": ["竖版设计", "重点信息突出", "适合手机浏览"],
+              "file": "music_festival_poster_social_v2.png"
+            },
+            {
+              "version": "印刷海报版",
+              "format": "A3 (297x420mm)",
+              "features": ["高分辨率", "印刷色彩模式", "详细演出信息"],
+              "file": "music_festival_poster_print_v2.png"
+            },
+            {
+              "version": "户外广告版",
+              "format": "户外大屏比例",
+              "features": ["远距离可读", "强烈视觉冲击", "简约信息"],
+              "file": "music_festival_poster_outdoor_v2.png"
+            }
+          ],
+          "performance_predictions": {
+            "improved_scores": {
+              "visual_impact": 0.89,
+              "information_clarity": 0.92,
+              "brand_consistency": 0.85,
+              "readability": 0.95,
+              "overall_score": 0.90
+            },
+            "expected_improvements": [
+              "信息获取效率提升45%",
+              "视觉吸引力增加35%",
+              "用户参与度提升40%",
+              "转化率预计提升25%"
+            ]
+          }
+        }
+      },
+      "brand_consistency_check": {
+        "title": "品牌一致性检查",
+        "scenario": "多平台营销材料一致性验证",
+        "input": {
+          "brand_guidelines": "tech_company_brand_guidelines.pdf",
+          "materials_to_check": [
+            "website_homepage.jpg",
+            "linkedin_banner.png", 
+            "presentation_slides.pdf",
+            "business_card_design.png"
+          ],
+          "brand_elements": {
+            "logo_variations": ["primary_logo", "secondary_logo", "icon"],
+            "color_palette": ["#2E86AB", "#A23B72", "#F18F01", "#C73E1D"],
+            "typography": ["primary_font", "secondary_font"],
+            "graphic_elements": ["patterns", "icons", "illustrations"]
+          }
+        },
+        "consistency_analysis": {
+          "logo_usage": {
+            "score": 0.87,
+            "issues_found": [
+              {
+                "material": "presentation_slides.pdf",
+                "issue": "Logo尺寸不符合最小使用规范",
+                "severity": "medium",
+                "recommendation": "增大Logo尺寸至最小安全距离"
+              },
+              {
+                "material": "business_card_design.png", 
+                "issue": "Logo周围安全距离不足",
+                "severity": "high",
+                "recommendation": "确保Logo周围有足够的安全空间"
+              }
+            ]
+          },
+          "color_application": {
+            "score": 0.92,
+            "compliance_rate": "95%",
+            "minor_deviations": [
+              "某些辅助色的色值略有偏差",
+              "建议：使用品牌色彩标准值确保一致性"
+            ]
+          },
+          "typography_consistency": {
+            "score": 0.88,
+            "font_usage": "主要字体使用一致",
+            "hierarchy_issues": [
+              "部分材料的标题层级不够清晰",
+              "建议：统一标题大小和字重规范"
+            ]
+          },
+          "overall_brand_score": 0.89,
+          "improvement_recommendations": [
+            "创建品牌使用指南培训材料",
+            "设计品牌一致性检查清单",
+            "建立季度品牌审核流程",
+            "制作品牌应用示例库"
+          ]
+        }
+      }
+    },
+    "ai_tool_integration_examples": {
+      "concept_generation": {
+        "prompt_engineering": {
+          "logo_concept": "Create a modern minimalist logo for a tech company called 'DataFlow Analytics', using abstract data flow visualization, clean lines, blue and gray color palette, professional and trustworthy appearance",
+          "poster_design": "Design a vibrant music festival poster featuring dynamic typography, musical elements in abstract form, energetic color scheme with red, orange and blue, space for event details, modern and youthful aesthetic",
+          "brand_mood_board": "Generate a mood board for a luxury fashion brand, featuring elegant typography, sophisticated color palette with black, gold, and neutral tones, high-end fashion photography, minimalist layout with premium feel"
+        },
+        "generated_concepts": [
+          {
+            "tool": "DALL-E 3",
+            "concept_type": "Logo design",
+            "prompt": "Minimalist logo design for data analytics company, abstract data flow visualization, blue gradient colors, clean geometric shapes",
+            "result": "Generated 4 concept variations with different interpretations of data flow"
+          },
+          {
+            "tool": "Midjourney",
+            "concept_type": "Poster design", 
+            "prompt": "Music festival poster with dynamic typography, abstract musical instruments, vibrant colors, modern design style, high energy feel --ar 2:3",
+            "result": "Created artistic poster concept with unique typographic treatment"
+          }
+        ]
+      },
+      "automated_adjustments": {
+        "photoshop_scripting": [
+          {
+            "script_name": "batch_color_correction",
+            "function": "自动调整多张图片的色彩一致性",
+            "parameters": ["brightness", "contrast", "saturation"],
+            "processing_time": "2-3秒/张"
+          },
+          {
+            "script_name": "logo_variations_generator",
+            "function": "生成Logo的不同尺寸和格式变体",
+            "outputs": ["PNG", "SVG", "PDF", "不同尺寸的PNG"]
+          }
+        ],
+        "illustrator_automation": [
+          {
+            "script_name": "brand_color_application",
+            "function": "批量应用品牌色彩到设计元素",
+            "elements": ["icons", "illustrations", "patterns"]
+          }
+        ]
+      }
+    }
+  }
+}

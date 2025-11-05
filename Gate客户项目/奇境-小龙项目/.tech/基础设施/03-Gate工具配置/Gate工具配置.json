@@ -1,0 +1,335 @@
+{
+  "tool_configuration": {
+    "project_name": "奇境-小龙项目",
+    "configuration_version": "1.0.0",
+    "last_updated": "2025-11-07",
+    "status": "active"
+  },
+  "data_processing_tools": {
+    "multi_format_parser": {
+      "enabled": true,
+      "supported_formats": {
+        "documents": ["doc", "docx", "pdf"],
+        "spreadsheets": ["xls", "xlsx", "csv"],
+        "presentations": ["ppt", "pptx"],
+        "images": ["jpg", "jpeg", "png", "gif", "bmp"],
+        "text": ["txt", "md", "rtf"]
+      },
+      "processing_mode": "semantic_understanding",
+      "quality_threshold": 0.95,
+      "batch_size": 50,
+      "parallel_processing": true,
+      "error_handling": {
+        "retry_attempts": 3,
+        "retry_delay": 5,
+        "fallback_mode": "manual_review"
+      }
+    },
+    "semantic_analyzer": {
+      "enabled": true,
+      "language": "zh-CN",
+      "domain_specialization": "home_furnishing",
+      "confidence_threshold": 0.90,
+      "model_version": "chinese_business_understanding_v2",
+      "capabilities": [
+        "intent_recognition",
+        "requirement_extraction",
+        "brand_preference_learning",
+        "quality_expectation_analysis"
+      ]
+    },
+    "brand_standardizer": {
+      "enabled": true,
+      "brand_rules": {
+        "xilimen_brand": {
+          "color_palette": {
+            "primary_colors": ["#FF6B35", "#2C3E50", "#F39C12"],
+            "secondary_colors": ["#3498DB", "#9B59B6", "#1ABC9C"],
+            "accent_colors": ["#E74C3C", "#F39C12", "#27AE60"]
+          },
+          "typography": {
+            "primary_font": "微软雅黑",
+            "secondary_font": "思源黑体",
+            "font_sizes": {
+              "headings": [24, 20, 18, 16, 14],
+              "body": [16, 14, 12],
+              "captions": [12, 10, 8]
+            }
+          },
+          "logo_requirements": {
+            "minimum_size": "200x200",
+            "clearance_space": "20px",
+            "usage_guidelines": "always_on_premium_background"
+          },
+          "layout_standards": {
+            "grid_system": "12-column",
+            "spacing": "8px_base",
+            "component_alignment": "flexbox",
+            "responsive_breakpoints": [320, 768, 1024, 1200]
+          }
+        }
+      },
+      "compliance_check": {
+        "strict_mode": true,
+        "auto_correction": false,
+        "validation_rules": [
+          "color_contrast",
+          "typography_harmony",
+          "layout_consistency",
+          "brand_element_usage"
+        ]
+      }
+    }
+  },
+  "design_generation_tools": {
+    "ai_designer": {
+      "enabled": true,
+      "style_preference": "modern_chinese",
+      "brand_compliance": "strict",
+      "quality_targets": {
+        "visual_appeal": 0.90,
+        "brand_consistency": 0.95,
+        "user_friendliness": 0.85,
+        "technical_feasibility": 0.95
+      },
+      "generation_capabilities": [
+        "product_page_design",
+        "ecommerce_store_layout",
+        "marketing_material_creation",
+        "compliance_content_generation"
+      ],
+      "template_library": {
+        "home_furnishing": {
+          "product_showcase": ["modern", "traditional", "minimalist"],
+          "category_pages": ["living_room", "bedroom", "dining_room", "office"],
+          "promotional_banners": ["seasonal", "clearance", "new_arrivals"]
+        }
+      }
+    },
+    "ecommerce_optimizer": {
+      "enabled": true,
+      "conversion_focus": true,
+      "ab_testing": "automated",
+      "performance_tracking": "real_time",
+      "optimization_targets": {
+        "conversion_rate": "increase_30%",
+        "bounce_rate": "decrease_40%",
+        "average_session_duration": "increase_60%"
+      },
+      "testing_capabilities": [
+        "headline_variations",
+        "image_optimization",
+        "call_to_action_testing",
+        "layout_a_b_testing",
+        "price_presentation"
+      ]
+    },
+    "content_generator": {
+      "enabled": true,
+      "template_library": "industry_specific",
+      "seo_optimization": true,
+      "multi_device_compatibility": true,
+      "content_types": [
+        "product_descriptions",
+        "marketing_copy",
+        "technical_specifications",
+        "user_guides",
+        "faq_sections"
+      ],
+      "language_support": ["zh-CN", "en-US"],
+      "tone_adjustment": {
+        "professional": 0.7,
+        "friendly": 0.8,
+        "authoritative": 0.6
+      }
+    }
+  },
+  "quality_control_tools": {
+    "quality_evaluator": {
+      "enabled": true,
+      "evaluation_dimensions": [
+        "visual_appeal",
+        "brand_consistency",
+        "user_friendliness",
+        "conversion_potential",
+        "technical_feasibility",
+        "content_quality",
+        "accessibility"
+      ],
+      "scoring_weights": {
+        "visual_appeal": 0.20,
+        "brand_consistency": 0.25,
+        "user_friendliness": 0.20,
+        "conversion_potential": 0.15,
+        "technical_feasibility": 0.10,
+        "content_quality": 0.07,
+        "accessibility": 0.03
+      },
+      "evaluation_methods": [
+        "automated_scoring",
+        "expert_review",
+        "user_testing_simulation",
+        "competitive_analysis"
+      ]
+    },
+    "satisfaction_predictor": {
+      "enabled": true,
+      "prediction_model": "client_satisfaction_v3",
+      "accuracy_target": 0.80,
+      "confidence_threshold": 0.75,
+      "prediction_factors": [
+        "historical_preferences",
+        "project_complexity",
+        "communication_quality",
+        "delivery_timeliness",
+        "revision_count"
+      ]
+    },
+    "compliance_checker": {
+      "enabled": true,
+      "compliance_standards": [
+        "industry_regulations",
+        "legal_requirements",
+        "brand_guidelines",
+        "accessibility_standards",
+        "data_privacy_regulations"
+      ],
+      "check_frequency": "automatic",
+      "auto_correction": false,
+      "reporting": "detailed"
+    }
+  },
+  "collaboration_tools": {
+    "team_communication": {
+      "enabled": true,
+      "platform": "2chat",
+      "channels": [
+        "project_team",
+        "client_communication",
+        "stakeholder_updates",
+        "emergency_coordination"
+      ],
+      "response_time_targets": {
+        "urgent": "<=1_hour",
+        "normal": "<=4_hours",
+        "low_priority": "<=24_hours"
+      },
+      "notification_preferences": {
+        "project_updates": "real_time",
+        "quality_issues": "immediate",
+        "client_feedback": "immediate",
+        "milestone_completions": "daily_summary"
+      }
+    },
+    "version_control": {
+      "enabled": true,
+      "system": "git_based",
+      "branching_strategy": "feature_branches",
+      "merge_approval": "required_for_major_changes",
+      "automated_testing": "enabled",
+      "rollback_capability": "enabled"
+    },
+    "knowledge_management": {
+      "enabled": true,
+      "knowledge_base": "project_specific",
+      "experience_sharing": "enabled",
+      "best_practices": "documented",
+      "continuous_learning": "enabled"
+    }
+  },
+  "integration_endpoints": {
+    "data_sources": [
+      {
+        "name": "customer_data_upload",
+        "type": "file_upload",
+        "format": "multi_format",
+        "encryption": "required",
+        "access_control": "role_based"
+      },
+      {
+        "name": "design_feedback",
+        "type": "api",
+        "format": "structured_json",
+        "real_time": true,
+        "webhook": "enabled"
+      },
+      {
+        "name": "quality_metrics",
+        "type": "database",
+        "format": "time_series",
+        "aggregation": "automated",
+        "dashboard": "enabled"
+      }
+    ],
+    "data_sinks": [
+      {
+        "name": "delivery_notifications",
+        "type": "notification",
+        "channels": ["email", "slack", "webhook"],
+        "triggers": ["milestone_complete", "quality_approved", "delivery_ready"]
+      },
+      {
+        "name": "performance_reports",
+        "type": "report",
+        "frequency": "daily",
+        "format": "pdf",
+        "recipients": ["project_manager", "client", "stakeholders"]
+      }
+    ]
+  },
+  "monitoring_configuration": {
+    "performance_metrics": {
+      "data_processing_time": {
+        "target": "<5_minutes",
+        "alert_threshold": ">10_minutes",
+        "measurement": "average"
+      },
+      "design_generation_time": {
+        "target": "<2_hours",
+        "alert_threshold": ">4_hours",
+        "measurement": "average"
+      },
+      "quality_score": {
+        "target": ">=0.85",
+        "alert_threshold": "<0.80",
+        "measurement": "average"
+      },
+      "client_satisfaction": {
+        "target": ">=0.90",
+        "alert_threshold": "<0.85",
+        "measurement": "average"
+      }
+    },
+    "alert_system": {
+      "email_notifications": "enabled",
+      "slack_integration": "enabled",
+      "sms_alerts": "critical_only",
+      "escalation_rules": "enabled"
+    },
+    "reporting": {
+      "daily_reports": "automated",
+      "weekly_summaries": "automated",
+      "monthly_reviews": "automated",
+      "real_time_dashboard": "enabled"
+    }
+  },
+  "security_configuration": {
+    "data_encryption": {
+      "at_rest": "AES-256",
+      "in_transit": "TLS-1.3",
+      "key_management": "automated_rotation"
+    },
+    "access_control": {
+      "authentication": "multi_factor",
+      "authorization": "role_based",
+      "session_management": "secure",
+      "audit_logging": "enabled"
+    },
+    "compliance": {
+      "data_privacy": "GDPR_compliant",
+      "industry_standards": "ISO_27001",
+      "regional_requirements": "china_compliant",
+      "certifications": "ongoing"
+    }
+  }
+}

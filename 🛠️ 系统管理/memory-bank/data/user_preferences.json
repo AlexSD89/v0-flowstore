@@ -1,0 +1,47 @@
+{
+  "test_user": {
+    "userId": "test_user",
+    "createdAt": "2025-11-07T07:52:56.557Z",
+    "preferences": {
+      "contentTypes": [
+        "analysis",
+        "technical"
+      ],
+      "complexity": "medium",
+      "detailLevel": "balanced",
+      "updateFrequency": "weekly"
+    },
+    "behavior": {
+      "accessPatterns": {},
+      "timePatterns": {
+        "15": 1
+      },
+      "contentPreferences": {},
+      "interactionHistory": [
+        {
+          "timestamp": "2025-11-07T07:53:15.996Z",
+          "sessionId": "mhok6jtotb8esr80b"
+        }
+      ]
+    },
+    "learning": {
+      "adaptationHistory": [
+        {
+          "timestamp": "2025-11-07T07:53:15.996Z",
+          "action": {
+            "timestamp": "2025-11-07T07:53:15.996Z",
+            "sessionId": "mhok6jtotb8esr80b"
+          },
+          "modelUpdates": [
+            "preference",
+            "behavior",
+            "context",
+            "performance"
+          ]
+        }
+      ],
+      "performanceMetrics": {},
+      "recommendations": []
+    }
+  }
+}

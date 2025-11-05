@@ -1,0 +1,384 @@
+{
+  "title": "多模态数据理解技能配置",
+  "owners": ["Launch X Claude Team"],
+  "status": "active",
+  "last_update": "2025-11-13",
+  "version": "1.0.0",
+  "skill_id": "multimodal-data-analyst",
+  "category": "data-analysis",
+  "complexity_level": "L",
+  "related_skills": [
+    "enterprise-research-analyst",
+    "business-decision-support",
+    "technical-design-expert"
+  ],
+  "source": "奇境-小龙项目需求",
+  "impact": "high"
+}
+
+---
+
+{
+  "skillConfiguration": {
+    "name": "多模态数据理解技能",
+    "description": "专门处理Excel、图片设计、人类交互模式的多模态数据理解专家",
+    "version": "1.0.0",
+    "category": "data-analysis",
+    "complexity": "L",
+
+    "activationConditions": {
+      "fileTypes": [
+        "*.xlsx",
+        "*.xls",
+        "*.jpg",
+        "*.jpeg",
+        "*.png",
+        "*.gif",
+        "*.docx",
+        "*.pdf"
+      ],
+      "keywords": [
+        "Excel分析",
+        "图片理解",
+        "多模态数据",
+        "客户数据分析",
+        "业务逻辑梳理",
+        "设计分析",
+        "交互模式"
+      ],
+      "directoryPatterns": [
+        "*/客户数据/*",
+        "*/项目数据/*",
+        "*/业务分析/*",
+        "*/需求分析/*"
+      ],
+      "minFileSize": 1024,
+      "maxFileSize": 104857600,
+      "maxFilesPerAnalysis": 50
+    },
+
+    "dataProcessing": {
+      "excel": {
+        "enabled": true,
+        "maxWorkbookSize": "50MB",
+        "maxWorksheets": 50,
+        "supportedFormats": [".xlsx", ".xls"],
+        "processingDepth": {
+          "structure": true,
+          "content": true,
+          "formulas": true,
+          "validation": true,
+          "charts": true
+        },
+        "qualityThresholds": {
+          "dataCompleteness": 0.95,
+          "formatConsistency": 0.90,
+          "logicalCoherence": 0.85
+        }
+      },
+
+      "images": {
+        "enabled": true,
+        "maxImageSize": "20MB",
+        "supportedFormats": [".jpg", ".jpeg", ".png", ".gif", ".bmp"],
+        "processingDepth": {
+          "layoutAnalysis": true,
+          "textExtraction": true,
+          "elementDetection": true,
+          "colorAnalysis": true,
+          "designPatterns": true
+        },
+        "recognitionThresholds": {
+          "textAccuracy": 0.90,
+          "layoutAccuracy": 0.85,
+          "elementAccuracy": 0.80
+        }
+      },
+
+      "documents": {
+        "enabled": true,
+        "maxDocumentSize": "30MB",
+        "supportedFormats": [".docx", ".pdf", ".txt", ".rtf"],
+        "processingDepth": {
+          "structureAnalysis": true,
+          "contentExtraction": true,
+          "semanticAnalysis": true,
+          "relationshipMapping": true
+        },
+        "qualityThresholds": {
+          "contentExtraction": 0.95,
+          "structureRecognition": 0.90,
+          "semanticAccuracy": 0.85
+        }
+      }
+    },
+
+    "analysisCapabilities": {
+      "businessLogic": {
+        "patternRecognition": true,
+        "ruleExtraction": true,
+        "workflowReconstruction": true,
+        "decisionPointIdentification": true,
+        "optimizationOpportunityDetection": true
+      },
+
+      "crossSourceIntegration": {
+        "entityMatching": true,
+        "relationshipMapping": true,
+        "consistencyChecking": true,
+        "conflictDetection": true,
+        "gapAnalysis": true
+      },
+
+      "customerInsights": {
+        "requirementPrioritization": true,
+        "painPointIdentification": true,
+        "valuePropositionExtraction": true,
+        "segmentationAnalysis": true,
+        "journeyMapping": true
+      },
+
+      "actionableRecommendations": {
+        "shortTermActions": true,
+        "mediumTermOptimizations": true,
+        "longTermStrategies": true,
+        "riskMitigation": true,
+        "implementationRoadmap": true
+      }
+    },
+
+    "outputFormats": {
+      "standardReports": [
+        "executive_summary",
+        "detailed_analysis",
+        "recommendations",
+        "implementation_plan"
+      ],
+      "visualizationTypes": [
+        "charts",
+        "graphs",
+        "heatmaps",
+        "network_diagrams",
+        "flowcharts"
+      ],
+      "exportFormats": [
+        "markdown",
+        "pdf",
+        "excel",
+        "json",
+        "html"
+      ]
+    },
+
+    "qualityControls": {
+      "dataValidation": {
+        "completenessCheck": true,
+        "accuracyCheck": true,
+        "consistencyCheck": true,
+        "relevanceCheck": true
+      },
+
+      "analysisValidation": {
+        "logicalCoherence": true,
+        "businessAlignment": true,
+        "actionabilityTest": true,
+        "impactAssessment": true
+      },
+
+      "outputQuality": {
+        "readabilityScore": 0.80,
+        "structureCompleteness": 0.95,
+        "recommendationClarity": 0.85,
+        "evidenceSupport": 0.90
+      }
+    },
+
+    "performanceSettings": {
+      "processing": {
+        "timeoutPerFile": 300,
+        "maxConcurrentFiles": 5,
+        "memoryLimit": "2GB",
+        "cacheEnabled": true,
+        "cacheTTL": 3600
+      },
+
+      "scalability": {
+        "maxDatasetSize": "1GB",
+        "distributedProcessing": false,
+        "progressiveLoading": true,
+        "resultStreaming": false
+      },
+
+      "optimization": {
+        "parallelProcessing": true,
+        "intelligentCaching": true,
+        "adaptiveAlgorithms": true,
+        "resourceMonitoring": true
+      }
+    },
+
+    "securitySettings": {
+      "dataPrivacy": {
+        "localProcessingOnly": true,
+        "noDataRetention": true,
+        "anonymizationEnabled": true,
+        "gdprCompliant": true
+      },
+
+      "accessControl": {
+        "authenticationRequired": false,
+        "auditLogging": true,
+        "sessionTimeout": 3600,
+        "encryptionEnabled": true
+      }
+    },
+
+    "integrationSettings": {
+      "claudeIntegration": {
+        "cognitiveGuidance": true,
+        "fiveStepMethod": true,
+        "contextAwareness": true,
+        "feedbackLoop": true
+      },
+
+      "codexIntegration": {
+        "automatedExecution": true,
+        "toolCallOptimization": true,
+        "errorHandling": true,
+        "progressReporting": true
+      },
+
+      "externalServices": {
+        "ocrService": "local",
+        "imageProcessing": "local",
+        "dataStorage": "local",
+        "reportGeneration": "local"
+      }
+    },
+
+    "customizationOptions": {
+      "industryTemplates": {
+        "ecommerce": {
+          "customerJourney": true,
+          "conversionAnalysis": true,
+          "productRecommendations": true
+        },
+        "finance": {
+          "riskAnalysis": true,
+          "complianceChecking": true,
+          "fraudDetection": true
+        },
+        "healthcare": {
+          "patientJourney": true,
+          "treatmentPatterns": true,
+          "outcomeAnalysis": true
+        },
+        "manufacturing": {
+          "supplyChain": true,
+          "qualityControl": true,
+          "productionOptimization": true
+        }
+      },
+
+      "analysisFocus": {
+        "efficiency": {
+          "processOptimization": true,
+          "costReduction": true,
+          "timeSaving": true
+        },
+        "growth": {
+          "marketExpansion": true,
+          "customerAcquisition": true,
+          "revenueGrowth": true
+        },
+        "innovation": {
+          "newOpportunities": true,
+          "trendIdentification": true,
+          "competitiveAdvantage": true
+        },
+        "risk": {
+          "riskIdentification": true,
+          "mitigationStrategies": true,
+          "complianceEnsurance": true
+        }
+      }
+    },
+
+    "monitoringMetrics": {
+      "performance": [
+        "processingTime",
+        "memoryUsage",
+        "throughput",
+        "errorRate"
+      ],
+
+      "quality": [
+        "analysisAccuracy",
+        "customerSatisfaction",
+        "recommendationAdoption",
+        "businessImpact"
+      ],
+
+      "usage": [
+        "activeUsers",
+        "analysisCount",
+        "popularFeatures",
+        "userFeedback"
+      ]
+    },
+
+    "updateSettings": {
+      "autoUpdate": true,
+      "updateFrequency": "monthly",
+      "betaFeatures": false,
+      "rollbackEnabled": true,
+      "notificationPreferences": {
+        "updates": true,
+        "maintenance": true,
+        "newFeatures": true,
+        "issues": true
+      }
+    }
+  },
+
+  "projectSpecific": {
+    "qijingXiaolong": {
+      "projectName": "奇境-小龙项目",
+      "dataSources": {
+        "excelFiles": [
+          "/Users/dangsiyuan/Documents/obsidion/launch x/Gate客户项目/奇境-小龙项目/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/门赢-领航会员信息收集表格 (1).xlsx"
+        ],
+        "imageFiles": [
+          "/Users/dangsiyuan/Documents/obsidion/launch x/Gate客户项目/奇境-小龙项目/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/门赢-pc页面.jpg",
+          "/Users/dangsiyuan/Documents/obsidion/launch x/Gate客户项目/奇境-小龙项目/01-客户数据/原始数据/整理共同性可AI化项目/风控/27/"
+        ],
+        "documentFiles": [
+          "/Users/dangsiyuan/Documents/obsidion/launch x/Gate客户项目/奇境-小龙项目/01-客户数据/原始数据/整理共同性可AI化项目/风控/27/内控知识漫漫说—第27期.docx"
+        ]
+      },
+
+      "analysisFocus": [
+        "会员需求分析",
+        "页面设计理解",
+        "风控流程梳理",
+        "业务模式识别",
+        "客户体验优化"
+      ],
+
+      "deliverables": [
+        "会员画像分析报告",
+        "设计效果评估报告",
+        "风控流程优化建议",
+        "客户需求洞察报告",
+        "业务改进行动计划"
+      ],
+
+      "successCriteria": {
+        "analysisAccuracy": 0.90,
+        "insightRelevance": 0.85,
+        "recommendationAdoption": 0.70,
+        "customerSatisfaction": 0.90
+      }
+    }
+  }
+}

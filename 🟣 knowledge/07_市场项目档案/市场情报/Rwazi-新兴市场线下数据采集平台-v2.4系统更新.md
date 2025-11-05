@@ -6,7 +6,7 @@ owners:
 status: active
 last_update: 2025-11-03
 related:
-  - 🟣 knowledge/05_方法论中心/专项方法论/大型文件深度开发方法论_V1.0_20251101.md
+  - TODO｜待补充 + 大型文件深度开发方法论
   - 🧠 Launch-X Skills生态系统/README.md
   - 🧩 bmad/README.md
   - 07_市场项目档案/README.md

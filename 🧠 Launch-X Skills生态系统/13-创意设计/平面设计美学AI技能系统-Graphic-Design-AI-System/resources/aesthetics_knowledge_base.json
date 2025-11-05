@@ -1,0 +1,215 @@
+{
+  "aesthetics_principles": {
+    "golden_ratio": {
+      "name": "黄金分割",
+      "ratio": 1.618,
+      "description": "自然界和艺术中最具美感的比例关系",
+      "applications": {
+        "layout": {
+          "ideal_proportions": [0.382, 0.618],
+          "common_applications": ["网页布局", "海报设计", "杂志排版"],
+          "implementation": "主要内容区域占61.8%，次要内容占38.2%"
+        },
+        "typography": {
+          "font_size_ratios": [1.0, 1.618, 2.618],
+          "line_height_ratio": 1.618,
+          "margin_ratios": [1.0, 1.618, 2.618]
+        },
+        "composition": {
+          "focal_point_placement": "使用黄金分割点放置视觉重心",
+          "element_spacing": "按黄金比例确定元素间距"
+        }
+      },
+      "examples": [
+        "苹果公司的产品设计比例",
+        "帕特农神庙的建筑比例",
+        "蒙娜丽莎的构图比例"
+      ]
+    },
+    "rule_of_thirds": {
+      "name": "三分法则",
+      "description": "将画面分为九等分，重要元素放置在交叉点上",
+      "grid": {
+        "rows": 3,
+        "columns": 3,
+        "power_points": 4
+      },
+      "applications": {
+        "photography": "主体放置在交叉点上，避免居中构图",
+        "graphic_design": "关键元素沿三分线布局",
+        "ui_design": "重要操作按钮放置在热区"
+      },
+      "exceptions": [
+        "对称式设计需要居中布局",
+        "品牌标识需要居中展示",
+        "正式文档的标题居中"
+      ]
+    },
+    "color_harmony": {
+      "name": "色彩和谐理论",
+      "schemes": {
+        "complementary": {
+          "name": "互补色",
+          "angle": 180,
+          "effect": "强烈对比，视觉冲击力强",
+          "usage": "突出重点，创建视觉焦点"
+        },
+        "analogous": {
+          "name": "类似色",
+          "angle": 30,
+          "effect": "和谐统一，视觉舒适",
+          "usage": "创建整体感，适合背景设计"
+        },
+        "triadic": {
+          "name": "三色组合",
+          "angle": 120,
+          "effect": "平衡丰富，动感活泼",
+          "usage": "儿童产品，创意设计"
+        },
+        "tetradic": {
+          "name": "四色组合", 
+          "angle": 90,
+          "effect": "复杂多样，层次丰富",
+          "usage": "信息图表，数据可视化"
+        }
+      },
+      "psychology": {
+        "warm_colors": ["red", "orange", "yellow"],
+        "cool_colors": ["blue", "green", "purple"],
+        "neutral_colors": ["black", "white", "gray", "brown"]
+      }
+    },
+    "typography_principles": {
+      "hierarchy": {
+        "name": "字体层次",
+        "levels": ["H1", "H2", "H3", "H4", "Body", "Caption"],
+        "scale_ratios": {
+          "traditional": [1.0, 0.75, 0.5, 0.35],
+          "modern": [1.0, 0.8, 0.64, 0.512],
+          "golden": [1.0, 0.618, 0.382, 0.236]
+        }
+      },
+      "readability": {
+        "line_length": {
+          "optimal": "50-75 characters",
+          "maximum": "90 characters"
+        },
+        "line_height": {
+          "body_text": "1.4-1.6",
+          "headings": "1.2-1.4"
+        },
+        "font_size": {
+          "desktop_minimum": "16px",
+          "mobile_minimum": "14px"
+        }
+      },
+      "font_pairing": {
+        "principles": [
+          "对比原则：使用不同字重和风格",
+          "和谐原则：保持字体风格一致性",
+          "数量原则：不超过2-3种字体"
+        ],
+        "popular_combinations": [
+          "Helvetica + Georgia",
+          "Roboto + Lato", 
+          "Montserrat + Open Sans"
+        ]
+      }
+    },
+    "visual_balance": {
+      "name": "视觉平衡",
+      "types": {
+        "symmetrical": {
+          "description": "对称平衡，稳定正式",
+          "characteristics": ["中心对称", "轴向对称"],
+          "applications": ["正式文档", "传统品牌", "建筑设计"]
+        },
+        "asymmetrical": {
+          "description": "不对称平衡，动态现代",
+          "techniques": ["大小对比", "色彩对比", "位置平衡"],
+          "applications": ["创意设计", "现代品牌", "艺术作品"]
+        },
+        "radial": {
+          "description": "径向平衡，焦点集中",
+          "center_point": "视觉焦点位于中心",
+          "applications": ["logo设计", "徽章设计", "图标设计"]
+        }
+      }
+    },
+    "white_space": {
+      "name": "留白原则",
+      "functions": {
+        "breathing_room": "提供视觉休息空间",
+        "emphasis": "突出重要元素",
+        "elegance": "增加设计的高级感",
+        "clarity": "提高信息可读性"
+      },
+      "guidelines": {
+        "minimum_gutter": "20px",
+        "paragraph_spacing": "1.5倍行高",
+        "section_spacing": "2-3倍行高",
+        "margins": "至少10%的画布空间"
+      }
+    }
+  },
+  "design_patterns": {
+    "logo_design": {
+      "scalability": "确保在小尺寸下依然清晰可识别",
+      "simplicity": "简洁明了，易于记忆",
+      "relevance": "与品牌核心价值和业务相关",
+      "timelessness": "避免过度依赖潮流元素"
+    },
+    "poster_design": {
+      "visual_hierarchy": "建立清晰的视觉层次",
+      "call_to_action": "明确的行动召唤元素",
+      "information_density": "避免信息过载",
+      "readability_distance": "考虑远距离观看效果"
+    },
+    "web_design": {
+      "above_fold": "首屏内容的重要性",
+      "responsive_design": "多设备适配",
+      "loading_performance": "图像和动画优化",
+      "accessibility": "无障碍设计考虑"
+    }
+  },
+  "industry_standards": {
+    "technology": {
+      "aesthetics": ["minimalist", "clean", "modern", "professional"],
+      "color_palette": ["blue", "green", "gray", "white"],
+      "typography": ["sans-serif", "clean", "legible"]
+    },
+    "healthcare": {
+      "aesthetics": ["trustworthy", "clean", "professional", "calming"],
+      "color_palette": ["blue", "green", "white", "soft grays"],
+      "typography": ["serif for trust", "sans-serif for clarity"]
+    },
+    "fashion": {
+      "aesthetics": ["trendy", "bold", "artistic", "elegant"],
+      "color_palette": ["seasonal trends", "black", "white"],
+      "typography": ["elegant serif", "modern sans-serif"]
+    },
+    "food_beverage": {
+      "aesthetics": ["appetizing", "fresh", "natural", "inviting"],
+      "color_palette": ["warm colors", "fresh greens", "earth tones"],
+      "typography": ["friendly", "approachable", "handwritten accents"]
+    }
+  },
+  "cultural_considerations": {
+    "western_design": {
+      "characteristics": ["individualism", "directness", "minimalism"],
+      "color_meanings": {
+        "red": "passion, danger, love",
+        "blue": "trust, calm, professionalism",
+        "green": "nature, growth, money"
+      }
+    },
+    "eastern_design": {
+      "characteristics": ["harmony", "balance", "complexity"],
+      "color_meanings": {
+        "red": "luck, prosperity, happiness",
+        "gold": "wealth, nobility, power",
+        "black": "water, north, mystery"
+      }
+    }
+  }
+}

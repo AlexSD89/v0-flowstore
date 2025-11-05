@@ -1,0 +1,405 @@
+# Gate智能财经日历 - 数据源配置文件
+# 配置各种金融数据源的连接参数和更新策略
+
+# 数据源优先级设置
+# Priority 1: 官方权威数据源（最可靠，更新及时）
+# Priority 2: 专业金融终端（高准确性，付费服务）
+# Priority 3: 财经媒体（覆盖面广，需验证）
+# Priority 4: 第三方数据（辅助参考，质量参差不齐）
+
+data_sources:
+  # Priority 1 - 官方数据源
+  official_sources:
+    - id: "federal_reserve"
+      name: "Federal Reserve (美联储)"
+      api_url: "https://api.federalreserve.gov/fomcmembersummary"
+      priority: 1
+      authentication: "none"  # 公开数据
+      update_frequency: "real_time"
+      timeout: 30
+      retry_count: 3
+      data_type: "policy_decisions"
+      reliability: 98
+      coverage: ["US monetary policy"]
+      
+    - id: "sec_edgar"
+      name: "SEC EDGAR (美国证监会)"
+      api_url: "https://www.sec.gov/Archives/edgar"
+      priority: 1
+      authentication: "none"
+      update_frequency: "daily"
+      timeout: 60
+      retry_count: 5
+      data_type: "company_filings"
+      reliability: 95
+      coverage: ["US public companies"]
+      
+    - id: "ecb"
+      name: "European Central Bank (欧洲央行)"
+      api_url: "https://www.ecb.europa.eu/press"
+      priority: 1
+      authentication: "none"
+      update_frequency: "real_time"
+      timeout: 30
+      retry_count: 3
+      data_type: "policy_decisions"
+      reliability: 97
+      coverage: ["Eurozone monetary policy"]
+      
+    - id: "bank_of_england"
+      name: "Bank of England (英国央行)"
+      api_url: "https://www.bankofengland.co.uk/monetary-policy-summary"
+      priority: 1
+      authentication: "none"
+      update_frequency: "real_time"
+      timeout: 30
+      retry_count: 3
+      data_type: "policy_decisions"
+      reliability: 96
+      coverage: ["UK monetary policy"]
+      
+    - id: "china_stats_bureau"
+      name: "中国国家统计局"
+      api_url: "http://www.stats.gov.cn/"
+      priority: 1
+      authentication: "none"
+      update_frequency: "monthly"
+      timeout: 45
+      retry_count: 5
+      data_type: "economic_data"
+      reliability: 94
+      coverage: ["China economic indicators"]
+
+  # Priority 2 - 专业金融终端
+  professional_terminals:
+    - id: "wind"
+      name: "Wind万得金融终端"
+      api_url: "https://api.wind.com.cn"
+      priority: 1
+      authentication: "api_key"
+      api_key_env: "WIND_API_KEY"
+      update_frequency: "15min"
+      timeout: 30
+      retry_count: 3
+      data_type: "comprehensive"
+      reliability: 92
+      coverage: ["China market", "Global markets"]
+      features: ["real_time_data", "historical_analysis", "company_research"]
+      pricing: "subscription_based"
+      
+    - id: "bloomberg"
+      name: "Bloomberg Terminal"
+      api_url: "https://bloomberg.com/api"
+      priority: 1
+      authentication: "api_key"
+      api_key_env: "BLOOMBERG_API_KEY"
+      update_frequency: "30min"
+      timeout: 45
+      retry_count: 3
+      data_type: "comprehensive"
+      reliability: 93
+      coverage: ["Global markets", "Company data"]
+      features: ["real_time_news", "analytics", "charting"]
+      pricing: "subscription_based"
+      
+    - id: "reuters"
+      name: "Reuters Eikon"
+      api_url: "https://api.reuters.com"
+      priority: 2
+      authentication: "api_key"
+      api_key_env: "REUTERS_API_KEY"
+      update_frequency: "15min"
+      timeout: 30
+      retry_count: 3
+      data_type: "news_and_data"
+      reliability: 88
+      coverage: ["Global markets", "News"]
+      features: ["breaking_news", "market_data", "analysis"]
+      pricing: "subscription_based"
+      
+    - id: "choice"
+      name: "东方财富Choice终端"
+      api_url: "https://api.choice.com.cn"
+      priority: 2
+      authentication: "api_key"
+      api_key_env: "CHOICE_API_KEY"
+      update_frequency: "15min"
+      timeout: 30
+      retry_count: 3
+      data_type: "china_markets"
+      reliability: 85
+      coverage: ["China A-shares", "Company data"]
+      features: ["market_data", "research_reports", "analysis"]
+      pricing: "subscription_based"
+
+  # Priority 3 - 财经媒体和新闻源
+  media_sources:
+    - id: "wall_street_journal"
+      name: "Wall Street Journal"
+      api_url: "https://api.wsj.com"
+      priority: 2
+      authentication: "api_key"
+      api_key_env: "WSJ_API_KEY"
+      update_frequency: "continuous"
+      timeout: 30
+      retry_count: 3
+      data_type: "breaking_news"
+      reliability: 82
+      coverage: ["US markets", "Global business"]
+      
+    - id: "financial_times"
+      name: "Financial Times"
+      api_url: "https://api.ft.com"
+      priority: 2
+      authentication: "api_key"
+      api_key_env: "FT_API_KEY"
+      update_frequency: "continuous"
+      timeout: 30
+      retry_count: 3
+      data_type: "business_news"
+      reliability: 80
+      coverage: ["European markets", "Global business"]
+      
+    - id: "caixin"
+      name: "财新传媒"
+      api_url: "https://api.caixin.com"
+      priority: 3
+      authentication: "api_key"
+      api_key_env: "CAIXIN_API_KEY"
+      update_frequency: "continuous"
+      timeout: 30
+      retry_count: 3
+      data_type: "china_business_news"
+      reliability: 78
+      coverage: ["China business", "Markets"]
+
+  # Priority 4 - 加密货币和另类资产
+  crypto_sources:
+    - id: "coindesk"
+      name: "CoinDesk"
+      api_url: "https://api.coindesk.com/v1/news"
+      priority: 3
+      authentication: "api_key"
+      api_key_env: "COINDESK_API_KEY"
+      update_frequency: "continuous"
+      timeout: 30
+      retry_count: 2
+      data_type: "crypto_news"
+      reliability: 75
+      coverage: ["Cryptocurrency"]
+      
+    - id: "coinbase"
+      name: "Coinbase"
+      api_url: "https://api.coinbase.com/v2"
+      priority: 3
+      authentication: "api_key"
+      api_key_env: "COINBASE_API_KEY"
+      update_frequency: "continuous"
+      timeout: 20
+      retry_count: 3
+      data_type: "crypto_prices"
+      reliability: 85
+      coverage: ["Major cryptocurrencies"]
+
+# 数据抓取配置
+scraping_config:
+  # 并发控制
+  max_concurrent_requests: 8
+  request_timeout: 30
+  retry_delay: 2.0  # 重试延迟（秒）
+  
+  # 缓存配置
+  cache_duration: 3600  # 1小时
+  cache_size: 1000  # 最大缓存条目数
+  
+  # 频率限制
+  rate_limits:
+    wind: "100 requests/minute"
+    bloomberg: "80 requests/minute"
+    reuters: "120 requests/minute"
+    choice: "90 requests/minute"
+  
+  # 错误处理
+  error_handling:
+    max_retries: 3
+    backoff_factor: 2
+    circuit_breaker_threshold: 5
+
+# 数据质量标准
+quality_standards:
+  # 数据完整性要求
+  completeness_threshold: 95
+  required_fields:
+    - ["event_id", "event_title", "event_type", "publish_time", "importance_level"]
+  
+  # 准确性要求
+  accuracy_threshold: 90
+  verification_required: true
+  
+  # 及时性要求
+  timeliness_threshold: 85
+  max_delay_minutes: 30
+  
+  # 一致性要求
+  consistency_threshold: 88
+  cross_source_validation: true
+
+# 事件分类配置
+event_classification:
+  # 事件类型映射
+  types:
+    monetary_policy:
+      keywords: ["利率", "通胀", "货币政策", "FOMC", "央行"]
+      importance_multiplier: 1.2
+      sectors_affected: ["financial", "real_estate", "consumer"]
+      
+    earnings_reports:
+      keywords: ["财报", "业绩", "收入", "利润", "earnings"]
+      importance_multiplier: 1.1
+      sectors_affected: ["all"]
+      
+    economic_data:
+      keywords: ["GDP", "CPI", "PMI", "失业率", "贸易数据"]
+      importance_multiplier: 1.0
+      sectors_affected: ["all"]
+      
+    regulatory_actions:
+      keywords: ["监管", "政策", "法规", "合规", "执法"]
+      importance_multiplier: 1.15
+      sectors_affected: ["financial", "healthcare", "technology"]
+
+  # 重要性评分标准
+  importance_scoring:
+    # 基础分数
+    base_scores:
+      high_impact: 4.0      # 价格影响 > 5%
+      medium_high_impact: 3.5  # 价格影响 3-5%
+      medium_impact: 3.0      # 价格影响 1-3%
+      low_impact: 2.0        # 价格影响 < 1%
+      
+    # 调整因子
+    adjustment_factors:
+      source_reliability: 0.8-1.2
+      historical_accuracy: 0.9-1.1
+      market_volatility: 1.0-1.3
+      user_portfolio: 0.7-1.2
+
+# API认证配置
+authentication:
+  # 环境变量映射
+  env_var_mapping:
+    WIND_API_KEY: "wind_api_key"
+    BLOOMBERG_API_KEY: "bloomberg_api_key"
+    REUTERS_API_KEY: "reuters_api_key"
+    CHOICE_API_KEY: "choice_api_key"
+    WSJ_API_KEY: "wsj_api_key"
+    FT_API_KEY: "ft_api_key"
+    CAIXIN_API_KEY: "caixin_api_key"
+    COINDESK_API_KEY: "coindesk_api_key"
+    COINBASE_API_KEY: "coinbase_api_key"
+    
+  # API密钥格式要求
+  key_requirements:
+    wind: "32 character alphanumeric"
+    bloomberg: "Client ID and Secret"
+    reuters: "Bearer token format"
+    choice: "Application token"
+    
+  # 安全配置
+  security:
+    encrypt_stored_keys: true
+    rotate_keys_monthly: true
+    audit_api_usage: true
+    rate_limit_monitoring: true
+
+# 数据同步策略
+synchronization:
+  # 更新频率配置
+  update_frequency:
+    critical_events: "real_time"
+    earnings_reports: "quarterly"
+    economic_data: "monthly"
+    policy_decisions: "real_time"
+    
+  # 数据同步时间窗口
+  sync_windows:
+    real_time: "5 minutes"
+    hourly: "1 hour"
+    daily: "6 hours"
+    weekly: "24 hours"
+    
+  # 增量更新策略
+  incremental_updates: true
+    delta_extraction: true
+    change_detection: true
+    
+  # 批处理配置
+  batch_processing:
+    batch_size: 50
+    flush_interval: 300  # 5分钟
+    max_queue_size: 1000
+
+# 监控和告警
+monitoring:
+  # 数据质量监控
+  quality_metrics:
+    - "data_completeness"
+    - "source_accuracy"
+    - "update_timeliness"
+    - "error_rate"
+    
+  # 系统健康监控
+  health_checks:
+    - "api_connectivity"
+    - "response_time"
+    - "cache_hit_rate"
+    - "memory_usage"
+    
+  # 告警配置
+  alerts:
+    email_notifications: true
+    slack_integration: true
+    webhook_endpoints: true
+    threshold_violations: true
+    
+# 部署配置
+deployment:
+  # 环境配置
+  environments:
+    development:
+      data_sources: ["mock", "reuters", "caixin"]
+      update_frequency: "hourly"
+      cache_duration: 300
+      
+    staging:
+      data_sources: ["wind", "reuters", "choice"]
+      update_frequency: "30min"
+      cache_duration: 1800
+      
+    production:
+      data_sources: ["federal_reserve", "sec_edgar", "wind", "bloomberg", "reuters"]
+      update_frequency: "15min"
+      cache_duration: 3600
+      
+  # 负载均衡
+  load_balancing:
+    strategy: "round_robin"
+    failover: "automatic"
+    circuit_breaker: true
+    retry_with_backoff: true
+
+# 成本控制
+cost_management:
+  # API使用配额
+  api_quotas:
+    wind: "10000 requests/day"
+    bloomberg: "5000 requests/day"
+    reuters: "15000 requests/day"
+    choice: "12000 requests/day"
+    
+  # 缓存策略优化
+  optimization:
+    smart_caching: true
+    compression: true
+    deduplication: true
+    preferential_sources: true

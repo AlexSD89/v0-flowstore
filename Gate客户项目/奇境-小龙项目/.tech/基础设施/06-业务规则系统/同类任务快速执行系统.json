@@ -1,0 +1,352 @@
+{
+  "rapid_execution_system": {
+    "project_name": "奇境-小龙项目",
+    "system_version": "1.0.0",
+    "created_date": "2025-11-13",
+    "description": "基于规则库和知识图谱的同类任务快速执行系统",
+    "status": "active"
+  },
+  "task_classification_engine": {
+    "task_type_classification": {
+      "design_tasks": {
+        "product_page_design": {
+          "description": "产品详情页设计任务",
+          "applicable_rules": ["xilimen_brand_rules", "conversion_optimization_rules", "ux_design_principles"],
+          "standard_process": "product_page_design_workflow",
+          "expected_quality_threshold": 0.85,
+          "typical_duration": "2_hours"
+        },
+        "store_page_design": {
+          "description": "电商平台页面设计任务",
+          "applicable_rules": ["ecommerce_design_rules", "platform_compliance_rules", "brand_consistency_rules"],
+          "standard_process": "store_page_design_workflow",
+          "expected_quality_threshold": 0.90,
+          "typical_duration": "1.5_hours"
+        },
+        "marketing_content_design": {
+          "description": "营销内容设计任务",
+          "applicable_rules": ["marketing_psychology_rules", "brand_voice_rules", "conversion_optimization_rules"],
+          "standard_process": "marketing_content_workflow",
+          "expected_quality_threshold": 0.80,
+          "typical_duration": "1_hour"
+        }
+      },
+      "business_tasks": {
+        "requirement_analysis": {
+          "description": "需求分析任务",
+          "applicable_rules": ["requirement_extraction_rules", "stakeholder_analysis_rules", "business_objective_rules"],
+          "standard_process": "requirement_analysis_workflow",
+          "expected_quality_threshold": 0.90,
+          "typical_duration": "30_minutes"
+        },
+        "market_research": {
+          "description": "市场研究任务",
+          "applicable_rules": ["market_analysis_rules", "competitor_analysis_rules", "trend_identification_rules"],
+          "standard_process": "market_research_workflow",
+          "expected_quality_threshold": 0.85,
+          "typical_duration": "45_minutes"
+        }
+      },
+      "compliance_tasks": {
+        "risk_assessment": {
+          "description": "风险评估任务",
+          "applicable_rules": ["compliance_check_rules", "risk_identification_rules", "regulatory_framework_rules"],
+          "standard_process": "risk_assessment_workflow",
+          "expected_quality_threshold": 0.95,
+          "typical_duration": "20_minutes"
+        },
+        "quality_control": {
+          "description": "质量控制任务",
+          "applicable_rules": ["quality_standard_rules", "brand_consistency_rules", "technical_feasibility_rules"],
+          "standard_process": "quality_control_workflow",
+          "expected_quality_threshold": 0.90,
+          "typical_duration": "15_minutes"
+        }
+      }
+    }
+  },
+  "rule_application_system": {
+    "rule_matching_engine": {
+      "matching_algorithm": "semantic_similarity_matching",
+      "matching_criteria": {
+        "task_purpose_similarity": {
+          "weight": 0.30,
+          "description": "任务目的相似度"
+        },
+        "constraint_similarity": {
+          "weight": 0.25,
+          "description": "约束条件相似度"
+        },
+        "context_similarity": {
+          "weight": 0.20,
+          "description": "上下文环境相似度"
+        },
+        "quality_requirement_similarity": {
+          "weight": 0.15,
+          "description": "质量要求相似度"
+        },
+        "technical_similarity": {
+          "weight": 0.10,
+          "description": "技术实现相似度"
+        }
+      },
+      "matching_threshold": 0.75,
+      "max_rule_candidates": 3
+    },
+    "rule_adaptation_engine": {
+      "adaptation_strategies": [
+        {
+          "strategy": "context_specific_adaptation",
+          "description": "根据具体任务上下文调整规则",
+          "adaptation_factors": ["customer_specific", "project_constraints", "timeline_requirements", "budget_limitations"]
+        },
+        {
+          "strategy": "quality_target_adjustment",
+          "description": "根据质量目标调整规则严格程度",
+          "adaptation_factors": ["quality_level", "risk_tolerance", "brand_importance", "user_experience_priority"]
+        },
+        {
+          "strategy": "resource_constraint_adaptation",
+          "description": "根据资源约束调整规则应用方式",
+          "adaptation_factors": ["time_constraints", "team_capabilities", "tool_availability", "technical_limitations"]
+        }
+      ]
+    },
+    "rule_execution_engine": {
+      "execution_modes": [
+        {
+          "mode": "fully_automated",
+          "trigger_conditions": ["high_similarity_match", "clear_requirements", "sufficient_constraints"],
+          "human_intervention": "minimal",
+          "expected_success_rate": 0.90
+        },
+        {
+          "mode": "semi_automated",
+          "trigger_conditions": ["moderate_similarity_match", "some_ambiguity", "complex_constraints"],
+          "human_intervention": "review_points",
+          "expected_success_rate": 0.85
+        },
+        {
+          "mode": "human_assisted",
+          "trigger_conditions": ["low_similarity_match", "high_ambiguity", "novel_requirements"],
+          "human_intervention": "collaborative",
+          "expected_success_rate": 0.80
+        }
+      ]
+    }
+  },
+  "knowledge_graph_system": {
+    "knowledge_domains": {
+      "design_knowledge": {
+        "nodes": ["design_principles", "brand_guidelines", "user_patterns", "conversion_strategies"],
+        "relationships": [
+          {"from": "design_principles", "to": "brand_guidelines", "type": "constrains"},
+          {"from": "brand_guidelines", "to": "user_patterns", "type": "influences"},
+          {"from": "user_patterns", "to": "conversion_strategies", "type": "drives"}
+        ]
+      },
+      "business_knowledge": {
+        "nodes": ["market_trends", "customer_preferences", "business_objectives", "success_metrics"],
+        "relationships": [
+          {"from": "market_trends", "to": "customer_preferences", "type": "shapes"},
+          {"from": "customer_preferences", "to": "business_objectives", "type": "informs"},
+          {"from": "business_objectives", "to": "success_metrics", "type": "defines"}
+        ]
+      },
+      "technical_knowledge": {
+        "nodes": ["platform_constraints", "technical_capabilities", "implementation_methods", "quality_standards"],
+        "relationships": [
+          {"from": "platform_constraints", "to": "technical_capabilities", "type": "limits"},
+          {"from": "technical_capabilities", "to": "implementation_methods", "type": "enables"},
+          {"from": "implementation_methods", "to": "quality_standards", "type": "meets"]
+        ]
+      }
+    },
+    "knowledge_inference": {
+      "inference_engine": "graph_based_reasoning",
+      "inference_methods": [
+        {
+          "method": "pattern_matching",
+          "description": "基于历史成功模式进行推理",
+          "application": "找到最相似的成功案例并应用其模式"
+        },
+        {
+          "method": "constraint_propagation",
+          "description": "约束条件在网络中的传播",
+          "application": "传播约束条件以缩小解决方案空间"
+        },
+        {
+          "method": "goal_driven_reasoning",
+          "description": "从目标反向推理最优路径",
+          "application": "基于业务目标选择最优的实现路径"
+        }
+      ]
+    }
+  },
+  "rapid_execution_workflows": {
+    "product_page_design_workflow": {
+      "workflow_id": "rapid_product_page_design",
+      "description": "快速产品详情页设计工作流",
+      "steps": [
+        {
+          "step_id": "requirement_analysis",
+          "name": "需求快速分析",
+          "automation_level": "high",
+          "estimated_time": "5_minutes",
+          "ai_capabilities": ["requirement_extraction", "preference_learning", "constraint_identification"]
+        },
+        {
+          "step_id": "rule_application",
+          "name": "规则智能应用",
+          "automation_level": "high",
+          "estimated_time": "2_minutes",
+          "ai_capabilities": ["rule_matching", "rule_adaptation", "context_customization"]
+        },
+        {
+          "step_id": "design_generation",
+          "name": "设计方案生成",
+          "automation_level": "high",
+          "estimated_time": "45_minutes",
+          "ai_capabilities": ["layout_generation", "visual_element_creation", "content_generation"]
+        },
+        {
+          "step_id": "quality_assessment",
+          "name": "质量自动评估",
+          "automation_level": "high",
+          "estimated_time": "5_minutes",
+          "ai_capabilities": ["quality_scoring", "compliance_check", "brand_consistency_validation"]
+        },
+        {
+          "step_id": "output_finalization",
+          "name": "输出最终化",
+          "automation_level": "medium",
+          "estimated_time": "10_minutes",
+          "ai_capabilities": ["format_standardization", "delivery_preparation", "documentation_generation"]
+        }
+      ],
+      "total_estimated_time": "67_minutes",
+      "success_criteria": {
+        "design_quality_score": ">=0.85",
+        "brand_consistency_score": ">=0.90",
+        "conversion_potential_score": ">=0.80",
+        "technical_feasibility_score": ">=0.95"
+      }
+    },
+    "marketing_content_workflow": {
+      "workflow_id": "rapid_marketing_content",
+      "description": "快速营销内容生成工作流",
+      "steps": [
+        {
+          "step_id": "audience_analysis",
+          "name": "受众快速分析",
+          "automation_level": "high",
+          "estimated_time": "3_minutes",
+          "ai_capabilities": ["audience_profiling", "preference_prediction", "segmentation"]
+        },
+        {
+          "step_id": "content_strategy",
+          "name": "内容策略制定",
+          "automation_level": "high",
+          "estimated_time": "5_minutes",
+          "ai_capabilities": ["strategy_generation", "channel_selection", "messaging_framework"]
+        },
+        {
+          "step_id": "content_creation",
+          "name": "内容智能创作",
+          "automation_level": "high",
+          "estimated_time": "20_minutes",
+          "ai_capabilities": ["copywriting", "visual_content", "multimedia_generation"]
+        },
+        {
+          "step_id": "optimization",
+          "name": "效果优化",
+          "automation_level": "medium",
+          "estimated_time": "8_minutes",
+          "ai_capabilities": ["a/b_testing_suggestions", "performance_prediction", "conversion_optimization"]
+        }
+      ],
+      "total_estimated_time": "36_minutes",
+      "success_criteria": {
+        "content_quality_score": ">=0.80",
+        "engagement_prediction": ">=0.75",
+        "brand_voice_consistency": ">=0.90",
+        "conversion_potential": ">=0.70"
+      }
+    }
+  },
+  "performance_monitoring": {
+    "execution_metrics": {
+      "speed_metrics": [
+        {
+          "metric": "task_completion_time",
+          "target": "reduce_by_80%",
+          "measurement": "minutes_per_task"
+        },
+        {
+          "metric": "first_response_time",
+          "target": "<=5_minutes",
+          "measurement": "response_latency"
+        },
+        {
+          "metric": "rule_application_time",
+          "target": "<=2_minutes",
+          "measurement": "rule_matching_duration"
+        }
+      ],
+      "quality_metrics": [
+        {
+          "metric": "automation_success_rate",
+          "target": ">=85%",
+          "measurement": "successful_automations / total_automations"
+        },
+        {
+          "metric": "quality_consistency",
+          "target": ">=90%",
+          "measurement": "quality_score_variance"
+        },
+        {
+          "metric": "customer_satisfaction",
+          "target": ">=90%",
+          "measurement": "customer_rating"
+        }
+      ],
+      "learning_metrics": [
+        {
+          "metric": "rule_learning_rate",
+          "target": ">=70%",
+          "measurement": "new_rules_learned / total_opportunities"
+        },
+        {
+          "metric": "knowledge_graph_growth",
+          "target": ">=50_nodes_per_month",
+          "measurement": "knowledge_nodes_added"
+        },
+        {
+          "metric": "pattern_recognition_accuracy",
+          "target": ">=80%",
+          "measurement": "correct_pattern_matches / total_predictions"
+        }
+      ]
+    },
+    "continuous_improvement": {
+      "learning_frequency": "daily",
+      "rule_update_frequency": "weekly",
+      "knowledge_sync_frequency": "real_time",
+      "performance_review_frequency": "monthly"
+    }
+  },
+  "integration_points": {
+    "ai_skills_system": {
+      "integration_level": "deep",
+      "shared_capabilities": ["rule_engine", "knowledge_base", "quality_assessment"]
+    },
+    "gate_tools": {
+      "integration_level": "standard",
+      "shared_capabilities": ["workflow_automation", "risk_management", "collaboration_tools"]
+    },
+    "design_methodology": {
+      "integration_level": "deep",
+      "shared_capabilities": ["process_guidance", "quality_standards", "best_practices"]
+    }
+  }
+}

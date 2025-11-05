@@ -1,0 +1,84 @@
+{
+  "workbook_structure": {
+    "sheet_count": 2,
+    "sheet_names": [
+      "品牌信息收集-Brand-info",
+      "旺铺收集表格-Storefron"
+    ],
+    "active_sheet": "品牌信息收集-Brand-info",
+    "data_range": "A1:AA200"
+  },
+  "data_dimensions": {
+    "rows": 30,
+    "columns": 5
+  },
+  "data_quality": {
+    "column_A": 29,
+    "column_B": 27,
+    "column_C": 26,
+    "column_D": 27,
+    "column_E": 0
+  },
+  "sample_data": {
+    "0": {
+      "0": "*请在这个信息收集表格的绿色列全地填写信息，方便我们更好地了解您的公司。\n\n1. 填写要求：中英文皆可\n\n2. 运用到：品牌Brand Info  / 视频宣传片文案创作 / 部分旺铺文案\n\n3. 在格子中换行请按 \"Option+Enter\"苹果MAC，“Alt+Enter”PC电脑\n\n*为减少您的填写时间，模板已尽可能的简介，但为了更准确的表达贵公司的品牌信息，请您务必抽出宝贵时间认真填写！\n因旺铺信息与Brand info 有部分重合，为减少您重复填写的时间，已在表格内标注清楚，辛苦您在填写时对应表格注视检查清楚是否可以直接调用Brand info信息，如不能调用，请您重新填写.",
+      "1": "Leader",
+      "2": "1 英语品牌名 \nBrand name",
+      "3": "2 公司中文全称\nChinese company name",
+      "4": "3 店铺ID号\nShop ID",
+      "5": "4 公司简介 \nCompany background",
+      "6": "5 企业定位 \nPositioning",
+      "7": "6 口号/标语 \nSlogan",
+      "8": "7-9三大差异化亮点 \nDifferentiation\n\n(行业认证，特殊产品，生产机器/技术)",
+      "9": "10 公司成立时间 \nEstablishment year"
+    },
+    "1": {
+      "0": NaN,
+      "1": "填答引导例子 \nExample Information",
+      "2": "Jackbox （请填写英语品牌名称，只需一个单词）",
+      "3": "广州市三行科技有限公司",
+      "4": "cnmaihua",
+      "5": "XXX在中国拥有10年的时尚瑜伽和健身产品制造经验。XXX总部位于上海，XXX投资了多家工厂，能够生产各种瑜伽健身运动产品，并为我们的客户提供一站式购买解决方案。XXX为全球开发、制造和交付定制的瑜伽和健身产品，XXX已为3000+家B对B全球客户提供服务，其中大部分是长期合作伙伴。",
+      "6": "XXXX作为行业领袖商家，用卓越品质与创新引领趋势，为全球客户提供一站式高端瑜伽健身定制服务。",
+      "7": "精工品质，跨越大陆!",
+      "8": "1.强大的供应链网络降低成本\n\n2. IPC-610-A 质量保证 \n\n3. 快速组装与快速响应",
+      "9": "成立于2012年。"
+    },
+    "2": {
+      "0": NaN,
+      "1": "在此绿色列填写中文或英文公司信息\n(请尽量填写完整，如没有信息或不想展示，请填写“无”)",
+      "2": "Luvindow",
+      "3": "山东门赢门窗有限责任公司",
+      "4": NaN,
+      "5": "Luvindow以其创新设计和精湛工艺彻底改变了门窗行业。作为一家拥有超过100,000个实际项目案例的全球领导者，工厂面积超过10万平方米，配备意大利进口加工机器，每年可带来50万平方米的生产能力。这意味着我们可以尽可能快地生产和交付我们的产品，以满足客户的时间需求。300多名高技能工人和15名研发工程师意味着我们可以提供全方位的专业服务，并提供更好的建筑解决方案。",
+      "6": "With over 100,000successful projects globally, Luvindow blends cutting-edge technology with time-tested quality standards, mainly serving markets across North America, Oceania and Europe. As the flagship brand of Doorwin Windows Inc.. Luvindow upholds this legacy of craftsmanship,while pushing the boundaries of design innovation.",
+      "7": "GLOBAL LEADER IN INNOVATIVE\nSLIM PROFILE WINDOWS AND DOORS",
+      "8": "1. 从设计到安装的全面支持，打造一站式服务\n\n2.39 个城市 48 ⼩时上⻔技术指导\n\n3.18天快速交货",
+      "9": "成立于2007年"
+    },
+    "3": {
+      "0": NaN,
+      "1": "English Translation\n(文案团队使用，请不要在这列填写或修改）",
+      "2": "Luvindow",
+      "3": "Do not translate",
+      "4": "Do not translate",
+      "5": "Luvindow has transformed the door and window industry with its innovative designs and refined craftsmanship. As a global leader with over 100,000 completed projects, our factories cover more than 100,000 square meters and are equipped with Italian-imported machinery, delivering an annual production capacity of 500,000 square meters. This enables us to produce and deliver products swiftly, meeting clients’ timelines with precision. Our team of more than 300 highly skilled workers and 15 R&D engineers allows us to provide comprehensive professional services and deliver superior building solutions.",
+      "6": "With over 100,000 successful projects worldwide, Luvindow combines advanced technology with proven quality standards, focusing on markets across North America, Oceania, and Europe. As the flagship brand of Doorwin Windows Inc., Luvindow upholds a tradition of craftsmanship while driving design innovation.",
+      "7": "Global Leader in Innovative Slim Profile Windows and Doors",
+      "8": "i. Comprehensive support from design to installation, creating a one-stop service.\n\nii. Technical guidance within 48 hours across 39 cities.\n\niii. Fast delivery in as little as 18 days.",
+      "9": "Founded in 2007."
+    },
+    "4": {
+      "0": NaN,
+      "1": NaN,
+      "2": NaN,
+      "3": NaN,
+      "4": NaN,
+      "5": NaN,
+      "6": NaN,
+      "7": NaN,
+      "8": NaN,
+      "9": NaN
+    }
+  }
+}

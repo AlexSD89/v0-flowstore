@@ -1,0 +1,349 @@
+{
+  "skills_registry": {
+    "version": "2.0.0",
+    "updated_at": "2025-11-13T12:20:00Z",
+    "total_skills": 13,
+    "launchx_skills": [
+      {
+        "name": "business-decision-support",
+        "directory": "1 商决策支持专家",
+        "status": "active",
+        "category": "business_analysis",
+        "capabilities": [
+          "investment_analysis",
+          "roi_calculation",
+          "risk_assessment",
+          "data_driven_decisions"
+        ],
+        "triggers": [
+          "投资决策",
+          "商业分析",
+          "ROI评估",
+          "风险评估"
+        ]
+      },
+      {
+        "name": "enterprise-research-analyst",
+        "directory": "2 企业研究分析师",
+        "status": "active",
+        "category": "business_analysis",
+        "capabilities": [
+          "company_research",
+          "industry_analysis",
+          "competitive_intelligence",
+          "market_trends"
+        ],
+        "triggers": [
+          "企业研究",
+          "行业分析",
+          "竞争情报",
+          "市场调研"
+        ]
+      },
+      {
+        "name": "market-intelligence-expert",
+        "directory": "3 市场情报专家",
+        "status": "active",
+        "category": "market_intelligence",
+        "capabilities": [
+          "market_analysis",
+          "trend_monitoring",
+          "competitor_tracking",
+          "opportunity_identification"
+        ],
+        "triggers": [
+          "市场分析",
+          "趋势监控",
+          "竞品分析",
+          "机会识别"
+        ]
+      },
+      {
+        "name": "knowledge-master",
+        "directory": "4 知识管理大师",
+        "status": "active",
+        "category": "knowledge_management",
+        "capabilities": [
+          "knowledge_organization",
+          "information_architecture",
+          "content_management",
+          "learning_optimization"
+        ],
+        "triggers": [
+          "知识管理",
+          "信息架构",
+          "内容管理",
+          "学习优化"
+        ]
+      },
+      {
+        "name": "project-architect",
+        "directory": "5 项目架构规划师",
+        "status": "active",
+        "category": "technical_design",
+        "capabilities": [
+          "project_planning",
+          "architecture_design",
+          "resource_coordination",
+          "delivery_management"
+        ],
+        "triggers": [
+          "项目规划",
+          "架构设计",
+          "资源配置",
+          "交付管理"
+        ]
+      },
+      {
+        "name": "technical-design-expert",
+        "directory": "6 技术设计专家",
+        "status": "active",
+        "category": "technical_design",
+        "capabilities": [
+          "system_design",
+          "technology_selection",
+          "performance_optimization",
+          "quality_assurance"
+        ],
+        "triggers": [
+          "系统设计",
+          "技术选型",
+          "性能优化",
+          "质量保障"
+        ]
+      },
+      {
+        "name": "cognitive-strategy-master",
+        "directory": "7 认知策略大师",
+        "status": "active",
+        "category": "cognitive_strategy",
+        "capabilities": [
+          "strategic_thinking",
+          "decision_frameworks",
+          "problem_solving",
+          "cognitive_optimization"
+        ],
+        "triggers": [
+          "策略思维",
+          "决策框架",
+          "问题解决",
+          "认知优化"
+        ]
+      },
+      {
+        "name": "gate-os-enterprise-expert",
+        "directory": "8 Gate-OS企业AI操作系统专家",
+        "status": "active",
+        "category": "enterprise_platform",
+        "capabilities": [
+          "enterprise_ai_os",
+          "platform_architecture",
+          "system_integration",
+          "ai_orchestration"
+        ],
+        "triggers": [
+          "企业AI系统",
+          "平台架构",
+          "系统集成",
+          "AI编排"
+        ]
+      },
+      {
+        "name": "deep-learning-expert",
+        "directory": "9 深度学习专家",
+        "status": "active",
+        "category": "ai_mastery",
+        "capabilities": [
+          "deep_learning",
+          "neural_networks",
+          "model_training",
+          "ai_optimization"
+        ],
+        "triggers": [
+          "深度学习",
+          "神经网络",
+          "模型训练",
+          "AI优化"
+        ]
+      },
+      {
+        "name": "invested-enterprise-portrait-master",
+        "directory": "10 被投企业画像分析大师",
+        "status": "active",
+        "category": "investment_analysis",
+        "capabilities": [
+          "enterprise_portrait",
+          "investment_analysis",
+          "risk_assessment",
+          "multi_dimensional_scoring"
+        ],
+        "triggers": [
+          "企业画像",
+          "投资分析",
+          "风险评估",
+          "多维评分"
+        ]
+      },
+      {
+        "name": "codex",
+        "directory": "11 codex-claudecode协作",
+        "status": "active",
+        "category": "development_collaboration",
+        "capabilities": [
+          "advanced_codex_execution",
+          "claude_code_collaboration",
+          "ab_testing",
+          "intelligent_reference_system",
+          "enhanced_thinking",
+          "natural_language_understanding",
+          "hpc_environment_optimization",
+          "automated_error_recovery",
+          "performance_monitoring",
+          "intelligent_command_construction"
+        ],
+        "triggers": [
+          "codex执行",
+          "命令构建",
+          "AB测试",
+          "对照分析",
+          "智能建议",
+          "开发协作",
+          "HPC环境",
+          "错误恢复",
+          "性能优化"
+        ],
+        "optimization_features": {
+          "hpc_slurm_support": true,
+          "landlock_bypass": true,
+          "code_injection_mode": true,
+          "auto_retry_logic": true,
+          "performance_tracking": true
+        },
+        "command_templates": {
+          "hpc_analysis": "codex exec --yolo -m {model} -c model_reasoning_effort=\"{effort}\" --skip-git-repo-check \"{prompt}\" 2>/dev/null",
+          "standard_review": "codex exec -m {model} -c model_reasoning_effort=\"{effort}\" -s read-only --skip-git-repo-check --full-auto \"{prompt}\" 2>/dev/null",
+          "workspace_modification": "codex exec -m {model} -c model_reasoning_effort=\"{effort}\" -s workspace-write --skip-git-repo-check --full-auto \"{prompt}\" 2>/dev/null",
+          "emergency_recovery": "codex exec --yolo -m gpt-5-codex -c model_reasoning_effort=\"high\" --skip-git-repo-check \"{prompt_with_code_injection}\" 2>/dev/null"
+        }
+      },
+      {
+        "name": "git-claudecode-guidance",
+        "directory": "12 git-claudecode指导",
+        "status": "active",
+        "category": "development_collaboration",
+        "capabilities": [
+          "git_workflow_optimization",
+          "claudecode_integration",
+          "collaborative_development",
+          "best_practices_guidance"
+        ],
+        "triggers": [
+          "Git协作",
+          "版本控制",
+          "开发流程",
+          "最佳实践"
+        ]
+      },
+      {
+        "name": "graphic-design-ai-system",
+        "directory": "13 平面设计美学AI技能系统",
+        "status": "active",
+        "category": "creative_design",
+        "capabilities": [
+          "aesthetic_design",
+          "visual_creation",
+          "design_optimization",
+          "ai_enhanced_creativity"
+        ],
+        "triggers": [
+          "平面设计",
+          "美学创作",
+          "视觉设计",
+          "AI创意"
+        ]
+      }
+    ],
+    "official_skills": [
+      {
+        "name": "docx",
+        "directory": "docx",
+        "status": "active",
+        "category": "document_processing",
+        "capabilities": ["document_creation", "editing", "analysis"]
+      },
+      {
+        "name": "skill-creator",
+        "directory": "skill-creator",
+        "status": "active",
+        "category": "development",
+        "capabilities": ["skill_development", "workflow_design"]
+      },
+      {
+        "name": "artifacts-builder",
+        "directory": "artifacts-builder",
+        "status": "active",
+        "category": "development",
+        "capabilities": ["frontend_development", "react_building"]
+      }
+    ]
+  },
+  "activation_system": {
+    "progressive_disclosure": {
+      "enabled": true,
+      "levels": {
+        "level_1": {
+          "description": "技能元数据",
+          "token_limit": 100,
+          "always_loaded": true
+        },
+        "level_2": {
+          "description": "技能主体内容",
+          "token_limit": 5000,
+          "trigger_based": true
+        },
+        "level_3": {
+          "description": "技能资源",
+          "token_limit": "unlimited",
+          "on_demand": true
+        }
+      }
+    },
+    "trigger_engine": {
+      "keyword_detection": true,
+      "context_analysis": true,
+      "semantic_matching": true,
+      "file_path_analysis": true
+    },
+    "performance_monitoring": {
+      "activation_accuracy_target": ">=95%",
+      "response_time_target": "<3s",
+      "memory_efficiency_target": ">=40%"
+    }
+  },
+  "quality_assurance": {
+    "skills_validation": {
+      "frontmatter_validation": true,
+      "content_structure_check": true,
+      "workflow_completeness": true,
+      "resource_integrity": true
+    },
+    "compliance_standards": {
+      "official_format": true,
+      "progressive_disclosure": true,
+      "workflow_orientation": true,
+      "third_person_style": true
+    }
+  },
+  "codex_integration": {
+    "supported_commands": [
+      "skill activate <skill_name>",
+      "skill list",
+      "skill status <skill_name>",
+      "skill test <skill_name>",
+      "skills deploy",
+      "skills validate"
+    ],
+    "auto_activation": true,
+    "fallback_handling": true
+  }
+}

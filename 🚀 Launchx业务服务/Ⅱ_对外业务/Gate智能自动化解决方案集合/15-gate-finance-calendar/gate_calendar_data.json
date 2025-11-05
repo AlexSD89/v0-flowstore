@@ -1,0 +1,78 @@
+{
+  "generated_at": "2025-11-13T18:07:04.545505",
+  "version": "Gate智能财经日历 v1.0",
+  "summary": {
+    "total_events": 4,
+    "high_impact_count": 3,
+    "avg_impact_score": 85.75,
+    "risk_distribution": {
+      "high": 2,
+      "medium": 2,
+      "low": 0
+    }
+  },
+  "events": [
+    {
+      "date": "2025-11-14",
+      "time": "08:30",
+      "title": "美国CPI数据发布",
+      "importance": "⚡⚡⚡ 极高",
+      "impact_score": 95,
+      "type": "宏观经济",
+      "stocks": [
+        "AAPL",
+        "MSFT",
+        "GOOGL"
+      ],
+      "narrative": "📈 美国CPI数据即将发布，市场高度关注通胀预期，重点关注科技板块反应",
+      "action": "保持谨慎观望，关注相关标的波动",
+      "risk_level": "high"
+    },
+    {
+      "date": "2025-11-15",
+      "time": "09:00",
+      "title": "腾讯控股发布Q3财报",
+      "importance": "⚡⚡ 高",
+      "impact_score": 85,
+      "type": "公司公告",
+      "stocks": [
+        "0700.HK",
+        "TCEHY"
+      ],
+      "narrative": "🏢 腾讯Q3财报发布在即，重点关注营收增长和利润率变化，将影响中概股情绪",
+      "action": "提前布局优质中概股，控制仓位",
+      "risk_level": "medium"
+    },
+    {
+      "date": "2025-11-16",
+      "time": "10:00",
+      "title": "央行MLF操作利率公布",
+      "importance": "⚡ 中",
+      "impact_score": 65,
+      "type": "政策发布",
+      "stocks": [
+        "600519.SS",
+        "000001.SZ"
+      ],
+      "narrative": "🏛️ 央行MLF利率政策公布，将直接影响银行板块资金成本和流动性",
+      "action": "关注银行板块反应，适时调整持仓",
+      "risk_level": "medium"
+    },
+    {
+      "date": "2025-11-18",
+      "time": "14:00",
+      "title": "美联储利率决议",
+      "importance": "⚡⚡⚡ 极高",
+      "impact_score": 98,
+      "type": "宏观经济",
+      "stocks": [
+        "SPY",
+        "QQQ",
+        "DIA"
+      ],
+      "narrative": "📊 美联储利率决议将是本周最重要事件，直接影响全球股市走势和美元汇率",
+      "action": "提前做好风险对冲，关注美联储声明措辞",
+      "risk_level": "high"
+    }
+  ]
+}

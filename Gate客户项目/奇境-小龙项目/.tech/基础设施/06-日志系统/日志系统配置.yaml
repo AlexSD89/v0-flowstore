@@ -1,0 +1,372 @@
+# 奇境-小龙项目 - 日志系统配置
+**目标**: 完整记录系统运行状态，支持生产监控和问题诊断
+
+## 📊 日志分类和存储
+
+### 执行日志配置
+```yaml
+execution_logs:
+  # 特化1执行日志
+  specialization1:
+    file_path: "06-日志系统/执行日志/特化1执行.log"
+    rotation_size: "10MB"
+    retention_days: 30
+    log_level: "INFO"
+    format: "[%(asctime)s] [%(levelname)s] [%(module)s] - %(message)s"
+    
+  # 特化2执行日志
+  specialization2:
+    file_path: "06-日志系统/执行日志/特化2执行.log"
+    rotation_size: "10MB"
+    retention_days: 30
+    log_level: "INFO"
+    format: "[%(asctime)s] [%(levelname)s] [%(module)s] - %(message)s"
+    
+  # 特化3执行日志
+  specialization3:
+    file_path: "06-日志系统/执行日志/特化3执行.log"
+    rotation_size: "20MB"
+    retention_days: 60
+    log_level: "INFO"
+    format: "[%(asctime)s] [%(levelname)s] [%(module)s] - %(message)s"
+```
+
+### 错误日志配置
+```yaml
+error_logs:
+  # 系统错误日志
+  system_errors:
+    file_path: "06-日志系统/错误日志/系统错误.log"
+    rotation_size: "5MB"
+    retention_days: 90
+    log_level: "ERROR"
+    format: "[%(asctime)s] [%(levelname)s] [%(module)s:%(lineno)d] [%(funcName)s] - %(message)s"
+    
+  # 业务错误日志
+  business_errors:
+    file_path: "06-日志系统/错误日志/业务错误.log"
+    rotation_size: "10MB"
+    retention_days: 60
+    log_level: "ERROR"
+    format: "[%(asctime)s] [%(levelname)s] [BUSINESS] - %(message)s"
+    
+  # 配置错误日志
+  configuration_errors:
+    file_path: "06-日志系统/错误日志/配置错误.log"
+    rotation_size: "5MB"
+    retention_days: 90
+    log_level: "WARNING"
+    format: "[%(asctime)s] [%(levelname)s] [CONFIG] - %(message)s"
+```
+
+### 性能日志配置
+```yaml
+performance_logs:
+  # 处理时间日志
+  processing_time:
+    file_path: "06-日志系统/性能日志/处理时间.log"
+    rotation_size: "15MB"
+    retention_days: 30
+    log_level: "INFO"
+    format: "[%(asctime)s] [PERFORMANCE] [%(task_type)s] [%(file_name)s] - 处理时间: %(processing_time)s秒, 状态: %(status)s"
+    
+  # 资源使用日志
+  resource_usage:
+    file_path: "06-日志系统/性能日志/资源使用.log"
+    rotation_size: "10MB"
+    retention_days: 30
+    log_level: "INFO"
+    format: "[%(asctime)s] [PERFORMANCE] [%(resource_type)s] - CPU: %(cpu_usage)s%%, 内存: %(memory_usage)sMB, 磁盘: %(disk_usage)sMB"
+    
+  # 质量指标日志
+  quality_metrics:
+    file_path: "06-日志系统/性能日志/质量指标.log"
+    rotation_size: "10MB"
+    retention_days: 60
+    log_level: "INFO"
+    format: "[%(asctime)s] [QUALITY] [%(task_type)s] - 综合评分: %(overall_score)s, 完整度: %(completeness)s, 翻译质量: %(translation_quality)s"
+```
+
+### 学习日志配置
+```yaml
+learning_logs:
+  # 规则更新日志
+  rule_updates:
+    file_path: "06-日志系统/学习日志/规则更新.log"
+    rotation_size: "5MB"
+    retention_days: 365
+    log_level: "INFO"
+    format: "[%(asctime)s] [LEARNING] [RULE_UPDATE] - 规则类型: %(rule_type)s, 更新原因: %(update_reason)s, 效果: %(effect)s"
+    
+  # 模型优化日志
+  model_optimization:
+    file_path: "06-日志系统/学习日志/模型优化.log"
+    rotation_size: "5MB"
+    retention_days: 365
+    log_level: "INFO"
+    format: "[%(asctime)s] [LEARNING] [MODEL_OPT] - 模型: %(model_name)s, 优化类型: %(optimization_type)s, 改进效果: %(improvement)s"
+    
+  # 客户反馈日志
+  customer_feedback:
+    file_path: "06-日志系统/学习日志/客户反馈.log"
+    rotation_size: "8MB"
+    retention_days: 180
+    log_level: "INFO"
+    format: "[%(asctime)s] [LEARNING] [FEEDBACK] - 客户: %(customer_id)s, 满意度: %(satisfaction)s, 反馈类型: %(feedback_type)s"
+```
+
+## 🎯 关键日志记录点
+
+### 特化1：Excel分析器日志记录
+```yaml
+specialization1_logging:
+  key_events:
+    - "文件接收": 记录文件路径、大小、上传时间
+    - "模式识别": 记录识别结果、置信度、匹配模板
+    - "结构解析": 记录解析耗时、发现的特征
+    - "业务分析": 记录业务模式、行业匹配结果
+    - "内容生成": 记录生成各部分耗时、内容长度
+    - "质量评估": 记录各项评分、总体分数
+    - "输出生成": 记录输出文件路径、文件大小
+    - "异常处理": 记录错误类型、处理方式、结果
+  
+  performance_metrics:
+    - "total_processing_time": 总处理时间
+    - "structure_analysis_time": 结构解析时间
+    - "content_generation_time": 内容生成时间
+    - "quality_check_time": 质量检查时间
+    - "file_size": 处理文件大小
+    - "rows_processed": 处理数据行数
+    - "columns_processed": 处理数据列数
+  
+  quality_indicators:
+    - "completeness_score": 完整度评分
+    - "translation_score": 翻译质量评分
+    - "brand_consistency_score": 品牌一致性评分
+    - "seo_optimization_score": SEO优化评分
+    - "overall_quality_score": 综合质量评分
+```
+
+### 特化2：设计审查器日志记录
+```yaml
+specialization2_logging:
+  key_events:
+    - "图片接收": 记录图片路径、尺寸、格式
+    - "设计识别": 记录设计类型、渠道、阶段
+    - "质量分析": 记录各项检查结果、问题发现
+    - "差异分析": 记录H5与微报差异分析
+    - "修改建议": 记录建议数量、优先级分类
+    - "质量评分": 记录各门禁评分、总体分数
+    - "报告生成": 记录报告内容、文件路径
+    - "异常处理": 记录错误类型、处理过程
+  
+  performance_metrics:
+    - "image_processing_time": 图片处理时间
+    - "analysis_time": 分析耗时
+    - "suggestion_generation_time": 建议生成时间
+    - "report_generation_time": 报告生成时间
+    - "image_size": 处理图片大小
+    - "image_resolution": 图片分辨率
+    - "issues_detected": 发现问题数量
+    - "suggestions_generated": 生成建议数量
+  
+  quality_indicators:
+    - "design_quality_score": 设计质量评分
+    - "brand_consistency_score": 品牌一致性评分
+    - "compliance_score": 合规性评分
+    - "conversion_potential_score": 转化潜力评分
+    - "overall_review_score": 综合审查评分
+```
+
+### 特化3：项目协调器日志记录
+```yaml
+specialization3_logging:
+  key_events:
+    - "需求接收": 记录需求内容、复杂度评估
+    - "能力匹配": 记录匹配的外部能力、协调策略
+    - "资源评估": 记录资源需求、分配方案
+    - "方案生成": 记录方案设计、架构选择
+    - "原型验证": 记录验证过程、测试结果
+    - "路线图制定": 记录实施计划、里程碑设定
+    - "风险评估": 记录风险分析、缓解策略
+    - "报告输出": 记录最终报告、交付成果
+    - "异常处理": 记录异常情况、解决方案
+  
+  performance_metrics:
+    - "complexity_assessment_time": 复杂度评估时间
+    - "capability_matching_time": 能力匹配时间
+    - "resource_coordination_time": 资源协调时间
+    - "solution_design_time": 方案设计时间
+    - "roadmap_planning_time": 路线图规划时间
+    - "complexity_score": 复杂度评分
+    - "external_capabilities_used": 使用的外部能力数量
+    - "coordination_overhead": 协调开销
+  
+  quality_indicators:
+    - "integration_feasibility_score": 集成可行性评分
+    - "technical_feasibility_score": 技术可行性评分
+    - "business_alignment_score": 业务对齐评分
+    - "risk_management_score": 风险管理评分
+    - "overall_coordination_score": 综合协调评分
+```
+
+## 📈 监控和告警配置
+
+### 监控指标
+```yaml
+monitoring_metrics:
+  # 系统健康指标
+  system_health:
+    - "service_availability": 服务可用性 (目标: >=99.5%)
+    - "response_time": 响应时间 (目标: <=5秒)
+    - "error_rate": 错误率 (目标: <=1%)
+    - "queue_length": 队列长度 (目标: <=10)
+  
+  # 性能指标
+  performance:
+    - "average_processing_time": 平均处理时间
+    - "throughput": 处理吞吐量
+    - "resource_utilization": 资源利用率
+    - "cache_hit_rate": 缓存命中率
+  
+  # 质量指标
+  quality:
+    - "average_quality_score": 平均质量评分
+    - "customer_satisfaction": 客户满意度
+    - "auto_approval_rate": 自动通过率
+    - "manual_review_rate": 人工复核率
+```
+
+### 告警规则
+```yaml
+alert_rules:
+  # 系统告警
+  system_alerts:
+    - name: "服务不可用"
+      condition: "service_availability < 99%"
+      severity: "critical"
+      action: "立即通知技术团队"
+    
+    - name: "响应时间过长"
+      condition: "response_time > 10秒"
+      severity: "warning"
+      action: "记录日志并监控"
+    
+    - name: "错误率过高"
+      condition: "error_rate > 5%"
+      severity: "critical"
+      action: "立即通知开发团队"
+  
+  # 性能告警
+  performance_alerts:
+    - name: "处理时间异常"
+      condition: "average_processing_time > 60分钟"
+      severity: "warning"
+      action: "记录性能日志"
+    
+    - name: "资源利用率过高"
+      condition: "resource_utilization > 90%"
+      severity: "warning"
+      action: "记录资源使用日志"
+  
+  # 质量告警
+  quality_alerts:
+    - name: "质量评分过低"
+      condition: "average_quality_score < 80"
+      severity: "warning"
+      action: "触发质量优化流程"
+    
+    - name: "客户满意度下降"
+      condition: "customer_satisfaction < 90%"
+      severity: "critical"
+      action: "启动客户反馈处理流程"
+```
+
+## 🔧 日志管理工具
+
+### 日志轮转配置
+```yaml
+log_rotation:
+  enabled: true
+  max_file_size: "10MB"
+  backup_count: 5
+  compression: true
+  cleanup_days: 30
+  
+  rotation_schedule:
+    daily: true
+    weekly: false
+    monthly: false
+```
+
+### 日志分析工具
+```yaml
+log_analysis:
+  tools:
+    - "log_parser": 日志解析工具
+    - "error_analyzer": 错误分析工具
+    - "performance_monitor": 性能监控工具
+    - "quality_tracker": 质量跟踪工具
+    - "trend_analyzer": 趋势分析工具
+  
+  reports:
+    - "daily_summary": 每日汇总报告
+    - "weekly_performance": 每周性能报告
+    - "monthly_quality": 每月质量报告
+    - "quarterly_learning": 季度学习报告
+```
+
+### 日志查询接口
+```yaml
+log_query:
+  supported_queries:
+    - "by_date_range": 按日期范围查询
+    - "by_log_level": 按日志级别查询
+    - "by_module": 按模块查询
+    - "by_task_id": 按任务ID查询
+    - "by_error_type": 按错误类型查询
+    - "by_performance": 按性能指标查询
+  
+  export_formats:
+    - "json": JSON格式
+    - "csv": CSV格式
+    - "excel": Excel格式
+    - "html": HTML报告格式
+```
+
+## 📝 日志使用指南
+
+### 日志查看命令
+```bash
+# 查看实时日志
+tail -f 06-日志系统/执行日志/特化1执行.log
+
+# 查看错误日志
+grep "ERROR" 06-日志系统/错误日志/系统错误.log
+
+# 查看性能日志
+grep "PERFORMANCE" 06-日志系统/性能日志/处理时间.log
+
+# 查看特定时间段日志
+grep "2025-11-13" 06-日志系统/执行日志/特化1执行.log
+```
+
+### 日志分析命令
+```bash
+# 统计处理次数
+grep "文件接收" 06-日志系统/执行日志/特化1执行.log | wc -l
+
+# 统计错误次数
+grep "ERROR" 06-日志系统/错误日志/系统错误.log | wc -l
+
+# 分析平均处理时间
+grep "处理时间" 06-日志系统/性能日志/处理时间.log | awk '{print $NF}' | sed 's/秒//g' | awk '{sum+=$1} count++} END {print "平均处理时间:", sum/count, "秒"}'
+```
+
+---
+
+**配置说明**: 本配置文件定义了完整的日志记录体系，包括执行日志、错误日志、性能日志和学习日志，确保系统运行状态可追溯、可监控、可优化。
+
+**更新日期**: 2025-11-13  
+**版本**: v1.0.0  
+**维护**: 系统运维团队

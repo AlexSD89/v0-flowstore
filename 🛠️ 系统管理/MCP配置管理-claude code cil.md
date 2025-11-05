@@ -26,7 +26,6 @@
 {
   "mcpServers": [
     "ant-design",
-    "chrome-devtools",
     "context7",
     "fetch",
     "filesystem-shtse",
@@ -173,7 +172,7 @@ curl -s https://rube.app/mcp
 **重要更新**：
 - **2025-11-01 22:49**：修改默认配置为非无头模式，支持Playwright MCP直接控制Chrome浏览器
 - **Chrome可见性验证**：✅ 默认使用可见Chrome，便于调试和Playwright控制
-- **Playwright集成**：✅ 可配合chrome-devtools-mcp或playwright-mcp进行高级浏览器操作
+- **Playwright集成**：✅ 可配合playwright-mcp进行高级浏览器操作
 - **浏览器控制验证**：✅ 通过API调用验证Chrome以可见模式正常启动，PID检测确认无`--headless`参数
 
 **注意**：此MCP服务器需要先启动本地服务才能被Claude Code连接使用。默认使用可见Chrome模式，适合与Playwright MCP配合使用。

@@ -1,0 +1,273 @@
+{
+  "feedback_workflow": {
+    "name": "设计反馈优化工作流",
+    "version": "1.0",
+    "description": "系统化的设计分析、反馈和优化流程",
+    "stages": {
+      "input_analysis": {
+        "name": "输入分析阶段",
+        "steps": [
+          {
+            "id": "upload_design",
+            "name": "设计文件上传",
+            "description": "接收设计文件和相关信息",
+            "inputs": ["设计文件", "项目背景", "目标受众", "媒介规格"],
+            "processing": {
+              "file_validation": "检查文件格式和完整性",
+              "metadata_extraction": "提取设计基本信息",
+              "preprocessing": "标准化图像尺寸和质量"
+            }
+          },
+          {
+            "id": "context_understanding", 
+            "name": "上下文理解",
+            "description": "分析设计背景和约束条件",
+            "analysis_areas": [
+              "品牌识别系统",
+              "行业特征分析",
+              "目标受众特征", 
+              "传播媒介要求",
+              "竞争环境分析"
+            ]
+          }
+        ]
+      },
+      "aesthetic_analysis": {
+        "name": "美学分析阶段", 
+        "modules": {
+          "composition_analysis": {
+            "name": "构图分析",
+            "checks": [
+              {
+                "name": "黄金分割检查",
+                "method": "计算关键元素位置比例",
+                "threshold": 0.1,
+                "feedback_template": "构图{符合/不符合}黄金分割原则，建议{调整建议}"
+              },
+              {
+                "name": "三分法则检查", 
+                "method": "分析元素在九宫格中的分布",
+                "threshold": 0.15,
+                "feedback_template": "视觉重心{合理/需要调整}，建议将{元素}放置在{位置}"
+              },
+              {
+                "name": "视觉平衡检查",
+                "method": "评估左右、上下的视觉重量平衡",
+                "feedback_template": "整体构图{平衡/不平衡}，{具体调整建议}"
+              }
+            ]
+          },
+          "color_analysis": {
+            "name": "色彩分析",
+            "checks": [
+              {
+                "name": "色彩和谐度",
+                "method": "分析色彩搭配的和谐性",
+                "color_schemes": ["complementary", "analogous", "triadic", "tetradic"],
+                "feedback_template": "色彩搭配{和谐/不和谐}，{具体改进建议}"
+              },
+              {
+                "name": "对比度检查",
+                "method": "计算文字与背景的对比度",
+                "standards": ["WCAG_AA", "WCAG_AAA"],
+                "feedback_template": "文字对比度{达标/不达标}，建议{调整方案}"
+              },
+              {
+                "name": "品牌色彩一致性",
+                "method": "对比品牌标准色彩规范",
+                "feedback_template": "品牌色彩{一致/不一致}，{具体修改建议}"
+              }
+            ]
+          },
+          "typography_analysis": {
+            "name": "字体分析",
+            "checks": [
+              {
+                "name": "字体层次检查",
+                "method": "分析标题、正文、辅助文本的层次关系",
+                "principles": ["size_contrast", "weight_contrast", "style_contrast"],
+                "feedback_template": "字体层次{清晰/模糊}，建议{调整方案}"
+              },
+              {
+                "name": "可读性检查",
+                "method": "评估文字的可读性",
+                "factors": ["font_size", "line_height", "character_spacing", "line_length"],
+                "feedback_template": "文字可读性{良好/需要改进}，{具体建议}"
+              },
+              {
+                "name": "字体搭配检查",
+                "method": "评估多种字体的搭配效果",
+                "principles": ["harmony", "contrast", "variety_limit"],
+                "feedback_template": "字体搭配{协调/不协调}，建议{优化方案}"
+              }
+            ]
+          },
+          "spacing_analysis": {
+            "name": "间距分析",
+            "checks": [
+              {
+                "name": "留白评估",
+                "method": "分析负空间的利用效果",
+                "principles": ["breathing_room", "visual_rest", "emphasis"],
+                "feedback_template": "留白{充足/不足}，建议{调整建议}"
+              },
+              {
+                "name": "元素间距",
+                "method": "检查各元素之间的间距一致性",
+                "consistency_rules": ["margin_consistency", "padding_consistency"],
+                "feedback_template": "元素间距{一致/不一致}，需要{具体调整}"
+              }
+            ]
+          }
+        }
+      },
+      "feedback_generation": {
+        "name": "反馈生成阶段",
+        "process": {
+          "issue_identification": {
+            "name": "问题识别",
+            "severity_levels": ["critical", "major", "minor", "suggestion"],
+            "prioritization": ["visual_impact", "business_impact", "user_experience"]
+          },
+          "solution_formulation": {
+            "name": "解决方案制定",
+            "solution_types": ["immediate_fix", "design_alternative", "conceptual_improvement"],
+            "detail_level": ["specific_action", "principle_based", "creative_suggestion"]
+          },
+          "feedback_structuring": {
+            "name": "反馈结构化",
+            "format": {
+              "executive_summary": "整体评估和建议概述",
+              "detailed_analysis": "分项详细分析",
+              "actionable_suggestions": "可执行的改进建议",
+              "visual_examples": "视觉化示例和参考",
+              "implementation_guide": "实施步骤和工具建议"
+            }
+          }
+        }
+      },
+      "optimization_engine": {
+        "name": "优化引擎",
+        "capabilities": {
+          "automatic_adjustments": {
+            "name": "自动调整",
+            "operations": [
+              "色彩平衡调整",
+              "对比度优化", 
+              "字体大小微调",
+              "间距标准化",
+              "对齐优化"
+            ]
+          },
+          "suggestion_generation": {
+            "name": "建议生成",
+            "suggestion_types": [
+              "layout_alternatives",
+              "color_variations",
+              "typography_options",
+              "composition_improvements"
+            ]
+          },
+          "performance_prediction": {
+            "name": "效果预测",
+            "metrics": [
+              "visual_impact_score",
+              "readability_score", 
+              "brand_consistency_score",
+              "user_engagement_prediction"
+            ]
+          }
+        }
+      },
+      "tool_integration": {
+        "name": "工具集成阶段",
+        "integrations": {
+          "design_software": {
+            "adobe_suite": {
+              "photoshop": ["layers_adjustment", "color_correction", "effects"],
+              "illustrator": ["vector_modification", "text_adjustment", "color_application"],
+              "indesign": ["layout_adjustment", "text_reflow", "color_management"]
+            },
+            "online_tools": {
+              "figma": ["component_adjustment", "style_update", "layout_refine"],
+              "canva": ["template_customization", "element_rearrangement", "color_scheme_update"]
+            }
+          },
+          "ai_tools": {
+            "image_generation": {
+              "dalle": "概念可视化生成",
+              "midjourney": "风格化设计生成",
+              "stable_diffusion": "本地化图像生成"
+            },
+            "enhancement_tools": {
+              "background_removal": "背景智能移除",
+              "object_detection": "设计元素识别",
+              "style_transfer": "风格转换应用"
+            }
+          }
+        }
+      }
+    }
+  },
+  "feedback_templates": {
+    "critical_issue": {
+      "subject": "关键设计问题需要立即处理",
+      "tone": "urgent_constructive",
+      "structure": [
+        "问题描述",
+        "影响分析", 
+        "解决方案",
+        "实施步骤",
+        "预防措施"
+      ]
+    },
+    "improvement_suggestion": {
+      "subject": "设计改进建议",
+      "tone": "collaborative",
+      "structure": [
+        "当前状态分析",
+        "改进机会识别",
+        "具体建议方案",
+        "预期效果说明",
+        "实施优先级"
+      ]
+    },
+    "creative_alternative": {
+      "subject": "创意设计方案",
+      "tone": "inspirational",
+      "structure": [
+        "设计理念说明",
+        "创意亮点展示",
+        "技术实现方案",
+        "品牌价值体现",
+        "市场差异化"
+      ]
+    }
+  },
+  "quality_metrics": {
+    "feedback_quality": {
+      "relevance": "反馈与设计目标的匹配度",
+      "actionability": "建议的可执行性",
+      "clarity": "表达的清晰度和易懂性",
+      "completeness": "分析的全面性"
+    },
+    "design_improvement": {
+      "visual_appeal": "视觉吸引力提升程度",
+      "functionality": "功能性改进效果",
+      "brand_alignment": "品牌一致性提升",
+      "user_experience": "用户体验改善"
+    }
+  },
+  "learning_mechanisms": {
+    "feedback_effectiveness": {
+      "user_satisfaction_tracking": "用户对反馈的满意度",
+      "implementation_rate": "建议的实施率",
+      "result_improvement": "实施后的设计改进效果"
+    },
+    "continuous_improvement": {
+      "pattern_recognition": "识别反复出现的设计问题",
+      "solution_effectiveness": "分析不同解决方案的效果",
+      "knowledge_base_update": "更新设计知识库和最佳实践"
+    }
+  }
+}

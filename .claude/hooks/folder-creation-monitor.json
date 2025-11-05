@@ -1,0 +1,45 @@
+{
+  "name": "folder-creation-monitor",
+  "version": "1.0.0",
+  "description": "监控文件夹创建，识别可疑进程并提供清理方案",
+  "author": "LaunchX Team",
+  "enabled": true,
+  "triggers": [
+    "user-prompt-submit",
+    "post-tool-use"
+  ],
+  "config": {
+    "monitorDuration": 30000,
+    "checkInterval": 5000,
+    "suspiciousPatterns": [
+      "analytics",
+      "android-",
+      "cache",
+      "codegen",
+      "collaboration",
+      "custom-templates",
+      "learning",
+      "logs",
+      "memory",
+      "predictive",
+      "prompt-library",
+      "swarm",
+      "templates"
+    ],
+    "autoCleanup": false,
+    "generateCleanupScript": true
+  },
+  "actions": {
+    "onDetection": [
+      "log-suspicious-folders",
+      "identify-processes",
+      "generate-report",
+      "suggest-cleanup"
+    ]
+  },
+  "notifications": {
+    "console": true,
+    "file": true,
+    "logFile": ".claude/logs/folder-monitor.log"
+  }
+}

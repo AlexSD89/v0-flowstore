@@ -1,0 +1,308 @@
+{
+  "skill_config": {
+    "name": "平面设计美学AI技能系统",
+    "version": "2.0.0",
+    "type": "design_aesthetics_ai",
+    "level": "M",
+    "activation_keywords": [
+      "设计美学",
+      "平面设计",
+      "设计优化",
+      "设计反馈",
+      "美学标准",
+      "设计记忆",
+      "视觉设计",
+      "美学知识库",
+      "文化美学",
+      "古典设计",
+      "当代趋势"
+    ],
+    "target_paths": [
+      "**/*.psd",
+      "**/*.ai", 
+      "**/*.fig",
+      "**/*.sketch",
+      "**/*.png",
+      "**/*.jpg",
+      "**/*.svg",
+      "**/*.pdf"
+    ],
+    "token_threshold": 1000,
+    "activation_mode": "contextual"
+  },
+  "learning_engine": {
+    "aesthetics_principles": {
+      "golden_ratio": {
+        "enabled": true,
+        "tolerance": 0.1,
+        "applications": ["layout", "typography", "composition"]
+      },
+      "rule_of_thirds": {
+        "enabled": true,
+        "grid_divisions": 9,
+        "weight_tolerance": 0.15
+      },
+      "color_theory": {
+        "harmony_modes": ["complementary", "analogous", "triadic", "tetradic"],
+        "contrast_ratios": {
+          "WCAG_AA": 4.5,
+          "WCAG_AAA": 7.0
+        }
+      },
+      "typography": {
+        "line_height_ratio": [1.2, 1.8],
+        "font_scale_ratios": [1.25, 1.618],
+        "max_characters_per_line": 75
+      }
+    },
+    "memory_system": {
+      "project_memory": {
+        "retention_days": 365,
+        "max_projects": 100,
+        "auto_cleanup": true
+      },
+      "design_patterns": {
+        "vector_dimensions": 512,
+        "similarity_threshold": 0.85,
+        "cluster_count": 20
+      },
+      "feedback_history": {
+        "max_entries": 1000,
+        "sentiment_analysis": true,
+        "effectiveness_tracking": true
+      }
+    },
+    "knowledge_base_expansion": {
+      "comprehensive_library": "resources/comprehensive_aesthetics_library.json",
+      "classical_analysis": "resources/classical_designs_analysis.json",
+      "intelligent_search": "resources/intelligent_search_system.json",
+      "auto_update_frequency": "daily",
+      "knowledge_sources": [
+        "behance_featured",
+        "dribbble_popular",
+        "pinterest_trending",
+        "academic_papers",
+        "design_museums",
+        "industry_reports"
+      ]
+    }
+  },
+  "cultural_aesthetics": {
+    "eastern_principles": {
+      "zen_aesthetics": true,
+      "feng_shui_principles": true,
+      "calligraphic_influence": true,
+      "minimalism_borrowing": true
+    },
+    "western_traditions": {
+      "renaissance_harmony": true,
+      "bauhaus_functionalism": true,
+      "swiss_precision": true,
+      "modernist_experiments": true
+    },
+    "islamic_patterns": {
+      "geometric_symmetry": true,
+      "arabesque_florals": true,
+      "calligraphic_integration": true,
+      "architectural_influence": true
+    },
+    "cultural_adaptation": {
+      "localized_color_meanings": true,
+      "cultural_symbolism": true,
+      "regional_preferences": true,
+      "cross_cultural_fusion": true
+    }
+  },
+  "historical_knowledge": {
+    "classical_masterworks": {
+      "renaissance_period": true,
+      "baroque_dynamics": true,
+      "neoclassical_order": true,
+      "romantic_expression": true
+    },
+    "modern_movements": {
+      "impressionism": true,
+      "cubism_deconstruction": true,
+      "surrealism_dreamscape": true,
+      "pop_culture_integration": true
+    },
+    "contemporary_trends": {
+      "minimalism_purity": true,
+      "brutalist_rawness": true,
+      "scandinavian_warmth": true,
+      "japanese_refinement": true
+    },
+    "historical_learning": {
+      "master_analysis": true,
+      "technique_extraction": true,
+      "style_transformation": true,
+      "contemporary_application": true
+    }
+  },
+  "contemporary_trends": {
+    "trend_tracking": {
+      "real_time_monitoring": true,
+      "social_media_analysis": true,
+      "industry_report_integration": true,
+      "award_show_tracking": true
+    },
+    "emerging_styles": {
+      "neo_brutalism": true,
+      "glassmorphism": true,
+      "3d_typography": true,
+      "adaptive_design": true
+    },
+    "technology_integration": {
+      "ar_vr_experiences": true,
+      "interactive_elements": true,
+      "motion_graphics": true,
+      "responsive_evolution": true
+    },
+    "trend_prediction": {
+      "pattern_recognition": true,
+      "cyclical_analysis": true,
+      "cultural_shift_detection": true,
+      "technology_impact_assessment": true
+    }
+  },
+  "cross_cultural_patterns": {
+    "global_aesthetics": {
+      "universal_principles": true,
+      "cultural_specificity": true,
+      "fusion_opportunities": true,
+      "glocalization_balance": true
+    },
+    "regional_specialties": {
+      "nordic_minimalism": true,
+      "mediterranean_warmth": true,
+      "asymmetric_japanese": true,
+      "vibrant_latin_american": true
+    },
+    "cultural_sensitivity": {
+      "symbolic_meaning_awareness": true,
+      "cultural_appropriation_avoidance": true,
+      "inclusive_design_principles": true,
+      "diverse_representation": true
+    },
+    "global_collaboration": {
+      "cross_cultural_teams": true,
+      "international_client_work": true,
+      "multilingual_capabilities": true,
+      "cultural_consultation_network": true
+    }
+  },
+  "feedback_system": {
+    "analysis_modules": {
+      "visual_analysis": {
+        "composition_scoring": true,
+        "color_harmony_check": true,
+        "typography_assessment": true,
+        "balance_evaluation": true,
+        "cultural_appropriateness_check": true,
+        "historical_reference_analysis": true,
+        "trend_alignment_assessment": true,
+        "cross_cultural_compatibility": true
+      },
+      "context_analysis": {
+        "brand_consistency": true,
+        "target_audience_fit": true,
+        "medium_appropriateness": true,
+        "industry_standards": true,
+        "cultural_context_analysis": true,
+        "historical_context_understanding": true
+      }
+    },
+    "suggestion_engine": {
+      "max_suggestions": 8,
+      "confidence_threshold": 0.7,
+      "priority_factors": ["impact", "feasibility", "alignment", "cultural_relevance", "trend_timeliness"],
+      "explanation_inclusion": true,
+      "cultural_consideration_inclusion": true,
+      "historical_reference_inclusion": true
+    }
+  },
+  "tool_integration": {
+    "adobe_creative_suite": {
+      "photoshop": {
+        "enabled": true,
+        "operations": ["layers", "adjustments", "filters", "effects", "cultural_overlays", "historical_filters"]
+      },
+      "illustrator": {
+        "enabled": true, 
+        "operations": ["shapes", "text", "colors", "effects", "cultural_patterns", "classical_elements"]
+      },
+      "indesign": {
+        "enabled": false,
+        "operations": ["layout", "typography", "export", "cultural_formatting"]
+      }
+    },
+    "online_platforms": {
+      "figma": {
+        "enabled": true,
+        "operations": ["components", "styles", "prototyping", "cultural_component_sets"]
+      },
+      "canva": {
+        "enabled": false,
+        "operations": ["templates", "elements", "brand_kit", "cultural_template_collections"]
+      }
+    },
+    "ai_generation": {
+      "image_generation": {
+        "enabled": true,
+        "providers": ["dall-e", "midjourney", "stable_diffusion"],
+        "style_consistency": true,
+        "cultural_style_preservation": true,
+        "historical_style_emulation": true
+      }
+    }
+  },
+  "evaluation_metrics": {
+    "learning_effectiveness": {
+      "aesthetics_recognition_accuracy": 0.9,
+      "cultural_sensitivity_accuracy": 0.85,
+      "historical_knowledge_application": 0.8,
+      "trend_prediction_accuracy": 0.75,
+      "suggestion_relevance": 0.85,
+      "learning_velocity": "days_to_proficiency: 7"
+    },
+    "design_quality": {
+      "client_satisfaction_target": 4.7,
+      "cultural_appropriateness_score": 4.5,
+      "efficiency_improvement_target": 0.4,
+      "return_rate_reduction_target": 0.5,
+      "cross_cultural_acceptance_rate": 0.8
+    },
+    "knowledge_base_metrics": {
+      "library_coverage_percentage": 0.95,
+      "search_accuracy_rate": 0.9,
+      "knowledge_expansion_rate": "weekly_new_entries: 50",
+      "cultural_representation_balance": 0.85
+    }
+  },
+  "intelligent_learning": {
+    "auto_expansion": {
+      "enabled": true,
+      "learning_sources": [
+        "behance_analysis",
+        "dribbble_trends", 
+        "pinterest_patterns",
+        "academic_research",
+        "museum_collections",
+        "industry_publications"
+      ],
+      "expansion_criteria": {
+        "novelty_threshold": 0.7,
+        "quality_threshold": 0.8,
+        "relevance_threshold": 0.75,
+        "cultural_significance_threshold": 0.6
+      }
+    },
+    "cross_reference_learning": {
+      "enabled": true,
+      "pattern_matching": true,
+      "style_evolution_tracking": true,
+      "cultural_adaptation_learning": true,
+      "historical_influence_mapping": true
+    }
+  }
+}

@@ -185,18 +185,10 @@
         "Authorization": "Bearer 720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
       }
     },
-    "zai-mcp-server": {
-      "type": "stdio",
-      "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@z_ai/mcp-server"
-      ],
-      "env": {
-        "Z_AI_API_KEY": "720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV"
-      }
+    "gate": {
+      "type": "http",
+      "url": "https://mcp.a2a.ink/mcp",
+      "description": "Gate业务域专用MCP，提供项目方法论与自动化服务"
     },
     "xiaohongshu": {
       "command": "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64",

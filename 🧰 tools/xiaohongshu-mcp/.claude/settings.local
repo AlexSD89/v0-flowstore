@@ -71,7 +71,6 @@
 
       // 浏览器自动化
       "mcp__playwright-extension__browser_*",
-      "mcp__chrome-devtools__*",
 
       // 网络和监控
       "Bash(open)",

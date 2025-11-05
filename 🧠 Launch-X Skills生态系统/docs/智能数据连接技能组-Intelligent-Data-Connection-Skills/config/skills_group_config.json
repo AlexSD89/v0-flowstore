@@ -1,0 +1,210 @@
+{
+  "skill_group_config": {
+    "name": "智能数据连接与知识提取技能群组",
+    "version": "1.0.0",
+    "level": "L",
+    "description": "基于实际业务数据源的智能数据连接、知识提取、经验学习和智能推荐系统",
+    "data_sources": {
+      "primary_directory": "/Users/dangsiyuan/Documents/obsidion/launch x/整理共同性可AI化项目",
+      "data_categories": [
+        {
+          "name": "喜临门",
+          "path": "喜临门",
+          "description": "设计管理相关数据",
+          "file_formats": ["doc", "docx", "xlsx", "pptx", "jpg", "png"],
+          "data_types": ["design_specifications", "visual_assets", "business_logic"]
+        },
+        {
+          "name": "旺铺商家需求",
+          "path": "旺铺商家需求",
+          "description": "商家需求数据",
+          "file_formats": ["doc", "docx", "txt", "xlsx"],
+          "data_types": ["requirements", "user_feedback", "business_rules", "historical_data"]
+        },
+        {
+          "name": "风控",
+          "path": "风控",
+          "description": "风控管理数据",
+          "file_formats": ["doc", "docx", "xlsx"],
+          "data_types": ["risk_cases", "internal_controls", "management_standards", "historical_data"]
+        }
+      ]
+    },
+    "core_skills": [
+      {
+        "id": "database_connection",
+        "name": "数据库连接技能",
+        "module_path": "📊 数据库连接技能",
+        "priority": 1,
+        "capabilities": [
+          "excel_csv_parsing",
+          "powerpoint_extraction",
+          "api_integration",
+          "real_time_sync",
+          "data_validation"
+        ]
+      },
+      {
+        "id": "knowledge_extraction",
+        "name": "知识提取技能",
+        "module_path": "🔍 知识提取技能",
+        "priority": 2,
+        "capabilities": [
+          "document_intelligent_parsing",
+          "image_content_analysis",
+          "semantic_understanding",
+          "context_association"
+        ],
+        "dependencies": ["database_connection"]
+      },
+      {
+        "id": "experience_learning",
+        "name": "经验学习技能",
+        "module_path": "🧠 经验学习技能",
+        "priority": 3,
+        "capabilities": [
+          "experience_pattern_recognition",
+          "learning_algorithm_optimization",
+          "knowledge_graph_construction",
+          "adaptive_learning"
+        ],
+        "dependencies": ["knowledge_extraction"]
+      },
+      {
+        "id": "intelligent_recommendation",
+        "name": "智能建议技能",
+        "module_path": "🤖 智能建议技能",
+        "priority": 4,
+        "capabilities": [
+          "personalized_recommendation",
+          "decision_support",
+          "predictive_analysis",
+          "intelligent_qa"
+        ],
+        "dependencies": ["experience_learning"]
+      },
+      {
+        "id": "multi_format_processing",
+        "name": "多格式处理技能",
+        "module_path": "📄 多格式处理技能",
+        "priority": 0,
+        "capabilities": [
+          "ocr_text_recognition",
+          "format_standardization",
+          "file_conversion",
+          "version_control"
+        ],
+        "dependencies": []
+      }
+    ],
+    "supported_formats": {
+      "office_documents": ["doc", "docx", "xlsx", "ppt", "pptx"],
+      "image_formats": ["jpg", "jpeg", "png", "gif", "bmp", "tiff"],
+      "text_formats": ["txt", "rtf", "md", "json", "xml", "csv"],
+      "archival_formats": ["zip", "rar", "7z", "tar", "gz"],
+      "web_formats": ["html", "htm", "pdf", "epub"]
+    },
+    "processing_pipeline": {
+      "data_ingestion": {
+        "stages": [
+          "format_detection",
+          "pre_processing",
+          "quality_check",
+          "metadata_extraction"
+        ]
+      },
+      "knowledge_extraction": {
+        "stages": [
+          "content_parsing",
+          "entity_recognition",
+          "relationship_identification",
+          "semantic_analysis"
+        ]
+      },
+      "learning_adaptation": {
+        "stages": [
+          "pattern_identification",
+          "model_training",
+          "validation_testing",
+          "deployment_optimization"
+        ]
+      },
+      "recommendation_generation": {
+        "stages": [
+          "user_profiling",
+          "preference_learning",
+          "similarity_calculation",
+          "recommendation_ranking"
+        ]
+      }
+    },
+    "quality_assurance": {
+      "data_quality_standards": {
+        "completeness_threshold": 0.90,
+        "accuracy_threshold": 0.95,
+        "consistency_threshold": 0.85,
+        "timeliness_threshold": 0.95
+      },
+      "knowledge_quality_metrics": {
+        "extraction_completeness": "≥90%",
+        "semantic_accuracy": "≥85%",
+        "relationship_validity": "≥80%",
+        "knowledge_coverage": "≥80%"
+      },
+      "learning_quality_indicators": {
+        "pattern_recognition_accuracy": "≥90%",
+        "prediction_accuracy": "≥80%",
+        "convergence_speed": "≥95%",
+        "adaptation_efficiency": "≥70%"
+      }
+    },
+    "performance_targets": {
+      "processing_speed": {
+        "file_processing_rate": "≥1000 files/hour",
+        "data_extraction_latency": "<5 seconds",
+        "batch_processing_throughput": "≥10GB/hour"
+      },
+      "system_performance": {
+        "concurrent_users": "≥50",
+        "memory_usage": "≤8GB",
+        "cpu_utilization": "≤80%",
+        "disk_io_optimization": "≥70%"
+      },
+      "accuracy_metrics": {
+        "data_extraction_accuracy": "≥95%",
+        "classification_accuracy": "≥85%",
+        "recommendation_relevance": "≥75%",
+        "knowledge_graph_precision": "≥80%"
+      }
+    }
+  },
+  "activation_triggers": {
+    "automatic_triggers": [
+      "data_source_detection",
+      "file_format_analysis",
+      "user_interaction_initiation",
+      "scheduled_processing"
+    ],
+    "manual_triggers": [
+      "数据连接需求",
+      "知识提取请求",
+      "经验分析任务",
+      "建议生成需求",
+      "格式转换操作"
+    ]
+  },
+  "security_and_compliance": {
+    "data_protection": {
+      "encryption_at_rest": "AES-256",
+      "encryption_in_transit": "TLS 1.3",
+      "data_masking": "PII敏感信息脱敏",
+      "access_logging": "操作审计追踪"
+    },
+    "compliance_standards": {
+      "GDPR_compliance": true,
+      "data_retention_policy": true,
+      "privacy_protection": true,
+      "audit_readiness": true
+    }
+  }
+}

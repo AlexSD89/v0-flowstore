@@ -1,4 +1,4 @@
-# 智能投资工具市场机会分析 - MRD
+g# 智能投资工具市场机会分析 - MRD
 
 **文档类型**: Market Requirements Document  
 **创建时间**: 2025-08-16  

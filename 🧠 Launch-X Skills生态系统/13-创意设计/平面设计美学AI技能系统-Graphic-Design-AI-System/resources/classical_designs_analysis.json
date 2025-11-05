@@ -1,0 +1,338 @@
+{
+  "classical_designs_analysis": {
+    "name": "经典设计作品深度分析学习系统",
+    "version": "1.0",
+    "description": "基于经典艺术和设计作品的深度美学分析学习模块",
+    "analysis_framework": {
+      "composition_analysis": {
+        "structural_elements": {
+          "focal_points": [
+            "Primary focus identification",
+            "Secondary focus areas",
+            "Visual hierarchy mapping",
+            "Eye movement patterns"
+          ],
+          "balance_assessment": {
+            "symmetrical_balance": "Axis-based symmetry analysis",
+            "asymmetrical_balance": "Visual weight distribution",
+            "radial_balance": "Central point analysis",
+            "dynamic_balance": "Movement and tension evaluation"
+          },
+          "spatial_organization": {
+            "positive_space_utilization": "Main content areas",
+            "negative_space_effectiveness": "Breathing room and visual rest",
+            "depth_and_layering": "Foreground-middleground-background",
+            "proportional_relationships": "Element size ratios"
+          }
+        },
+        "mathematical_principles": {
+          "golden_ratio_analysis": {
+            "identification_method": "Measure proportions and calculate ratios",
+            "application_check": "Compare to 1.618:1 ratio",
+            "visual_significance": "Harmony and natural appeal",
+            "examples": "Mona Lisa composition, Parthenon architecture"
+          },
+          "rule_of_thirds_application": {
+            "grid_overlay": "Apply 3x3 grid analysis",
+            "power_points": "Check placement on intersection points",
+            "visual_tension": "Assess off-center composition effects",
+            "dynamic_movement": "Guide eye through composition"
+          },
+          "fibonacci_sequence": {
+            "spiral_patterns": "Natural growth patterns",
+            "proportional_harmony": "Organic mathematical beauty",
+            "natural_occurrences": "Pinecones, shells, flower petals"
+          }
+        }
+      },
+      "color_analysis": {
+        "color_harmony_theories": {
+          "complementary_schemes": {
+            "definition": "Opposite colors on color wheel",
+            "psychological_effect": "High contrast, dynamic energy",
+            "best_practices": "60-30-10 rule for application",
+            "famous_examples": [
+              "Van Gogh's 'Starry Night'",
+              "Impressionist color contrasts"
+            ]
+          },
+          "analogous_schemes": {
+            "definition": "Adjacent colors on color wheel",
+            "psychological_effect": "Harmonious, soothing",
+            "application_techniques": "Temperature-based grouping",
+            "examples": "Nature photography, landscape design"
+          },
+          "triadic_schemes": {
+            "definition": "Equidistant colors on color wheel",
+            "psychological_effect": "Balanced, vibrant",
+            "application_strategies": "Equal visual weight distribution"
+          }
+        },
+        "color_psychology_application": {
+          "emotional_response_mapping": {
+            "warm_colors": ["energy", "excitement", "urgency", "passion"],
+            "cool_colors": ["calm", "trust", "professional", "stability"],
+            "neutral_colors": ["sophistication", "balance", "elegance", "flexibility"]
+          },
+          "cultural_color_variations": {
+            "western_associations": "Individualistic, direct meanings",
+            "eastern_associations": "Symbolic, traditional meanings",
+            "context_dependencies": "Industry, cultural, temporal considerations"
+          }
+        },
+        "light_and_shadow_analysis": {
+          "chiaroscuro_techniques": {
+            "definition": "Strong contrast between light and dark",
+            "historical_masters": ["Caravaggio", "Rembrandt", "Vermeer"],
+            "modern_applications": "Photography, cinematography, dramatic design",
+            "technical_principles": "Three-dimensional depth creation"
+          },
+          "color_temperature_analysis": {
+            "warm_lighting": ["intimacy", "energy", "comfort"],
+            "cool_lighting": ["professional", "calm", "analytical"],
+            "natural_lighting": ["authenticity", "connection", "health"]
+          }
+        }
+      },
+      "typography_analysis": {
+        "historical_typeface_evolution": {
+          "blackletter_period": {
+            "characteristics": ["Ornate", "Religious", "Medieval"],
+            "technical_features": ["Angular strokes", "Ligatures", "Complex decorations"],
+            "modern_applications": ["Luxury brands", "traditional businesses", "certificates"]
+          },
+          "transitional_period": {
+            "characteristics": ["Bridge between old and new", "Elegant serifs", "Readability improvement"],
+            "innovations": ["Contrast", "Modular design"],
+            "modern_usage": ["Publishing", "traditional branding"]
+          },
+          "modernist_period": {
+            "characteristics": ["Sans-serif", "Geometric", "Minimalist"],
+            "key_figures": ["Bauhaus", "Swiss typography"],
+            "contemporary_relevance": ["UI design", "Corporate identity", "Web typography"]
+          }
+        },
+        "readability_principles": {
+          "font_size_optimization": {
+            "hierarchy_creation": "Size differences establish information importance",
+            "accessibility_standards": "WCAG guidelines for minimum font sizes",
+            "responsive_scaling": "Font size adaptation for different screen sizes"
+          },
+          "line_height_optimization": {
+            "optimal_ratios": ["1.2-1.4 for body text", "1.1-1.3 for headings"],
+            "readability_impact": "Line spacing affects reading comfort and speed",
+            "cultural_considerations": "Different reading preferences across cultures"
+          },
+          "character_spacing": {
+            "tracking_adjustments": "Letter spacing optimization for headlines",
+            "kerning_applications": "Specific character pair adjustments",
+            "font_specific_considerations": "Typeface-specific spacing characteristics"
+          }
+        }
+      },
+      "cultural_and_historical_context": {
+        "design_movements_analysis": {
+          "art_nouveau": {
+            "period": "1890-1910",
+            "aesthetic_principles": ["Organic forms", "Natural motifs", "Elegant curves", "Decorative elements"],
+            "key_artists": ["Mucha", "Tiffany", "Gaudi"],
+            "modern_applications": ["Luxury branding", "organic design", "decorative arts"],
+            "learning_insights": [
+              "Integration of natural forms into geometric design",
+              "Balance between decoration and functionality",
+              "Flowing lines and organic movement in composition"
+            ]
+          },
+          "de_stijl": {
+            "period": "1917-1931",
+            "aesthetic_principles": ["Primary colors", "Geometric abstraction", "Minimalism", "Universal design"],
+            "key_artists": ["Mondrian", "van Doesburg", "Rietveld"],
+            "modern_applications": ["Modern web design", "Grid systems", "Minimalist branding"],
+            "learning_insights": [
+              "Power of primary color combinations",
+              "Grid-based layout systems",
+              "Minimal design for maximum impact"
+            ]
+          },
+          "pop_art": {
+            "period": "1950s-1960s",
+            "aesthetic_principles": ["Bright colors", "Bold contrasts", "Commercial imagery", "Repetition"],
+            "key_artists": ["Warhol", "Lichtenstein", "Hockney"],
+            "modern_applications": ["Social media design", "Contemporary branding", "Youth marketing"],
+            "learning_insights": [
+              "Cultural reference integration",
+              "Bold color usage for attention",
+              "Pattern recognition and repetition"
+            ]
+          }
+        },
+        "cultural_symbolism_analysis": {
+          "western_symbol_system": {
+            "individualism_emphasis": "Personal achievement and self-expression",
+            "direct_communication": "Clear and straightforward messaging",
+            "progress_orientation": "Future-focused and improvement-driven"
+          },
+          "eastern_symbol_system": {
+            "harmony_emphasis": "Balance and social cohesion",
+            "indirect_communication": "Contextual and relationship-based",
+            "tradition_orientation": "Historical continuity and respect"
+          },
+          "cross_cultural_application": {
+            "global_branding": "Understanding cultural sensitivities",
+            "regional_adaptation": "Localizing design approaches",
+            "universal_principles": "Human-centered design transcendence"
+          }
+        }
+      }
+    },
+    "learning_examples": {
+      "renaissance_masterworks": {
+        "leonardo_da_vinci": {
+          "the_vitruvian_man": {
+            "year": "1490",
+            "composition_analysis": {
+              "mathematical_perfection": "Perfect proportions and geometric harmony",
+              "human_centricity": "Man as measure of all things",
+              "universal_principles": "Mathematical beauty in human form"
+            },
+            "design_lessons": [
+              "Proportional design systems",
+              "Human-centered measurement",
+              "Geometric foundation in design",
+              "Universal beauty principles"
+            ],
+            "modern_applications": [
+              "Responsive grid systems",
+              "User interface proportions",
+              "Icon design foundations",
+              "Logo design mathematics"
+            ]
+          },
+          "the_last_supper": {
+            "year": "1495-1498",
+            "composition_analysis": {
+              "perspective_mastery": "Revolutionary use of vanishing point",
+              "narrative_arrangement": "Storytelling through spatial organization",
+              "human_drama": "Emotional capture through composition"
+            },
+            "design_lessons": [
+              "Perspective grid systems",
+              "Narrative composition techniques",
+              "Grouping and spatial organization",
+              "Emotional design through layout"
+            ],
+            "modern_applications": [
+              "Web design perspective layers",
+              "Information architecture",
+              "User journey mapping",
+              "Storytelling in interfaces"
+            ]
+          }
+        },
+        "michelangelo": {
+          "david": {
+            "year": "1501-1504",
+            "composition_analysis": {
+              "contrapposto_perfection": "Dynamic balance through opposing forces",
+              "idealized_proportions": "Mathematical perfection in human form",
+              "heroic_presentation": "Monumental scale and impact"
+            },
+            "design_lessons": [
+              "Dynamic balance principles",
+              "Human form proportion systems",
+              "Heroic composition techniques",
+              "Scale and impact consideration"
+            ],
+            "modern_applications": [
+              "Hero image design",
+              "Product photography",
+              "Character design",
+              "Brand identity impact"
+            ]
+          }
+        }
+      },
+      "impressionist_innovations": {
+        "claude_monet": {
+          "water_lilies_series": {
+            "years": "1899-1926",
+            "innovation_analysis": {
+              "color_revolution": "Breaking traditional color boundaries",
+              "time_capture": "Capturing momentary beauty",
+              "atmospheric_painting": "Light and air in visual form"
+            },
+            "design_lessons": [
+              "Color blending techniques",
+              "Atmospheric design effects",
+              "Temporal beauty representation",
+              "Organic pattern creation"
+            ],
+            "modern_applications": [
+              "Gradient design systems",
+              "Atmospheric effects in UI",
+              "Dynamic color transitions",
+              "Organic design patterns"
+            ]
+          }
+        }
+      },
+      "modernist_revolution": {
+        "bauhaus_innovations": {
+          "grid_system_development": {
+            "historical_significance": "Systematic approach to layout",
+            "mathematical_foundation": "Grid-based design organization",
+            "universal_application": "Design language beyond cultural boundaries"
+          },
+          "design_lessons": [
+            "Grid system implementation",
+            "Minimalist aesthetic principles",
+            "Universal design languages",
+            "Modular design thinking"
+          ],
+          "modern_applications": [
+            "CSS Grid and Flexbox",
+            "Component-based design systems",
+            "Minimalist web design",
+            "Responsive design frameworks"
+          ]
+        }
+      }
+    },
+    "knowledge_extraction_methods": {
+      "pattern_recognition_algorithms": {
+        "geometric_pattern_detection": {
+          "triangle_patterns": "Identify triangular compositions",
+          "circular_patterns": "Detect circular and radial arrangements",
+          "hexagonal_patterns": "Hexagonal grid recognition",
+          "organic_patterns": "Natural form identification"
+        },
+        "color_pattern_analysis": {
+          "monochromatic_schemes": "Single color variations",
+          "complementary_pairs": "Opposite color combinations",
+          "analogous_sequences": "Adjacent color relationships",
+          "triadic_harmonies": "Three-way color balance"
+        }
+      },
+      "aesthetic_scoring_system": {
+        "composition_score": {
+          "focal_point_strength": "Clear visual hierarchy",
+          "balance_effectiveness": "Visual weight distribution",
+          "proportional_harmony": "Mathematical relationships",
+          "spatial_organization": "Efficient space utilization"
+        },
+        "color_harmony_score": {
+          "color_relationships": "Color wheel based harmony",
+          "contrast_effectiveness": "Visual impact and readability",
+          "emotional_resonance": "Psychological color effectiveness",
+          "cultural_appropriateness": "Contextual color suitability"
+        },
+        "typography_score": {
+          "readability_effectiveness": "Text accessibility",
+          "hierarchy_clarity": "Information structure",
+          "style_appropriateness": "Tone and context alignment",
+          "technical_precision": "Typeface implementation quality"
+        }
+      }
+    }
+  }
+}

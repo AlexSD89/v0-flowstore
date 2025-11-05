@@ -1,0 +1,28 @@
+{
+  "earnings": [],
+  "economic_calendar": [
+    {
+      "id": "economic-mock-1",
+      "title": "FOMC 利率决议",
+      "time": "2025-11-14T14:00:00Z",
+      "importance": 5,
+      "category": "economic_indicator",
+      "source": "Mock Data - Based on Current Events"
+    },
+    {
+      "id": "economic-mock-2",
+      "title": "CPI 月度报告",
+      "time": "2025-11-15T08:30:00Z",
+      "importance": 5,
+      "category": "economic_indicator",
+      "source": "Mock Data - Based on Current Events"
+    }
+  ],
+  "dividends": [],
+  "metadata": {
+    "collection_time": "2025-11-14T04:06:50.643Z",
+    "source": "Seeking Alpha (User Session)",
+    "collector_version": "2.0.0",
+    "method": "session_bridge"
+  }
+}

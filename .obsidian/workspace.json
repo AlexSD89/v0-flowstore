@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b653e9eaeb695b21",
+        "id": "5d5b2c235ee8d6d5",
         "type": "tabs",
         "children": [
           {
-            "id": "7d47e48759927443",
+            "id": "d397f19abe9233f0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "gate项目应用运营/AI应用场景识别引导工具-勾选版.md",
+                "file": "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/Gate财经日历-Obsidian看板版-最新.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI应用场景识别引导工具-勾选版"
+              "title": "Gate财经日历-Obsidian看板版-最新"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 388.5
   },
   "right": {
     "id": "cec8e1b11af4fe8d",
@@ -169,47 +169,53 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "7d47e48759927443",
+  "active": "d397f19abe9233f0",
   "lastOpenFiles": [
-    "android-battery",
-    "android-performance",
-    "custom-templates",
-    "android-logs",
-    "android-screenshots",
-    "learning",
-    "codegen",
-    "collaboration",
-    "memory",
-    "analytics",
-    "cache",
-    "plans/launchx-cognitive-first-management-system.md",
-    "plans/launchx-cognitive-first-execution-plan.md",
-    "plans/5-steps-cognitive-bmad-v6-mapping.md",
-    "plans/complete-plan-then-execute.md",
-    "plans/thinking-first-execution-second.md",
-    "plans/launchx-m-level-project-workflow.md",
-    "plans/cognitive-execution-fusion-architecture.md",
-    "BMAD-METHOD-main-6/bmad/fusion/README.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/trend_researcher.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/studio_producer.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/risk_manager.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/product_manager.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/frontend_developer.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/data_scientist.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/code_reviewer.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/business_analyst.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/backend_architect.md",
-    "BMAD-METHOD-main-6/bmad/fusion/agents/ai_engineer.md",
-    "BMAD-METHOD-main-6/bmad/fusion/tasks/backend_architect.md",
-    "BMAD-METHOD-main-6/bmad/fusion/tasks/business_analyst.md",
-    "BMAD-METHOD-main-6/bmad/fusion/tasks/trend_researcher.md",
-    "BMAD-METHOD-main-6/bmad/fusion/tasks/risk_manager.md",
-    "BMAD-METHOD-main-6/bmad/fusion/tasks/ai_engineer.md",
-    "plans/launchx-fusion-architecture-v2.0.md",
-    "🧩 bmad /docs/subagent-workflow-optimization-plan.md",
-    "🧩 bmad /node_modules copy/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png",
-    "🧩 bmad /node_modules copy/istanbul-reports/lib/html/assets/sort-arrow-sprite.png",
-    "🧩 bmad /node_modules copy/istanbul-reports/lib/html/assets/favicon.png",
-    "🧩 bmad /node_modules copy/@jest/reporters/assets/jest_logo.png"
+    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第3轮_实际内容_20251114_145000.json",
+    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第2轮_实际内容_20251114_145000.json",
+    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第2轮_实际内容_20251114_145000.json.tmp.3088.1763090662919",
+    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第1轮_实际内容_20251114_145000.json",
+    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第1轮_实际内容_20251114_145000.json.tmp.3088.1763090640932",
+    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI学习循环实际测试结果记录_20251114_144000.md",
+    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI学习系统极端人类化分类_20251114_143000.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/Gate财经日历-恒瑞医药Circle专项版.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/portfolio-analysis.json",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/hengrui-monitoring.json",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/circle-monitoring.json",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/alerts-config.json",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/scripts/hengrui-circle-monitor.js",
+    "2025-11-14.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/15-gate-finance-calendar/Gate智能财经日历.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/seeking-alpha-integration-plan.md",
+    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI自适应学习循环系统.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/outputs/Gate财经日历-Obsidian看板版.md",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/excel_env/lib/python3.13/site-packages/numpy/random/LICENSE.md",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报终稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报初稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报修改.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5终稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5初稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5修改.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报终稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报初稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报修改.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/h5终稿.png",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/automation_system_verification_report.md",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/分析报告/门赢客户Excel业务分析报告.md",
+    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/README.md",
+    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/15-gate智能财经日历-企业投资洞察解决方案.md",
+    "Gate客户项目/奇境-小龙项目/Phase1-自动化重构工具完成报告.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/xlsx/SKILL.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/tests/test_cases.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/reference.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/forms.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/SKILL.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/ooxml.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/html2pptx.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/SKILL.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/ooxml.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/docx-js.md",
+    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/SKILL.md"
   ]
 }

@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "id": "economic-mock-1",
+      "title": "Seeking Alpha | FOMC 利率决议 Economic Event",
+      "time": "2025-11-14T14:00:00Z",
+      "importance": 5,
+      "source": "Mock Data - Based on Current Events",
+      "category": "economic_indicator",
+      "risk_level": "Low Risk (Premium Data)",
+      "metadata": {
+        "id": "economic-mock-1",
+        "title": "FOMC 利率决议",
+        "time": "2025-11-14T14:00:00Z",
+        "importance": 5,
+        "category": "economic_indicator",
+        "source": "Mock Data - Based on Current Events",
+        "collection_method": "session_bridge_v2",
+        "collection_timestamp": "2025-11-14T04:07:19.835Z"
+      }
+    },
+    {
+      "id": "economic-mock-2",
+      "title": "Seeking Alpha | CPI 月度报告 Economic Event",
+      "time": "2025-11-15T08:30:00Z",
+      "importance": 5,
+      "source": "Mock Data - Based on Current Events",
+      "category": "economic_indicator",
+      "risk_level": "Low Risk (Premium Data)",
+      "metadata": {
+        "id": "economic-mock-2",
+        "title": "CPI 月度报告",
+        "time": "2025-11-15T08:30:00Z",
+        "importance": 5,
+        "category": "economic_indicator",
+        "source": "Mock Data - Based on Current Events",
+        "collection_method": "session_bridge_v2",
+        "collection_timestamp": "2025-11-14T04:07:19.835Z"
+      }
+    }
+  ],
+  "collection_timestamp": "2025-11-14T04:07:19.835Z",
+  "source_server": "user_session_bridge",
+  "total_events": 2,
+  "metadata": {
+    "collection_time": "2025-11-14T04:06:50.643Z",
+    "source": "Seeking Alpha (User Session)",
+    "collector_version": "2.0.0",
+    "method": "session_bridge",
+    "bridge_method": "CDP_Connection",
+    "fallback_data_used": true
+  }
+}

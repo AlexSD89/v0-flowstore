@@ -1,0 +1,91 @@
+{
+  "rename_mapping": {
+    "01-商业决策": {
+      "1 商决策支持专家": "business-decision-support-zh",
+      "business-decision-support": "business-decision-support"
+    },
+    "02-企业研究": {
+      "2 企业研究分析师": "enterprise-research-analyst-zh",
+      "10 被投企业画像分析大师": "investment-portrait-analysis-master",
+      "enterprise-research-analyst": "enterprise-research-analyst",
+      "invested-enterprise-portrait-master": "investment-portrait-analysis-master"
+    },
+    "03-市场情报": {
+      "3 市场情报专家": "market-intelligence-expert-zh",
+      "market-intelligence-expert": "market-intelligence-expert",
+      "source-analysis-method": "source-analysis-method"
+    },
+    "04-知识管理": {
+      "4 知识管理大师": "knowledge-master-zh",
+      "knowledge-master": "knowledge-master"
+    },
+    "05-项目架构": {
+      "5 项目架构规划师": "project-architect-zh",
+      "large-file-development-methodology": "large-file-development-methodology",
+      "project-architect": "project-architect"
+    },
+    "06-技术设计": {
+      "6 技术设计专家": "technical-design-expert-zh",
+      "quality-validation-protocol": "quality-validation-protocol",
+      "technical-design-expert": "technical-design-expert"
+    },
+    "07-认知策略": {
+      "7 认知策略大师": "cognitive-strategy-master-zh",
+      "cognitive-strategy-master": "cognitive-strategy-master",
+      "content-modification-strategy": "content-modification-strategy"
+    },
+    "08-AI操作系统": {
+      "8 Gate-OS企业AI操作系统专家": "gate-os-enterprise-expert-zh",
+      "gate-os-enterprise-expert": "gate-os-enterprise-expert"
+    },
+    "09-深度学习": {
+      "9 深度学习专家": "deep-learning-expert-zh",
+      "deep-learning-expert": "deep-learning-expert"
+    },
+    "10-文档处理": {
+      "document-skills": "document-processing-suite",
+      "docx": "word-document-processor",
+      "pdf": "pdf-document-processor",
+      "pptx": "powerpoint-processor",
+      "xlsx": "excel-processor"
+    },
+    "11-前端设计": {
+      "canvas-design": "canvas-design-tool",
+      "frontend-design": "frontend-design-toolkit",
+      "theme-factory": "theme-factory-system"
+    },
+    "12-开发工具": {
+      "11 codex-claudecode协作": "codex-claudecode-integration",
+      "12 git-claudecode指导": "git-claudecode-guidance",
+      "codex": "codex-execution-tool",
+      "git-collaboration-expert": "git-collaboration-expert",
+      "mcp-builder": "mcp-server-builder",
+      "webapp-testing": "webapp-testing-toolkit"
+    },
+    "13-创意设计": {
+      "13 平面设计美学AI技能系统": "graphic-design-ai-system",
+      "algorithmic-art": "algorithmic-art-generator",
+      "brand-guidelines": "brand-guidelines-system"
+    },
+    "14-数据分析": {
+      "multimodal-data-analyst": "multimodal-data-analyst"
+    },
+    "15-协作沟通": {
+      "internal-comms": "internal-communications",
+      "slack-gif-creator": "slack-gif-creator-tool"
+    },
+    "16-系统工具": {
+      "changelog-generator": "changelog-generator",
+      "file-organizer": "file-organizer-tool"
+    },
+    "17-办公自动化": {
+      "artifacts-builder": "html-artifacts-builder",
+      "skill-creator": "skill-creator-tool",
+      "template-skill": "skill-template-generator"
+    },
+    "99-其他": {
+      "document-skills": "document-processing-suite-backup",
+      "template-skill": "skill-template-backup"
+    }
+  }
+}

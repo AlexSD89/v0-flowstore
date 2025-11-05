@@ -104,10 +104,119 @@ Checklist 和提示片段已固化在 `.cursorrules` 与 `memory-bank/README.md`
 
 ---
 
-## 5.1 🧠 Launch-X Skills生态系统 (v2.4.0)
+## 5.1 🧠 Launch-X Skills生态系统 (v2.5.0)
 **目的**：提供专业化、可复用的AI技能，支撑复杂任务的标准化执行
 **逻辑**：基于Reddit指南工程化实践，实现技能的渐进式披露、自动化激活和质量保障
-**结构**：三层技能架构 + 自动化Hook系统
+**结构**：三层技能架构 + 自动化Hook系统 + 标准化管理
+
+### 技能标准化要求 (2025-11-13更新)
+**核心原则**：所有技能必须符合统一的标准化结构，确保质量一致性和可维护性。
+
+**🏷️ 目录命名标准**
+- **双语命名格式**：`中文技能名-English-Skill-Name`
+- **标准化示例**：
+  - `商业决策支持专家-Business-Decision-Support`
+  - `Word文档处理器-Word-Document-Processor`
+  - `认知策略大师-Cognitive-Strategy-Master`
+- **管理工具**：`.claude/skills/skills-rename-mapping.json`
+
+**📁 标准目录结构**
+每个技能必须包含以下标准结构：
+```
+技能目录/
+├── README.md              # 技能概述和快速入门
+├── SKILL.md               # 技能详细说明（必需）
+├── instructions.md        # 使用说明和操作指南
+├── resources/             # 资源文件目录
+│   ├── config.json        # 技能配置
+│   ├── examples/          # 使用示例
+│   └── templates/         # 模板文件
+├── tests/                  # 测试目录
+│   ├── test_cases.md      # 测试用例
+│   └── expected_outputs/  # 预期输出
+└── scripts/               # 脚本目录（可选）
+```
+
+**📋 SKILL.md文件标准**
+- **frontmatter必须字段**：title, owners, status, last_update, version, category
+- **内容结构**：技能概述、核心能力、使用方法、配置选项、最佳实践、技术规格
+- **质量要求**：详细说明、完整示例、测试覆盖、格式一致
+
+**🛠️ 质量保障工具**
+- **标准检查**：`scripts/validate-skills-structure.sh`
+- **重命名工具**：`scripts/skills-ecosystem-sync.sh`
+- **生态系统管理**：`scripts/skills-manager.sh`
+
+**📊 技能分类统计**
+- **18个专业类别**：商业决策、企业研究、市场情报、知识管理等
+- **35个标准技能**：全部符合双语命名和结构标准
+- **动态管理**：支持技能创建、更新、删除的标准化流程
+
+### 📋 实际部署文件统一性检查 (2025-11-13更新)
+
+#### ✅ 部署状态总览
+**标准合规性**: 100% - 所有技能符合统一标准化要求
+
+**📁 目录结构统一性**
+```
+每个技能目录都包含标准结构：
+├── README.md              ✅ 35个技能已创建
+├── SKILL.md               ✅ 35个技能已存在
+├── instructions.md        ✅ 35个技能已创建
+├── resources/             ✅ 35个技能已标准化
+│   ├── config.json        ✅ 配置文件统一
+│   ├── examples/          ✅ 示例目录已创建
+│   └── templates/         ✅ 模板目录已创建
+├── tests/                  ✅ 35个技能已标准化
+│   ├── test_cases.md      ✅ 测试用例已创建
+│   └── expected_outputs/  ✅ 预期输出目录已创建
+└── scripts/               ✅ 按需创建的脚本目录
+```
+
+**🏷️ 命名规范统一性**
+- **双语命名格式**: `中文技能名-English-Skill-Name`
+- **标准化示例**:
+  - ✅ 商业决策支持专家-Business-Decision-Support
+  - ✅ Word文档处理器-Word-Document-Processor
+  - ✅ 认知策略大师-Cognitive-Strategy-Master
+- **旧目录清理**: 所有重复的英文目录已删除
+
+**📊 部署统计**
+- **技能类别**: 18个专业类别 + 1个其他类别
+- **标准技能**: 35个（全部符合双语命名）
+- **部署状态**: 完全标准化
+- **管理工具**: 4个自动化脚本
+
+#### 🔍 统一性验证工具
+
+**自动验证脚本**:
+```bash
+# 验证技能结构标准
+./scripts/validate-skills-structure.sh
+
+# 同步技能生态系统
+./scripts/skills-ecosystem-sync.sh
+
+# 管理技能生命周期
+./scripts/skills-manager.sh
+```
+
+**配置文件统一性**:
+- **映射文件**: `.claude/skills/skills-rename-mapping.json`
+- **分类索引**: `.claude/skills/categories/README.md`
+- **完成报告**: `.claude/skills/Skills生态系统标准化完成报告.md`
+
+#### 🎯 质量保障机制
+- **结构一致性**: 所有技能使用相同的目录结构模板
+- **命名一致性**: 统一的双英双语命名规范
+- **内容一致性**: 标准化的frontmatter和内容格式
+- **功能一致性**: 统一的配置文件和测试用例格式
+
+#### 📈 维护指南
+1. **新增技能**: 使用标准模板创建，确保符合命名规范
+2. **更新技能**: 保持结构完整性，同步更新映射文件
+3. **质量检查**: 定期运行验证脚本确保标准合规性
+4. **文档同步**: 及时更新README和索引文件
 
 ### 核心技能类别
 - **Level 1 核心技能包**：商业决策支持、项目架构规划、技术设计专家 (自动加载，max 2000 tokens)

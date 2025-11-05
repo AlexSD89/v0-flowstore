@@ -1,0 +1,389 @@
+{
+  "dataset_info": {
+    "name": "Chrome Plugin Export - seeking-alpha-sample-data.json",
+    "version": "gate-v2.0",
+    "collection_timestamp": "2025-11-14T03:07:39.456Z",
+    "source_file": "seeking-alpha-sample-data.json",
+    "total_events": 8,
+    "source_system": "Chrome Plugin Integration"
+  },
+  "events": [
+    {
+      "event_id": "chrome-plugin-1763089659457-0",
+      "title": "Chrome Plugin | AAPL",
+      "timestamp": "2025-02-01T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "FINANCIAL_REPORTING",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "AAPL",
+          "company": "Apple Inc.",
+          "date": "2025-02-01",
+          "time": "16:30:00",
+          "event_type": "earnings",
+          "eps_estimate": "2.15",
+          "eps_previous": "1.88",
+          "revenue_estimate": "118.9B",
+          "importance": "high"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 65,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-1",
+      "title": "Chrome Plugin | MSFT",
+      "timestamp": "2025-01-25T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "FINANCIAL_REPORTING",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "MSFT",
+          "company": "Microsoft Corporation",
+          "date": "2025-01-25",
+          "time": "17:00:00",
+          "event_type": "earnings",
+          "eps_estimate": "2.05",
+          "eps_previous": "1.80",
+          "revenue_estimate": "52.1B",
+          "importance": "high"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 65,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-2",
+      "title": "Chrome Plugin | GOOGL",
+      "timestamp": "2025-02-04T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "FINANCIAL_REPORTING",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "GOOGL",
+          "company": "Alphabet Inc.",
+          "date": "2025-02-04",
+          "time": "16:30:00",
+          "event_type": "earnings",
+          "eps_estimate": "1.64",
+          "eps_previous": "1.27",
+          "revenue_estimate": "69.8B",
+          "importance": "high"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 65,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-3",
+      "title": "Chrome Plugin | Economic Data from Plugin",
+      "timestamp": "2025-01-15T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "ECONOMIC_DATA",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": null,
+          "company": "US Consumer Price Index (CPI)",
+          "date": "2025-01-15",
+          "time": "08:30:00",
+          "event_type": "economic_data",
+          "indicator_type": "cpi",
+          "previous_value": "3.4%",
+          "forecast_value": "3.2%",
+          "importance": "critical"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 70,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-4",
+      "title": "Chrome Plugin | JPM",
+      "timestamp": "2025-01-20T00:00:00.000Z",
+      "importance_level": "MEDIUM",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "CORPORATE_ACTION",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "JPM",
+          "company": "JPMorgan Chase & Co.",
+          "date": "2025-01-20",
+          "time": "08:30:00",
+          "event_type": "dividend",
+          "amount": "$1.05",
+          "ex_date": "2025-01-20",
+          "pay_date": "2025-02-01",
+          "yield": "2.8%",
+          "importance": "medium"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 60,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-5",
+      "title": "Chrome Plugin | TSLA",
+      "timestamp": "2025-01-28T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "FINANCIAL_REPORTING",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "TSLA",
+          "company": "Tesla, Inc.",
+          "date": "2025-01-28",
+          "time": "16:30:00",
+          "event_type": "earnings",
+          "eps_estimate": "0.78",
+          "eps_previous": "0.71",
+          "revenue_estimate": "26.3B",
+          "importance": "high"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 65,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-6",
+      "title": "Chrome Plugin | NVDA",
+      "timestamp": "2025-02-21T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "FINANCIAL_REPORTING",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": "NVDA",
+          "company": "NVIDIA Corporation",
+          "date": "2025-02-21",
+          "time": "16:30:00",
+          "event_type": "earnings",
+          "eps_estimate": "0.81",
+          "eps_previous": "0.57",
+          "revenue_estimate": "20.4B",
+          "importance": "critical"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 65,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    },
+    {
+      "event_id": "chrome-plugin-1763089659457-7",
+      "title": "Chrome Plugin | Economic Data from Plugin",
+      "timestamp": "2025-01-28T00:00:00.000Z",
+      "importance_level": "CRITICAL",
+      "source_system": "Chrome Plugin Premium",
+      "data_source": "authenticated_browser",
+      "risk_assessment": {
+        "level": "LOW",
+        "confidence": 0.88,
+        "verification_status": "PLUGIN_VERIFIED"
+      },
+      "event_category": "ECONOMIC_DATA",
+      "asset_classes": [
+        "EQUITIES"
+      ],
+      "metadata": {
+        "source_file": "seeking-alpha-sample-data.json",
+        "original_data": {
+          "symbol": null,
+          "company": "US GDP Growth Rate",
+          "date": "2025-01-28",
+          "time": "08:30:00",
+          "event_type": "economic_data",
+          "indicator_type": "gdp",
+          "previous_value": "2.8%",
+          "forecast_value": "2.7%",
+          "importance": "critical"
+        },
+        "extraction_method": "chrome_plugin",
+        "collection_time": "2025-11-14T03:07:39.457Z",
+        "data_quality_score": 0.88
+      },
+      "gate_processing": {
+        "status": "PROCESSED",
+        "priority": 70,
+        "workflow_stage": "READY_FOR_INTEGRATION",
+        "validation_checks": {
+          "data_integrity": "PASSED",
+          "format_compliance": "PASSED",
+          "quality_threshold": "PASSED"
+        }
+      }
+    }
+  ],
+  "statistics": {
+    "by_category": {
+      "FINANCIAL_REPORTING": 5,
+      "ECONOMIC_DATA": 2,
+      "CORPORATE_ACTION": 1
+    },
+    "by_importance": {
+      "CRITICAL": 7,
+      "MEDIUM": 1
+    },
+    "by_time_horizon": {
+      "today": 0,
+      "this_week": 8,
+      "this_month": 0,
+      "future": 0
+    }
+  },
+  "quality_metrics": {
+    "completeness": 0.88,
+    "accuracy": 0.9,
+    "timeliness": 0.95,
+    "consistency": 0.85,
+    "overall_score": 0.9
+  }
+}

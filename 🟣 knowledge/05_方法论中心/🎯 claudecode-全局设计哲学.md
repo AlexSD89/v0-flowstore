@@ -3,7 +3,7 @@ title: "ClaudeCode 全局设计哲学"
 owners:
   - Launch X Claude Team
 status: review
-last_update: '2025-11-01'
+last_update: '2025-11-05'
 related:
   - 🧠 Launch-X Skills生态系统/README.md
   - 🧠 Launch-X Skills生态系统/AGENTS.md
@@ -79,6 +79,26 @@ impact: high
 4. **Slash Command & Hooks**：显式命令（如 `/review`、`/mcp`）触发标准流程或权限设置，与技能互补[^slash-commands]。
 5. **MCP Tool 调用**：通过本地或远程 MCP 服务器访问外部系统，遵从输出与权限限制[^mcp-doc][^mcp-connector]。
 6. **结果汇总与治理**：Agent SDK / Claude Code 汇总执行结果，并与 LaunchX 的 `/spec → /plan → /do` 流程、Summary 守则对齐[[AGENTS.md:69-88]]。
+
+### 3.1 Agent SDK Loop：Task → Gather → Take Action → Verify
+> Claude Agent SDK 的全周期循环由“任务 → 收集上下文 → 执行 → 验证输出”构成，配套能力组合来自用户提供的官方示意图[^user-loop]。
+
+**Task 与 Gather Context**
+- **SubAgents**：在 Gather 阶段创建专长子代理，实现多线程上下文收集与差分验证，减少主线程 token 压力[^subagents]。
+- **Compacting**：Agent SDK 内置上下文压缩器，可在子代理返回结果前执行自动摘要，确保后续步骤仍能读到关键事实[^agent-sdk][^user-loop]。
+- **Agentic Search**：结合 CLI 工具（`rg`、`fd`、`tail` 等）实现文件/日志级检索，缩短 Collect 时间并匹配 LaunchX Phase 0 的“精准检索”要求[[AGENTS.md:18-35]]。
+- **Semantic Search**：当上下文分散在多份文档时，再用嵌入或图谱检索建立语义邻域，加速对技能和 MCP 资产的复用[^user-loop]。
+
+**Take Action**
+- **Tools**：技能、Slash Commands 与自研脚本组成可组合工具集，用于调用 Hook、评测脚本或自定义函数[^slash-commands][^claudecode-skills]。
+- **MCP**：通过标准化的 MCP 连接访问外部系统，并在 `managed-mcp.json` 中声明白名单以满足审计[^mcp-doc]。
+- **Bash & Scripts**：借助 Claude Code 的 Bash 会话执行本地脚本，对应 LaunchX 的“最小必要写作 + 自动验证”守则[[RULES.md:37-95]]。
+- **Code Generation**：Agent SDK 允许在流程中插入专门的代码生成/修改任务，并配合 Hooks 记录差异，支撑“AI 写 AI”的自举路径[^agent-sdk][^officechai-80percent]。
+
+**Verify Output → Final Output**
+- **Defining Rules**：通过 Guardrail（Summary 模板、引用、互链、TODO）判断输出是否满足 LaunchX 规范，确保跨文档一致性[[AGENTS.md:36-88]]。
+- **Visual Feedback**：结合 CLI 预览、MCP 可视化（如 Playwright MCP）等方式拾取界面/截图证据，留存验证上下文[^user-loop]。
+- **LLM-as-a-Judge**：在必要时引入评审模型复核生成物，尤其是跨域结论或含模糊约束的任务，使“先评测后放量”可程序化执行[[AGENTS.md:18-33]][^user-loop]。
 
 ---
 
@@ -159,3 +179,4 @@ impact: high
 [^latentspace-interview]: Latent Space. “Claude Code: Anthropic’s Agent in Your Terminal.” 2025-05-07. http://www.latent.space/p/claude-code  
 [^officechai-80percent]: OfficeChai. “80% Of Claude Code's Code Is Written By Claude Code: Anthropic Lead Engineer.” 2025-05-12. https://officechai.com/ai/80-of-claude-codes-code-is-written-by-claude-code-anthropic-lead-engineer/  
 [^chip-huyen-bug]: OfficeChai. “‘Minor Issue, Doesn't Break Functionality’: Claude Code Refused To Fix Bug, Says AI Author Chip Huyen.” 2025-06-16. https://officechai.com/ai/minor-issue-doesnt-break-functionality-claude-code-refused-to-fix-bug-says-ai-author-chip-huyen/
+[^user-loop]: 用户提供的「Claude Agent SDK Loop」示意图，展示 Task → Gather Context → Take Action → Verify Output 流程（2025-11-05）。

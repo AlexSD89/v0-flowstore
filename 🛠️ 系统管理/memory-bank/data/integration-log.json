@@ -1,0 +1,30 @@
+{
+  "integrations": [
+    {
+      "type": "search",
+      "query": "性能优化",
+      "timestamp": "2025-11-07T09:27:24.787Z",
+      "results": 8,
+      "responseTime": 1
+    },
+    {
+      "type": "search",
+      "query": "性能优化",
+      "timestamp": "2025-11-07T10:09:01.762Z",
+      "results": 0,
+      "responseTime": 0
+    },
+    {
+      "type": "search",
+      "query": "性能",
+      "timestamp": "2025-11-07T10:09:05.477Z",
+      "results": 0,
+      "responseTime": 0
+    }
+  ],
+  "statistics": {
+    "totalExperiences": 0,
+    "totalSearches": 3,
+    "successfulMatches": 1
+  }
+}

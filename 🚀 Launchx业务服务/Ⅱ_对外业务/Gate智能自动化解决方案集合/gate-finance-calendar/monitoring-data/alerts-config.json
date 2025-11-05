@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-11-14T03:25:43.452Z",
+  "hengrui_alerts": [
+    {
+      "type": "价格预警",
+      "condition": "股价 < 400元/股",
+      "action": "分批建仓",
+      "priority": "HIGH"
+    },
+    {
+      "type": "财报预警",
+      "condition": "Q4财报前1周",
+      "action": "评估业绩预期",
+      "priority": "CRITICAL"
+    },
+    {
+      "type": "技术预警",
+      "condition": "跌破380元支撑位",
+      "action": "风险评估",
+      "priority": "HIGH"
+    }
+  ],
+  "circle_alerts": [
+    {
+      "type": "供应量预警",
+      "condition": "总供应量单日变化 > 5%",
+      "action": "市场影响分析",
+      "priority": "MEDIUM"
+    },
+    {
+      "type": "合规预警",
+      "condition": "监管政策重大变化",
+      "action": "重新评估配置",
+      "priority": "CRITICAL"
+    },
+    {
+      "type": "DeFi预警",
+      "condition": "主要DeFi协议TVL下降 > 20%",
+      "action": "流动性风险评估",
+      "priority": "MEDIUM"
+    }
+  ]
+}

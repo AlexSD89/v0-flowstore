@@ -1,0 +1,445 @@
+{
+  "tool_integration": {
+    "name": "设计工具集成系统",
+    "version": "1.0",
+    "description": "外部设计工具接口和示意图生成能力配置",
+    "integration_categories": {
+      "professional_design_software": {
+        "adobe_creative_suite": {
+          "photoshop": {
+            "name": "Adobe Photoshop",
+            "capabilities": [
+              {
+                "feature": "图层操作",
+                "operations": ["create_layer", "merge_layers", "adjust_opacity", "apply_blend_mode"],
+                "api_endpoints": ["POST /layers", "PUT /layers/{id}", "DELETE /layers/{id}"]
+              },
+              {
+                "feature": "色彩调整",
+                "operations": ["brightness_contrast", "color_balance", "hue_saturation", "curves"],
+                "api_endpoints": ["POST /adjustments", "PUT /adjustments/{id}"]
+              },
+              {
+                "feature": "滤镜效果",
+                "operations": ["gaussian_blur", "sharpen", "noise_reduction", "artistic_effects"],
+                "api_endpoints": ["POST /filters", "PUT /filters/{id}"]
+              },
+              {
+                "feature": "选择工具",
+                "operations": ["magic_wand", "quick_selection", "pen_tool", "shape_selection"],
+                "api_endpoints": ["POST /selection", "PUT /selection/{id}"]
+              }
+            ],
+            "workflow_integration": {
+              "import_export": ["psd", "jpg", "png", "svg", "pdf"],
+              "batch_processing": true,
+              "automation_scripts": ["jsx", "actions"]
+            }
+          },
+          "illustrator": {
+            "name": "Adobe Illustrator",
+            "capabilities": [
+              {
+                "feature": "矢量图形",
+                "operations": ["create_path", "edit_anchor_points", "apply_stroke", "fill_shapes"],
+                "api_endpoints": ["POST /paths", "PUT /paths/{id}", "DELETE /paths/{id}"]
+              },
+              {
+                "feature": "文字工具",
+                "operations": ["create_text", "edit_text_content", "apply_text_styles", "text_warp"],
+                "api_endpoints": ["POST /text", "PUT /text/{id}"]
+              },
+              {
+                "feature": "色彩应用",
+                "operations": ["apply_fill", "apply_stroke", "gradient_creation", "pattern_fill"],
+                "api_endpoints": ["POST /colors", "PUT /colors/{id}"]
+              },
+              {
+                "feature": "效果工具",
+                "operations": ["apply_effects", "transform_objects", "blend_modes", "transparency"],
+                "api_endpoints": ["POST /effects", "PUT /effects/{id}"]
+              }
+            ],
+            "workflow_integration": {
+              "import_export": ["ai", "svg", "pdf", "eps", "png"],
+              "vector_editing": true,
+              "precision_tools": true
+            }
+          },
+          "indesign": {
+            "name": "Adobe InDesign",
+            "capabilities": [
+              {
+                "feature": "页面布局",
+                "operations": ["create_pages", "page_masters", "column_guides", "margin_setup"],
+                "api_endpoints": ["POST /pages", "PUT /pages/{id}"]
+              },
+              {
+                "feature": "文字排版",
+                "operations": ["text_frames", "paragraph_styles", "character_styles", "text_threading"],
+                "api_endpoints": ["POST /text", "PUT /text/{id}"]
+              },
+              {
+                "feature": "色彩管理",
+                "operations": ["color_schemes", "spot_colors", "process_colors", "color_profiles"],
+                "api_endpoints": ["POST /colors", "PUT /colors/{id}"]
+              }
+            ],
+            "workflow_integration": {
+              "import_export": ["indd", "pdf", "epub", "html"],
+              "print_preparation": true,
+              "multi_page_documents": true
+            }
+          }
+        },
+        "online_design_platforms": {
+          "figma": {
+            "name": "Figma",
+            "capabilities": [
+              {
+                "feature": "组件系统",
+                "operations": ["create_components", "component_instances", "component_properties", "auto_layout"],
+                "api_endpoints": ["POST /files/{file_id}/components", "PUT /components/{id}"]
+              },
+              {
+                "feature": "样式管理",
+                "operations": ["create_styles", "apply_styles", "style_variants", "team_library"],
+                "api_endpoints": ["POST /files/{file_id}/styles", "PUT /styles/{id}"]
+              },
+              {
+                "feature": "原型制作",
+                "operations": ["create_prototype", "add_interactions", "user_testing", "prototype_links"],
+                "api_endpoints": ["POST /files/{file_id}/prototypes", "PUT /prototypes/{id}"]
+              },
+              {
+                "feature": "团队协作",
+                "operations": ["real_time_collaboration", "comments", "version_history", "design_systems"],
+                "api_endpoints": ["POST /comments", "PUT /comments/{id}"]
+              }
+            ],
+            "workflow_integration": {
+              "import_export": ["fig", "svg", "png", "pdf"],
+              "web_based": true,
+              "collaborative": true,
+              "api_access": "REST API + WebSocket"
+            }
+          },
+          "canva": {
+            "name": "Canva",
+            "capabilities": [
+              {
+                "feature": "模板定制",
+                "operations": ["browse_templates", "customize_template", "brand_kit_application", "element_replacement"],
+                "api_endpoints": ["GET /templates", "PUT /templates/{id}"]
+              },
+              {
+                "feature": "元素库",
+                "operations": ["upload_elements", "create_elements", "element_categories", "brand_assets"],
+                "api_endpoints": ["POST /elements", "PUT /elements/{id}"]
+              },
+              {
+                "feature": "品牌工具",
+                "operations": ["brand_colors", "brand_fonts", "brand_logos", "brand_guidelines"],
+                "api_endpoints": ["GET /brand-kit", "PUT /brand-kit/{id}"]
+              }
+            ],
+            "workflow_integration": {
+              "import_export": ["png", "jpg", "pdf", "svg"],
+              "user_friendly": true,
+              "template_library": true,
+              "brand_consistency": true
+            }
+          }
+        }
+      },
+      "ai_generation_tools": {
+        "text_to_image": {
+          "dalle": {
+            "name": "DALL-E",
+            "provider": "OpenAI",
+            "capabilities": {
+              "image_generation": {
+                "styles": ["photorealistic", "digital_art", "illustration", "3d_render"],
+                "aspect_ratios": ["1:1", "16:9", "9:16", "4:3"],
+                "quality_levels": ["standard", "hd"],
+                "edit_capabilities": ["inpainting", "outpainting", "variation_generation"]
+              },
+              "design_specific": {
+                "logo_generation": true,
+                "poster_design": true,
+                "brand_visuals": true,
+                "concept_art": true
+              }
+            },
+            "api_integration": {
+              "endpoint": "https://api.openai.com/v1/images/generations",
+              "authentication": "Bearer token",
+              "rate_limits": "50 requests per minute",
+              "image_sizes": ["256x256", "512x512", "1024x1024", "1792x1024", "1024x1792"]
+            }
+          },
+          "midjourney": {
+            "name": "Midjourney",
+            "provider": "Midjourney Inc",
+            "capabilities": {
+              "image_generation": {
+                "styles": ["artistic", "photorealistic", "stylized", "abstract"],
+                "quality_levels": ["standard", "high", "ultra"],
+                "aspect_ratios": ["--ar 1:1", "--ar 16:9", "--ar 9:16", "--ar 4:3"],
+                "parameters": ["--style", "--chaos", "--stylize", "--weird"]
+              },
+              "design_specific": {
+                "concept_art": true,
+                "illustration_style": true,
+                "brand_mood_board": true,
+                "creative_exploration": true
+              }
+            },
+            "api_integration": {
+              "endpoint": "Discord Bot API",
+              "authentication": "Discord token",
+              "interaction_type": "slash_commands",
+              "response_time": "30-60 seconds"
+            }
+          },
+          "stable_diffusion": {
+            "name": "Stable Diffusion",
+            "provider": "Stability AI",
+            "capabilities": {
+              "image_generation": {
+                "models": ["SD 1.5", "SD 2.1", "SDXL", "Custom models"],
+                "controlnet": ["pose", "depth", "edge_detection", "canny"],
+                "lora_models": true,
+                "inpainting": true
+              },
+              "design_specific": {
+                "local_deployment": true,
+                "custom_training": true,
+                "style_transfer": true,
+                "batch_generation": true
+              }
+            },
+            "api_integration": {
+              "endpoint": "Local deployment / API",
+              "authentication": "API key or local access",
+              "hardware_requirements": "GPU recommended",
+              "speed": "2-10 seconds per image"
+            }
+          }
+        },
+        "image_enhancement": {
+          "background_removal": {
+            "name": "Remove.bg",
+            "capabilities": {
+              "background_types": ["white", "transparent", "custom_color", "custom_image"],
+              "object_detection": ["person", "product", "car", "animal"],
+              "edge_quality": ["high", "standard", "fast"],
+              "batch_processing": true
+            },
+            "api_integration": {
+              "endpoint": "https://api.remove.bg/v1.0/removebg",
+              "authentication": "API key",
+              "supported_formats": ["jpg", "png", "webp"]
+            }
+          },
+          "image_upscaling": {
+            "name": "Real-ESRGAN",
+            "capabilities": {
+              "upscaling_factors": [2, 4],
+              "models": ["RealESRGAN_x4plus", "RealESRGAN_x2"],
+              "quality_enhancement": true,
+              "artifact_reduction": true
+            }
+          },
+          "color_enhancement": {
+            "name": "Automatic Color Correction",
+            "capabilities": {
+              "white_balance": true,
+              "exposure_correction": true,
+              "color_grading": true,
+              "histogram_analysis": true
+            }
+          }
+        }
+      },
+      "design_assistance_ai": {
+        "logo_generation": {
+          "name": "AI Logo Generator",
+          "capabilities": {
+            "logo_styles": ["minimalist", "modern", "classic", "abstract", "typographic"],
+            "industry_templates": true,
+            "color_variations": true,
+            "scalability_check": true
+          }
+        },
+        "brand_kit_generation": {
+          "name": "Brand Identity Generator",
+          "capabilities": {
+            "brand_elements": ["logo", "colors", "fonts", "patterns"],
+            "consistency_check": true,
+            "application_examples": ["business_card", "letterhead", "social_media"],
+            "guidelines_generation": true
+          }
+        },
+        "layout_suggestions": {
+          "name": "Smart Layout Assistant",
+          "capabilities": {
+            "content_analysis": true,
+            "layout_types": ["magazine", "poster", "website", "social_media"],
+            "responsive_design": true,
+            "accessibility_check": true
+          }
+        }
+      }
+    },
+    "workflow_automation": {
+      "design_pipeline": {
+        "name": "自动化设计流水线",
+        "stages": [
+          {
+            "stage": "requirements_analysis",
+            "tools": ["text_analysis", "brand_analysis", "competitor_analysis"],
+            "automated_actions": ["extract_brand_guidelines", "analyze_target_audience"]
+          },
+          {
+            "stage": "concept_generation",
+            "tools": ["ai_image_generation", "mood_board_creation", "style_exploration"],
+            "automated_actions": ["generate_concepts", "create_mood_boards"]
+          },
+          {
+            "stage": "design_development",
+            "tools": ["adobe_suite", "online_platforms", "collaboration_tools"],
+            "automated_actions": ["apply_brand_standards", "optimize_layout", "generate_variations"]
+          },
+          {
+            "stage": "review_optimization",
+            "tools": ["ai_feedback", "quality_check", "user_testing"],
+            "automated_actions": ["analyze_design_quality", "suggest_improvements"]
+          },
+          {
+            "stage": "final_delivery",
+            "tools": ["export_tools", "format_conversion", "quality_assurance"],
+            "automated_actions": ["optimize_files", "create_delivery_packages"]
+          }
+        ]
+      },
+      "collaboration_integration": {
+        "name": "协作集成",
+        "features": {
+          "real_time_feedback": true,
+          "version_control": true,
+          "approval_workflows": true,
+          "client_portals": true
+        },
+        "tools": ["figma", "adobe_creative_cloud", "slack", "email_integrations"]
+      }
+    }
+  },
+  "schematic_generation": {
+    "name": "示意图生成系统",
+    "capabilities": {
+      "design_concepts": {
+        "wireframes": {
+          "description": "界面线框图生成",
+          "tools": ["figma", "sketch", "adobe_xd"],
+          "output_formats": ["svg", "png", "fig", "sketch"]
+        },
+        "mockups": {
+          "description": "设计模型生成",
+          "types": ["website_mockup", "mobile_app_mockup", "print_material_mockup"],
+          "tools": ["figma", "sketch", "photoshop"],
+          "realistic_rendering": true
+        },
+        "user_flows": {
+          "description": "用户流程图生成",
+          "diagram_types": ["user_journey", "process_flow", "system_architecture"],
+          "tools": ["draw.io", "miro", "figjam"]
+        }
+      },
+      "technical_drawings": {
+        "blueprints": {
+          "description": "技术蓝图生成",
+          "tools": ["autocad", "solidworks", "fusion_360"],
+          "precision_levels": ["draft", "detailed", "manufacturing"]
+        },
+        "infographics": {
+          "description": "信息图表生成",
+          "chart_types": ["bar_chart", "pie_chart", "line_chart", "timeline"],
+          "tools": ["adobe_illustrator", "canva", "infogram"],
+          "data_visualization": true
+        },
+        "diagrams": {
+          "description": "专业图表生成",
+          "types": ["organizational_chart", "network_diagram", "flowchart"],
+          "tools": ["lucidchart", "draw.io", "microsoft_visio"]
+        }
+      },
+      "ai_enhanced_generation": {
+        "concept_art": {
+          "description": "概念艺术生成",
+          "styles": ["digital_painting", "3d_render", "illustration"],
+          "tools": ["midjourney", "stable_diffusion", "dalle"],
+          "customization": true
+        },
+        "prototyping": {
+          "description": "原型生成",
+          "interactive_prototypes": true,
+          "animation_prototypes": true,
+          "tools": ["figma", "principle", "framer"]
+        },
+        "3d_visualization": {
+          "description": "3D可视化生成",
+          "modeling_tools": ["blender", "sketchup", "3ds_max"],
+          "rendering_engines": ["cycles", "vray", "corona"],
+          "realistic_materials": true
+        }
+      }
+    },
+    "generation_pipeline": {
+      "input_processing": {
+        "requirements_extraction": "从需求描述中提取关键信息",
+        "context_analysis": "分析设计上下文和约束条件",
+        "brand_guidelines": "应用品牌视觉识别规范"
+      },
+      "ai_generation": {
+        "prompt_engineering": "优化AI工具的提示词",
+        "model_selection": "选择合适的AI模型",
+        "parameter_tuning": "调整生成参数以获得最佳效果"
+      },
+      "post_processing": {
+        "quality_assessment": "评估生成内容的质量",
+        "format_conversion": "转换到需要的文件格式",
+        "fine_tuning": "手动微调和细节优化"
+      }
+    }
+  },
+  "integration_apis": {
+    "adobe_creative_cloud": {
+      "authentication": "OAuth 2.0",
+      "base_url": "https://cc-api.adobe.io/api/v1",
+      "endpoints": {
+        "files": "/files",
+        "folders": "/folders",
+        "assets": "/assets",
+        "libraries": "/libraries"
+      },
+      "webhooks": ["file_created", "file_updated", "file_deleted"]
+    },
+    "figma": {
+      "authentication": "OAuth 2.0",
+      "base_url": "https://api.figma.com/v1",
+      "endpoints": {
+        "files": "/files/{file_id}",
+        "images": "/images/{file_id}",
+        "comments": "/files/{file_id}/comments"
+      },
+      "webhooks": ["file_update", "comment_added"]
+    },
+    "midjourney": {
+      "authentication": "Discord Bot Token",
+      "base_url": "https://discord.com/api/v10",
+      "interaction_type": "slash_commands",
+      "command_prefix": "/imagine"
+    }
+  }
+}

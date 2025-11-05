@@ -1,0 +1,39 @@
+{
+  "generated_by": "Gate智能财经日历 MCP集成系统",
+  "integration_id": "mcp-demo-20251113-184711",
+  "generation_time": "2025-11-13T18:47:11.797716",
+  "gate_version": "v1.0",
+  "data_source": "MCP工具集成层",
+  "total_events": 2,
+  "high_impact_events": 2,
+  "events": [
+    {
+      "event_id": "gate_001",
+      "event_title": "美国CPI数据发布",
+      "event_title_en": "US CPI Data Release",
+      "event_type": "macro",
+      "importance_level": 5,
+      "risk_level": "high",
+      "publish_time": "2025-11-14T08:30:00Z",
+      "data_source": "Gate MCP Integration",
+      "source_url": "https://gate-finance-calendar.example",
+      "description": "美国10月CPI数据即将公布，市场高度关注通胀趋势",
+      "gate_standardized": true,
+      "collection_timestamp": "2025-11-13T18:47:11.797713"
+    },
+    {
+      "event_id": "gate_002",
+      "event_title": "腾讯Q3财报发布",
+      "event_title_en": "Tencent Q3 Earnings",
+      "event_type": "company",
+      "importance_level": 4,
+      "risk_level": "medium",
+      "publish_time": "2025-11-15T09:00:00Z",
+      "data_source": "Gate MCP Integration",
+      "source_url": "https://hkexnews.hk",
+      "description": "腾讯控股第三季度财报发布，重点关注营收和利润增长",
+      "gate_standardized": true,
+      "collection_timestamp": "2025-11-13T18:47:11.797714"
+    }
+  ]
+}

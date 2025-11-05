@@ -1,0 +1,286 @@
+{
+  "design_patterns_library": {
+    "version": "1.0.0",
+    "last_updated": "2025-11-07",
+    "description": "企业级设计模式库，基于喜临门项目和商家需求总结",
+    "categories": {
+      "layout_patterns": {
+        "name": "布局模式",
+        "patterns": [
+          {
+            "id": "golden_ratio_composition",
+            "name": "黄金比例构图",
+            "description": "基于黄金比例(1:1.618)的构图布局",
+            "applications": ["产品详情页", "品牌宣传", "海报设计"],
+            "key_elements": [
+              "主体区域占比61.8%",
+              "辅助区域占比38.2%",
+              "视觉重心遵循黄金分割点"
+            ],
+            "best_practices": [
+              "重要信息放置在黄金分割区域",
+              "保持视觉平衡和层次感",
+              "留白区域占整体20-30%"
+            ]
+          },
+          {
+            "id": "rule_of_thirds_grid",
+            "name": "三分法网格",
+            "description": "将画面分为九等份的构图法则",
+            "applications": ["网页布局", "移动端界面", "摄影构图"],
+            "key_elements": [
+              "画面分成3×3网格",
+              "重要元素放置在交叉点",
+              "水平线在1/3或2/3处"
+            ],
+            "best_practices": [
+              "主体元素偏离中心放置",
+              "地平线放在上或下三分之一处",
+              "利用网格引导视觉流动"
+            ]
+          }
+        ]
+      },
+      "color_patterns": {
+        "name": "色彩模式",
+        "patterns": [
+          {
+            "id": "brand_color_harmony",
+            "name": "品牌色彩和谐",
+            "description": "基于品牌VI的色彩搭配方案",
+            "applications": ["品牌一致性设计", "产品系列", "营销物料"],
+            "schemes": [
+              {
+                "type": "monochromatic",
+                "description": "单色和谐",
+                "usage": "专业、简洁、统一"
+              },
+              {
+                "type": "analogous",
+                "description": "类似色和谐",
+                "usage": "温和、自然、舒适"
+              },
+              {
+                "type": "complementary",
+                "description": "互补色和谐",
+                "usage": "活力、对比、强调"
+              }
+            ]
+          },
+          {
+            "id": "emotional_color_mapping",
+            "name": "情感色彩映射",
+            "description": "色彩与情感的对应关系",
+            "mapping": {
+              "trust": ["blue", "gray", "white"],
+              "energy": ["red", "orange", "yellow"],
+              "nature": ["green", "brown", "beige"],
+              "luxury": ["purple", "gold", "black"],
+              "calm": ["light_blue", "mint", "pale_green"]
+            }
+          }
+        ]
+      },
+      "typography_patterns": {
+        "name": "字体模式",
+        "patterns": [
+          {
+            "id": "hierarchical_typography",
+            "name": "层级化字体系统",
+            "description": "清晰的字体层级体系",
+            "levels": [
+              {
+                "level": "H1",
+                "usage": "主标题",
+                "scale": "2.5rem",
+                "weight": "700",
+                "line_height": "1.2"
+              },
+              {
+                "level": "H2",
+                "usage": "副标题",
+                "scale": "2rem",
+                "weight": "600",
+                "line_height": "1.3"
+              },
+              {
+                "level": "H3",
+                "usage": "小标题",
+                "scale": "1.5rem",
+                "weight": "500",
+                "line_height": "1.4"
+              },
+              {
+                "level": "Body",
+                "usage": "正文",
+                "scale": "1rem",
+                "weight": "400",
+                "line_height": "1.6"
+              }
+            ]
+          },
+          {
+            "id": "readability_optimization",
+            "name": "可读性优化",
+            "description": "提升文字可读性的设计原则",
+            "guidelines": [
+              "行长控制在45-75字符",
+              "行高设置为字体大小的1.4-1.6倍",
+              "字间距根据字体大小调整",
+              "对比度至少达到WCAG AA标准(4.5:1)"
+            ]
+          }
+        ]
+      },
+      "interaction_patterns": {
+        "name": "交互模式",
+        "patterns": [
+          {
+            "id": "progressive_disclosure",
+            "name": "渐进式展示",
+            "description": "信息分层逐步展示的交互模式",
+            "applications": ["产品详情页", "表单设计", "数据展示"],
+            "principles": [
+              "核心信息优先展示",
+              "详细信息通过点击展开",
+              "提供清晰的层级指示",
+              "保持用户认知负荷适中"
+            ]
+          },
+          {
+            "id": "visual_feedback_system",
+            "name": "视觉反馈系统",
+            "description": "用户操作的即时视觉反馈",
+            "feedback_types": [
+              {
+                "type": "hover_effect",
+                "description": "悬停效果",
+                "timing": "0.2-0.3s"
+              },
+              {
+                "type": "click_feedback",
+                "description": "点击反馈",
+                "timing": "0.1-0.2s"
+              },
+              {
+                "type": "loading_state",
+                "description": "加载状态",
+                "timing": "2s+超时提示"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "project_specific_patterns": {
+      "xilinmen_brand": {
+        "name": "喜临门品牌设计模式",
+        "description": "基于喜临门品牌的设计规范",
+        "brand_elements": {
+          "primary_colors": ["#E74C3C", "#2C3E50", "#ECF0F1"],
+          "secondary_colors": ["#F39C12", "#27AE60", "#8E44AD"],
+          "typography": {
+            "primary_font": "PingFang SC, Microsoft YaHei",
+            "secondary_font": "Arial, Helvetica"
+          },
+          "layout_standards": {
+            "grid_system": "12-column grid",
+            "spacing_unit": "8px",
+            "breakpoint_mobile": "768px",
+            "breakpoint_tablet": "1024px"
+          }
+        }
+      },
+      "merchant_pc_pages": {
+        "name": "商家PC页面模式",
+        "description": "基于10个商家需求的PC页面设计模式",
+        "common_elements": [
+          {
+            "element": "navigation_bar",
+            "description": "导航栏",
+            "best_practices": [
+              "品牌logo左上角",
+              "主导航5-7个选项",
+              "搜索功能右侧",
+              "响应式设计"
+            ]
+          },
+          {
+            "element": "product_showcase",
+            "description": "产品展示区",
+            "best_practices": [
+              "产品大图为主",
+              "多角度产品图",
+              "产品特色标注",
+              "购买按钮突出"
+            ]
+          },
+          {
+            "element": "information_hierarchy",
+            "description": "信息层级",
+            "best_practices": [
+              "H1-H3标题层级",
+              "重要信息折叠",
+              "视觉引导路径",
+              "CRO优化考虑"
+            ]
+          }
+        ]
+      }
+    },
+    "automation_patterns": {
+      "design_review_checklist": {
+        "name": "设计审核检查清单",
+        "check_items": [
+          {
+            "category": "visual_hierarchy",
+            "items": [
+              "标题层级是否清晰",
+              "信息优先级是否合理",
+              "视觉流动是否顺畅",
+              "重点是否突出"
+            ]
+          },
+          {
+            "category": "brand_consistency",
+            "items": [
+              "品牌色彩使用是否正确",
+              "字体规范是否遵循",
+              "logo使用是否符合标准",
+              "整体风格是否统一"
+            ]
+          },
+          {
+            "category": "usability",
+            "items": [
+              "可读性是否达标",
+              "交互是否直观",
+              "响应式是否适配",
+              "无障碍设计是否考虑"
+            ]
+          }
+        ]
+      },
+      "template_generation_rules": {
+        "name": "模板生成规则",
+        "rules": [
+          {
+            "rule": "content_structure",
+            "description": "内容结构标准化",
+            "application": "所有文档模板"
+          },
+          {
+            "rule": "visual_consistency",
+            "description": "视觉一致性保证",
+            "application": "设计稿模板"
+          },
+          {
+            "rule": "brand_alignment",
+            "description": "品牌对齐标准",
+            "application": "品牌物料模板"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "skills_group_config": {
+    "name": "企业级AI自动化技能群组",
+    "version": "1.0.0",
+    "level": "M",
+    "description": "基于设计管理、商家需求、风控管理的企业级AI自动化技能群组",
+    "coordination_framework": {
+      "core_skills": [
+        {
+          "id": "design_management_automation",
+          "name": "设计管理自动化技能",
+          "module_path": "🎨 设计管理自动化/智能设计分析技能",
+          "priority": 1,
+          "dependencies": [],
+          "coordination_role": "creative_leader"
+        },
+        {
+          "id": "business_requirements_management",
+          "name": "商家需求管理技能",
+          "module_path": "📋 商家需求管理/需求自动化处理技能",
+          "priority": 2,
+          "dependencies": [],
+          "coordination_role": "requirement_processor"
+        },
+        {
+          "id": "risk_control_automation",
+          "name": "风控管理自动化技能",
+          "module_path": "🛡️ 风控管理自动化/风控周报自动生成技能",
+          "priority": 3,
+          "dependencies": [],
+          "coordination_role": "risk_controller"
+        },
+        {
+          "id": "cross_project_coordination",
+          "name": "跨项目智能协同系统",
+          "module_path": "🔄 跨项目智能协同系统",
+          "priority": 0,
+          "dependencies": [
+            "design_management_automation",
+            "business_requirements_management",
+            "risk_control_automation"
+          ],
+          "coordination_role": "system_coordinator"
+        }
+      ],
+      "activation_triggers": {
+        "design_contexts": [
+          "设计方案分析", "设计标准检查", "VI设计协调", "设计质量评估", "设计资源优化"
+        ],
+        "requirement_contexts": [
+          "需求处理", "优先级评估", "商家反馈分析", "合规检查", "需求文档生成"
+        ],
+        "risk_contexts": [
+          "风险识别", "风险分析", "合规监控", "风控报告", "趋势预警"
+        ],
+        "coordination_contexts": [
+          "项目协同", "资源调度", "冲突解决", "流程优化", "跨部门协作"
+        ]
+      },
+      "workflow_integration": {
+        "horizontal_workflows": [
+          {
+            "name": "产品开发全流程",
+            "trigger_condition": "新产品设计开发需求",
+            "skill_sequence": [
+              "business_requirements_management",
+              "design_management_automation",
+              "risk_control_automation",
+              "cross_project_coordination"
+            ],
+            "data_flow": [
+              "商家需求输入 → 需求分析和分类",
+              "设计需求生成 → 设计方案制定",
+              "风险评估和控制措施制定",
+              "跨部门协同和资源调度",
+              "最终交付物和质量验收"
+            ]
+          },
+          {
+            "name": "设计更新迭代流程",
+            "trigger_condition": "现有产品设计优化需求",
+            "skill_sequence": [
+              "design_management_automation",
+              "business_requirements_management",
+              "cross_project_coordination"
+            ],
+            "data_flow": [
+              "设计现状分析 → 优化需求识别",
+              "商家反馈收集和需求调整",
+              "设计方案更新和资源协调",
+              "质量和进度监控"
+            ]
+          }
+        ],
+        "vertical_workflows": [
+          {
+            "name": "周度管理报告",
+            "trigger_condition": "定时周报生成",
+            "skill_sequence": [
+              "risk_control_automation",
+              "cross_project_coordination",
+              "business_requirements_management"
+            ],
+            "output_targets": [
+              "管理层决策报告",
+              "风险预警通知",
+              "资源分配优化建议"
+            ]
+          }
+        ]
+      }
+    },
+    "data_integration": {
+      "shared_data_models": {
+        "project_master_data": {
+          "schema": "project_master_schema.json",
+          "sync_frequency": "real_time",
+          "validation_rules": [
+            "project_id_format",
+            "timeline_consistency",
+            "resource_allocation_validity",
+            "dependency_integrity"
+          ]
+        },
+        "knowledge_base": {
+          "schema": "knowledge_base_schema.json",
+          "sync_frequency": "daily",
+          "indexing_strategy": {
+            "by_topic": true,
+            "by_project": true,
+            "by_skill": true,
+            "by_time": true,
+            "full_text": true
+          }
+        },
+        "risk_registry": {
+          "schema": "risk_registry_schema.json",
+          "sync_frequency": "hourly",
+          "escalation_rules": {
+            "automatic_escalation": true,
+            "risk_thresholds": {
+              "high": 8.0,
+              "medium": 5.0,
+              "low": 3.0
+            }
+          }
+        }
+      },
+      "data_sync_protocols": {
+        "real_time_sync": {
+          "enabled": true,
+          "data_types": [
+            "project_status",
+            "resource_allocation",
+            "critical_alerts",
+            "blocking_issues"
+          ],
+          "sync_method": "event_driven",
+          "latency_target": "<_100ms"
+        },
+        "batch_sync": {
+          "enabled": true,
+          "data_types": [
+            "historical_reports",
+            "knowledge_updates",
+            "analytics_data",
+            "user_feedback"
+          ],
+          "sync_method": "scheduled",
+          "sync_frequency": "daily_2am"
+        },
+        "on_demand_sync": {
+          "enabled": true,
+          "data_types": [
+            "specific_queries",
+            "ad_hoc_reports",
+            "custom_analytics",
+            "emergency_responses"
+          ],
+          "sync_method": "trigger_based",
+          "timeout_limit": "30_seconds"
+        }
+      }
+    },
+    "quality_assurance": {
+      "validation_framework": {
+        "input_validation": {
+          "schema_validation": true,
+          "business_rule_validation": true,
+          "data_quality_checks": true,
+          "compliance_validation": true
+        },
+        "process_validation": {
+          "workflow_integrity": true,
+          "dependency_validation": true,
+          "resource_allocation_validation": true,
+          "timeline_validation": true
+        },
+        "output_validation": {
+          "format_validation": true,
+          "content_accuracy_check": true,
+          "business_logic_validation": true,
+          "stakeholder_approval": true
+        }
+      },
+      "monitoring_metrics": {
+        "performance_metrics": [
+          "response_time",
+          "throughput",
+          "accuracy_rate",
+          "error_rate"
+        ],
+        "business_metrics": [
+          "customer_satisfaction",
+          "delivery_quality",
+          "cost_efficiency",
+          "risk_reduction"
+        ],
+        "operational_metrics": [
+          "automation_coverage",
+          "user_adoption_rate",
+          "knowledge_reuse_rate",
+          "improvement_velocity"
+        ]
+      },
+      "continuous_improvement": {
+        "feedback_loops": {
+          "user_feedback_collection": true,
+          "performance_analysis": true,
+          "process_optimization": true,
+          "knowledge_evolution": true
+        },
+        "adaptation_mechanisms": {
+          "algorithm_optimization": true,
+          "workflow_evolution": true,
+          "skill_enhancement": true,
+          "integration_expansion": true
+        }
+      }
+    },
+    "performance_optimization": {
+      "resource_management": {
+        "skill_resource_allocation": {
+          "base_cpu_allocation": "2_cores",
+          "base_memory_allocation": "4GB",
+          "dynamic_scaling": true,
+          "scaling_triggers": {
+            "cpu_threshold": 0.8,
+            "memory_threshold": 0.85,
+            "response_time_threshold": "2000ms"
+          }
+        },
+        "load_balancing": {
+          "strategy": "round_robin_with_priority",
+          "skill_prioritization": {
+            "cross_project_coordination": 1,
+            "design_management_automation": 2,
+            "business_requirements_management": 2,
+            "risk_control_automation": 3
+          }
+        }
+      },
+      "caching_strategy": {
+        "content_caching": {
+          "enabled": true,
+          "cache_duration": {
+            "frequently_used": "1_hour",
+            "analysis_results": "6_hours",
+            "templates": "24_hours",
+            "historical_data": "7_days"
+          },
+          "cache_invalidation": {
+            "on_data_update": true,
+            "on_schema_change": true,
+            "manual_invalidation": true
+          }
+        },
+        "computation_caching": {
+          "enabled": true,
+          "cache_algorithms": [
+            "risk_analysis_results",
+            "design_pattern_matching",
+            "requirement_classification",
+            "trend_analysis"
+          ],
+          "max_cache_size": "500MB"
+        }
+      },
+      "optimization_algorithms": {
+        "workflow_optimization": {
+          "path_optimization": true,
+          "dependency_minimization": true,
+          "parallel_processing": true,
+          "resource_utilization_maximization": true
+        },
+        "prediction_optimization": {
+          "preemptive_resource_allocation": true,
+          "workload_prediction": true,
+          "bottleneck_prevention": true,
+          "quality_prediction": true
+        }
+      }
+    },
+    "security_and_compliance": {
+      "access_control": {
+        "authentication": {
+          "multi_factor_auth": true,
+          "session_management": true,
+          "token_rotation": true,
+          "api_key_validation": true
+        },
+        "authorization": {
+          "role_based_access": true,
+          "skill_level_permissions": true,
+          "data_access_permissions": true,
+          "action_permissions": true
+        }
+      },
+      "data_protection": {
+        "encryption": {
+          "data_at_rest": "AES-256",
+          "data_in_transit": "TLS_1.3",
+          "key_management": "auto_rotation",
+          "algorithm_compliance": true
+        },
+        "privacy": {
+          "personal_data_masking": true,
+          "gdpr_compliance": true,
+          "data_retention_policy": true,
+          "audit_logging": true
+        }
+      },
+      "compliance_standards": {
+        "financial_regulations": ["SOX", "Basel III", "GDPR"],
+        "industry_standards": ["ISO 31000", "COSO", "COBIT"],
+        "quality_standards": ["ISO 9001", "CMMI", "Six Sigma"],
+        "security_standards": ["ISO 27001", "PCI DSS", "NIST"]
+      }
+    },
+    "integration_capabilities": {
+      "external_systems": {
+        "project_management": {
+          "jira": {
+            "api_version": "v3",
+            "authentication": "oauth2",
+            "supported_operations": [
+              "issue_tracking",
+              "project_management",
+              "roadmap_planning",
+              "team_collaboration"
+            ]
+          },
+          "asana": {
+            "api_version": "v1",
+            "authentication": "api_key",
+            "supported_operations": [
+              "task_management",
+              "project_coordination",
+              "team_workspaces",
+              "workflow_automation"
+            ]
+          },
+          "monday_com": {
+            "api_version": "v2",
+            "authentication": "api_key",
+            "supported_operations": [
+              "visual_project_management",
+              "workflow_automation",
+              "team_collaboration",
+              "reporting"
+            ]
+          }
+        },
+        "collaboration_tools": {
+          "yuque": {
+            "api_version": "latest",
+            "authentication": "oauth2",
+            "supported_operations": [
+              "document_sync",
+              "collaborative_editing",
+              "version_control",
+              "knowledge_management"
+            ]
+          },
+          "slack": {
+            "api_version": "v1",
+            "authentication": "bot_token",
+            "supported_operations": [
+              "team_communication",
+              "notification_system",
+              "app_integrations",
+              "workflow_automation"
+            ]
+          },
+          "microsoft_teams": {
+            "api_version": "beta",
+            "authentication": "oauth2",
+            "supported_operations": [
+              "team_collaboration",
+              "file_sharing",
+              "video_conferencing",
+              "meeting_management"
+            ]
+          }
+        }
+      },
+      "integration_patterns": {
+        "webhook_patterns": {
+          "event_driven": true,
+          "payload_validation": true,
+          "authentication": "signature_verification",
+          "retry_mechanism": "exponential_backoff"
+        },
+        "api_patterns": {
+          "restful_apis": true,
+          "graphql_apis": true,
+          "async_apis": true,
+          "batch_apis": true
+        },
+        "data_exchange": {
+          "json_format": true,
+          "xml_format": true,
+          "csv_format": true,
+          "custom_formats": true
+        }
+      }
+    }
+  },
+  "activation_config": {
+    "auto_activation": {
+      "enabled": true,
+      "triggers": [
+        "project_creation",
+        "requirement_submission",
+        "risk_event_detection",
+        "collaboration_request"
+      ],
+      "skill_selection": {
+        "auto_routing": true,
+        "context_matching": true,
+        "priority_based": true,
+        "load_balancing": true
+      }
+    },
+    "manual_activation": {
+      "supported_commands": [
+        "启用企业级AI自动化技能群组",
+        "激活设计管理自动化",
+        "启动商家需求处理",
+        "执行风控分析报告",
+        "启动跨项目协同管理"
+      ],
+      "skill_switching": {
+        "enabled": true,
+        "session_persistence": true,
+        "context_preservation": true,
+        "state_management": true
+      }
+    }
+  },
+  "monitoring_and_analytics": {
+    "real_time_monitoring": {
+      "health_checks": {
+        "skill_availability": true,
+        "performance_metrics": true,
+        "data_quality": true,
+        "integration_status": true
+      },
+      "alerts": {
+        "performance_degradation": true,
+        "error_rate_threshold": true,
+        "resource_exhaustion": true,
+        "security_incidents": true
+      }
+    },
+    "analytics": {
+      "usage_analytics": {
+        "skill_usage_patterns": true,
+        "user_engagement_metrics": true,
+        "feature_adoption_rates": true,
+        "collaboration_effectiveness": true
+      },
+      "business_analytics": {
+        "cost_benefit_analysis": true,
+        "roi_tracking": true,
+        "productivity_metrics": true,
+        "quality_improvement_tracking": true
+      },
+      "predictive_analytics": {
+        "trend_analysis": true,
+        "capacity_planning": true,
+        "risk_prediction": true,
+        "performance_forecasting": true
+      }
+    },
+    "reporting": {
+      "automated_reports": {
+        "daily_health_report": true,
+        "weekly_performance_report": true,
+        "monthly_business_impact_report": true,
+        "quarterly_strategic_report": true
+      },
+      "on_demand_reports": {
+        "custom_analytics": true,
+        "deep_dive_analysis": true,
+        "comprehensive_assessment": true,
+        "executive_dashboard": true
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "default_tone": "professional",
+  "default_language": "bilingual",
+  "max_insights_count": 5,
+  "min_confidence_threshold": 0.7,
+  "narrative_length": {
+    "chinese": {
+      "min": 200,
+      "max": 500
+    },
+    "english": {
+      "min": 150,
+      "max": 400
+    }
+  },
+  "tone_styles": {
+    "professional": {
+      "chinese_keywords": ["数据显示", "分析表明", "值得关注", "专业角度"],
+      "english_keywords": ["data shows", "analysis indicates", "notable", "professional perspective"]
+    },
+    "analytical": {
+      "chinese_keywords": ["深入分析", "从多角度看", "结构化影响", "数据分析"],
+      "english_keywords": ["in-depth analysis", "multiple perspectives", "structured impact", "data analysis"]
+    },
+    "pessimistic": {
+      "chinese_keywords": ["风险不容忽视", "悲观预期", "谨慎应对", "下行风险"],
+      "english_keywords": ["risks cannot be ignored", "pessimistic outlook", "cautious response", "downside risk"]
+    },
+    "optimistic": {
+      "chinese_keywords": ["积极信号", "乐观预期", "机遇与挑战并存", "上行潜力"],
+      "english_keywords": ["positive signals", "optimistic outlook", "opportunities and challenges", "upside potential"]
+    },
+    "balanced": {
+      "chinese_keywords": ["综合来看", "平衡考虑", "中性预期", "客观评估"],
+      "english_keywords": ["overall", "balanced consideration", "neutral outlook", "objective assessment"]
+    },
+    "cautious": {
+      "chinese_keywords": ["需要谨慎关注", "保守预期", "风险管理", "不确定性"],
+      "english_keywords": ["requires careful attention", "conservative outlook", "risk management", "uncertainty"]
+    }
+  },
+  "narrative_templates": {
+    "chinese_tones": {
+      "professional": "专业客观",
+      "analytical": "分析深入",
+      "pessimistic": "悲观谨慎",
+      "optimistic": "乐观积极",
+      "balanced": "平衡中立",
+      "cautious": "谨慎保守"
+    },
+    "english_tones": {
+      "professional": "Professional & Objective",
+      "analytical": "Analytical & In-depth",
+      "pessimistic": "Pessimistic & Cautious",
+      "optimistic": "Optimistic & Positive",
+      "balanced": "Balanced & Neutral",
+      "cautious": "Cautious & Conservative"
+    }
+  },
+  "policy_analysis_keywords": {
+    "chinese": ["政策影响", "传导机制", "市场反应", "执行效果"],
+    "english": ["policy impact", "transmission mechanism", "market reaction", "implementation effect"]
+  },
+  "market_impact_keywords": {
+    "chinese": ["市场预期", "价格影响", "资金流向", "投资者情绪"],
+    "english": ["market expectations", "price impact", "capital flows", "investor sentiment"]
+  },
+  "investment_guidance_keywords": {
+    "chinese": ["投资建议", "配置调整", "风险控制", "机会识别"],
+    "english": ["investment recommendations", "portfolio adjustment", "risk control", "opportunity identification"]
+  }
+}

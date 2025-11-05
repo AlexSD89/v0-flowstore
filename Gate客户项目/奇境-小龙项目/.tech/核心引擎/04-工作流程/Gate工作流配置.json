@@ -1,0 +1,223 @@
+{
+  "workflow_config": {
+    "project_name": "奇境-小龙项目",
+    "workflow_version": "1.0.0",
+    "created_date": "2025-11-07",
+    "status": "active",
+    "description": "奇境-小龙项目Gate工作流配置"
+  },
+  "data_processing_workflow": {
+    "workflow_id": "xilimen_data_processing",
+    "name": "奇境客户数据处理工作流",
+    "description": "处理客户多格式数据，实现智能解析和标准化",
+    "steps": [
+      {
+        "step_id": "data_ingestion",
+        "name": "数据接入",
+        "description": "接收客户多格式数据文件",
+        "tools": ["multi_format_parser", "file_manager"],
+        "input_types": ["doc", "docx", "xlsx", "pptx", "jpg", "png", "pdf"],
+        "processing_mode": "batch",
+        "quality_threshold": 0.95
+      },
+      {
+        "step_id": "semantic_understanding",
+        "name": "语义理解",
+        "description": "智能理解客户业务需求和意图",
+        "tools": ["nlp_analyzer", "semantic_parser"],
+        "processing_mode": "real_time",
+        "ai_model": "chinese_business_understanding_v2"
+      },
+      {
+        "step_id": "standardization",
+        "name": "标准化处理",
+        "description": "将数据转换为标准化结构",
+        "tools": ["data_transformer", "format_standardizer"],
+        "output_format": "structured_json",
+        "validation_rules": ["brand_compliance", "data_integrity", "format_consistency"]
+      },
+      {
+        "step_id": "quality_check",
+        "name": "质量检查",
+        "description": "验证数据质量和完整性",
+        "tools": ["quality_validator", "compliance_checker"],
+        "check_types": ["completeness", "accuracy", "consistency"],
+        "pass_threshold": 0.90
+      }
+    ],
+    "success_criteria": {
+      "data_quality_score": ">=0.90",
+      "processing_time": "<=5分钟",
+      "error_rate": "<=5%"
+    }
+  },
+  "ai_generation_workflow": {
+    "workflow_id": "xilimen_ai_generation",
+    "name": "奇境AI生成工作流",
+    "description": "基于客户数据智能生成设计方案",
+    "steps": [
+      {
+        "step_id": "scenario_analysis",
+        "name": "场景分析",
+        "description": "分析业务场景和需求类型",
+        "tools": ["scenario_classifier", "domain_analyzer"],
+        "analysis_types": ["product_design", "ecommerce_store", "risk_control"],
+        "confidence_threshold": 0.85
+      },
+      {
+        "step_id": "design_generation",
+        "name": "设计生成",
+        "description": "生成符合客户需求的设计方案",
+        "tools": ["ai_designer", "template_engine"],
+        "design_types": ["product_page", "store_layout", "compliance_content"],
+        "quality_target": 0.90
+      },
+      {
+        "step_id": "brand_compliance",
+        "name": "品牌合规",
+        "description": "确保设计符合客户品牌规范",
+        "tools": ["brand_validator", "compliance_checker"],
+        "compliance_rules": ["color_system", "typography", "logo_usage", "layout_standards"]
+      },
+      {
+        "step_id": "optimization",
+        "name": "优化改进",
+        "description": "基于反馈持续优化设计方案",
+        "tools": ["optimization_engine", "ab_tester"],
+        "optimization_goals": ["conversion_rate", "user_experience", "visual_appeal"]
+      }
+    ],
+    "success_criteria": {
+      "design_quality_score": ">=0.85",
+      "generation_time": "<=2小时",
+      "satisfaction_prediction": ">=0.80"
+    }
+  },
+  "quality_control_workflow": {
+    "workflow_id": "xilimen_quality_control",
+    "name": "奇境质量控制工作流",
+    "description": "多维度质量评估和持续改进",
+    "steps": [
+      {
+        "step_id": "multi_dimensional_evaluation",
+        "name": "多维度评估",
+        "description": "从多个维度评估设计质量",
+        "tools": ["quality_evaluator", "metric_analyzer"],
+        "evaluation_dimensions": [
+          "visual_appeal",
+          "brand_consistency",
+          "user_friendliness",
+          "conversion_potential",
+          "technical_feasibility"
+        ],
+        "weight_config": {
+          "visual_appeal": 0.25,
+          "brand_consistency": 0.30,
+          "user_friendliness": 0.20,
+          "conversion_potential": 0.15,
+          "technical_feasibility": 0.10
+        }
+      },
+      {
+        "step_id": "client_satisfaction_prediction",
+        "name": "客户满意度预测",
+        "description": "预测客户对成果的满意度",
+        "tools": ["satisfaction_predictor", "sentiment_analyzer"],
+        "prediction_model": "client_satisfaction_v3",
+        "accuracy_target": 0.80
+      },
+      {
+        "step_id": "compliance_verification",
+        "name": "合规性验证",
+        "description": "检查是否符合行业规范和法规要求",
+        "tools": ["compliance_checker", "regulation_validator"],
+        "compliance_types": ["industry_standards", "legal_requirements", "brand_guidelines"]
+      },
+      {
+        "step_id": "continuous_learning",
+        "name": "持续学习",
+        "description": "从反馈中学习改进模型",
+        "tools": ["learning_engine", "feedback_processor"],
+        "learning_data": ["client_feedback", "performance_metrics", "corrections_history"]
+      }
+    ],
+    "success_criteria": {
+      "overall_quality_score": ">=0.85",
+      "client_satisfaction": ">=0.90",
+      "compliance_rate": "100%",
+      "continuous_improvement": "enabled"
+    }
+  },
+  "delivery_management_workflow": {
+    "workflow_id": "xilimen_delivery_management",
+    "name": "奇境交付管理工作流",
+    "description": "管理项目交付过程和客户沟通",
+    "steps": [
+      {
+        "step_id": "version_control",
+        "name": "版本控制",
+        "description": "管理成果版本和变更",
+        "tools": ["version_controller", "change_manager"],
+        "version_strategy": "semantic_versioning",
+        "change_approval": "required_for_major_changes"
+      },
+      {
+        "step_id": "client_communication",
+        "name": "客户沟通",
+        "description": "与客户进行项目沟通和反馈收集",
+        "tools": ["communication_platform", "feedback_collector"],
+        "communication_channels": ["email", "chat", "video_call", "project_portal"],
+        "response_time_target": "<=4小时"
+      },
+      {
+        "step_id": "delivery_preparation",
+        "name": "交付准备",
+        "description": "准备最终交付成果",
+        "tools": ["delivery_preparer", "documentation_generator"],
+        "deliverable_types": ["design_files", "analysis_reports", "usage_guides", "technical_docs"],
+        "quality_checklist": "completed"
+      },
+      {
+        "step_id": "experience_accumulation",
+        "name": "经验沉淀",
+        "description": "沉淀项目经验和最佳实践",
+        "tools": ["experience_manager", "knowledge_base"],
+        "knowledge_types": ["successful_patterns", "common_issues", "optimization_strategies", "client_preferences"]
+      }
+    ],
+    "success_criteria": {
+      "delivery_on_time_rate": ">=95%",
+      "client_satisfaction": ">=0.90",
+      "documentation_completeness": "100%",
+      "knowledge_capture": "enabled"
+    }
+  },
+  "integration_settings": {
+    "gate_tools": {
+      "21risk": {
+        "status": "configured",
+        "api_key_required": true,
+        "features": ["risk_assessment", "compliance_checking", "reporting"],
+        "data_sync": "enabled"
+      },
+      "2chat": {
+        "status": "configured",
+        "api_key_required": true,
+        "features": ["team_communication", "customer_messaging", "automation"],
+        "contact_management": "enabled"
+      }
+    },
+    "monitoring": {
+      "performance_monitoring": "enabled",
+      "error_tracking": "enabled",
+      "alert_system": "enabled",
+      "reporting": "enabled"
+    },
+    "security": {
+      "data_encryption": "enabled",
+      "access_control": "enabled",
+      "audit_logging": "enabled",
+      "compliance": "enabled"
+    }
+  }
+}

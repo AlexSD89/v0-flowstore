@@ -1,0 +1,252 @@
+{
+  "skill_group": {
+    "name": "企业级AI自动化技能群组",
+    "version": "1.0.0",
+    "level": "Enterprise",
+    "type": "orchestrated_automation",
+    "target_projects": [
+      "喜临门详情页-2款产品设计",
+      "旺铺商家需求",
+      "风控"
+    ],
+    "integration_mode": "orchestrated",
+    "activation_keywords": [
+      "企业自动化",
+      "技能群组",
+      "智能协同",
+      "跨项目协调",
+      "AI工作流",
+      "业务自动化"
+    ]
+  },
+  "skill_clusters": {
+    "design_management": {
+      "name": "设计管理自动化技能群",
+      "description": "针对设计项目的全流程AI自动化",
+      "priority": 1,
+      "skills": [
+        {
+          "id": "design_analysis_intelligent",
+          "name": "设计稿智能分析技能",
+          "level": "M",
+          "activation_triggers": ["设计分析", "设计对比", "版本分析", "设计审核"],
+          "data_sources": ["design_files", "version_history", "design_standards"],
+          "output_targets": ["analysis_reports", "change_suggestions", "quality_scores"]
+        },
+        {
+          "id": "design_asset_management",
+          "name": "设计素材管理技能",
+          "level": "S",
+          "activation_triggers": ["素材管理", "设计资源", "素材分类", "设计元素"],
+          "data_sources": ["asset_library", "design_files", "usage_history"],
+          "output_targets": ["categorized_assets", "reuse_recommendations", "copyright_reports"]
+        },
+        {
+          "id": "design_workflow_automation",
+          "name": "设计流程自动化技能",
+          "level": "L",
+          "activation_triggers": ["设计流程", "工作流", "设计管理", "项目协作"],
+          "data_sources": ["project_requirements", "team_feedback", "timeline_data"],
+          "output_targets": ["workflow_status", "delivery_packages", "collaboration_summaries"]
+        }
+      ]
+    },
+    "business_requirements": {
+      "name": "商业需求智能处理技能群",
+      "description": "商家需求的智能化收集、分析和处理",
+      "priority": 2,
+      "skills": [
+        {
+          "id": "merchant_requirement_classification",
+          "name": "商家需求智能分类技能",
+          "level": "M",
+          "activation_triggers": ["需求分析", "商家分类", "需求优先级", "业务分析"],
+          "data_sources": ["merchant_feedback", "business_requirements", "historical_patterns"],
+          "output_targets": ["classified_requirements", "priority_scores", "feasibility_analysis"]
+        },
+        {
+          "id": "requirement_document_automation",
+          "name": "需求文档自动化技能",
+          "level": "S",
+          "activation_triggers": ["文档生成", "Yuque文档", "需求文档", "协作文档"],
+          "data_sources": ["requirement_data", "yuce_templates", "collaboration_feedback"],
+          "output_targets": ["yuce_documents", "version_controls", "change_logs"]
+        },
+        {
+          "id": "requirement_reusability_detection",
+          "name": "需求复用检测技能",
+          "level": "M",
+          "activation_triggers": ["需求复用", "模式识别", "模板推荐", "效率优化"],
+          "data_sources": ["requirement_database", "similarity_analysis", "reuse_history"],
+          "output_targets": ["reuse_opportunities", "template_recommendations", "efficiency_metrics"]
+        }
+      ]
+    },
+    "risk_control": {
+      "name": "风控管理自动化技能群",
+      "description": "风险控制和合规管理的智能化处理",
+      "priority": 3,
+      "skills": [
+        {
+          "id": "risk_control_weekly_report",
+          "name": "风控周报自动生成技能",
+          "level": "M",
+          "activation_triggers": ["周报生成", "风控报告", "风险分析", "管理报告"],
+          "data_sources": ["weekly_risk_data", "trend_analysis", "risk_indicators"],
+          "output_targets": ["weekly_reports", "trend_charts", "risk_alerts"]
+        },
+        {
+          "id": "risk_control_knowledge_management",
+          "name": "风控知识管理技能",
+          "level": "L",
+          "activation_triggers": ["知识管理", "内控知识", "标准解析", "知识库"],
+          "data_sources": ["knowledge_base", "compliance_standards", "best_practices"],
+          "output_targets": ["organized_knowledge", "recommendations", "compliance_checks"]
+        },
+        {
+          "id": "dual_track_design_coordination",
+          "name": "双轨设计协调技能",
+          "level": "M",
+          "activation_triggers": ["双轨协调", "设计同步", "H5微报", "设计管理"],
+          "data_sources": ["design_tracks", "progress_data", "quality_standards"],
+          "output_targets": ["coordination_reports", "quality_assessments", "resource_allocations"]
+        }
+      ]
+    }
+  },
+  "orchestration": {
+    "workflow_engine": {
+      "skill_id": "skill_orchestration_engine",
+      "name": "技能编排引擎",
+      "level": "L",
+      "capabilities": [
+        "multi_skill_coordination",
+        "workflow_automation",
+        "exception_handling",
+        "performance_optimization"
+      ]
+    },
+    "data_integration": {
+      "skill_id": "data_intelligent_integration",
+      "name": "数据智能整合",
+      "level": "L",
+      "capabilities": [
+        "cross_project_data_collection",
+        "data_quality_validation",
+        "relationship_mining",
+        "value_assessment"
+      ]
+    },
+    "recommendation_system": {
+      "skill_id": "intelligent_recommendation_system",
+      "name": "智能推荐系统",
+      "level": "M",
+      "capabilities": [
+        "historical_pattern_analysis",
+        "best_practice_recommendation",
+        "reuse_opportunity_identification",
+        "efficiency_optimization"
+      ]
+    }
+  },
+  "shared_resources": {
+    "design_patterns": {
+      "file": "shared_resources/design_patterns.json",
+      "description": "设计模式库和最佳实践"
+    },
+    "business_templates": {
+      "file": "shared_resources/business_templates.json",
+      "description": "业务模板库和标准化格式"
+    },
+    "risk_control_knowledge": {
+      "file": "shared_resources/risk_control_knowledge.json",
+      "description": "风控知识库和合规标准"
+    },
+    "collaboration_standards": {
+      "file": "shared_resources/collaboration_standards.json",
+      "description": "协作标准和工作流程规范"
+    }
+  },
+  "performance_targets": {
+    "efficiency_improvement": {
+      "design_analysis_time_reduction": 80,
+      "requirement_processing_speedup": 70,
+      "report_generation_acceleration": 70,
+      "overall_efficiency_gain": 65
+    },
+    "quality_enhancement": {
+      "design_consistency_improvement": 70,
+      "requirement_understanding_accuracy": 85,
+      "risk_identification_accuracy": 90,
+      "knowledge_base_coverage": 95
+    },
+    "collaboration_optimization": {
+      "cross_project_coordination_improvement": 50,
+      "knowledge_sharing_rate_increase": 80,
+      "decision_support_accuracy_improvement": 60,
+      "team_satisfaction_score": 4.5
+    }
+  },
+  "monitoring": {
+    "real_time_metrics": [
+      "skill_execution_status",
+      "performance_indicators",
+      "error_detection",
+      "user_satisfaction"
+    ],
+    "alert_thresholds": {
+      "skill_failure_rate": 5,
+      "response_time_degradation": 30,
+      "accuracy_decline": 15,
+      "user_complaint_rate": 10
+    }
+  },
+  "integration_points": {
+    "external_platforms": [
+      {
+        "name": "Yuque语雀",
+        "type": "collaboration_platform",
+        "integration_level": "deep",
+        "api_capabilities": ["document_creation", "version_control", "collaboration"]
+      },
+      {
+        "name": "Design Tools",
+        "type": "design_software",
+        "integration_level": "moderate",
+        "api_capabilities": ["file_analysis", "version_management"]
+      }
+    ],
+    "internal_systems": [
+      {
+        "name": "Project Management System",
+        "type": "workflow_management",
+        "integration_level": "deep"
+      },
+      {
+        "name": "Knowledge Base",
+        "type": "information_management",
+        "integration_level": "deep"
+      }
+    ]
+  },
+  "deployment": {
+    "staging_environment": {
+      "enabled": true,
+      "testing_scope": ["skill_validation", "performance_testing", "integration_testing"]
+    },
+    "production_rollback": {
+      "enabled": true,
+      "rollback_strategy": "graceful_degradation",
+      "backup_retention_days": 30
+    },
+    "scaling_configuration": {
+      "min_instances": 2,
+      "max_instances": 10,
+      "auto_scaling_enabled": true,
+      "resource_limits": {
+        "memory_per_instance": "4GB",
+        "cpu_per_instance": "2 cores"
+      }
+    }
+  }
+}

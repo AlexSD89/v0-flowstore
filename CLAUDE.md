@@ -164,9 +164,10 @@ impact: high
 ## 🧰 工具与资源调度
 
 ### 工具调用原则（Claude独占调用）
-- **分级调用**：  
-  - Level S：完成轻量检索并调用 `rube` 做答案校验；仅在无需深层分析时停留该级，若发现缺口立即升级。  
-  - Level M：默认启动技能自动激活（skills-progressive-disclosure）、必要时调用 MCP（如 rube/context7）；触发 Dev Docs Hook。  
+- **智能Skills检测优先**：在进行分级调用前，先应用RULES.md"🎯 智能Skills检测与替代系统"进行关键词匹配和上下文分析，自动识别所需激活的Skills功能和工作流类型。
+- **分级调用**：
+  - Level S：完成轻量检索并调用 `rube` 做答案校验；仅在无需深层分析时停留该级，若发现缺口立即升级。
+  - Level M：默认启动技能自动激活（skills-progressive-disclosure）、必要时调用 MCP（如 rube/context7）；触发 Dev Docs Hook。
   - Level L：结合 Skills 组合 + MCP + SubAgent（🧩 bmad）= 主从/并行协作；记录所有自动化命令与输出。
 - **复用优先**：先检索 memory-bank/support_modules、🧠 Skills 生态、🧩 bmad 历史脚本，再提出新增方案；引用统一 `path:line`。
 - **可追溯性交付**：每次调用 Hooks/MCP/技能需在对话与 Summary 中说明目的、命令、输出路径、风险提示，并准备可执行的操作指令供执行层参考。
@@ -187,7 +188,7 @@ impact: high
 - **系统边界**：避免修改系统级配置文件
 - **详细要求**：技术栈限制、MCP配置和安全约束见@RULES.md:1291-1293
 
-- **技能渐进式披露**：`skills-progressive-disclosure/hook.js` 基于触发词 + 目录 + 资源层级按需加载技能（config.json 中 token 阈值、Level 1/2/3 设定），Claude 必须在激活后引用技能段落，并在 plan/context 记录技能来源。
+- **技能渐进式披露**：`skills-progressive-disclosure/hook.js` 基于触发词 + 目录 + 资源层级按需加载技能（config.json 中 token 阈值、Level 1/2/3 设定）；**智能Skills检测**作为补充机制，当Hook无法使用时自动触发；Claude 必须在激活后引用技能段落，并在 plan/context 记录技能来源。
 - **技能激活 SOP**：
   1. 收集用户场景/技术栈 → 判断技能是否适配（参考 `🧠 Launch-X Skills生态系统/README.md:33`）。  
   2. 若技能已存在 → 检查 `config.json` 触发规则是否覆盖目标路径；如缺失，更新或在 Summary 标注 TODO。  

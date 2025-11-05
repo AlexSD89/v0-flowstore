@@ -1,0 +1,225 @@
+{
+  "folder_structure_config": {
+    "version": "V2.0.0",
+    "last_updated": "2025-11-13",
+    "architecture_type": "Gate三层人机交互架构",
+    "description": "基于人机交互理念的文件夹结构配置",
+    
+    "user_visible_layer": {
+      "description": "用户可见层 - 业务文件管理",
+      "access_level": "full",
+      "directories": {
+        "我的项目": {
+          "purpose": "业务文件管理",
+          "subdirectories": {
+            "新项目": {
+              "purpose": "新上传的待处理文件",
+              "auto_monitoring": true,
+              "classification": "auto"
+            },
+            "进行中": {
+              "purpose": "正在处理的项目",
+              "status_tracking": true,
+              "progress_display": true
+            },
+            "已完成": {
+              "purpose": "完成的项目和结果",
+              "result_storage": true,
+              "auto_archive": true
+            }
+          }
+        },
+        "系统设置": {
+          "purpose": "用户可调配置",
+          "access_level": "user_configurable",
+          "subdirectories": {
+            "07-客户接口": {
+              "purpose": "客户接口配置",
+              "parameters": "customer_modifiable"
+            },
+            "11-客户调整接口": {
+              "purpose": "客户调整配置",
+              "parameters": "system_adjustment"
+            },
+            "系统状态.md": {
+              "purpose": "系统状态报告",
+              "auto_update": true
+            }
+          }
+        },
+        "使用指南": {
+          "purpose": "用户帮助文档",
+          "auto_generation": true,
+          "documents": {
+            "实施指南.md": "系统实施指南",
+            "使用说明.md": "文件层次优化使用说明",
+            "快速开始.md": "用户快速开始指南"
+          }
+        },
+        "项目档案": {
+          "purpose": "历史数据归档",
+          "auto_organization": true,
+          "classification": "by_year",
+          "subdirectories": {
+            "05-交付成果": "项目交付成果",
+            "08-综合分析报告": "综合分析报告",
+            "10-项目实施总结": "项目实施总结",
+            "架构设计.md": "生产环境架构设计"
+          }
+        }
+      }
+    },
+    
+    "system_management_layer": {
+      "description": "系统管理层 - 半隐藏",
+      "access_level": "restricted",
+      "hidden": true,
+      "directories": {
+        ".system": {
+          "purpose": "系统配置管理",
+          "subdirectories": {
+            "配置管理": {
+              "purpose": "系统配置文件",
+              "auto_backup": true,
+              "version_control": true
+            },
+            "监控日志": {
+              "purpose": "系统运行监控",
+              "log_retention": "30天",
+              "auto_rotation": true
+            },
+            "数据备份": {
+              "purpose": "自动备份管理",
+              "backup_frequency": "daily",
+              "retention_policy": "90天"
+            }
+          }
+        }
+      }
+    },
+    
+    "technical_implementation_layer": {
+      "description": "技术实现层 - 完全隐藏",
+      "access_level": "admin_only",
+      "hidden": true,
+      "directories": {
+        ".tech": {
+          "purpose": "核心技术实现",
+          "subdirectories": {
+            "核心引擎": {
+              "purpose": "核心引擎模块",
+              "components": [
+                "03-方法论库",
+                "04-工作流程", 
+                "09-快速执行机制",
+                "13-人机交互架构"
+              ]
+            },
+            "技能系统": {
+              "purpose": "LaunchX Skills集成",
+              "auto_discovery": true,
+              "skill_management": true
+            },
+            "特化处理器": {
+              "purpose": "特化能力模块",
+              "specializations": [
+                "02-AI技能系统",
+                "02-特化能力引擎",
+                "12-独立特化能力"
+              ]
+            },
+            "基础设施": {
+              "purpose": "基础设施工具",
+              "components": [
+                "05-数据存储",
+                "06-日志系统",
+                "09-质量保障",
+                "10-文档中心",
+                "03-Gate工具配置",
+                "04-自动化工具",
+                "06-业务规则系统",
+                "07-外部能力整合系统"
+              ]
+            }
+          }
+        }
+      }
+    },
+    
+    "runtime_layer": {
+      "description": "运行时层 - 完全隐藏",
+      "access_level": "admin_only", 
+      "hidden": true,
+      "directories": {
+        ".runtime": {
+          "purpose": "运行时管理",
+          "subdirectories": {
+            "缓存管理": {
+              "purpose": "系统缓存管理",
+              "auto_cleanup": true,
+              "size_limits": "1GB"
+            },
+            "临时文件": {
+              "purpose": "临时数据管理",
+              "auto_cleanup": true,
+              "retention": "24小时"
+            },
+            "系统状态": {
+              "purpose": "进程和锁管理",
+              "health_monitoring": true,
+              "auto_recovery": true
+            }
+          }
+        }
+      }
+    },
+    
+    "migration_rules": {
+      "user_files": {
+        "source_patterns": [
+          "01-客户数据/**",
+          "01-生产数据输入/**",
+          "05-交付成果/**",
+          "08-综合分析报告/**"
+        ],
+        "target_directory": "我的项目/"
+      },
+      "config_files": {
+        "source_patterns": [
+          "07-客户接口/**",
+          "11-客户调整接口/**"
+        ],
+        "target_directory": "系统设置/"
+      },
+      "technical_files": {
+        "source_patterns": [
+          "02-*/**",
+          "03-*/**", 
+          "04-*/**",
+          "05-*/**",
+          "06-*/**",
+          "07-外部能力整合系统/**",
+          "09-*/**",
+          "10-*/**",
+          "12-*/**",
+          "13-*/**"
+        ],
+        "target_directory": ".tech/"
+      }
+    },
+    
+    "access_permissions": {
+      "user_role": {
+        "我的项目": "read_write",
+        "系统设置": "read_write_config", 
+        "使用指南": "read_only",
+        "项目档案": "read_only"
+      },
+      "admin_role": {
+        ".system": "read_write",
+        ".tech": "read_write",
+        ".runtime": "read_write"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-11-13T19:02:38.141746",
+  "total_checks": 14,
+  "passed_checks": 14,
+  "failed_checks": [],
+  "structure_validation": {
+    "客户项目门户": "✅ 存在",
+    "系统管理层": "✅ 存在",
+    "技术实现层": "✅ 存在",
+    "运行时层": "✅ 存在"
+  }
+}

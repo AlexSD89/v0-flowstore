@@ -29,7 +29,8 @@ tags:
   ![[support_modules/knowledge/02_分析与洞察/20250928-新能源行业深度分析.md]]
   ```
 - 标签与 frontmatter 模板：见 `memory-bank/README.md`
-- 方法论索引：`05_方法论中心/方法论中心索引_新结构.md`
+- 方法论索引：`05_方法论中心/README.md`
+- 方法论治理 TODO：`05_方法论中心/todo-20251115-methodology-cleanup.md`
 - 模板与流程：`06_工作流模版与规范/`
 
 ## 重点字段要求

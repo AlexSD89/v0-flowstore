@@ -61,8 +61,9 @@ impact: high
 
 ### Phase 0｜认知加载
 - 阅读 `CLAUDE.md`、目标域 `README/USEME`、现有 Dev Docs，记录已加载的上下文与缺口。
-- 列出可复用资产（Dev Docs、memory-bank、support_modules）；不足之处使用 “TODO｜待补充 + 来源” 标注。
-- 若缺少 Dev Docs，在 Summary 写明“待 Claude 初始化 dev-docs/<project>/”。
+- **智能Skills检测**：若用户输入复杂需求，检查RULES.md的"🎯 智能Skills检测与替代系统"是否触发相应Skills功能，记录检测到的Skills名称和置信度。
+- 列出可复用资产（Dev Docs、memory-bank、support_modules）；不足之处使用 "TODO｜待补充 + 来源" 标注。
+- 若缺少 Dev Docs，在 Summary 写明"待 Claude 初始化 dev-docs/<project>/"。
 
 ### Phase 1｜计划定位
 - 梳理 mini plan（目标、范围、阻塞、验证方式），写入 Summary 或 plan.md。
