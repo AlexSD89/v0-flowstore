@@ -1,0 +1,166 @@
+{
+  "data_sources": {
+    "seeking_alpha": {
+      "name": "Seeking Alpha",
+      "type": "financial_analysis",
+      "priority": 1,
+      "is_premium": true,
+      "authentication": {
+        "method": "cookie_based",
+        "requires_login": true,
+        "auto_session": true
+      },
+      "collection_frequency": "daily",
+      "data_types": [
+        "economic_calendar",
+        "earnings_reports",
+        "market_analysis",
+        "recommendations"
+      ],
+      "endpoints": [
+        {
+          "name": "Economic Calendar",
+          "url": "https://seekingalpha.com/economic-calendar",
+          "data_type": "events"
+        },
+        {
+          "name": "Earnings",
+          "url": "https://seekingalpha.com/earnings",
+          "data_type": "events"
+        },
+        {
+          "name": "Market Analysis",
+          "url": "https://seekingalpha.com/market-news",
+          "data_type": "articles"
+        }
+      ],
+      "rate_limiting": {
+        "requests_per_minute": 60,
+        "daily_limit": 1000
+      }
+    },
+    "federal_reserve": {
+      "name": "Federal Reserve Economic Data",
+      "type": "central_bank",
+      "priority": 2,
+      "is_premium": false,
+      "authentication": {
+        "method": "public_api",
+        "requires_login": false,
+        "auto_session": false
+      },
+      "collection_frequency": "weekly",
+      "data_types": [
+        "fomc_minutes",
+        "interest_rates",
+        "monetary_policy",
+        "economic_projections"
+      ],
+      "endpoints": [
+        {
+          "name": "FOMC Minutes",
+          "url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+          "data_type": "minutes"
+        },
+        {
+          "name": "FRED Data",
+          "url": "https://fred.stlouisfed.org",
+          "data_type": "time_series"
+        }
+      ],
+      "rate_limiting": {
+        "requests_per_minute": 30,
+        "daily_limit": 500
+      }
+    },
+    "sec_filings": {
+      "name": "SEC EDGAR Filings",
+      "type": "regulatory",
+      "priority": 2,
+      "is_premium": false,
+      "authentication": {
+        "method": "public_api",
+        "requires_login": false,
+        "auto_session": false
+      },
+      "collection_frequency": "daily",
+      "data_types": [
+        "form_10k",
+        "form_8k",
+        "proxy_statements",
+        "insider_trading"
+      ],
+      "endpoints": [
+        {
+          "name": "Company Filings",
+          "url": "https://www.sec.gov/Archives/edgar/data/",
+          "data_type": "filings"
+        }
+      ],
+      "rate_limiting": {
+        "requests_per_minute": 100,
+        "daily_limit": 2000
+      }
+    },
+    "tradingview": {
+      "name": "TradingView Public Data",
+      "type": "market_data",
+      "priority": 3,
+      "is_premium": false,
+      "authentication": {
+        "method": "public_data",
+        "requires_login": false,
+        "auto_session": false
+      },
+      "collection_frequency": "real_time",
+      "data_types": [
+        "stock_data",
+        "technical_indicators",
+        "community_scripts"
+      ],
+      "endpoints": [
+        {
+          "name": "Public Scripts",
+          "url": "https://www.tradingview.com/scripts/",
+          "data_type": "scripts"
+        }
+      ],
+      "rate_limiting": {
+        "requests_per_minute": 200,
+        "daily_limit": 5000
+      }
+    }
+  },
+  "collection_strategies": {
+    "real_time": {
+      "sources": ["tradingview"],
+      "interval": "5_minutes",
+      "batch_size": 50
+    },
+    "daily_updates": {
+      "sources": ["seeking_alpha", "sec_filings", "federal_reserve"],
+      "interval": "daily",
+      "batch_size": 100
+    },
+    "weekly_analysis": {
+      "sources": ["seeking_alpha", "federal_reserve"],
+      "interval": "weekly",
+      "batch_size": 500
+    }
+  },
+  "quality_controls": {
+    "data_validation": {
+      "required_fields": ["id", "title", "timestamp", "source", "category"],
+      "date_format": "ISO_8601",
+      "minimum_confidence": 0.8
+    },
+    "duplicate_detection": {
+      "time_window": "1_hour",
+      "similarity_threshold": 0.9
+    },
+    "completeness_check": {
+      "minimum_events_per_source": 5,
+      "data_freshness_threshold": "24_hours"
+    }
+  }
+}

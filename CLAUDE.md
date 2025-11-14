@@ -3,12 +3,14 @@ title: "LaunchX Claude 协作路标"
 owners:
   - Launch X Claude Team
 status: active
-last_update: 2025-11-05
+last_update: 2025-11-14
 related:
   - "RULES.md"
   - "AGENTS.md"
   - "📖README-LaunchX系统总体指南.md"
   - "🛠️ 系统管理/memory-bank/README.md"
+  - "🧰 tools/launchx-cli/README.md"
+  - "🧰 tools/launchx-spec-kit/README.md"
 source: "自动生成（Claude Code + AI增强）"
 impact: high
 ---
@@ -234,6 +236,75 @@ LaunchX采用双模块协作架构，确保AI思考的深度和执行的系统�
 ```
 
 > Dev Docs 模板、Hook 配置、技能触发等细节请按需跳转 `RULES.md`、Skills/Hook README；此处仅保留必备方法论。
+
+## 🛠️ LaunchX Spec-Kit工具执行指南
+
+### 核心工具位置
+- **LaunchX CLI**: `@/🧰 tools/launchx-cli/lx_fixed.py`
+- **Spec-Kit集成**: `@/🧰 tools/launchx-spec-kit/`
+- **Dev Docs模板**: `@/🧰 tools/launchx-cli/dev-docs/`
+
+### 快速使用流程
+```bash
+# 1. 项目初始化 (Collect阶段前置)
+cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-cli"
+python3 lx_fixed.py init --here
+
+# 2. 执行5步认知法 (完全映射Dev Docs更新)
+python3 lx_fixed.py collect "需求收集"     # → @dev-docs/context.md SESSION PROGRESS
+python3 lx_fixed.py model "系统建模"       # → @dev-docs/plan.md 分析报告
+python3 lx_fixed.py compare "方案对比"      # → @dev-docs/plan.md 决策矩阵
+python3 lx_fixed.py align "团队对齐"       # → @dev-docs/tasks.md 任务分配
+python3 lx_fixed.py deliver "执行交付"     # → 三文件同步更新
+```
+
+### @引用标准和文档结构
+#### 必须使用的引用格式
+- **核心实现**: `@/🧰 tools/launchx-cli/lx_fixed.py:line_number`
+- **计划文档**: `@/🧰 tools/launchx-cli/dev-docs/plan.md:line_number`
+- **上下文**: `@/🧰 tools/launchx-cli/dev-docs/context.md:line_number`
+- **任务清单**: `@/🧰 tools/launchx-cli/dev-docs/tasks.md:line_number`
+- **规则对齐**: `@/🧰 tools/launchx-cli/dev-docs/rules-alignment-report.md:line_number`
+
+#### Dev Docs自动更新映射
+- **Collect → context.md**: SESSION PROGRESS状态更新
+- **Model → plan.md**: 系统分析和技术方案
+- **Compare → plan.md**: 方案对比和风险评估
+- **Align → tasks.md**: 团队共识和任务分配
+- **Deliver → 三文件**: 执行进度和交付成果
+
+### Claude使用LaunchX工具的标准流程
+1. **Phase 0认知加载**: 触发user-prompt-submit.js → 验证LaunchX工具状态
+2. **Level判定**: 使用资源调度三步法确定S/M/L级别
+3. **工具调用**: 根据级别选择直接使用LaunchX CLI或集成MCP工具
+4. **文档固化**: 将认知结果通过LaunchX CLI写入Dev Docs三文件
+5. **质量验证**: Hooks检查@引用格式和文档一致性
+
+### MCP工具集成示例
+```python
+# 在Model阶段集成深度分析
+def model_phase_with_mcp(requirements):
+    # 1. 使用LaunchX CLI进行基础建模
+    python3 lx_fixed.py model requirements
+
+    # 2. 集成MCP工具进行深度分析
+    mcp__rube__RUBE_SEARCH_TOOLS(
+        use_case="技术方案调研",
+        known_fields=f"requirements:{requirements}",
+        session_id="launchx_model_analysis"
+    )
+
+    # 3. 更新Dev Docs (自动执行)
+    # 参考: @/🧰 tools/launchx-cli/lx_fixed.py:300-400
+```
+
+### 扩展和定制指导
+- **模板定制**: 编辑 `@/🧰 tools/launchx-spec-kit/templates/commands/`
+- **技能激活**: 配置config.json触发规则
+- **Hook集成**: 在.claude/settings.local.json登记Hook
+- **MCP扩展**: 修改lx_fixed.py添加新工具调用
+
+> **完整工具指南**: 详见 `@RULES.md:1746-1880` LaunchX Spec-Kit工具使用指南章节
 
 ### 协作边界
 ```
