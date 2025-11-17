@@ -1,12 +1,20 @@
 ---
-title: "Gate智能财经日历 - 标准化事件字段与配色方案"
-template_type: "模板"
-industry: "金融服务"
-last_update: "2025-11-13"
-gate_version: "企业AI操作系统 v2.0"
-tags: ["财经日历", "事件模板", "配色标准", "数据结构", "Gate方法论"]
-status: "active"
+title: Gate智能财经日历 - 标准化事件字段与配色方案
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-13
+tags: 
+  - "财经日历"
+  - "事件模板"
+  - "配色标准"
+  - "数据结构"
+  - "Gate方法论"
+template_type: 模板
+industry: 金融服务
+gate_version: 企业AI操作系统 v2.0
 ---
+
 
 # Gate智能财经日历 - 标准化事件字段与配色方案
 

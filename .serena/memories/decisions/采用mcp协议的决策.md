@@ -1,3 +1,10 @@
+---
+title: "采用Mcp协议的决策"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # 采用MCP协议的决策
 
 **分类**: decisions - 技术决策和设计选择

@@ -1,3 +1,10 @@
+---
+title: "Useme"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # BMAD Core - AI 原生 Tasks 使用指南
 
 > **最后更新**: 2025-11-05

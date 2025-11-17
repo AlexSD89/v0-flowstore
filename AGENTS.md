@@ -3,10 +3,12 @@ title: "LaunchX 指挥总则"
 owners:
   - Launch X Codex Team
 status: active
-last_update: 2025-11-05
+last_update: 2025-11-17
 related:
   - CLAUDE.md
   - 📖README-LaunchX系统总体指南.md
+  - "🧰 tools/launchx-cli/README.md"
+  - "🧰 tools/launchx-spec-kit/README.md"
 source: 人工采集
 impact: high
 ---
@@ -18,13 +20,25 @@ impact: high
 **核心定位**：本文件规定 Codex CLI 的协作边界、执行流程与风险机制，确保所有操作与 LaunchX 全局策略一致。
 
 ## 1. 核心原则（LLM 导航提示）
-- **上下文先行**：先读根级 `CLAUDE.md` 与目标域 `USEME.md`，再判定资源调度三步法（Assess｜Gather｜Deliver）与 Dev Docs 三文件的更新范围（CLAUDE.md:48-95；RULES.md:18-40）。
+- **上下文先行**：先读根级 `CLAUDE.md` 与目标域 `USEME.md`，再判定资源调度三步法（Assess｜Gather｜Deliver）与 Dev Docs 三文件的更新范围（CLAUDE.md:91-138；RULES.md:55-80）。
 - **精准检索**：使用 `rg`、`fd` 搜索“最佳实践”“USEME”等关键词，优先复用已有段落，减少空写。
 - **最小必要写作**：Collect/Align 未确认前禁止新建文档；缺口用“TODO｜待补充 + 缺口来源”标注（🛠️ 系统管理/⚙️内容归档规则.md:16）。
 - **引用可追溯**：引用统一使用 `path:line` 或 README 小节；新增内容需同步 memory-bank 与相关 README 的互链（🛠️ 系统管理/memory-bank/README.md:5）。
 - **先评测后放量**：涉及 AI 输出或关键流程时，优先复用/编写评测脚本，遵循 OpenAI `evals`“先建立评测再迭代”的理念。
 - **目录策略**：参考 `📖README-LaunchX系统总体指南.md` 的“信息来源与输出颗粒度指南”，按目录规则选择信息来源与输出形态。
 - **能力边界**：Codex 仅执行本地命令与最小文档改动；涉及 Skills/Hooks/SubAgents 的动作需提前与 Claude 对齐，并在 Summary 记录交接。
+- **深度理解再判断**：在对任何已有代码库、配置、文档或系统（如 Serena 仪表盘、Gate 工作流等）提出结论或方案前，优先按“结构/数据/行为/文档”四维对相关项目文件与逻辑做一轮勘察（见 `RULES.md` 四维清单），确保“确实读过再判断”；若未完成此步骤，应在 Summary 中主动声明“尚未深度探索，目前仅基于部分信息推断”，避免凭印象下判断。
+
+### 规则架构层级（Codex 视角）
+| 层级 | 目标 | 主要文档/命令 | 输出与引用 |
+| --- | --- | --- | --- |
+| Level 0：指挥原则 | 明确使命、边界、触发词 | `CLAUDE.md:27-110`、本节 | Core 原则 + 命令要求写入 Summary |
+| Level 1：执行框架 | 5 步认知 + Dev Docs 映射 | `CLAUDE.md:125-176`、`RULES.md:55-140` | `/spec` 或 plan/context/tasks 的结构 |
+| Level 2：操作规程 | Phase 0、工具/Hook、引用规范 | `RULES.md:578-640`、`RULES.md:388-454` | Checklist ✅ / TODO（附命令、路径、风险） |
+| Level 3：任务域/项目 | 目标域 README/USEME/AGENTS | `🧭 LaunchX能力导航指南.md` 指向的子目录 | 领域特定指令、技能触发器 |
+| Level 4：执行日志 | Codex Summary / logs | `Summary / Testing / Next Steps` 模板 | path:line 引用、验证日志、互链 TODO |
+
+> `RULES.md` 是 Level 0-2 的操作补充层：凡是需要命令模板、Hook 说明或 Phase 0 细节，统一引用 `RULES.md` 对应段落并在 Summary 中保留命令 + 日志路径。
 
 ---
 
@@ -33,7 +47,7 @@ impact: high
 - [ ] 参考 `🧭 LaunchX能力导航指南.md` 确认目标域，并加载该域 `README` / `CLAUDE` / `RULES` / `AGENTS`
 - [ ] 使用 `rg "最佳实践" -g 'CLAUDE.md'`、`rg "USEME"` 等命令寻找可复用片段
 - [ ] 对外输出统一使用中文，英文术语首次出现提供中文释义
-- [ ] Summary 固定使用 `Summary / Testing / Next Steps` 模板
+- [ ] Summary 模板遵循第 6 节“Dev Docs & Summary 快速检查”
 - [ ] 缺信息时标注 “TODO｜待补充 + 缺口来源”，引用使用 `path:line`
 
 ---
@@ -45,9 +59,17 @@ impact: high
 
 ---
 
-## 4. 统一工作流程（Codex视角）
+## 4. 场景触发与统一工作流程（Codex视角）
+
+| 场景 | 默认 Level | 触发命令/动作 | 参考路径 |
+| --- | --- | --- | --- |
+| 轻量问答，已有上下文 | Level S | `rg "<关键词>" -g '<file>'` → 在 Summary 写 mini plan / 风险 | `CLAUDE.md`“响应分级策略” |
+| 方案对比 / 需要引用 | Level M | `node .claude/hooks/user-prompt-submit.js --project=<slug>`（Phase 0）→ 更新 plan/context/tasks | `RULES.md:578-618`、`CLAUDE.md`“Dev Docs项目初始化流程” |
+| 多工具 / 技能协同 | Level M/L | 在 Summary 准备 Hook/Skill 表格（命令、输出目录、风险），Codex 仅执行本地命令 | `CLAUDE.md`“Hook/Skill 调用记录模板” |
+| 高风险或跨域影响 | Level L | 记录验证脚本 + 回滚策略，必要时扩展 `/risks` `/tests`，同步 memory-bank TODO | `CLAUDE.md`“Dev Docs & Summary 快速检查”、`RULES.md`“Deliver/Archive” |
 
 > Claude 负责认知与自动化调度，Codex 仅执行本地命令和文档更新；详细流程见 `CLAUDE.md`“统一工作流程”。
+
 ## 5. 响应分级策略（Codex执行）
 
 | 等级 | Codex 行动 | Claude 行动 | Dev Docs / Summary 要求 |
@@ -120,11 +142,10 @@ impact: high
 | **🧩 bmad** | 多 Agent 自动化脚本、SOP | 编制运行指令与风险提示；执行与结果由 Claude 记录 |
 | **support_modules/** | 公共 API、脚本、提示片段 | 引用时标注路径与函数；发现缺口先补齐 USEME |
 | **🧰 tools** | 现成子项目或脚手架 | 阅读各自 README；使用后更新互链 |
+| **🧰 tools/launchx-cli** | LaunchX 5步认知法CLI工具 | 使用时机与规则见 `RULES.md`“LaunchX Spec-Kit工具使用时机与规则”，详细命令见 `🧰 tools/launchx-cli/README.md` |
 | **质量/配置 Hooks** | 自动化质量检查、配置校验 | 仅准备 `.claude/hooks/*` 执行指令与备注，由 Claude 触发并反馈日志 |
 
 调用任何外部或新增工具时，在 Summary 中写明名称、子路径、目的与风险。
-
----
 
 ## 10. 子目录指挥文档继承规范
 - **强制继承**：子目录内的 `AGENTS.md` / `CLAUDE.md` 必须沿用根级语言策略、内容禁区、Summary 模板、工具记录要求与使命三线，并使用完整 frontmatter。

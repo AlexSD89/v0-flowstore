@@ -1,3 +1,10 @@
+---
+title: "Meeting"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # LaunchX 会议记录模板
 
 > 标准化会议流程，确保高效决策与行动跟踪

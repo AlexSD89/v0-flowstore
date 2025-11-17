@@ -1,3 +1,10 @@
+---
+title: "Support Modules Launchx Checklists Meeting 20251114"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # meeting
 
 **📂 原始分类**: support_modules/launchx/checklists

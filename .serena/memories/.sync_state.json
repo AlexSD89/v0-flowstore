@@ -1,0 +1,14 @@
+{
+  "support_modules/knowledge/reports/knowledge_audit_report.md": {
+    "launchx_hash": "67098bda90240e9471f9d8c4405f7c44",
+    "serena_hash": "ef2db97d2d584e0b80218397478e5698",
+    "last_sync": "2025-11-17T14:07:44.209715",
+    "sync_direction": "launchx_to_serena"
+  },
+  "serena_to_launchx/test-independence-1763359612": {
+    "serena_hash": "f3006c84112ca2bea418c30797e02bf7",
+    "launchx_hash": "bd5b19be124a213cb83c827669a2dadd",
+    "last_sync": "2025-11-17T14:07:44.224604",
+    "sync_direction": "serena_to_launchx"
+  }
+}

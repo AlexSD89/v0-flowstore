@@ -1,3 +1,10 @@
+---
+title: "Launchx 项目概述"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # LaunchX 项目概述
 
 **分类**: project-context - 项目背景和上下文

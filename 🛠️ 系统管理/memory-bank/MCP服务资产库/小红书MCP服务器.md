@@ -1,3 +1,10 @@
+---
+title: "小红书Mcp服务器"
+owners: 
+  - "LaunchX Memory Team"
+status: active
+last_update: 2025-11-17
+---
 # 小红书 MCP 服务器 - 资产记录
 
 > **资产类型**: MCP 服务器集成  

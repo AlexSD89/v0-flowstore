@@ -1,0 +1,138 @@
+# Serena项目配置文件
+# LaunchX企业级智能协作系统 - Serena Memory Bank核心
+
+project:
+  name: "LaunchX企业级智能协作系统"
+  root_path: "/Users/dangsiyuan/Documents/obsidion/launch x"
+  version: "1.0.0"
+  created_at: "2025-11-17"
+  last_updated: "2025-11-17"
+
+serena:
+  version: "0.1.4"
+  mode: "launchx-enhanced"
+
+  # Memory配置
+  memory:
+    storage_path: ".serena/memories"
+    max_memory_size: 1000
+    auto_backup: true
+    semantic_search: true
+
+  # LaunchX集成配置
+  launchx_integration:
+    enabled: true
+    project_path: "/Users/dangsiyuan/Documents/obsidion/launch x"
+    dev_mode: "enhanced"  # standard, enhanced, advanced
+    memory_sync:
+      mode: "bidirectional"  # bidirectional, launchx_to_serena, serena_to_launchx
+      sync_interval: 300  # 5分钟同步间隔
+      conflict_resolution: "ai_enhanced"  # manual, timestamp, ai_enhanced
+
+  # 增强层配置
+  enhancement_layers:
+    - name: "launchx_dev_3step"
+      enabled: true
+      config:
+        analysis_adapter: true
+        refactoring_adapter: true
+        execution_adapter: true
+
+    - name: "five_step_cognitive"
+      enabled: true
+      config:
+        ai_enhancement: true
+        memory_integration: true
+        pattern_learning: true
+
+    - name: "dev_docs_workflow"
+      enabled: true
+      config:
+        auto_generation: true
+        template_enhancement: true
+        quality_assurance: true
+
+    - name: "skills_ecosystem"
+      enabled: true
+      config:
+        skill_registration: true
+        tool_integration: true
+        performance_optimization: true
+
+# MCP服务器配置
+mcp_server:
+  enabled: true
+  host: "127.0.0.1"
+  port: 24281
+  web_dashboard:
+    enabled: true
+    port: 24282
+    path: "/dashboard"
+
+# 工具配置
+tools:
+  memory_tools:
+    enabled: true
+    tools:
+      - write_memory
+      - read_memory
+      - list_memories
+      - edit_memory
+      - delete_memory
+
+  launchx_tools:
+    enabled: true
+    tools:
+      - launchx_cli
+      - dev_docs_manager
+      - skills_integrator
+
+# 质量控制配置
+quality_control:
+  auto_validation: true
+  quality_threshold: 0.8
+  error_detection: true
+
+# 日志配置
+logging:
+  level: "INFO"
+  main_file: ".serena/logs/serena.log"
+  archive_dir: "🛠️ 系统管理/memory-bank/logs"
+  max_size: "10MB"
+  backup_count: 5
+
+  # 日志分类
+  categories:
+    main:
+      file: "serena.log"
+      description: "Serena主日志"
+    mcp_server:
+      file: "mcp_server.log"
+      description: "MCP服务器日志"
+    memory_sync:
+      file: "memory_sync.log"
+      description: "Memory Bank双向同步日志"
+    ai_enhancement:
+      file: "ai_enhancement.log"
+      description: "AI增强功能日志"
+    web_dashboard:
+      file: "web_dashboard.log"
+      description: "Web仪表板日志"
+
+  # 日志轮转
+  rotation:
+    enabled: true
+    max_files: 10
+    compress_old: true
+
+  # 日志格式
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics_port: 24283
+  health_check:
+    enabled: true
+    interval: 30
