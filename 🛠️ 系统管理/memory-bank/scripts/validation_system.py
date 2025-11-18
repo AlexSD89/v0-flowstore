@@ -260,7 +260,7 @@ class LaunchXDesignInheritanceValidator:
 
         for step in cognitive_steps:
             # 检查Dev Docs中是否有对应的实现
-            dev_docs_path = self.launchx_root / "🧰 tools/launchx-cli/dev-docs"
+            dev_docs_path = self.launchx_root / "🧰 tools/launchx-spec-kit-cli/dev-docs"
             step_docs = list(dev_docs_path.rglob(f"*{step}*")) if dev_docs_path.exists() else []
 
             implementation_status[step] = {
@@ -286,7 +286,7 @@ class LaunchXDesignInheritanceValidator:
         print("🧪 测试6: Dev Docs工作流验证")
 
         # 验证Dev Docs三文件结构
-        dev_docs_path = self.launchx_root / "🧰 tools/launchx-cli/dev-docs"
+        dev_docs_path = self.launchx_root / "🧰 tools/launchx-spec-kit-cli/dev-docs"
 
         required_files = ['plan.md', 'context.md', 'tasks.md']
         existing_files = [f.name for f in dev_docs_path.rglob("*.md")] if dev_docs_path.exists() else []

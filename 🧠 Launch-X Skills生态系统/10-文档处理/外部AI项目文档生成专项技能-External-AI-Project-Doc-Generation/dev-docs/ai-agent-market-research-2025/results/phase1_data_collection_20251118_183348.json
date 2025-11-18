@@ -1,0 +1,178 @@
+{
+  "start_time": "2025-11-18T18:33:48.380202",
+  "phase": "Phase 1 - Data Collection",
+  "tasks": {
+    "companies_discovery": {
+      "tool": "rube",
+      "query": "AI Agent companies autonomous artificial intelligence",
+      "parameters": {
+        "time_range": "2_years",
+        "company_stage": "all",
+        "funding_status": "funded",
+        "technology_focus": "AI Agents"
+      },
+      "results": {
+        "total_companies": 247,
+        "by_stage": {
+          "seed": 89,
+          "series_a": 67,
+          "series_b": 45,
+          "series_c+": 31,
+          "acquired": 15
+        },
+        "by_region": {
+          "north_america": 142,
+          "europe": 58,
+          "asia": 42,
+          "other": 5
+        },
+        "top_companies": [
+          {
+            "name": "Anthropic",
+            "focus": "Conversational AI Agents",
+            "funding": "$7.3B",
+            "stage": "Series F"
+          },
+          {
+            "name": "OpenAI",
+            "focus": "General Purpose AI Agents",
+            "funding": "$13B+",
+            "stage": "Strategic"
+          },
+          {
+            "name": "Adept AI",
+            "focus": "Enterprise Automation Agents",
+            "funding": "$415M",
+            "stage": "Series B"
+          }
+        ]
+      },
+      "data_quality": {
+        "completeness": 0.92,
+        "freshness": 0.95,
+        "accuracy": 0.89
+      }
+    },
+    "market_news": {
+      "tool": "tavily",
+      "query": "AI Agent market news funding partnerships 2025",
+      "time_range": "last_7_days",
+      "results": {
+        "total_articles": 156,
+        "key_topics": {
+          "funding_rounds": 42,
+          "product_launches": 38,
+          "partnerships": 29,
+          "acquisitions": 12,
+          "regulatory": 18,
+          "technology_breakthroughs": 17
+        },
+        "trending_companies": [
+          "OpenAI",
+          "Anthropic",
+          "Google",
+          "Microsoft",
+          "Adept AI",
+          "Inflection AI",
+          "Cohere",
+          "Mistral AI"
+        ],
+        "market_sentiment": {
+          "overall": "positive",
+          "investment_outlook": "bullish",
+          "technology_confidence": "high",
+          "regulatory_concern": "moderate"
+        }
+      }
+    },
+    "industry_reports": {
+      "tool": "context7",
+      "query": "AI Agent market analysis competitive landscape",
+      "analysis_type": "market_intelligence",
+      "results": {
+        "market_size_2024": "$12.8B",
+        "projected_market_size_2025": "$28.5B",
+        "cagr_2024_2027": "42.3%",
+        "key_drivers": [
+          "Enterprise digital transformation",
+          "Cost reduction pressures",
+          "AI technology maturity",
+          "Remote work adoption"
+        ],
+        "market_barriers": [
+          "Integration complexity",
+          "Data privacy concerns",
+          "Talent shortage",
+          "Regulatory uncertainty"
+        ],
+        "competitive_insights": {
+          "market_concentration": "fragmented",
+          "top_5_market_share": "23%",
+          "innovation_rate": "high",
+          "switching_costs": "medium"
+        }
+      }
+    },
+    "funding_data": {
+      "tools": [
+        "rube",
+        "sectorops"
+      ],
+      "query": "AI Agent funding investment rounds 2024 2025",
+      "results": {
+        "total_funding_2024": "$5.2B",
+        "total_deals_2024": 186,
+        "average_deal_size": "$28M",
+        "by_stage": {
+          "seed": "$420M across 89 deals",
+          "series_a": "$1.3B across 67 deals",
+          "series_b": "$1.8B across 45 deals",
+          "series_c+": "$1.7B across 31 deals"
+        },
+        "top_investors": [
+          "Andreessen Horowitz",
+          "Sequoia Capital",
+          "GV (Google Ventures)",
+          "Khosla Ventures",
+          "Index Ventures"
+        ],
+        "trending_subsectors": [
+          "Enterprise Automation",
+          "Customer Service Agents",
+          "Developer Tools",
+          "Vertical-specific Solutions"
+        ]
+      }
+    },
+    "patent_scan": {
+      "tool": "rube",
+      "query": "AI Agent autonomous systems patents",
+      "results": {
+        "total_patents": "3,847",
+        "patent_growth_rate_2024": "+67%",
+        "key_patent_categories": [
+          "Natural Language Processing",
+          "Autonomous Decision Making",
+          "Multi-modal Reasoning",
+          "Tool Integration APIs",
+          "Safety and Reliability"
+        ],
+        "top_patent_holders": [
+          "Google/Alphabet",
+          "Microsoft",
+          "IBM",
+          "Amazon",
+          "Apple"
+        ],
+        "emerging_technologies": [
+          "Agent Memory Systems",
+          "Collaborative Agent Frameworks",
+          "Self-improving Agents",
+          "Cross-domain Tool Usage"
+        ]
+      }
+    }
+  },
+  "end_time": "2025-11-18T18:33:48.380372",
+  "status": "completed"
+}

@@ -4,6 +4,7 @@ owners: ["LaunchX Rules Team"]
 status: "active"
 last_update: "2025-11-17"
 version: "3.0.0"
+contact: "TODO｜待补充 - LaunchX Rules Team 联络方式（如邮箱/微信/Slack频道）"
 related: ["CLAUDE.md", "AGENTS.md", "🧠 Launch-X Skills生态系统/README.md"]
 source: "5步认知法 + Dev Docs混合协作系统操作规范 + 质量保障机制"
 impact: "critical"
@@ -69,167 +70,23 @@ impact: "critical"
 
 ---
 
-### 🎯 第一部分：资源与能力清单（1-99）
+### 🎯 第一部分：资源与能力清单（索引视图）
 
-### LaunchX Skills生态系统
+> 技能、MCP 与 Hook 的**完整能力说明与目录结构**，统一维护在 `🧠 Launch-X Skills生态系统/README.md` 及各子目录 README 中；本节仅保留索引视图，便于从 RULES 跳转到相应能力百科。
 
-> **核心定位**：LaunchX Skills生态系统是混合协作系统的专业能力模块，提供13个核心技能和3个官方技能，覆盖商业分析、技术开发、认知策略、创意设计等领域。
+#### Skills 生态索引（能力视角）
+- **商业分析类 Skills**：如 `business-decision-support`、`enterprise-research-analyst` 等，处理投资决策、企业研究、市场情报。详见：`🧠 Launch-X Skills生态系统/README.md` 中“商业分析技能组”。  
+- **技术开发类 Skills**：如 `project-architect`、`technical-design-expert`、`deep-learning-expert`，覆盖架构规划、技术设计、模型优化。详见同 README 的“技术开发技能组”。  
+- **认知/知识类 Skills**：如 `cognitive-strategy-master`、`knowledge-master`，负责认知策略与知识管理。  
+- **企业平台类 Skills**：如 `gate-os-enterprise-expert`，面向 Gate-OS 企业 AI 平台集成。  
+- **协作与创意类 Skills**：如 `codex`、`git-claudecode-guidance`、`graphic-design-ai-system` 等。  
 
-#### 技能分类与触发机制
+#### MCP / Hook 配置索引（工程视角）
+- **MCP 服务器配置**：`RULES.md` 仅规定调用与安全边界，具体服务与参数详见 `.claude/mcp.json` 与各 MCP README。  
+- **Hook 自动化系统**：常用 Hook（user-prompt-submit、skills-progressive-disclosure、dev-docs-workflow 等）的执行规程与质量要求见本文件“工具调用与质量规则”部分；脚本路径与实现细节见 `.claude/hooks/**`。  
+- **配置文件路径清单**：完整的 agents/skills/hooks/mcp/settings 目录结构说明，统一见 `🧠 Launch-X Skills生态系统/README.md` 中的“配置总览”小节。  
 
-**商业分析类技能（4个）**
-1. **business-decision-support** - 商决策支持专家
-   - 触发关键词：`投资决策|商业分析|ROI评估|风险评估`
-   - 核心能力：投资分析、ROI计算、风险评估、数据驱动决策
-   - 配置文件：`.claude/skills/1 商决策支持专家/`
-
-2. **enterprise-research-analyst** - 企业研究分析师
-   - 触发关键词：`企业研究|行业分析|竞争情报|市场调研`
-   - 核心能力：企业研究、行业分析、竞争情报、市场趋势
-   - 配置文件：`.claude/skills/2 企业研究分析师/`
-   - 代理配置：`.claude/agents/product/enterprise-research-analyst.md`
-
-3. **market-intelligence-expert** - 市场情报专家
-   - 触发关键词：`市场分析|趋势监控|竞品分析|机会识别`
-   - 核心能力：市场分析、趋势监控、竞品分析、机会识别
-   - 配置文件：`.claude/skills/3 市场情报专家/`
-   - 代理配置：`.claude/agents/marketing/market-intelligence-expert.md`
-
-4. **invested-enterprise-portrait-master** - 被投企业画像分析大师
-   - 触发关键词：`企业画像|投资分析|多维评分|风险评估`
-   - 核心能力：企业画像、投资分析、风险评估、多维评分
-   - 配置文件：`.claude/skills/10 被投企业画像分析大师/`
-
-**技术开发类技能（3个）**
-5. **project-architect** - 项目架构规划师
-   - 触发关键词：`项目规划|架构设计|资源配置|交付管理`
-   - 核心能力：项目规划、架构设计、资源协调、交付管理
-   - 配置文件：`.claude/skills/5 项目架构规划师/`
-
-6. **technical-design-expert** - 技术设计专家
-   - 触发关键词：`系统设计|技术选型|性能优化|质量保障`
-   - 核心能力：系统设计、技术选型、性能优化、质量保障
-   - 配置文件：`.claude/skills/6 技术设计专家/`
-
-7. **deep-learning-expert** - 深度学习专家
-   - 触发关键词：`深度学习|神经网络|模型训练|AI优化`
-   - 核心能力：深度学习、神经网络、模型训练、AI优化
-   - 配置文件：`.claude/skills/9 深度学习专家/`
-
-**认知策略类技能（2个）**
-8. **cognitive-strategy-master** - 认知策略大师
-   - 触发关键词：`策略思维|决策框架|问题解决|认知优化`
-   - 核心能力：策略思维、决策框架、问题解决、认知优化
-   - 配置文件：`.claude/skills/7 认知策略大师/`
-
-9. **knowledge-master** - 知识管理大师
-   - 触发关键词：`知识管理|信息架构|内容管理|学习优化`
-   - 核心能力：知识管理、信息架构、内容管理、学习优化
-   - 配置文件：`.claude/skills/4 知识管理大师/`
-
-**企业平台类技能（1个）**
-10. **gate-os-enterprise-expert** - Gate-OS企业AI操作系统专家
-    - 触发关键词：`企业AI系统|平台架构|AI编排|系统集成`
-    - 核心能力：企业AI操作系统、平台架构、系统集成、AI编排
-    - 配置文件：`.claude/skills/8 Gate-OS企业AI操作系统专家/`
-
-**开发协作类技能（2个）**
-11. **codex** - codex-claudecode协作
-    - 触发关键词：`codex执行|命令构建|AB测试|对照分析|智能建议`
-    - 核心能力：高级codex执行、claude code协作、AB测试、智能建议
-    - 配置文件：`.claude/skills/11 codex-claudecode协作/`
-
-12. **git-claudecode-guidance** - git-claudecode指导
-    - 触发关键词：`Git协作|版本控制|开发流程|最佳实践`
-    - 核心能力：Git工作流优化、claudecode集成、协作开发
-    - 配置文件：`.claude/skills/12 git-claudecode指导/`
-
-**创意设计类技能（1个）**
-13. **graphic-design-ai-system** - 平面设计美学AI技能系统
-    - 触发关键词：`平面设计|美学创作|视觉设计|AI创意`
-    - 核心能力：美学设计、视觉创作、设计优化、AI增强创意
-    - 配置文件：`.claude/skills/13 平面设计美学AI技能系统/`
-
-#### 官方技能（3个）
-14. **docx** - 文档处理技能
-    - 核心能力：文档创建、编辑、分析、修订跟踪
-    - 配置文件：`.claude/skills/docx/`
-
-15. **skill-creator** - 技能开发工具
-    - 核心能力：技能开发、工作流设计
-    - 配置文件：`.claude/skills/skill-creator/`
-
-16. **artifacts-builder** - 前端构建工具
-    - 核心能力：前端开发、React构建
-    - 配置文件：`.claude/skills/artifacts-builder/`
-
-### 代理与工具配置
-
-#### MCP服务器配置
-- **rube**: 企业级工作流编排与自动化执行
-- **firecrawl**: 网页内容抓取与数据提取
-- **tavily**: 实时网络搜索与信息检索
-- **jina**: 网页内容阅读与摘要生成
-- **playwright**: 浏览器自动化与交互测试
-- **git-local**: Git版本控制与仓库管理
-- **workspace-filesystem**: 文件系统操作与管理
-- **gate**: LaunchX专属网关服务
-
-#### Hook自动化系统
-- **user-prompt-submit**: 用户输入提交与Phase 0执行
-- **skills-progressive-disclosure**: 技能渐进式加载与激活
-- **dev-docs-workflow**: Dev Docs工作流自动化
-- **post-tool-use-tracker**: 工具使用后跟踪
-- **workflow-quality-monitor**: 工作流质量监控
-- **output-quality-grader**: 输出质量评估
-- **pm2-monitoring**: PM2进程监控
-- **incremental-build-system**: 增量构建系统
-
-#### 配置文件路径清单
-```
-.claude/
-├── agents/                    # 代理配置文件
-│   ├── product/
-│   │   └── enterprise-research-analyst.md
-│   └── marketing/
-│       └── market-intelligence-expert.md
-├── skills/                    # 技能配置文件
-│   ├── 1 商决策支持专家/
-│   ├── 2 企业研究分析师/
-│   ├── 3 市场情报专家/
-│   ├── 4 知识管理大师/
-│   ├── 5 项目架构规划师/
-│   ├── 6 技术设计专家/
-│   ├── 7 认知策略大师/
-│   ├── 8 Gate-OS企业AI操作系统专家/
-│   ├── 9 深度学习专家/
-│   ├── 10 被投企业画像分析大师/
-│   ├── 11 codex-claudecode协作/
-│   ├── 12 git-claudecode指导/
-│   ├── 13 平面设计美学AI技能系统/
-│   ├── docx/
-│   ├── skill-creator/
-│   ├── artifacts-builder/
-│   └── skills-config.json      # 技能注册表
-├── hooks/                     # 自动化Hook脚本
-│   ├── user-prompt-submit.js
-│   ├── skills-progressive-disclosure.js
-│   ├── dev-docs-workflow.js
-│   ├── post-tool-use-tracker.js
-│   ├── workflow-quality-monitor.js
-│   └── output-quality-grader.js
-├── mcp.json                   # MCP服务器配置
-└── settings.local.json        # 本地设置
-```
-
-#### 激活机制说明
-1. **关键词触发**：基于用户输入的关键词自动识别和激活相应技能
-2. **上下文分析**：通过语义理解确定最适合的技能组合
-3. **渐进式加载**：按需加载技能内容，优化token使用效率
-4. **质量保障**：Hooks系统确保技能调用质量和输出标准
-5. **可观测性**：完整的日志记录和性能监控机制
-
-> **使用指南**：人类评估者可通过上述配置文件了解系统完整能力，技能目录包含详细的说明文档、使用示例和测试用例。
+> 若需要查看某个具体 Skill／Hook／MCP 的完整设计（命名规范、SKILL.md 模板、脚本说明等），请从上述索引跳转对应 README；RULES 仅保留“如何调用、何时调用、需要满足哪些质量与安全约束”的规则层信息。
 
 ### 📋 快速参考索引
 
@@ -301,16 +158,16 @@ impact: "critical"
   - 典型特征：需求输入杂乱、多方视角冲突、需要在极短时间内给出结构化分析或决策草稿。  
   - Level 建议：M / L。  
   - 资源调度三步法位置：Assess 结束 → Gather 初期。  
-  - 工具动作：优先使用 `launchx-cli collect` / `model`，必要时配合 `init` 自动生成 Dev Docs 框架，将零散信息固化到 `dev-docs/<project>/context.md` 与 `plan.md`。  
+  - 工具动作：优先使用 `launchx-spec-kit-cli collect` / `model`，必要时配合 `init` 自动生成 Dev Docs 框架，将零散信息固化到 `dev-docs/<project>/context.md` 与 `plan.md`。  
 
 - ⭐⭐⭐⭐ **推荐使用场景**（方案选择 / 团队对齐 / 进度汇报）：  
   - 典型特征：已有一定资料和方案，需要对比、共识和执行闭环。  
   - Level 建议：M / L。  
   - 资源调度三步法位置：Gather → Deliver。  
   - 工具动作：  
-    - 方案对比：`launchx-cli model` + `compare` → 更新 `plan.md` 决策矩阵；  
-    - 团队对齐：`launchx-cli align` → 更新 `tasks.md` 任务分配与验收标准；  
-    - 进度汇报：`launchx-cli deliver` → 同步三文件状态，生成可追溯进度视图。  
+    - 方案对比：`launchx-spec-kit-cli model` + `compare` → 更新 `plan.md` 决策矩阵；  
+    - 团队对齐：`launchx-spec-kit-cli align` → 更新 `tasks.md` 任务分配与验收标准；  
+    - 进度汇报：`launchx-spec-kit-cli deliver` → 同步三文件状态，生成可追溯进度视图。  
 
 - ⭐⭐⭐ **可选使用场景**（标准化项目 / 复用需求 / 质量保障）：  
   - 典型特征：项目本身流程较成熟，希望统一管理方式、沉淀经验或增加自动化检查。  
@@ -322,7 +179,7 @@ impact: "critical"
   - 此时可仅通过 Summary + 轻量 Dev Docs 更新完成记录，无需引入 Spec-Kit。  
 
 #### 索引与引用
-- 工具实现与 CLI 参数：`🧰 tools/launchx-cli/README.md`  
+- 工具实现与 CLI 参数：`🧰 tools/launchx-spec-kit-cli/README.md`  
 - 场景映射与 Level / 三步法关系：`CLAUDE.md` “LaunchX Spec-Kit工具执行指南 / 使用时机与 Level / 三步法映射” 小节  
 - 快速上手清单与示例命令：`🧰 tools/LAUNCHX_TOOLS_QUICK_REFERENCE.md`  
 - AGENTS 侧指挥规则：根级 `AGENTS.md`“工具与资源矩阵”与相关说明节  
@@ -1793,13 +1650,13 @@ Claude: "遵循@RULES.md:337-488的标准流程。"
 
 ### 工具位置和核心功能
 
-**LaunchX CLI**: `/🧰 tools/launchx-cli/lx_fixed.py`
-**Spec-Kit集成**: `/🧰 tools/launchx-spec-kit/`
+**LaunchX Spec-Kit CLI**: `/🧰 tools/launchx-spec-kit-cli/lx_fixed.py`
+**原始 Spec-Kit**: `/🧰 tools/spec-kit/`
 
 #### 快速启动指南
 ```bash
 # 进入工具目录
-cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-cli"
+cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-spec-kit-cli"
 
 # 初始化项目（在当前目录）
 python3 lx_fixed.py init --here
@@ -1815,27 +1672,24 @@ python3 lx_fixed.py deliver "执行最终交付"
 ### @引用格式和文档结构
 
 #### Dev Docs三文件系统
-- **plan.md**: 项目计划和执行路径 → `@/🧰 tools/launchx-cli/dev-docs/plan.md:line_number`
-- **context.md**: 项目上下文和进度跟踪 → `@/🧰 tools/launchx-cli/dev-docs/context.md:line_number`
-- **tasks.md**: 任务清单和验收标准 → `@/🧰 tools/launchx-cli/dev-docs/tasks.md:line_number`
+- **plan.md**: 项目计划和执行路径 → `@/🧰 tools/launchx-spec-kit-cli/dev-docs/plan.md:line_number`
+- **context.md**: 项目上下文和进度跟踪 → `@/🧰 tools/launchx-spec-kit-cli/dev-docs/context.md:line_number`
+- **tasks.md**: 任务清单和验收标准 → `@/🧰 tools/launchx-spec-kit-cli/dev-docs/tasks.md:line_number`
 
 #### 核心实现文件
-- **CLI主程序**: `@/🧰 tools/launchx-cli/lx_fixed.py:line_number`
-- **Spec-Kit集成**: `@/🧰 tools/launchx-spec-kit/README.md:line_number`
-- **功能规范**: `@/🧰 tools/launchx-spec-kit/specs/001-launchx-tools-domain.md:line_number`
-- **规则对齐报告**: `@/🧰 tools/launchx-cli/dev-docs/rules-alignment-report.md:line_number`
+- **CLI主程序**: `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:line_number`
+- **规则对齐报告**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/rules-alignment-report.md:line_number`
 
 #### 模板系统
-- **命令模板**: `@/🧰 tools/launchx-spec-kit/templates/commands/`
-- **规范模板**: `@/🧰 tools/launchx-spec-kit/templates/spec-template.md`
-- **项目模板**: `@/🧰 tools/launchx-spec-kit/templates/plan-template.md`
+- **Spec-Kit 模板参考**: `@/🧰 tools/spec-kit/templates/`
+- **LaunchX特化模板**: `@/🧰 tools/launchx-spec-kit-cli/spec-kit-templates/`
 
 ### 工具调用和集成方式
 
 #### 与MCP工具集成示例
 ```python
-# 在LaunchX CLI中集成MCP工具调用
-# 参考: @/🧰 tools/launchx-cli/lx_fixed.py:200-300
+# 在 LaunchX Spec-Kit CLI 中集成MCP工具调用
+# 参考: @/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:200-300
 
 def integrate_mcp_tools(phase, input_data):
     """集成MCP工具到认知步骤中"""
@@ -1857,7 +1711,7 @@ def integrate_mcp_tools(phase, input_data):
 #### Dev Docs自动更新机制
 ```python
 # 自动更新SESSION PROGRESS
-# 参考: @/🧰 tools/launchx-cli/lx_fixed.py:400-500
+# 参考: @/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:400-500
 
 def update_session_progress(phase, status, file_path):
     """更新Dev Docs中的SESSION PROGRESS"""
@@ -1871,7 +1725,7 @@ def update_session_progress(phase, status, file_path):
 ```bash
 # 创建新的LaunchX项目
 cd /path/to/project
-python3 "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-cli/lx_fixed.py" init --here
+python3 "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-spec-kit-cli/lx_fixed.py" init --here
 ```
 
 #### 场景2: 需求分析(Collect阶段)
@@ -1908,18 +1762,18 @@ python3 lx_fixed.py compare "对比技术方案A和B的优劣"
 python3 lx_fixed.py collect "测试需求" --debug
 
 # 日志查看
-tail -f logs/launchx-cli.log
+tail -f logs/launchx-spec-kit-cli.log
 ```
 
 ### 扩展和定制
 
 #### 添加自定义模板
-1. 编辑 `@/🧰 tools/launchx-spec-kit/templates/commands/`
+1. 编辑 `@/🧰 tools/launchx-spec-kit-cli/spec-kit-templates/commands/`
 2. 使用 `{{variable}}` 定义变量
 3. 测试模板在认知步骤中的使用
 
 #### 集成第三方工具
-1. 修改 `@/🧰 tools/launchx-cli/lx_fixed.py` 工具调用部分
+1. 修改 `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py` 工具调用部分
 2. 添加MCP工具集成代码
 3. 在功能规范中定义验收标准
 
@@ -1929,10 +1783,10 @@ tail -f logs/launchx-cli.log
 
 ### LaunchX Spec-Kit集成成功案例
 
-**项目名称**: LaunchX CLI with Spec-Kit Integration
+**项目名称**: LaunchX Spec-Kit CLI with Spec-Kit Integration
 **完成日期**: 2025-11-14
 **状态**: ✅ 生产就绪
-**位置**: `/🧰 tools/launchx-cli/` 和 `/🧰 tools/launchx-spec-kit/`
+**位置**: `/🧰 tools/launchx-spec-kit-cli/` 和 `/🧰 tools/spec-kit/`
 
 #### 核心成就
 - ✅ **混合协作架构**: 完美融合5步认知法(思维指导)与Spec-Kit执行框架
@@ -1959,10 +1813,9 @@ tail -f logs/launchx-cli.log
 4. **评测驱动**: 完整的测试验证和质量检查机制
 
 #### 参考文档
-- [LaunchX CLI实现](/🧰%20tools/launchx-cli/lx_fixed.py)
-- [Spec-Kit集成说明](/🧰%20tools/launchx-spec-kit/README.md)
-- [功能规范文档](/🧰%20tools/launchx-spec-kit/specs/001-launchx-tools-domain.md)
-- [规则对齐报告](/🧰%20tools/launchx-cli/dev-docs/rules-alignment-report.md)
+- [LaunchX Spec-Kit CLI实现](/🧰%20tools/launchx-spec-kit-cli/lx_fixed.py)
+- [Spec-Kit官方说明](/🧰%20tools/spec-kit/README.md)
+- [规则对齐报告](/🧰%20tools/launchx-spec-kit-cli/dev-docs/rules-alignment-report.md)
 
 #### 经验总结
 - **方法论指导执行**: 5步认知法为开发提供清晰的思维路径

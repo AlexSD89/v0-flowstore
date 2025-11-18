@@ -1,0 +1,31 @@
+{
+	"name": "obsidian-content-distributor",
+	"version": "1.0.0",
+	"description": "智能内容分发助手 - 将Obsidian笔记一键转换为小红书、即刻、X、微信公众号等平台风格文案",
+	"main": "main.js",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit --skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"test": "echo \"No tests yet\" && exit 0"
+	},
+	"keywords": [
+		"obsidian",
+		"plugin",
+		"obsidian-plugin",
+		"content-distribution",
+		"social-media",
+		"ai-content"
+	],
+	"author": "LaunchX Team",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"@typescript-eslint/eslint-plugin": "^7.0.0",
+		"builtin-modules": "3.3.0",
+		"esbuild": "0.17.19",
+		"obsidian": "latest",
+		"tslib": "2.6.2",
+		"typescript": "5.3.3"
+	}
+}

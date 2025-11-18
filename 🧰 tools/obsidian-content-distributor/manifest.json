@@ -1,0 +1,11 @@
+{
+	"id": "obsidian-content-distributor",
+	"name": "Content Distributor",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "智能内容分发助手 - 将Obsidian笔记一键转换为小红书、即刻、X、微信公众号等平台风格文案",
+	"author": "LaunchX Team",
+	"authorUrl": "https://github.com/launchx-team",
+	"fundingUrl": "https://github.com/launchx-team",
+	"isDesktopOnly": false
+}

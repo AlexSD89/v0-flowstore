@@ -1,0 +1,226 @@
+# 小红书Gate AI智能运营系统 V4.0 - 应用配置
+
+app:
+  name: "xiaohongshu-gate-ai运营-v4"
+  version: "4.1.0"
+  description: "基于Gate MCP工作流引擎的V4.1性能优化AI智能运营平台"
+  environment: "development"  # development, testing, production
+  debug: true
+
+  # V4.1性能优化特性
+  performance_features:
+    - "异步工作流引擎"
+    - "三级缓存策略(L1+L2+L3)"
+    - "连接池优化"
+    - "实时性能监控"
+    - "成本优化控制"
+  
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  reload: true
+  
+database:
+  url: "sqlite:///./data/xiaohongshu_gate.db"
+  echo: false
+  pool_size: 10
+  max_overflow: 20
+
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  password: null
+  decode_responses: true
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}"
+  file: "logs/app.log"
+  max_size: "10 MB"
+  backup_count: 5
+
+security:
+  secret_key: "${SECRET_KEY:your-secret-key-here}"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+  refresh_token_expire_days: 7
+
+# Gate MCP配置
+gate_mcp:
+  endpoint: "https://api.gate-mcp.com"
+  api_key: "${GATE_MCP_API_KEY:your-gate-mcp-api-key}"
+  timeout: 30
+  max_retries: 3
+  retry_delay: 1
+
+# Rube生态配置
+rube:
+  endpoint: "https://api.rube.com"
+  api_key: "${RUBE_API_KEY:your-rube-api-key}"
+  timeout: 60
+  max_retries: 3
+  retry_delay: 2
+  concurrent_limit: 10
+
+# AI模型配置
+ai_models:
+  claude:
+    model: "claude-3-sonnet-20240229"
+    max_tokens: 4000
+    temperature: 0.7
+    timeout: 30
+    
+  gemini:
+    model: "gemini-1.5-pro"
+    api_key: "${GEMINI_API_KEY:your-gemini-api-key}"
+    max_tokens: 2048
+    temperature: 0.8
+    timeout: 60
+    
+  gemini_image:
+    model: "gemini-2.5-flash-image-preview"
+    max_output_tokens: 1024
+    safety_settings: "medium"
+    
+  gemini_video:
+    model: "veo-3.0-generate-preview"
+    person_generation: "allow_adult"
+
+# 社交媒体平台配置
+platforms:
+  xiaohongshu:
+    mcp_server: "xiaohongshu-mcp"
+    timeout: 30
+    max_posts_per_day: 10
+    max_interactions_per_hour: 50
+    
+  instagram:
+    business_account: true
+    max_posts_per_day: 5
+    max_stories_per_day: 3
+    hashtag_limit: 30
+    
+  twitter:
+    max_tweets_per_day: 20
+    max_mentions_per_hour: 30
+    hashtag_limit: 5
+    
+  linkedin:
+    max_posts_per_day: 3
+    max_articles_per_week: 2
+    connection_requests_per_day: 10
+
+# 内容生成配置
+content_generation:
+  image:
+    width: 1080
+    height: 1080
+    quality: 85
+    format: "JPEG"
+    
+  video:
+    max_duration: 60
+    resolution: "1080p"
+    frame_rate: 30
+    
+  text:
+    max_length: 2000
+    min_length: 100
+    languages: ["zh-CN", "en-US"]
+
+# 用户互动配置
+user_interaction:
+  auto_reply:
+    enabled: true
+    response_time_limit: 300  # 5分钟
+    max_replies_per_hour: 100
+    
+  sentiment_analysis:
+    enabled: true
+    threshold: 0.7
+    
+  personalization:
+    enabled: true
+    user_segment_count: 5
+
+# 数据分析配置
+analytics:
+  real_time_monitoring:
+    enabled: true
+    update_interval: 60  # 秒
+    
+  performance_metrics:
+    track_engagement_rate: true
+    track_conversion_rate: true
+    track_reach: true
+    track_impressions: true
+    
+  reporting:
+    auto_generate_reports: true
+    report_frequency: "weekly"  # daily, weekly, monthly
+    export_formats: ["json", "csv", "pdf"]
+
+# 客户管理配置
+client_management:
+  max_clients: 100
+  default_retention_days: 30
+  auto_backup: true
+  backup_frequency: "daily"
+
+# 任务队列配置
+task_queue:
+  broker_url: "redis://localhost:6379/1"
+  result_backend: "redis://localhost:6379/2"
+  task_serializer: "json"
+  result_serializer: "json"
+  timezone: "Asia/Shanghai"
+  enable_utc: true
+
+# 缓存配置
+cache:
+  default_timeout: 3600  # 1小时
+  key_prefix: "xiaohongshu_gate:"
+  max_entries: 10000
+  cleanup_interval: 300  # 5分钟
+
+# 监控和告警
+monitoring:
+  prometheus:
+    enabled: true
+    port: 9090
+    metrics_path: "/metrics"
+    
+  sentry:
+    enabled: false
+    dsn: "${SENTRY_DSN:your-sentry-dsn}"
+    environment: "development"
+    
+  health_check:
+    enabled: true
+    endpoint: "/health"
+    detailed: true
+
+# 开发和调试配置
+development:
+  auto_reload: true
+  debug_toolbar: true
+  profiling: false
+  mock_external_apis: false
+
+# 测试配置
+testing:
+  database_url: "sqlite:///:memory:"
+  redis_url: "redis://localhost:6379/15"
+  mock_apis: true
+  coverage_threshold: 80
+
+# 生产环境配置
+production:
+  debug: false
+  auto_reload: false
+  workers: 8
+  ssl_enabled: true
+  ssl_cert_path: "/etc/ssl/certs/app.crt"
+  ssl_key_path: "/etc/ssl/private/app.key"

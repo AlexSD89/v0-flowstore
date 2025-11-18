@@ -3,14 +3,14 @@ title: "LaunchX Claude 协作路标"
 owners:
   - Launch X Claude Team
 status: active
-last_update: 2025-11-17
+last_update: 2025-11-18
+contact: "TODO｜待补充 - Launch X Claude Team 联络方式（如邮箱/微信/Slack频道）"
 related:
   - "RULES.md"
   - "AGENTS.md"
   - "📖README-LaunchX系统总体指南.md"
   - "🛠️ 系统管理/memory-bank/README.md"
-  - "🧰 tools/launchx-cli/README.md"
-  - "🧰 tools/launchx-spec-kit/README.md"
+  - "🧰 tools/launchx-spec-kit-cli/README.md"
 source: "自动生成（Claude Code + AI增强）"
 impact: high
 ---
@@ -24,7 +24,6 @@ impact: high
 
 
 ---
-
 
 ## 🎯 Claude定位与协作边界
 
@@ -53,7 +52,7 @@ impact: high
 - **内容价值强制**：禁止生成无效文件和废话内容
 - **系统一致性强制**：维护统一的命名、位置和内容标准
 - **触发式检索**：当需要"最佳实践"或 USEME 指南时，默认执行 `rg "最佳实践" -g 'CLAUDE.md'`、`rg "USEME"` 并记录结果，细节见 `AGENTS.md:31-37`
-- **深度理解优先**：在对任意系统（如 Serena 仪表盘、Gate 工作流等）给出判断或改动建议前，优先完成“结构/数据/行为/文档”四维深度勘察（见 `RULES.md` 四维清单）；若暂时无法完成，需在 Summary 中明确声明“尚未深度探索”，避免伪确定性结论。
+- **深度理解优先**：在分析任何外部项目、系统或给出技术判断前，**必须**先应用 `@RULES.md:21-32` 深度理解优先原则和四维深度勘察清单（结构维、数据维、行为维、文档维）。分析输出中必须明确标注"已完成四维深度勘察"或"尚未深度探索部分"，禁止在缺乏基础调查的情况下给出结论。
 
 ### Hook检查系统
 - **检查者角色**：Hooks作为检查者和提醒者，验证Claude是否遵守上述原则
@@ -265,14 +264,14 @@ LaunchX采用双模块协作架构，确保AI思考的深度和执行的系统�
 ## 🛠️ LaunchX Spec-Kit工具执行指南
 
 ### 核心工具位置
-- **LaunchX CLI**: `@/🧰 tools/launchx-cli/lx_fixed.py`
-- **Spec-Kit集成**: `@/🧰 tools/launchx-spec-kit/`
-- **Dev Docs模板**: `@/🧰 tools/launchx-cli/dev-docs/`
+- **LaunchX Spec-Kit CLI**: `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py`
+- **原始 Spec-Kit**: `@/🧰 tools/spec-kit/`
+- **示例 Dev Docs模板**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/`
 
 ### 快速使用流程
 ```bash
 # 1. 项目初始化 (Collect阶段前置)
-cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-cli"
+cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-spec-kit-cli"
 python3 lx_fixed.py init --here
 
 # 2. 执行5步认知法 (完全映射Dev Docs更新)
@@ -285,11 +284,11 @@ python3 lx_fixed.py deliver "执行交付"     # → 三文件同步更新
 
 ### @引用标准和文档结构
 #### 必须使用的引用格式
-- **核心实现**: `@/🧰 tools/launchx-cli/lx_fixed.py:line_number`
-- **计划文档**: `@/🧰 tools/launchx-cli/dev-docs/plan.md:line_number`
-- **上下文**: `@/🧰 tools/launchx-cli/dev-docs/context.md:line_number`
-- **任务清单**: `@/🧰 tools/launchx-cli/dev-docs/tasks.md:line_number`
-- **规则对齐**: `@/🧰 tools/launchx-cli/dev-docs/rules-alignment-report.md:line_number`
+- **核心实现**: `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:line_number`
+- **计划文档**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/plan.md:line_number`
+- **上下文**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/context.md:line_number`
+- **任务清单**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/tasks.md:line_number`
+- **规则对齐**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/rules-alignment-report.md:line_number`
 
 #### Dev Docs自动更新映射
 - **Collect → context.md**: SESSION PROGRESS状态更新
@@ -330,7 +329,7 @@ def model_phase_with_mcp(requirements):
     )
 
     # 3. 更新Dev Docs (自动执行)
-    # 参考: @/🧰 tools/launchx-cli/lx_fixed.py:300-400
+    # 参考: @/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:300-400
 ```
 
 ### 扩展和定制指导
@@ -339,7 +338,7 @@ def model_phase_with_mcp(requirements):
 - **Hook集成**: 在.claude/settings.local.json登记Hook
 - **MCP扩展**: 修改lx_fixed.py添加新工具调用
 
-> **完整使用规则与索引**：LaunchX Spec-Kit 的使用时机与 Level / 资源调度三步法的对应关系，详见 `RULES.md` “LaunchX Spec-Kit工具使用时机与规则” 小节；具体命令、参数与示例流程见 `🧰 tools/launchx-cli/README.md` 与 `🧰 tools/LAUNCHX_TOOLS_QUICK_REFERENCE.md`。
+> **完整使用规则与索引**：LaunchX Spec-Kit 的使用时机与 Level / 资源调度三步法的对应关系，详见 `RULES.md` “LaunchX Spec-Kit工具使用时机与规则” 小节；具体命令、参数与示例流程见 `🧰 tools/launchx-spec-kit-cli/README.md` 与 `🧰 tools/LAUNCHX_TOOLS_QUICK_REFERENCE.md`。
 
 ### 协作边界
 ```

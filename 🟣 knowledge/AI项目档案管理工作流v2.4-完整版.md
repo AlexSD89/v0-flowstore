@@ -47,22 +47,36 @@ STEP4: DELIVER_CHECK ← STEP5: MCP_VALIDATION ← STEP6: CROSS_VALIDATION
 **执行逻辑**:
 ```python
 def step1_duplicate_scan(project_name):
+    # 🛡️ 强制执行：应用RULES.md深度理解优先原则
+    print(f"开始分析项目: {project_name}")
+    print("正在应用 @RULES.md:21-32 深度理解优先原则...")
+
+    # 执行四维深度勘察 (必须完成)
+    deep_understanding_analysis = {
+        "structure_dimension": analyze_project_structure(project_name),  # 结构维
+        "data_dimension": analyze_data_sources(project_name),         # 数据维
+        "behavior_dimension": analyze_system_behavior(project_name),   # 行为维
+        "documentation_dimension": review_existing_docs(project_name)   # 文档维
+    }
+
+    # 验证完成情况
+    completed_dimensions = [k for k, v in deep_understanding_analysis.items() if v["status"] == "completed"]
+
+    if len(completed_dimensions) < 3:  # 至少完成3个维度
+        return {
+            "recommendation": "INSUFFICIENT_UNDERSTANDING",
+            "action": "REQUIRE_FURTHER_INVESTIGATION",
+            "completed_dimensions": completed_dimensions,
+            "missing_dimensions": [k for k in deep_understanding_analysis.keys() if k not in completed_dimensions],
+            "warning": f"深度理解不充分，仅完成{len(completed_dimensions)}/4维度勘察"
+        }
+
     # 知识库扫描
-
-## 📋 执行摘要
-
-[请在此处提供文档的核心内容摘要，包括关键发现、主要结论和重要建议。建议控制在200-300字以内。]
-
-**核心要点**:
-- [要点1]
-- [要点2]
-- [要点3]
-
-
     duplicate_analysis = {
         "knowledge_base_scan": scan_existing_knowledge_base(project_name),
         "content_similarity_check": calculate_content_similarity(project_name),
-        "update_vs_create_decision": determine_update_or_create_strategy(project_name)
+        "update_vs_create_decision": determine_update_or_create_strategy(project_name),
+        "deep_understanding_results": deep_understanding_analysis
     }
 
     # 智能决策
@@ -70,13 +84,17 @@ def step1_duplicate_scan(project_name):
         return {
             "recommendation": "UPDATE_EXISTING",
             "existing_report_id": duplicate_analysis["matching_report_id"],
-            "update_areas": identify_update_areas(project_name)
+            "update_areas": identify_update_areas(project_name),
+            "deep_understanding_completed": True,
+            "completed_dimensions": completed_dimensions
         }
     else:
         return {
             "recommendation": "CREATE_NEW",
             "confidence_score": duplicate_analysis["uniqueness_score"],
-            "existing_gaps": identify_knowledge_gaps(project_name)
+            "existing_gaps": identify_knowledge_gaps(project_name),
+            "deep_understanding_completed": True,
+            "completed_dimensions": completed_dimensions
         }
 ```
 

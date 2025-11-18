@@ -11,7 +11,7 @@ related:
   - "AGENTS.md"
   - "🛠️ 系统管理/memory-bank/README.md"
   - "📖README-LaunchX系统总体指南.md"
-  - "🧰 tools/launchx-cli/README.md"
+  - "🧰 tools/launchx-spec-kit-cli/README.md"
   - "🧰 tools/launchx-spec-kit/README.md"
 source: "深度分析 + 现有资产复用"
 impact: "high"
@@ -165,7 +165,7 @@ class LaunchXAnalysisAdapter:
 **实际使用**:
 ```bash
 # 复用LaunchX命令 + Serena增强
-cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-cli"
+cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-spec-kit-cli"
 python3 lx_fixed.py collect "设计新的AI助手协作模式" --serena-enhance --reuse-memory-bank
 
 # Claude Code中自动触发 (Level M/L决策)

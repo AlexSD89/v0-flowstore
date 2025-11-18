@@ -9,7 +9,7 @@ impact: "medium"
 
 # Serena Memories索引
 
-> **生成时间**: 2025-11-17 15:40:32
+> **生成时间**: 2025-11-17 22:40:37
 > **总Memory数**: 31 个
 > **存储位置**: `.serena/memories/`
 
@@ -34,7 +34,7 @@ impact: "medium"
 
 | 名称 | 类别 | 大小 | 修改时间 | 路径 |
 |------|------|------|----------|------|
-| memories_index.md | 根目录 | 5.0KB | 2025-11-17 14:40 | memories_index.md |
+| memories_index.md | 根目录 | 5.0KB | 2025-11-17 21:40 | memories_index.md |
 | launchx-项目概述.md | 根目录 | 865B | 2025-11-17 14:29 | project-context/launchx-项目概述.md |
 | 系统架构设计.md | 根目录 | 829B | 2025-11-17 14:29 | architecture/系统架构设计.md |
 | 采用mcp协议的决策.md | 根目录 | 904B | 2025-11-17 14:29 | decisions/采用mcp协议的决策.md |
@@ -90,4 +90,4 @@ print(response.json())
 
 ---
 
-*此索引由Serena Memories管理器自动生成，最后更新时间: 2025-11-17 15:40:32*
+*此索引由Serena Memories管理器自动生成，最后更新时间: 2025-11-17 22:40:37*

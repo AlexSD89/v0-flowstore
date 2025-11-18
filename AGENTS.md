@@ -4,11 +4,11 @@ owners:
   - Launch X Codex Team
 status: active
 last_update: 2025-11-17
+contact: "TODO｜待补充 - Launch X Codex Team 联络方式（如邮箱/微信/Slack频道）"
 related:
   - CLAUDE.md
   - 📖README-LaunchX系统总体指南.md
-  - "🧰 tools/launchx-cli/README.md"
-  - "🧰 tools/launchx-spec-kit/README.md"
+  - "🧰 tools/launchx-spec-kit-cli/README.md"
 source: 人工采集
 impact: high
 ---
@@ -142,7 +142,7 @@ impact: high
 | **🧩 bmad** | 多 Agent 自动化脚本、SOP | 编制运行指令与风险提示；执行与结果由 Claude 记录 |
 | **support_modules/** | 公共 API、脚本、提示片段 | 引用时标注路径与函数；发现缺口先补齐 USEME |
 | **🧰 tools** | 现成子项目或脚手架 | 阅读各自 README；使用后更新互链 |
-| **🧰 tools/launchx-cli** | LaunchX 5步认知法CLI工具 | 使用时机与规则见 `RULES.md`“LaunchX Spec-Kit工具使用时机与规则”，详细命令见 `🧰 tools/launchx-cli/README.md` |
+| **🧰 tools/launchx-spec-kit-cli** | LaunchX Spec-Kit CLI（5步认知法执行器） | 使用时机与规则见 `RULES.md`“LaunchX Spec-Kit工具使用时机与规则”，详细命令见 `🧰 tools/launchx-spec-kit-cli/README.md` |
 | **质量/配置 Hooks** | 自动化质量检查、配置校验 | 仅准备 `.claude/hooks/*` 执行指令与备注，由 Claude 触发并反馈日志 |
 
 调用任何外部或新增工具时，在 Summary 中写明名称、子路径、目的与风险。

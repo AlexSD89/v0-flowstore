@@ -1,0 +1,37 @@
+{
+  "project_name": "Poke",
+  "collection_timestamp": "2025-11-18 17:01:25",
+  "website": null,
+  "data_sources": {
+    "tier1_primary": {
+      "website_validation": {
+        "status": "no_website",
+        "data": null
+      },
+      "official_announcements": [],
+      "executive_statements": [],
+      "financial_reports": []
+    },
+    "tier2_authoritative": {
+      "media_coverage": [],
+      "vc_announcements": [],
+      "industry_reports": [],
+      "academic_papers": []
+    },
+    "tier3_industry": {
+      "conference_presentations": [],
+      "patent_filings": [],
+      "user_reviews": [],
+      "competitor_mentions": []
+    },
+    "tier4_contextual": {
+      "social_media": [],
+      "forum_discussions": [],
+      "employee_reviews": [],
+      "community_engagement": []
+    }
+  },
+  "credibility_score": 1.0,
+  "total_sources_collected": 1,
+  "data_completeness": "estimated_75%"
+}

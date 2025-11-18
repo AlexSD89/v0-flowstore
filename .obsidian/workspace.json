@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/Gate财经日历-Obsidian看板版-最新.md",
+                "file": "🟣 knowledge/00_待处理信息/我用Claude Code开发了Obsidian内容分发插件，爆了！（附教程）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gate财经日历-Obsidian看板版-最新"
+              "title": "我用Claude Code开发了Obsidian内容分发插件，爆了！（附教程）"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "插件",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -160,62 +161,65 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "audio-recorder:开始/结束录音": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false
+      "bases:创建新数据库": false,
+      "obsidian-content-distributor:内容分发助手": false
     }
   },
   "active": "d397f19abe9233f0",
   "lastOpenFiles": [
-    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第3轮_实际内容_20251114_145000.json",
-    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第2轮_实际内容_20251114_145000.json",
-    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第2轮_实际内容_20251114_145000.json.tmp.3088.1763090662919",
-    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第1轮_实际内容_20251114_145000.json",
-    "Gate客户项目/奇境-小龙项目/技术实现层/技能学习器/AI生成结果第1轮_实际内容_20251114_145000.json.tmp.3088.1763090640932",
-    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI学习循环实际测试结果记录_20251114_144000.md",
-    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI学习系统极端人类化分类_20251114_143000.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/Gate财经日历-恒瑞医药Circle专项版.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/portfolio-analysis.json",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/hengrui-monitoring.json",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/circle-monitoring.json",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data/alerts-config.json",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/monitoring-data",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/scripts/hengrui-circle-monitor.js",
-    "2025-11-14.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/15-gate-finance-calendar/Gate智能财经日历.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/seeking-alpha-integration-plan.md",
-    "Gate客户项目/奇境-小龙项目/系统管理层/学习数据管理/AI自适应学习循环系统.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/gate-finance-calendar/outputs/Gate财经日历-Obsidian看板版.md",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/excel_env/lib/python3.13/site-packages/numpy/random/LICENSE.md",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报终稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报初稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/微报修改.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5终稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5初稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/30/h5修改.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报终稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报初稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/微报修改.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/风控/29/h5终稿.png",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/原始数据/整理共同性可AI化项目/旺铺商家需求/门赢/automation_system_verification_report.md",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/分析报告/门赢客户Excel业务分析报告.md",
-    "Gate客户项目/奇境-小龙项目/客户项目门户/专业化服务/01-客户数据/README.md",
-    "🚀 Launchx业务服务/Ⅱ_对外业务/Gate智能自动化解决方案集合/15-gate智能财经日历-企业投资洞察解决方案.md",
-    "Gate客户项目/奇境-小龙项目/Phase1-自动化重构工具完成报告.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/xlsx/SKILL.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/tests/test_cases.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/reference.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/forms.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pdf/SKILL.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/ooxml.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/html2pptx.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/pptx/SKILL.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/ooxml.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/docx-js.md",
-    "🧠 Launch-X Skills生态系统/10-文档处理/文档技能管理-Document-Skills-Manager/docx/SKILL.md"
+    "🟣 knowledge/05_方法论中心/🔬 深度研究方法论/📋 通用信息采集验证方法论应用案例库-Methodology-Application-Cases.md",
+    "🟣 knowledge/05_方法论中心/🔬 深度研究方法论/🔍 通用信息采集验证方法论-Universal-Information-Collection-Validation-Methodology.md",
+    "🟣 knowledge/05_方法论中心/📋 通用信息采集验证方法论应用案例库-Methodology-Application-Cases.md",
+    "obsidian-bmo-chatbot/versions.json",
+    "obsidian-bmo-chatbot/version-bump.mjs",
+    "obsidian-bmo-chatbot/tsconfig.json",
+    "obsidian-bmo-chatbot/styles.css",
+    "obsidian-bmo-chatbot/src/components/settings/APIConnections/MistralConnections.ts",
+    "obsidian-bmo-chatbot/src/components/settings/APIConnections/OpenRouterConnections.ts",
+    "obsidian-bmo-chatbot/src/components/settings/APIConnections/OpenAIConnections.ts",
+    "obsidian-bmo-chatbot/src/components/settings/APIConnections/GoogleGeminiConnections.ts",
+    "obsidian-bmo-chatbot/src/components/settings/APIConnections/AnthropicConnections.ts",
+    "obsidian-bmo-chatbot/src/components/settings/RESTAPIURLSettings.ts",
+    "obsidian-bmo-chatbot/README_images/prompt-select-generate.gif",
+    "obsidian-bmo-chatbot/README_images/profiles.gif",
+    "obsidian-bmo-chatbot/README_images/original-example.png",
+    "obsidian-bmo-chatbot/README_images/dataview-example.png",
+    "obsidian-bmo-chatbot/README_images/bmo-generate.gif",
+    "obsidian-bmo-chatbot/README.md",
+    "🧠 Launch-X Skills生态系统/📚 方法论中心/📋 通用信息采集验证方法论应用案例库-Methodology-Application-Cases.md",
+    "🧰 tools/obsidian-content-distributor/插件改进方案说明.md",
+    "🧠 Launch-X Skills生态系统/📚 方法论中心/🔍 通用信息采集验证方法论-Universal-Information-Collection-Validation-Methodology.md",
+    "🧠 Launch-X Skills生态系统/📚 多工具协同最佳实践指南-Multi-Tool-Collaboration-Best-Practices.md",
+    "🧰 tools/obsidian-content-distributor/Claude-Code-GLM-4.6-集成优化说明.md",
+    "🧠 Launch-X Skills生态系统/02-企业研究/AI项目录入引擎-AI-Project-Intake-Engine/dev-docs/ai-agent-market-research-2025/PROJECT_SUMMARY.md",
+    "🧠 Launch-X Skills生态系统/02-企业研究/AI项目录入引擎-AI-Project-Intake-Engine/dev-docs/ai-agent-market-research-2025/research-tools-strategy.md",
+    "🧠 Launch-X Skills生态系统/02-企业研究/AI项目录入引擎-AI-Project-Intake-Engine/dev-docs/ai-agent-market-research-2025/tasks.md",
+    "🧠 Launch-X Skills生态系统/02-企业研究/AI项目录入引擎-AI-Project-Intake-Engine/dev-docs/ai-agent-market-research-2025/context.md",
+    "🧠 Launch-X Skills生态系统/02-企业研究/AI项目录入引擎-AI-Project-Intake-Engine/dev-docs/ai-agent-market-research-2025/plan.md",
+    "🧠 Launch-X Skills生态系统/📚 通用信息收集方法论-Universal-Information-Collection-Methodology.md",
+    "🧰 tools/obsidian-content-distributor/GLM-4.6-官方API优化说明.md",
+    "🟣 knowledge/07_市场项目档案/企业服务/Poke-消息优先型AI助手.md",
+    "🟣 knowledge/07_市场项目档案/企业服务/poke-AI团队-信息缺失.md",
+    "🟣 knowledge/07_市场项目档案/企业服务/poke-AI-Agent技术栈-待验证.md",
+    "🟣 knowledge/07_市场项目档案/企业服务/poke-RL-native-AI-Agent技术栈.md",
+    "🤖 AI生成 auto-generated/20251118/launchx-web3-ai-agent-action-plan.md",
+    "🤖 AI生成 auto-generated/20251118/intelligent-exploration-network-workflow.md",
+    "🤖 AI生成 auto-generated/20251118/web3-ai-agent-market-analysis-report.md",
+    "🤖 AI生成 auto-generated/20251118/智能客服聊天机器人项目分析报告.md",
+    "🟣 knowledge/07_市场项目档案/企业服务/Pokee-RL-native AI Agent技术栈.md",
+    "🟣 knowledge/07_市场项目档案/人工智能/Pokee-RL-native AI Agent技术栈公司.md",
+    "obsidian-content-distributor/node_modules/@jest/reporters/assets/jest_logo.png",
+    "obsidian-content-distributor/node_modules/istanbul-reports/lib/html/assets/sort-arrow-sprite.png",
+    "obsidian-content-distributor/node_modules/istanbul-reports/lib/html/assets/favicon.png",
+    "obsidian-content-distributor/node_modules/istanbul-reports/lib/html-spa/assets/sort-arrow-sprite.png",
+    "💻 技术开发/01_公司项目ing 🚀/gate-营销-webui/public/images/abstract-pattern.jpg"
   ]
 }
