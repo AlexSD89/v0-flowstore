@@ -79,7 +79,7 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
 	aiModels: [
 		{
 			name: 'GLM-4.6-官方模式',
-			apiKey: '720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
+			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
 			modelId: 'glm-4.6',
 			maxTokens: 3000, // 官方推荐值
@@ -94,7 +94,7 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
 		},
 		{
 			name: 'GLM-4.6-兼容模式',
-			apiKey: '720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
+			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
 			modelId: 'glm-4.6',
 			maxTokens: 2000, // 保守值
@@ -103,7 +103,7 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
 			timeout: 45000, // 45秒超时，更宽松
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer 720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
+				'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
 				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
 			},
 			useStream: false
@@ -313,7 +313,7 @@ class ContentDistributorModal extends Modal {
 					// 允许自定义请求头，但 Authorization 始终以当前配置的 apiKey 为准
 					...(this.selectedModel.headers || {}),
 					'Content-Type': 'application/json',
-					'Authorization': `Bearer ${this.selectedModel.apiKey}`,
+					'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA'
 				},
 				body: JSON.stringify({
 					model: this.selectedModel.modelId,
@@ -645,7 +645,7 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 				headers: {
 					// 自定义请求头优先，但 Authorization 始终与当前 apiKey 保持一致
 					...(model.headers || {}),
-					'Authorization': `Bearer ${model.apiKey}`,
+					'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA'
 				}
 			});
 

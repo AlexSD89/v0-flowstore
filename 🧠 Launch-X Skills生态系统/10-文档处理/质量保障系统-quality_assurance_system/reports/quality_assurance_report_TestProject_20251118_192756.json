@@ -1,0 +1,637 @@
+{
+  "execution_metadata": {
+    "project_name": "TestProject",
+    "execution_id": "qa_1763465275",
+    "start_time": "2025-11-18T19:27:55.464865",
+    "end_time": "2025-11-18T19:27:56.635493",
+    "total_execution_time": 1.170628,
+    "system_status": "deliver_check_failed"
+  },
+  "overall_results": {
+    "overall_quality_grade": "D",
+    "execution_summary": {
+      "execution_id": "qa_1763465275",
+      "project_name": "TestProject",
+      "total_execution_time": 0.0,
+      "system_status": "deliver_check_failed",
+      "phases_executed": [
+        "DELIVER_CHECK",
+        "MCP_VALIDATION",
+        "CROSS_VALIDATION"
+      ],
+      "quality_metrics": {
+        "deliver_check": {
+          "score": 65.025,
+          "passed": false,
+          "template_compliance": 98.0,
+          "data_completeness": 62.5
+        },
+        "mcp_validation": {
+          "credibility_score": 0.8181694915254237,
+          "credibility_change": 0.06816949152542373,
+          "tools_successful": 4,
+          "tools_total": 4
+        },
+        "cross_validation": {
+          "final_grade": "D",
+          "trustworthiness_score": 82.1875,
+          "conflicts_detected": 1,
+          "conflicts_resolved": 1
+        }
+      },
+      "validation_statistics": {
+        "total_phases": 3,
+        "successful_phases": 3,
+        "overall_quality_grade": "D"
+      }
+    },
+    "recommendations": [
+      "❌ 数据质量不达标，建议重新收集和验证数据",
+      "📋 DELIVER_CHECK未通过 (65.0/85.0)",
+      "📝 需要完善模板对齐度",
+      "📊 需要提高数据完整性",
+      "⚠️  发现1个数据冲突，需要解决",
+      "💡 数据质量较低，强烈建议重新收集和验证数据",
+      "💡 数据源多样性不足，建议整合更多独立数据源",
+      "💡 发现数据冲突，建议采用多源交叉验证机制",
+      "💡 发现38处数据不一致，建议重新核实相关数据"
+    ]
+  },
+  "phase_results": {
+    "deliver_check": {
+      "template_compliance": 98.0,
+      "data_completeness": 62.5,
+      "logical_consistency": 100.0,
+      "vi_zone_compliance": 0.0,
+      "overall_score": 65.025,
+      "passed_threshold": false,
+      "detailed_analysis": {
+        "strengths": [
+          "template_compliance: 98.0分 (优秀)",
+          "logical_consistency: 100.0分 (优秀)"
+        ],
+        "weaknesses": [
+          "data_completeness: 62.5分 (需要改进)",
+          "vi_zone_compliance: 0.0分 (需要改进)"
+        ],
+        "improvement_priorities": [
+          "模板对齐度 - 必须达到100%",
+          "数据完整性 - 必须达到90%以上",
+          "VI区数据锚点 - 建议完善数据溯源"
+        ],
+        "quality_grade": "D (不合格)",
+        "recommendations": [],
+        "template_analysis": {
+          "missing_sections": [],
+          "present_sections": [
+            "## 1. 项目核心概览",
+            "## 1.1 价值定位",
+            "## 1.2 关键数据快照",
+            "## 1.3 发展阶段判断",
+            "## 1.4 团队核心优势",
+            "## 2. 核心数据分析",
+            "## 2.1 融资历程与估值增长",
+            "## 2.2 用户增长与留存数据",
+            "## 2.3 收入结构与盈利模式",
+            "## 8. 完整数据溯源"
+          ],
+          "section_analysis": {
+            "## 1. 项目核心概览": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 1.1 价值定位": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 1.2 关键数据快照": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 1.3 发展阶段判断": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 1.4 团队核心优势": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 2. 核心数据分析": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 2.1 融资历程与估值增长": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 2.2 用户增长与留存数据": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 2.3 收入结构与盈利模式": {
+              "status": "present",
+              "confidence": 0.8
+            },
+            "## 8. 完整数据溯源": {
+              "status": "present",
+              "confidence": 0.8
+            }
+          },
+          "format_issues": [
+            "第13行表格缺少表头分隔符"
+          ],
+          "total_required": 10,
+          "total_present": 10,
+          "vi_zone_analysis": {
+            "present_zones": [],
+            "missing_zones": [
+              "zone_a",
+              "zone_b",
+              "zone_c",
+              "zone_d",
+              "zone_e",
+              "zone_f",
+              "zone_g"
+            ],
+            "zone_details": {
+              "zone_a": {
+                "status": "missing",
+                "required_fields": [
+                  "基本信息",
+                  "当前估值",
+                  "最新轮次",
+                  "成立时间",
+                  "总部地点"
+                ]
+              },
+              "zone_b": {
+                "status": "missing",
+                "required_fields": [
+                  "市场份额",
+                  "客户数量",
+                  "竞争地位",
+                  "市场规模"
+                ]
+              },
+              "zone_c": {
+                "status": "missing",
+                "required_fields": [
+                  "核心产品",
+                  "专利数量",
+                  "技术团队",
+                  "研发投入"
+                ]
+              },
+              "zone_d": {
+                "status": "missing",
+                "required_fields": [
+                  "ARR收入",
+                  "增长率",
+                  "盈利状况",
+                  "投资方"
+                ]
+              },
+              "zone_e": {
+                "status": "missing",
+                "required_fields": [
+                  "集成状态",
+                  "API可用性",
+                  "文档完整性",
+                  "社区活跃度"
+                ]
+              },
+              "zone_f": {
+                "status": "missing",
+                "required_fields": [
+                  "行业洞察",
+                  "趋势分析",
+                  "竞争分析",
+                  "机会识别"
+                ]
+              },
+              "zone_g": {
+                "status": "missing",
+                "required_fields": [
+                  "媒体报道",
+                  "用户评价",
+                  "专家观点",
+                  "其他数据"
+                ]
+              }
+            },
+            "compliance_score": 0.0
+          }
+        },
+        "completeness_analysis": {
+          "data_points_found": [],
+          "critical_missing_data": [
+            "基础信息: 总部地点",
+            "基础信息: CEO"
+          ],
+          "data_quality_score": 62.5,
+          "credibility_distribution": {
+            "high_credibility": 17,
+            "medium_credibility": 6,
+            "low_credibility": 0,
+            "unrated": 21,
+            "average_credibility": 0.8,
+            "total_credible_items": 23
+          },
+          "completeness_by_category": {
+            "basic_info": {
+              "name": "基础信息",
+              "score": 50.0,
+              "details": {
+                "present_fields": [
+                  "成立时间",
+                  "团队规模"
+                ],
+                "missing_fields": [
+                  "总部地点",
+                  "CEO"
+                ],
+                "field_quality": {
+                  "成立时间": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "团队规模": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  }
+                }
+              }
+            },
+            "funding_data": {
+              "name": "融资数据",
+              "score": 100.0,
+              "details": {
+                "present_fields": [
+                  "最新轮次",
+                  "融资金额",
+                  "估值",
+                  "投资方"
+                ],
+                "missing_fields": [],
+                "field_quality": {
+                  "最新轮次": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "融资金额": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "估值": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": false,
+                    "quality_score": 40
+                  },
+                  "投资方": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  }
+                }
+              }
+            },
+            "business_data": {
+              "name": "业务数据",
+              "score": 50.0,
+              "details": {
+                "present_fields": [
+                  "收入",
+                  "增长率"
+                ],
+                "missing_fields": [
+                  "用户规模",
+                  "客户数量"
+                ],
+                "field_quality": {
+                  "收入": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "增长率": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  }
+                }
+              }
+            },
+            "technical_data": {
+              "name": "技术数据",
+              "score": 50.0,
+              "details": {
+                "present_fields": [
+                  "技术栈",
+                  "专利"
+                ],
+                "missing_fields": [
+                  "核心产品",
+                  "研发投入"
+                ],
+                "field_quality": {
+                  "技术栈": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "专利": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  }
+                }
+              }
+            },
+            "market_data": {
+              "name": "市场数据",
+              "score": 50.0,
+              "details": {
+                "present_fields": [
+                  "市场份额",
+                  "竞争对手"
+                ],
+                "missing_fields": [
+                  "市场规模",
+                  "行业地位"
+                ],
+                "field_quality": {
+                  "市场份额": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  },
+                  "竞争对手": {
+                    "has_specific_value": true,
+                    "has_source_reference": false,
+                    "has_credibility_rating": true,
+                    "quality_score": 70
+                  }
+                }
+              }
+            }
+          }
+        },
+        "consistency_analysis": {
+          "consistency_issues": [],
+          "validation_results": {
+            "financial_logic": {
+              "is_consistent": true,
+              "issues": [],
+              "severity": 1
+            },
+            "timeline_logic": {
+              "is_consistent": true,
+              "issues": [],
+              "severity": 1
+            },
+            "growth_metrics_logic": {
+              "is_consistent": true,
+              "issues": [],
+              "severity": 1
+            },
+            "competitive_positioning_logic": {
+              "is_consistent": true,
+              "issues": [],
+              "severity": 1
+            }
+          },
+          "logic_score": 100.0,
+          "recommendations": [],
+          "range_validation": {
+            "is_consistent": true,
+            "issues": []
+          },
+          "description_validation": {
+            "is_consistent": true,
+            "issues": []
+          }
+        },
+        "vi_analysis": {
+          "vi_zones_present": [],
+          "vi_zones_missing": [
+            "zone_a",
+            "zone_b",
+            "zone_c",
+            "zone_d",
+            "zone_e",
+            "zone_f",
+            "zone_g"
+          ],
+          "zone_compliance_scores": {
+            "zone_a": 0.0,
+            "zone_b": 0.0,
+            "zone_c": 0.0,
+            "zone_d": 0.0,
+            "zone_e": 0.0,
+            "zone_f": 0.0,
+            "zone_g": 0.0
+          },
+          "data_anchors_found": 0,
+          "data_anchors_required": 0,
+          "credibility_rating_issues": [],
+          "overall_compliance": 0.0,
+          "anchor_completion_rate": 0.0
+        },
+        "check_timestamp": "2025-11-18T19:27:55.466680",
+        "content_hash": "d92034f744ceabf99396d091ba35c4ef"
+      }
+    },
+    "mcp_validation": {
+      "project_name": "TestProject",
+      "validation_timestamp": "2025-11-18T19:27:56.573835",
+      "overall_credibility_score": 0.8181694915254237,
+      "credibility_change": 0.06816949152542373,
+      "validation_results": [
+        {
+          "tool_name": "web_search",
+          "validation_type": "general_search",
+          "status": "ValidationStatus.COMPLETED",
+          "success_rate": 0.6,
+          "data_points_verified": 25,
+          "inconsistencies_found": 12,
+          "credibility_adjustments": {},
+          "execution_time": 1.1066040992736816,
+          "error_message": null,
+          "raw_response": {
+            "success_rate": 0.6,
+            "data_points_verified": 25,
+            "inconsistencies_found": 12,
+            "credibility_adjustments": {},
+            "verified_fields": [
+              "官方网站",
+              "公司简介",
+              "产品信息",
+              "联系方式"
+            ],
+            "validation_details": {
+              "tool_version": "1.0",
+              "query_complexity": "medium",
+              "data freshness": "recent"
+            }
+          }
+        },
+        {
+          "tool_name": "xiaohongshu_mcp",
+          "validation_type": "user_experience",
+          "status": "ValidationStatus.COMPLETED",
+          "success_rate": 0.61,
+          "data_points_verified": 20,
+          "inconsistencies_found": 11,
+          "credibility_adjustments": {},
+          "execution_time": 1.1066458225250244,
+          "error_message": null,
+          "raw_response": {
+            "success_rate": 0.61,
+            "data_points_verified": 20,
+            "inconsistencies_found": 11,
+            "credibility_adjustments": {},
+            "verified_fields": [
+              "用户评价",
+              "产品体验",
+              "品牌认知",
+              "市场反馈"
+            ],
+            "validation_details": {
+              "tool_version": "1.0",
+              "query_complexity": "medium",
+              "data freshness": "recent"
+            }
+          }
+        },
+        {
+          "tool_name": "tavily_monitoring",
+          "validation_type": "real_time_data",
+          "status": "ValidationStatus.COMPLETED",
+          "success_rate": 0.66,
+          "data_points_verified": 18,
+          "inconsistencies_found": 10,
+          "credibility_adjustments": {},
+          "execution_time": 0.5101633071899414,
+          "error_message": null,
+          "raw_response": {
+            "success_rate": 0.66,
+            "data_points_verified": 18,
+            "inconsistencies_found": 10,
+            "credibility_adjustments": {},
+            "verified_fields": [
+              "最新动态",
+              "媒体报道",
+              "行业趋势",
+              "实时数据"
+            ],
+            "validation_details": {
+              "tool_version": "1.0",
+              "query_complexity": "medium",
+              "data freshness": "recent"
+            }
+          }
+        },
+        {
+          "tool_name": "rube_search_tools",
+          "validation_type": "search",
+          "status": "ValidationStatus.COMPLETED",
+          "success_rate": 0.81,
+          "data_points_verified": 15,
+          "inconsistencies_found": 5,
+          "credibility_adjustments": {},
+          "execution_time": 1.1066699028015137,
+          "error_message": null,
+          "raw_response": {
+            "success_rate": 0.81,
+            "data_points_verified": 15,
+            "inconsistencies_found": 5,
+            "credibility_adjustments": {},
+            "verified_fields": [
+              "公司名称",
+              "行业分类",
+              "竞争对手",
+              "市场地位"
+            ],
+            "validation_details": {
+              "tool_version": "1.0",
+              "query_complexity": "medium",
+              "data freshness": "recent"
+            }
+          }
+        }
+      ],
+      "summary": {
+        "total_tools_executed": 4,
+        "successful_tools": 4,
+        "failed_tools": 0,
+        "timeout_tools": 0,
+        "total_data_points_verified": 78,
+        "total_inconsistencies_found": 38,
+        "average_success_rate": 0.67,
+        "total_execution_time": 3.830083131790161,
+        "credibility_improvement": 0.06816949152542373
+      },
+      "recommendations": [
+        "发现38处数据不一致，建议重新核实相关数据",
+        "发现数据冲突，建议采用多源交叉验证机制"
+      ]
+    },
+    "cross_validation": {
+      "project_name": "TestProject",
+      "validation_timestamp": "2025-11-18T19:27:56.606162",
+      "data_fields_validated": [
+        "CrossValidationResult(field_name='tech_stack', sources_verified=['primary'], consensus_value='| 字段类别 | 精确数据 | 数据来源 | 可信度 |', confidence_score=0.75, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='latest_round', sources_verified=['primary'], consensus_value='** | A轮 | VC公告 | ★★★★★ |', confidence_score=0.85, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='funding_amount', sources_verified=['primary'], consensus_value='** | 1000万美元 | 投资条款 | ★★★★★ |', confidence_score=0.85, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='investors', sources_verified=['primary'], consensus_value='** | 知名VC | 官方公告 | ★★★★★ |', confidence_score=0.85, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='valuation', sources_verified=['primary', 'Crunchbase'], consensus_value='增长', confidence_score=0.765, conflicts_found=1, resolution_method='merge_if_possible', validation_status='verified')",
+        "CrossValidationResult(field_name='founding_year', sources_verified=['Crunchbase', '官方网站'], consensus_value='2020', confidence_score=0.81, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='revenue', sources_verified=['primary'], consensus_value='结构与盈利模式', confidence_score=0.8, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')",
+        "CrossValidationResult(field_name='employee_count', sources_verified=['官方网站'], consensus_value='150', confidence_score=0.9, conflicts_found=0, resolution_method='no_conflict', validation_status='verified')"
+      ],
+      "conflicts_detected": [
+        "DataConflict(conflict_id='valuation_1763465276', field_name='valuation', source_a_value='增长', source_b_value='CONFLICT_DETECTED', source_a_type=<DataSourceType.PRIMARY: 'primary'>, source_b_type=<DataSourceType.SECONDARY: 'secondary'>, severity=<ConflictSeverity.MEDIUM: 'medium'>, confidence=0.235, resolution_suggestion='使用加权平均值', detected_at='2025-11-18T19:27:56.609840')"
+      ],
+      "conflicts_resolved": [
+        "DataConflict(conflict_id='valuation_1763465276', field_name='valuation', source_a_value='增长', source_b_value='CONFLICT_DETECTED', source_a_type=<DataSourceType.PRIMARY: 'primary'>, source_b_type=<DataSourceType.SECONDARY: 'secondary'>, severity=<ConflictSeverity.MEDIUM: 'medium'>, confidence=0.235, resolution_suggestion='使用加权平均值', detected_at='2025-11-18T19:27:56.609840')"
+      ],
+      "final_quality_rating": "FinalQualityRating(overall_grade='D', trustworthiness_score=82.1875, data_confidence=92.875, source_diversity=39.0, validation_completeness=40.0, conflict_resolution_rate=100.0, grade_details={'criteria_scores': {'trustworthiness': 82.1875, 'data_confidence': 92.875, 'source_diversity': 39.0, 'validation_completeness': 40.0, 'conflict_resolution': 100.0}, 'quality_checker_score': 65.025, 'mcp_credibility_score': 81.81694915254238})",
+      "validation_statistics": {
+        "total_data_sources": 4,
+        "total_fields_validated": 8,
+        "fields_with_multiple_sources": 2,
+        "fields_with_high_confidence": 5,
+        "total_conflicts_detected": 1,
+        "conflicts_by_severity": {
+          "critical": 0,
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        },
+        "conflicts_resolved": 1,
+        "conflicts_requiring_manual_review": 0,
+        "average_confidence_score": 0.821875,
+        "validation_coverage": 266.66666666666663
+      },
+      "recommendations": [
+        "数据质量较低，强烈建议重新收集和验证数据",
+        "数据源多样性不足，建议整合更多独立数据源"
+      ]
+    }
+  }
+}
