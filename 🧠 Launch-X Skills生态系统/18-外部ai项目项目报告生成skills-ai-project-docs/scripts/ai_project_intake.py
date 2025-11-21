@@ -38,7 +38,7 @@ class AIProjectIntakeWorkflow:
         print("📂 Step 2: 分类决策")
         category_decision = self.classification_decision(project_name, company_name)
         archive_category = category_decision['category']
-        archive_path = f"knowledge/市场项目档案/{archive_category}/"
+        archive_path = f"🟣 knowledge/07_市场项目档案/{archive_category}/"
 
         # Step 3: 文件命名 (公司名称-简短描述.md)
         print("📝 Step 3: 文件命名")
@@ -118,15 +118,15 @@ class AIProjectIntakeWorkflow:
     def classification_decision(self, project_name: str, company_name: str) -> dict:
         """基于行业分类标准.md执行分类决策"""
 
-        # 行业分类标准 (简化版本)
+        # 行业分类标准 (匹配现有目录结构)
         categories = {
-            "01_创意内容与媒体生成工具": ["内容生成", "媒体", "创意", "视频", "音频"],
-            "02_AI行业垂直解决方案": ["AI助手", "行业解决方案", "垂直AI", "专业AI"],
-            "03_效率与优化工具": ["效率", "优化", "自动化", "工具"],
-            "04_企业服务": ["企业", "B2B", "SaaS", "商业服务"],
-            "05_营销增长与销售工具": ["营销", "销售", "增长", "客户获取"],
-            "06_通用大模型与AI平台": ["大模型", "AI平台", "基础模型", "API"],
-            "07_知识库": ["知识", "文档", "信息管理", "搜索"],
+            "创意内容": ["内容生成", "媒体", "创意", "视频", "音频"],
+            "Ai行业垂直解决方案": ["AI助手", "行业解决方案", "垂直AI", "专业AI", "消息优先", "Poke"],
+            "效率与优化工具": ["效率", "优化", "自动化", "工具"],
+            "企业服务": ["企业", "B2B", "SaaS", "商业服务"],
+            "营销增长与销售工具": ["营销", "销售", "增长", "客户获取"],
+            "通用大模型与AI平台&基础设施": ["大模型", "AI平台", "基础模型", "API"],
+            "知识库": ["知识", "文档", "信息管理", "搜索"],
             "08_外部渠道项目": ["渠道", "外部", "合作", "生态"],
             "09_市场研究与用户洞察": ["研究", "洞察", "分析", "报告"],
             "10_综合分析": ["综合", "分析", "多领域", "跨领域"]
