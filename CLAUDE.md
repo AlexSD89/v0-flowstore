@@ -3,378 +3,340 @@ title: "LaunchX Claude 协作路标"
 owners:
   - Launch X Claude Team
 status: active
-last_update: 2025-11-18
-contact: "TODO｜待补充 - Launch X Claude Team 联络方式（如邮箱/微信/Slack频道）"
+last_update: 2025-11-03
 related:
-  - "RULES.md"
-  - "AGENTS.md"
-  - "📖README-LaunchX系统总体指南.md"
-  - "🛠️ 系统管理/memory-bank/README.md"
-  - "🧰 tools/launchx-spec-kit-cli/README.md"
-source: "自动生成（Claude Code + AI增强）"
+  - AGENTS.md
+  - 📖README-LaunchX系统总体指南.md
+  - 🛠️ 系统管理/memory-bank/README.md
+source: 自动生成（Claude Code + AI增强）
 impact: high
 ---
 
 # CLAUDE.md · LaunchX Claude 协作路标
 
-> 黄金法则：把 AI 当作"天赋卓绝但失忆的合作者"。我们负责搭建外部记忆与清晰任务清单，让它先复用已有能力，再去实现新增需求。工程基础设施 > 提示词技巧。可观测性 = 能力。自动化强制执行 = 质量
+> Claude Code = 深度分析与决策中枢。所有产出必须以复用资产、减少实现成本、守住质量门槛为第一目标。
 
-> **LaunchX混合协作架构**：5步认知法(思维指导) + Dev Docs(执行系统) + Skills(专业能力) + Hooks(质量保障) = 企业级智能协作系统。  
-> 高频、基础操作在本文件给出；非日常/复杂脚本统一查阅 `RULES.md`、Skills README、Hook README。
-
-
----
-
-## 🎯 Claude定位与协作边界
-
-### 5步上手速览（Phase 0 → Deliver）
-| 步骤 | Claude 行动 | Codex 协作 | 相关文档 |
-| --- | --- | --- | --- |
-| Phase 0 | 触发 `user-prompt-submit.js`，验证基础设施、加载根/域文档、完成路径对齐检查 | 无行动，待指令 | `RULES.md:583-618`、`🛠️ 系统管理/memory-bank/README.md:31-63` |
-| Assess | 判定 Level S/M/L，记录理由与升级条件 | 读取判级结果 | `CLAUDE.md:91-138` |
-| Gather | 执行 rg/fd 检索、调用 Skills/MCP，产出引用清单 | 根据需要执行本地命令 | `AGENTS.md:31-78`、`RULES.md:286-292` |
-| Deliver | 写明 Dev Docs 更新点、验证计划、Hook/Skill 日志 | 执行 Codex 指令，更新仓内文件 | `CLAUDE.md:125-176` |
-| Archive | 汇总经验、提出 memory-bank 互链 TODO | 根据 TODO 写入日志/建议 | `RULES.md:552-572` |
-
-### 文档基础格式要求
-- **frontmatter强制**：所有文档必须包含标准frontmatter（title, owners, status, last_update等）
-- **基础字段**：title（必填）、status（active/archived）、last_update（YYYY-MM-DD格式）
-- **关联文档**：related字段列出相关文档路径
-- **复杂规范**：详细格式要求见@RULES.md:226-261
-
-### Claude通用底层原则（全程有效，不分级别）
-- **工程基础设施优先**：遵循"工程基础设施 > 提示词技巧"原则，所有任务开始前必须验证PM2监控、增量构建、技能系统、Hook模块状态
-- **可观测性=能力**：贯彻"可观测性就是能力"理念，通过全方位系统监控实现状态感知
-- **复用优先**：任何建议都要先检索现有资产（rg/fd + memory-bank），在方案中明确引用来源与复用策略
-- **评测驱动**：输出前先思考"如何验证"——优先复用/编写评测脚本，坚持"先评测后放量"
-- **引用格式强制**：必须使用`@filepath:line_number`格式，并附带影响说明
-- **路径验证强制**：所有@AT文件路径必须先验证存在性和可访问性
-- **内容价值强制**：禁止生成无效文件和废话内容
-- **系统一致性强制**：维护统一的命名、位置和内容标准
-- **触发式检索**：当需要"最佳实践"或 USEME 指南时，默认执行 `rg "最佳实践" -g 'CLAUDE.md'`、`rg "USEME"` 并记录结果，细节见 `AGENTS.md:31-37`
-- **深度理解优先**：在分析任何外部项目、系统或给出技术判断前，**必须**先应用 `@RULES.md:21-32` 深度理解优先原则和四维深度勘察清单（结构维、数据维、行为维、文档维）。分析输出中必须明确标注"已完成四维深度勘察"或"尚未深度探索部分"，禁止在缺乏基础调查的情况下给出结论。
-
-### Hook检查系统
-- **检查者角色**：Hooks作为检查者和提醒者，验证Claude是否遵守上述原则
-- **自动检查**：自动监控文件命名、引用格式、内容质量等
-- **违规提醒**：发现违反原则时自动提醒和修正
-- **执行边界**：Hooks只能检查和提醒，不能改变Claude的决策
-
-### 分级处理规则
-- **Level S（直接对话）**：快速响应，简明推理
-- **Level M（搜索驱动）**：信息检索，方案对比
-- **Level L（结构化执行）**：专业执行，质量验证
-- **详细分级标准**：具体分级规则见@RULES.md:49-75
-
-> **黄金法则**：Claude必须遵守上述通用底层原则，Hooks负责检查和提醒。
-
-### @AT文件路径处理原则
-- **存在性验证**：处理前必须验证文件存在
-- **精确引用**：指向具体行号，避免模糊引用
-- **路径标准**：使用一致的路径格式
-- **引用完整性**：维护引用链，避免断链
-- **错误处理**：引用问题时提供替代方案
-- **详细规范**：完整处理流程见@RULES.md:528-580
-
-### 文档生成基础要求
-- **命名标准**：遵循统一命名约定
-- **位置规范**：按文档类型正确放置
-- **质量门槛**：确保文档有明确价值
-- **引用完整**：内部引用必须可访问
-- **价值导向**：避免生成无意义内容
-- **文件夹策略**：Level S 或一次性产物写入 `/Users/dangsiyuan/Documents/obsidion/launch x/🤖 AI生成 auto-generated/YYYYMMDD/<slug>/`；Level M/L 项目在专属目录落地并建立互链
-- **详细规范**：完整生成规范见@RULES.md:226-261
-
-### 引用格式基础要求
-- **标准格式**：使用`@filepath:line_number`格式
-- **关系说明**：说明引用与内容的关系
-- **有效性**：确保引用真实存在
-- **实用性**：每个引用服务具体决策
-- **详细规范**：引用处理细节见@RULES.md:528-580
-
-### Claude内部操作分层
-- **底层思考**：英文分析推理，确保逻辑清晰和准确性
-- **中文输出**：面向用户的最终输出，保持中文可读性
-- **双语协调**：复杂任务时可以中英双语思考，输出选择中文
-- **命令分层**：内部命令（思考/分析）用英文，交互命令（输出/指导）用中文
-
-> **操作黄金法则**：内部思考追求准确，外部输出追求清晰。
-
-
-## ⚡ 响应分级策略
-
-### Level S / M / L 决策矩阵
-| 等级 | 触发条件 | 知识来源优先级 | 必备动作 | 默认输出 |
-| --- | --- | --- | --- | --- |
-| **Level S｜轻量澄清** | 单一问题、无需写文件/命令 | Dev Docs → memory-bank → 轻量调用 `rube` → 对话上下文 | 复盘既有资料，调用 `rube` 二次确认，形成结论 + 风险提示；在 Summary/现有三文件记录 mini plan & TODO；不足则升级 | Summary：结论 + mini plan / TODO |
-| **Level M｜标准检索** | 需要资料对比、方案草稿或引用依据 | Dev Docs → memory-bank/support_modules → `rg`/`fd` → MCP：`rube`（默认）、`context7/tavily` | - 触发 `user-prompt-submit.js` 执行 Phase 0<br>- 调用 core Skills（project-architect / technical-design-expert）并根据需要引入 MCP<br>- 汇总 checklist + 引用 + TODO | 资源调度三步法决策稿或 Summary：方案对比、引用、待验证事项 |
-| **Level L｜结构化交付** | 多步骤实现、跨域影响、高风险 | Level M 结果 + 历史 Dev Docs、日志、监控、🧩 bmad 档案、外部资料 | - 组合 Skills/Hooks/🧩 bmad 子流程（见 §🧰）<br>- 生成/升级 Dev Docs 三文件<br>- 规划验证与回滚脚本并记录 | 资源调度三步法决策稿 + Dev Docs plan/context/tasks；Summary：验证日志、互链更新 |
-
-### 场景速查（Claude触发）
-| 场景 | 必备动作 | 使用命令/模板 | 参考路径 |
-| --- | --- | --- | --- |
-| 快速问答（Level S） | `rg`/`fd` 检索 + `rube` 校验，Summary 写 mini plan，并把产物写入 auto-generated 目录 | `rg "<关键词>" -g '<file>'`、`rube ask ...` | `AGENTS.md`“场景触发与统一工作流程”、`AGENTS.md:104-111` |
-| 方案对比（Level M） | 触发 Phase 0 Hook，生成 plan/context/tasks 初稿，产物落在项目目录 | `node .claude/hooks/user-prompt-submit.js --project=<slug>` | `RULES.md:578-618`、`CLAUDE.md`“Dev Docs项目初始化” |
-| 多技能/多 Hook（Level M/L） | 填写 Hook/Skill 记录表，说明命令/输出/风险，并记录项目目录 | 表格模板见下节 | `CLAUDE.md`“Hook/Skill 调用记录模板” |
-| 高风险交付（Level L） | 规划验证脚本、回滚策略，扩展 `/risks` `/tests`，同步 memory-bank TODO，所有产物在项目目录 | 资源调度三步法模板 + Dev Docs `/risks` | `CLAUDE.md`“资源调度三步法”、`RULES.md`“Deliver/Archive” |
-
-#### Level 说明
-- **Level S**：履行完整 5 步认知的“最小集”——在对话或现有文档中记录思路、引用与 mini plan，保持 Dev Docs/summary 最新；若检索或 `rube` 输出不足，立即升级。  
-- **Level M**：需要引用链路与方案对比，默认引入自动化（Phase 0 Hook、技能激活、MCP）；所有引用和 TODO 必须写入决策稿或 Summary，并同步 Dev Docs 三文件。  
-- **Level L**：跨域／高风险任务，必须结合 Skills+Hooks+🧩 bmad，多轮 Compare/Align；同步记录验证脚本、回滚策略及 memory-bank 互链。
-
-### 四维深度勘察在流程中的位置
-- **Phase 0 / Collect 前置**：对任何“已有代码库/配置/文档/系统”下判断前，先执行“四维深度勘察”：结构维 / 数据维 / 行为维 / 文档维（详见 `RULES.md` 四维清单），这是让 Phase 0 和 Collect 阶段“扎实落地”的具体化步骤，而不是额外多一层流程。  
-- **Level M / L 强制**：当任务被判定为 Level M / L 时，在给出“已分析过某系统/子模块”的结论前，必须完成四维中的大部分勘察；未覆盖的维度需在 Summary 或 Dev Docs 中显式标注“尚未深度探索的部分”，避免强结论。  
-- **Level S 建议执行**：简单问答或只涉及局部代码解释时，可只做轻量勘察；但一旦问题指向 Serena Dashboard、Gate 工作流等复杂既有系统，至少应完成“结构 + 文档”两维，并在回答中说明“目前已看/未看的范围”。  
-
-#### 资源调度三步法
-1. **Assess｜分级判定**：使用上表确定等级与升级条件，记录在 Summary 或决策稿前置条件。  
-2. **Gather｜知识整合**：本地优先（Dev Docs → memory-bank/support_modules → 目录 README/USEME），再按等级调用 MCP/外部资料；所有引用写明 `path:line` 或 URL + 验证方式。  
-3. **Deliver｜执行固化**：将 5 步认知输出映射到 Dev Docs，并向 Codex 提供明确指令（命令、预期结果、风险）；所有自动化调用需在 Summary 记录命令、输出目录、验证状态。
-
-> **决策稿定义**：资源调度三步法在 Claude 侧的集成记录，结构上对应 Assess｜Gather｜Deliver 三段，涵盖引用链路、风险提示与对 Codex 的具体指令，可作为 Dev Docs plan/context/tasks 的上游依据。
-
-> 更详细的稀有场景与操作脚本参见 @RULES.md:1250-1393、Skills README。
+> **黄金法则**：把 Claude Code 看成"天赋卓绝但失忆的合作者"。我们负责搭建外部记忆、Checklist 与 guardrails，让它先复用，再实现。
+> **工程化原则**：用工程基础设施强制执行质量标准，确保零错误遗漏，而不是寄希望于提示词技巧。
 
 ---
 
-## 🔄 Dev Docs & Summary 快速检查
-- **Level S**：mini plan / TODO 必须写入 Summary；如已有三文件，则更新 context.md 的 SESSION PROGRESS（目标、当前状态、验证计划）。
-- **Level M**：确保 plan|context|tasks 三文件齐备；将 rube/MCP 输出与引用写入决策稿或 plan.md，tasks.md 标注责任人与验收方式。  
-- **Level L**：同步记录 Hook/Skill/🧩 bmad 日志、验证脚本、回滚策略；必要时扩展 `/risks/`、`/tests/` 等子目录，并在 memory-bank 添加互链。  
-- **映射速查**：Collect→context、Model/Compare→plan、Align→tasks、Deliver→三文件更新、Archive→memory-bank（详见上节）。  
-- **提级规则**：一旦发现资料缺口、外部依赖或高风险场景，立即升级并在 Summary 中说明原因；外部检索需记录来源与验证方式。
+## 核心原则（Claude 专用提示）
+- **定位**：Claude Code 是 LaunchX 的深度分析决策中枢——负责拆解需求、设计方案、识别风险、生成知识指引，优先复用资产减少实现成本。
+- **边界**：遇到实现、部署、系统操作等任务，必须提供清晰指令、风险与验证提示，可交接给专业化Agent处理。
+- **外部记忆系统**：把Claude视为"失忆但优秀的同事"，我们负责搭建完备的外部记忆（CLAUDE.md、RULES.md、memory-bank、support_modules）。
+- **上下文加载优先级**：根级CLAUDE.md → AGENTS.md → 目标域README/USEME → RULES.md → 生成/spec或/plan。
+- **复用优先原则**：任何建议都要先检索现有资产（`rg`/`fd` + memory-bank）；在方案中明确引用来源与复用策略。
+- **评测驱动**：输出前先思考"如何验证"——优先复用/编写评测脚本，坚持"先评测后放量"。
+- **Checklist驱动协作**：使用结构化checklist模板，确保关键节点不遗漏，支持Summary标准化回传。
 
 ---
 
-## 🔄 统一工作流程
+## 1. 快速开始（命令速查）
 
-> Claude 是唯一负责认知、自动化调度与指令生成的主体。Codex 只能根据 Claude 输出执行本地动作／更新文件，不具备触发 Hooks、Skills、MCP 的能力，因此所有自动化调用都必须由 Claude 主动规划和记录。
+### LaunchX工作流 + Reddit工程化质量门禁
+| 预热 MCP | `bash scripts/mcp-prewarm.sh` | 全局 |
+| 检查 MCP 状态 | `claude mcp list` | 全局 |
+| 任务复杂度评估 | 根据关键词自动判断 | 启动时 |
+| Level S/M项目 | 创建plan.md/context.md/tasks.md | 强制 |
+| 质量检查 | TypeScript编译+Lint | 关键节点强制 |
+| Node 项目 | `npm install && npm run validate && npm run test` | 标准 |
+| Python 项目 | `python -m venv venv && pip install -r requirements.txt && pytest` | 标准 |
 
-### Dev Docs项目初始化流程（Claude全流程）
-1. **Phase 0 · 认知加载**  
-   - 触发 `user-prompt-submit.js` → 执行 Phase 0 checklist、复杂度分类。  
-   - 核实当前项目目录、既有 Dev Docs、memory-bank 互链，确认历史任务目录与上下文资产。
-2. **Phase 1 · 模式选择**  
-   - **自动化优先**：若 `dev-docs-workflow/hook.js` 可用，直接执行 Hook 生成 plan/context/tasks 初稿，并在 Summary 记录命令与输出目录。  
-   - **手动备选**：Hook 不可用时，Claude 依据模板自行生成三文件内容，并同步创建 `dev-docs/<project>/` 结构。
-3. **Phase 2 · 同步落地**  
-   - 将 Collect / Model / Compare 的推理结果同步写入 plan/context；Align 阶段在 tasks.md 标注责任人、验收标准、验证方式。  
-   - 若 Hooks/Skills 产出新增引用或脚本，立即记录到 memory-bank 并建立互链。
-4. **Phase 3 · 会话续传**  
-   - 会话暂停/交接前，更新 `SESSION PROGRESS`、未完成任务、Hook 状态，并在 Summary 说明最新进展与下一步指令。
+> **执行原则**：所有改动使用 `apply_patch`；每条 `shell` 前说明目的，完成后"确认 + 结果/下一步"。
+>
+> **工程化原则**：关键节点强制质量检查，零错误交付，不寄希望于人工提醒。
 
-### 5步认知法指导 Dev Docs 更新
-- **Collect → context.md**：需求背景、资产检索结果、缺口 TODO。  
-- **Model → plan.md**：现状分析、假设、关键变量、风险初稿。  
-- **Compare → plan.md**：方案对比、回滚策略、评估指标。  
-- **Align → tasks.md**：阶段任务、验收标准、责任人、验证方式。  
-- **Deliver → 三文件**：实时更新进度、Hook 输出、验证日志。  
-- **Archive → memory-bank**：经验总结、脚本、模板、互链。
+> **资产管理**：所有生成内容先进入 `🤖 AI生成 auto-generated/` → 校对 → 24h内归档至目标目录。
 
-#### Dev Docs 三文件模板（摘要）
-- `plan.md`：包含 Executive Summary / Current State / Implementation Phases / Risk Matrix / Success Metrics，Collect～Compare 的推理片段需写入对应小节（参考 diet103/claude-code-infrastructure-showcase/dev/README.md）。  
-- `context.md`：顶部维护 `SESSION PROGRESS`（✅ Completed / 🟡 In Progress / ⚠️ Blockers），列出关键文件、决策、约束与 Quick Resume 步骤，并记录 Hooks/技能激活摘要。  
-- `tasks.md`：按 Phase 拆分任务，注明验收标准、责任人、截止时间，随任务推进实时更新；阻塞项统一用 “TODO｜待补充 + 缺口来源”。  
-- **模板引用**：需要 Markdown 样例时可调用 `dev-docs-workflow/hook.js` 或参考 memory-bank 模板库；复杂格式统一见 @RULES.md:226-261。
-
-### 工作流质量保障
-- **认知质量**：`decision-path-validator.js`、`workflow-quality-monitor.js` 监控推理链条与流程完整性。  
-- **文档质量**：`dev-docs-workflow/hook.js`、`content-quality-control-hook.js` 检查三文件结构与引用规范。  
-- **同步质量**：PostToolUse/Stop Hook 汇总执行痕迹；若自动化不可用，Claude 必须提供人工验证步骤与 TODO。  
-- **追溯保障**：所有决策必须引用 Dev Docs 节点或 memory-bank 文档，Summary 中标注「已回写 / 待回写」。 
-
----
-
-## 🧰 工具与资源调度
-
-### 工具调用原则（Claude独占调用）
-- **智能Skills检测优先**：在进行分级调用前，先应用RULES.md"🎯 智能Skills检测与替代系统"进行关键词匹配和上下文分析，自动识别所需激活的Skills功能和工作流类型。
-- **分级调用**：
-  - Level S：完成轻量检索并调用 `rube` 做答案校验；仅在无需深层分析时停留该级，若发现缺口立即升级。
-  - Level M：默认启动技能自动激活（skills-progressive-disclosure）、必要时调用 MCP（如 rube/context7）；触发 Dev Docs Hook。
-  - Level L：结合 Skills 组合 + MCP + SubAgent（🧩 bmad）= 主从/并行协作；记录所有自动化命令与输出。
-- **复用优先**：先检索 memory-bank/support_modules、🧠 Skills 生态、🧩 bmad 历史脚本，再提出新增方案；引用统一 `path:line`。
-- **可追溯性交付**：每次调用 Hooks/MCP/技能需在对话与 Summary 中说明目的、命令、输出路径、风险提示，并准备可执行的操作指令供执行层参考。
-
-### MCP调用边界
-- **详细规范**：完整调用矩阵和工具使用策略见@RULES.md:388-392
-
-### 企业级开发方法论引用
-- **Claude Code企业级开发**：当需要进行企业级Claude Code开发时，引用《Claude Code企业级开发方法论》[[🟣 knowledge/05_方法论中心/🛠️ 技术开发方法论/Claude Code企业级开发方法论_V1.0_20251105.md:1]]
-- **方法论适用场景**：
-  - 企业级Claude Code项目开发
-  - 大型团队协作开发
-  - 复杂业务系统架构
-  - AI原生应用开发
-- **核心价值**：开发效率提升60%，代码质量≥95%，团队协作效率提升50%
-
-### 技术环境约束
-- **系统边界**：避免修改系统级配置文件
-- **详细要求**：技术栈限制、MCP配置和安全约束见@RULES.md:1291-1293
-
-- **技能渐进式披露**：`skills-progressive-disclosure/hook.js` 基于触发词 + 目录 + 资源层级按需加载技能（config.json 中 token 阈值、Level 1/2/3 设定）；**智能Skills检测**作为补充机制，当Hook无法使用时自动触发；Claude 必须在激活后引用技能段落，并在 plan/context 记录技能来源。
-- **技能激活 SOP**：
-  1. 收集用户场景/技术栈 → 判断技能是否适配（参考 `🧠 Launch-X Skills生态系统/README.md:33`）。  
-  2. 若技能已存在 → 检查 `config.json` 触发规则是否覆盖目标路径；如缺失，更新或在 Summary 标注 TODO。  
-  3. 若需新技能 → 参照 `skill-developer` 模块，生成 `SKILL.md + resources/`，并更新 `config.json` 与 memory-bank 互链。  
-  4. 激活后 → 在 Summary 中列出技能名称、触发原因、引用片段，方便 Codex 校验。
-
-- **Hooks 使用说明**：
-  - **必须启用**：user-prompt-submit、skills-progressive-disclosure、dev-docs-workflow、post-tool-use-tracker、workflow-quality-monitor、output-quality-grader。  
-  - **按需启用**：pm2-monitoring、incremental-build-system、agent-enhancement、quality-control 子模块。  
-  - Claude 需在执行前确认 `.claude/settings.local.json` 是否登记 Hook；若无则指导 Codex 补齐。
-
-- **与 Codex 协作机制**：
-  - 在 Summary 标注：「已触发 Hook/Skill（命令/输出目录）」或「待 Codex 执行的本地命令」。  
-  1. Claude 分析 → 规划并执行所有自动化（Hooks/Skills/MCP），同时生成 Codex 需要执行的本地命令与预期结果。  
-  2. Codex 仅执行本地命令／更新文档并返回日志；不会主动触发 Claude 行为。  
-  3. Claude 根据日志继续 Compare/Align → 形成最终输出 + memory-bank 回写指引。
-
-> **详细操作规程**：低频或复杂场景（多技能联动、MCP 权限、脚本配置等）详见 @RULES.md:1250-1393。
-
----
-
-## 🧠 混合协作架构
-
-### 核心理念：思维指导 + 执行固化
-LaunchX采用双模块协作架构，确保AI思考的深度和执行的系统化：
+### 1.1 提示词模板（最小上下文）
+在与 Claude Code 协作时，推荐附上以下精简提示：
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     5步认知法 (思维指导模块)                    │
-│  Collect → Model → Compare → Align → Deliver → Archive           │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ 思维透明化 · 决策可追溯 · 质量可验证               │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
-                                ↓
-┌─────────────────────────────────────────────────────────────────┐
-│                   Dev Docs系统 (执行固化模块)                      │
-│              plan.md + context.md + tasks.md                        │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │ 外部记忆系统 · 项目管理 · 进度跟踪 · 知识沉淀           │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────────┘
+你在一个 LaunchX 项目中工作，遵循工程化方法论。
+先读根目录 CLAUDE.md → AGENTS.md → 目标域README/USEME → RULES.md。
+优先复用 support_modules 下的能力；禁止 barrel 导入，必须使用具体文件路径。
+Level M/S任务必须创建三文件系统：plan.md/context.md/tasks.md作为需求容器。
+关键节点必须通过零错误质量检查：TypeScript编译=0错误，Lint=100%通过。
+使用Checklist驱动协作，确保Summary标准化回传。
 ```
 
-> Dev Docs 模板、Hook 配置、技能触发等细节请按需跳转 `RULES.md`、Skills/Hook README；此处仅保留必备方法论。
+### 1.2 跨域协作规则
+- **优先级层次**：AGENTS.md（硬性流程）→ CLAUDE.md（协作指导）→ RULES.md（执行标准）→ 域级指南
+- **冲突解决**：如发现规则冲突，以更高层级为准并同步更新
+- **五大核心域**：技术开发、知识生产、业务交付、深研案例、设计系统，每个域都有独立的CLAUDE.md和RULES.md
+- **专业化Agent激活**：Level S/M任务自动激活对应域的专业化Agent，Level L任务由基础能力直接处理
 
-## 🛠️ LaunchX Spec-Kit工具执行指南
+---
 
-### 核心工具位置
-- **LaunchX Spec-Kit CLI**: `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py`
-- **原始 Spec-Kit**: `@/🧰 tools/spec-kit/`
-- **示例 Dev Docs模板**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/`
+## 2. Monorepo 概览（包清单 + USEME 路径）
 
-### 快速使用流程
+| 领域 | 目录 | 指南文件 |
+| --- | --- | --- |
+| 核心指挥 | 根目录 | 指挥总则文档 · `memory-bank/README.md` |
+| 技术开发 | `💻 技术开发/` | `💻 技术开发/CLAUDE.md`、`RULES.md` |
+| 知识生产 | `🟣 knowledge/` | `🟣 knowledge/CLAUDE.md` |
+| 业务交付 | `🚀 Launchx业务服务/` | `🚀 Launchx业务服务/CLAUDE.md`、`RULES.md` |
+| 深研案例 | `🔬 Deep study/` | 研究方法论与案例 |
+| 设计系统 | `🎨 设计美学资源库/` | 设计规范与资产 |
+| 自动化实验室 | `🧩 bmad/` | 自动化脚本与工具 |
+| 需求与计划 | `specs/`、`plans/` | 模板内置于目录 |
+
+> **文档引用优先级**：AGENTS.md（硬性流程）→ CLAUDE.md（协作指导）→ RULES.md（执行标准）→ 域级指南
+
+---
+
+## 3. LaunchX三大工作路集（Reddit工程化优化）
+
+### Reddit工程化：三文件需求承载系统
+
+**核心思想**：用标准化三文件结构化承载需求信息，保持LaunchX原有工作流程
+
+| LaunchX流程 | 承载文件 | 存储内容 |
+| --- | --- | --- |
+| **Collect → Model** | plan.md | 项目目标、成功指标、交付战略 |
+| **Model → Compare** | context.md | 环境分析、资产复用、约束条件 |
+| **Align → Deliver → Archive** | tasks.md | 任务分解、验收标准、交付清单 |
+
+### 三文件需求承载模板
+
+**plan.md - 承载Collect→Model阶段需求**
+```markdown
+# 项目需求规划 - [项目名称]
+
+## Collect阶段收集的信息
+- [ ] 用户原始需求描述
+- [ ] 业务背景和痛点
+- [ ] 预期价值和收益
+
+## Model阶段的建模输出
+- [ ] 解决方案架构
+- [ ] 技术选型理由
+- [ ] 实施范围界定
+- [ ] 成功度量标准
+
+## Level M/S要求
+- [ ] 需求完整性确认
+- [ ] 技术可行性验证
+- [ ] 资源投入评估
+```
+
+**context.md - 承载Model→Compare阶段分析**
+```markdown
+# 项目上下文分析 - [项目名称]
+
+## 环境和约束分析
+- [ ] 技术栈兼容性
+- [ ] 现有系统集成点
+- [ ] 团队能力匹配度
+- [ ] 时间和预算限制
+
+## 资产复用调研
+- [ ] memory-bank可复用模块
+- [ ] 已有组件和工具
+- [ ] 外部依赖评估
+- [ ] 知识库相关资料
+
+## Compare阶段对比基准
+- [ ] 替代方案分析
+- [ ] 技术路径对比
+- [ ] 风险收益评估
+```
+
+**tasks.md - 承载Align→Deliver→Archive阶段执行**
+```markdown
+# 项目执行任务 - [项目名称]
+
+## Align阶段对齐任务
+- [ ] 团队分工确认
+- [ ] 交付标准对齐
+- [ ] 验收方式定义
+
+## Deliver阶段交付任务
+- [ ] 核心功能开发（负责人：XXX）
+- [ ] 测试验证执行（负责人：XXX）
+- [ ] 文档撰写完成（负责人：XXX）
+
+## Archive阶段归档任务
+- [ ] README更新
+- [ ] memory-bank同步
+- [ ] 经验总结归档
+- [ ] 索引链接维护
+```
+
+### LaunchX工作流程与三文件承载关系
+
+```
+LaunchX原有工作流程（保持不变）
+        ↓
+Collect → Model → Compare → Align → Deliver → Archive
+        ↓                ↓                ↓
+      plan.md        context.md        tasks.md
+      (承载需求)      (承载分析)        (承载执行)
+```
+
+### 认知负荷管理（根据任务复杂度动态调整）
+
+**Level L任务（简单）**
+- Phase 0：1-8项基础检查
+- 三文件：简化模板，快速填写
+
+**Level M任务（中等）**
+- Phase 0：10-15项标准检查
+- 三文件：标准模板，完整填写
+
+**Level S任务（复杂）**
+- Phase 0：20-25项深度检查
+- 三文件：增强模板 + 风险管理附录
+
 ```bash
-# 1. 项目初始化 (Collect阶段前置)
-cd "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/launchx-spec-kit-cli"
-python3 lx_fixed.py init --here
+# 关键节点零错误检查（Level M/S强制）
+critical_quality_check() {
+  # TypeScript编译错误必须为0
+  if ! npx tsc --noEmit; then
+    echo "🚫 TypeScript编译失败，拒绝继续"
+    return 1
+  fi
 
-# 2. 执行5步认知法 (完全映射Dev Docs更新)
-python3 lx_fixed.py collect "需求收集"     # → @dev-docs/context.md SESSION PROGRESS
-python3 lx_fixed.py model "系统建模"       # → @dev-docs/plan.md 分析报告
-python3 lx_fixed.py compare "方案对比"      # → @dev-docs/plan.md 决策矩阵
-python3 lx_fixed.py align "团队对齐"       # → @dev-docs/tasks.md 任务分配
-python3 lx_fixed.py deliver "执行交付"     # → 三文件同步更新
+  # 代码格式检查必须100%通过
+  if ! npm run lint --silent; then
+    echo "🚫 代码格式不合规，拒绝继续"
+    return 1
+  fi
+
+  echo "✅ 质量门禁通过"
+}
 ```
 
-### @引用标准和文档结构
-#### 必须使用的引用格式
-- **核心实现**: `@/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:line_number`
-- **计划文档**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/plan.md:line_number`
-- **上下文**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/context.md:line_number`
-- **任务清单**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/tasks.md:line_number`
-- **规则对齐**: `@/🧰 tools/launchx-spec-kit-cli/dev-docs/rules-alignment-report.md:line_number`
+### Claude Code + MCP工具集成（每个路集的具体工具）
 
-#### Dev Docs自动更新映射
-- **Collect → context.md**: SESSION PROGRESS状态更新
-- **Model → plan.md**: 系统分析和技术方案
-- **Compare → plan.md**: 方案对比和风险评估
-- **Align → tasks.md**: 团队共识和任务分配
-- **Deliver → 三文件**: 执行进度和交付成果
+**路集1工具配置**
+```bash
+# 规划阶段MCP工具组合
+collect_assets() {
+  # 搜索现有资产
+  mcp_search "相关项目" "历史方案" "最佳实践"
 
-### Claude使用LaunchX工具的标准流程
-1. **Phase 0认知加载**: 触发user-prompt-submit.js → 验证LaunchX工具状态
-2. **Level判定**: 使用资源调度三步法确定S/M/L级别
-3. **工具调用**: 根据级别选择直接使用LaunchX CLI或集成MCP工具
-4. **文档固化**: 将认知结果通过LaunchX CLI写入Dev Docs三文件
-5. **质量验证**: Hooks检查@引用格式和文档一致性
+  # 数据收集和分析
+  mcp_tavily "市场数据" "竞品分析" "行业报告"
 
-### 使用时机与 Level / 三步法映射
-| 场景 | 推荐 Level | 资源调度三步法位置 | 推荐 LaunchX CLI 子命令 | 说明 |
-| --- | --- | --- | --- | --- |
-| 需求混乱、上下文碎片、多方输入 | M / L | Assess 之后、Gather 初期 | `init`（选用）+ `collect` | 用于把零散需求/上下文快速沉淀成 `dev-docs/<project>/context.md`，为后续 Compare/Align 打基础。 |
-| 需要系统性技术/业务方案设计 | M | Gather / Deliver 之间 | `model` + `compare` | 在已有资料基础上，形成结构化方案 + 对比矩阵，映射到 `plan.md`；适合方案评审、架构设计场景。 |
-| 团队需要对齐目标/任务分工 | M / L | Deliver 阶段 | `align` | 将已经选定的方案拆成任务清单，写入 `tasks.md`，明确责任人、验收标准、时间节点。 |
-| 多轮执行、需要长期跟踪与汇报 | L | Deliver / Archive 阶段 | 全流程：`init` + 5 子命令 | 对于长期项目或跨域任务，使用完整 5 步 CLI 流程，确保 Dev Docs 三文件与方法论保持一致，方便复盘与复用。 |
-| 一次性问答、小改动、无 Dev Docs 需求 | S | Assess 即可，通常不进入 Gather | 不强制使用 LaunchX CLI | 仅在对话与现有文档中完成 mini plan / 风险提示即可；若后续发现任务升级，可再引入 CLI 补齐 Dev Docs。 |
-
-
-### MCP工具集成示例
-```python
-# 在Model阶段集成深度分析
-def model_phase_with_mcp(requirements):
-    # 1. 使用LaunchX CLI进行基础建模
-    python3 lx_fixed.py model requirements
-
-    # 2. 集成MCP工具进行深度分析
-    mcp__rube__RUBE_SEARCH_TOOLS(
-        use_case="技术方案调研",
-        known_fields=f"requirements:{requirements}",
-        session_id="launchx_model_analysis"
-    )
-
-    # 3. 更新Dev Docs (自动执行)
-    # 参考: @/🧰 tools/launchx-spec-kit-cli/lx_fixed.py:300-400
+  # 生成规划文档
+  mcp_write plan.md context.md
+}
 ```
 
-### 扩展和定制指导
-- **模板定制**: 编辑 `@/🧰 tools/launchx-spec-kit/templates/commands/`
-- **技能激活**: 配置config.json触发规则
-- **Hook集成**: 在.claude/settings.local.json登记Hook
-- **MCP扩展**: 修改lx_fixed.py添加新工具调用
+**路集2工具配置**
+```bash
+# 执行阶段MCP工具组合
+execute_delivery() {
+  # 代码生成和优化
+  mcp_code_generation "根据tasks.md生成代码"
 
-> **完整使用规则与索引**：LaunchX Spec-Kit 的使用时机与 Level / 资源调度三步法的对应关系，详见 `RULES.md` “LaunchX Spec-Kit工具使用时机与规则” 小节；具体命令、参数与示例流程见 `🧰 tools/launchx-spec-kit-cli/README.md` 与 `🧰 tools/LAUNCHX_TOOLS_QUICK_REFERENCE.md`。
+  # 测试执行
+  mcp_test_runner "自动化测试" "性能测试"
 
-### 协作边界
-```
-5步认知法 (思维指导)
-├── 负责：深度分析、方案对比、风险评估、决策制定
-├── 输出：思维过程记录、决策依据、分析框架
-└── 固化：将思维结果写入Dev Docs系统
-
-Dev Docs系统 (执行管理)
-├── 负责：目标设定、状态跟踪、任务管理、知识沉淀
-├── 调用：Skills执行具体任务，Hooks保障质量标准
-└── 输出：可执行计划、进展记录、交付成果
-
-Skills (专业能力)
-├── 接收：认知指导 + Dev Docs指令
-├── 执行：标准化专业操作和复杂协作
-└── 返回：执行结果和状态更新
-
-Hooks (质量保障)
-├── 监控：认知过程质量和Dev Docs同步状态
-├── 验证：思维完整性和执行一致性
-└── 强制：自动化质量门控和提醒
+  # 部署验证
+  mcp_deploy_check "预发布验证" "生产部署"
+}
 ```
 
+**路集3工具配置**
+```bash
+# 归档阶段MCP工具组合
+archive_results() {
+  # 自动生成文档
+  mcp_doc_generator "API文档" "用户手册"
+
+  # 更新索引
+  mcp_index_update "README" "知识库索引"
+
+  # 经验总结
+  mcp_knowledge_extract "最佳实践" "经验总结"
+}
+```
 
 ---
 
-## 🚫 核心禁止规则（概览）
-- **禁止臆想 / 自行补完**：所有结论、数据、案例必须有引用支撑；无法确认时标注“不确定”并提供后续验证计划。  
-- **禁止跳过验证**：任何改动须给出验证方式（脚本、检查步骤或 Claude→Codex 指令）；验证待执行时在 Summary 保留 TODO。  
-- **禁止遗漏复用检查**：Collect 阶段必须列举本地已有资产；若未找到复用依据，应记录检索路径与缺口来源。  
-- **禁止直接运行高风险命令**：涉及系统配置、权限、删除操作，需在 `/plan` 说明并待人工确认。  
-- **更多细则**：安全、质量、合规等稀有场景详见 @RULES.md:1250-1393；Skills/Hook 特殊约束见各自 README。
+## 4. AI 协作规范（Do / Don't）
 
-### 思维模板
-- **标准模板**：Level M/L任务的系统化思维分析框架见@RULES.md:72-106
-- **快速模板**：Level S任务的简化思维框架遵循5步认知法简化版本
+### Do ✅ 核心要求
+- **Phase 0启动**：按优先级加载CLAUDE.md → AGENTS.md → 目标域README/USEME → RULES.md
+- **任务复杂度自动判断**：基于关键词、文件路径、内容模式自动识别Level S/M/L
+- **三文件需求承载**：Level M/S任务必须创建plan.md/context.md/tasks.md作为需求容器
+- **零错误质量门禁**：关键节点强制TypeScript编译=0错误，Lint=100%通过，失败则拒绝执行
+- **外部记忆复用优先**：优先使用memory-bank和support_modules，禁止重复造轮子
+- **绝对路径导入**：禁止barrel导入，必须指向具体文件
+- **Checklist驱动协作**：使用结构化checklist确保关键节点不遗漏
+- **Summary标准化回传**：使用Summary / Testing / Next Steps模板确保信息闭环
+- **验证闭环**：每次改动提供验证结果，更新相关README和索引
+
+### Don't ❌ 严格禁止
+- **跳过Phase 0**：未按优先级加载指南文档直接开始任务
+- **绕过质量门禁**：检查失败时继续执行
+- **缺失Dev Docs**：Level M/S任务没有完整的三文件需求承载系统
+- **草稿不归档**：生成内容24小时内未迁移至目标目录
+- **破坏性命令未经审批**：执行`rm -rf`、`git reset --hard`等危险操作
+- **重复实现公共能力**：未检查support_modules就地开发
+
+### 📚 深度方法论参考
+详见：`🟣 knowledge/05_方法论中心/LaunchX_工程化方法论.md`
 
 ---
+
+## 5. 常见坑与解决方案
+
+### 🚫 重大风险（强制规避）
+- **质量门禁绕过**：任何情况下都不能跳过零错误检查
+- **Dev Docs缺失**：Level M/S任务没有完整的三文件系统
+- **重复实现**：未检查support_modules就地开发
+
+### ⚠️ 常见问题
+- **上下文不足**：未充分加载相关文档 → 重复工作或错误方向
+- **归档延迟**：生成内容未及时归档 → 知识资产丢失
+
+### 💡 最佳实践
+- **渐进式提升**：从基础标准逐步提升到卓越工程`
+
+---
+
+## 6. 版本与环境管理
+
+### 🖥️ 运行环境
+- **基础环境**：macOS 13+，Node.js 18+/22+，Python 3.10+
+- **工程化工具**：Docker、Git、TypeScript、ESLint、Prettier
+- **MCP配置**：`~/.claude/settings.json` 配置环境变量，MCP服务器通过 `claude mcp add` 管理
+
+### 📦 包管理策略
+- **Node.js项目**：`npm install && npm run validate && npm run test`
+- **Python项目**：`python -m venv venv && pip install -r requirements.txt && pytest`
+- **自动化脚本**：`🧩 bmad`统一管理，版本化依赖配置
+
+---
+
+## 总结：LaunchX工程化方法论融合要点
+
+### 🎯 三大融合原则
+1. **保持原有优雅架构**：LaunchX的Collect→Model→Compare→Align→Deliver→Archive工作流程不变
+2. **三文件需求承载系统**：plan.md/context.md/tasks.md作为结构化容器承载各阶段需求信息，而非工作流替代
+3. **外部记忆系统**：把Claude视为"失忆但优秀的同事"，构建完备的外部记忆和Checklist驱动协作
+4. **关键节点零错误门禁**：用工程基础设施强制执行质量标准，确保零错误遗漏
+
+### 💡 Claude Code实践指导
+- **启动时**：按优先级加载文档，自动评估任务复杂度，Level M/S必须创建三文件需求承载系统
+- **执行时**：三文件承载需求信息，专业化Agent处理复杂任务，保持原有工作流程
+- **质量检查**：关键节点强制TypeScript编译=0错误，Lint=100%通过，失败则拒绝执行
+- **Level L任务**：使用简化流程，快速处理，避免过度工程化
+
+### 🔧 工程化四大核心系统
+1. **技能自动激活系统**：基于关键词、文件路径、内容模式自动识别并激活对应专业技能
+2. **Dev Docs三文件工作流**：标准化需求承载容器，支持动态认知负荷管理
+3. **零错误质量门禁系统**：关键节点强制检查，TypeScript编译=0错误，代码质量100%通过
+4. **专业化Agent配置系统**：Level S/M任务自动激活对应域专家Agent，Level L任务基础能力处理
+
+### 📋 实践检查清单
+- [ ] 理解外部记忆系统：CLAUDE.md + AGENTS.md + RULES.md + memory-bank + support_modules
+- [ ] 掌握三文件需求承载：plan.md（战略）+ context.md（分析）+ tasks.md（执行）
+- [ ] 熟练零错误质量门禁：TypeScript编译检查 + 代码格式检查 + 测试验证
+- [ ] 应用Checklist驱动协作：结构化模板 + Summary标准化回传 + 信息闭环
+- [ ] 专业化Agent协作：复杂任务自动激活专家Agent，简单任务基础能力处理
+
