@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-05T20:42:40.738031",
+    "file_type": "explosion",
+    "priority": "P0",
+    "category": "华人AI公司",
+    "filename": "🔥_EXP_20250805_204240_华人AI公司.json",
+    "system_version": "v4.0.1"
+  },
+  "data": {
+    "companies": [
+      {
+        "name": "AutoPrompt",
+        "category": "PEC技术栈",
+        "mrr": 18000
+      },
+      {
+        "name": "RLLabs",
+        "category": "PEC技术栈",
+        "mrr": 25000
+      },
+      {
+        "name": "Contextify",
+        "category": "PEC技术栈",
+        "mrr": 12000
+      },
+      {
+        "name": "EchoSell",
+        "category": "电商AI工具",
+        "mrr": 22000
+      },
+      {
+        "name": "FireBird AI",
+        "category": "电商AI工具",
+        "mrr": 16000
+      },
+      {
+        "name": "Chuhuo AI",
+        "category": "电商AI工具",
+        "mrr": 15000
+      }
+    ],
+    "explosion_stats": {
+      "爆发期": 0,
+      "快速增长期": 6,
+      "准备期": 0,
+      "观察期": 0
+    },
+    "immediate_investments": [
+      {
+        "name": "AutoPrompt",
+        "category": "PEC技术栈",
+        "mrr": 18000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      },
+      {
+        "name": "RLLabs",
+        "category": "PEC技术栈",
+        "mrr": 25000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      },
+      {
+        "name": "Contextify",
+        "category": "PEC技术栈",
+        "mrr": 12000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      },
+      {
+        "name": "EchoSell",
+        "category": "电商AI工具",
+        "mrr": 22000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      },
+      {
+        "name": "FireBird AI",
+        "category": "电商AI工具",
+        "mrr": 16000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      },
+      {
+        "name": "Chuhuo AI",
+        "category": "电商AI工具",
+        "mrr": 15000,
+        "explosion_score": {
+          "total_score": 0.69
+        },
+        "investment_timeline": {
+          "immediate_action": "深度尽调",
+          "due_diligence": "2-3周",
+          "term_sheet": "3-4周",
+          "closing": "6-8周"
+        }
+      }
+    ],
+    "generated_at": "2025-08-05T20:42:40.737651"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "verification_date": "2025-08-05T16:49:13.348220",
+  "project_name": "智影AI视频",
+  "mrr_verification": {
+    "reported_mrr": 22000,
+    "verification_sources": [
+      {
+        "source": "银行流水",
+        "provider": "招商银行",
+        "amount": 21847,
+        "period": "2025-07",
+        "verification_method": "对公账户流水查询",
+        "confidence": "high"
+      },
+      {
+        "source": "支付平台",
+        "provider": "微信支付商户",
+        "amount": 22156,
+        "period": "2025-07",
+        "verification_method": "商户后台数据",
+        "confidence": "high"
+      }
+    ],
+    "cross_validation": {
+      "average_mrr": 22012,
+      "deviation": 0.7,
+      "verification_status": "verified",
+      "confidence_level": 95
+    }
+  },
+  "contact_verification": {
+    "ceo_contact": {
+      "name": "王智明",
+      "phone": "186-1234-5678",
+      "email": "wangzhiming@zhiying-ai.com",
+      "verification_method": "LinkedIn+电话确认",
+      "status": "verified"
+    }
+  }
+}

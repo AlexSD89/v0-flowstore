@@ -1,0 +1,263 @@
+{
+  "timestamp": "2025-08-05T16:22:21.211096",
+  "investment_scope": "50万人民币中国AI初创",
+  "total_projects": 6,
+  "high_potential_projects": 6,
+  "average_score": 4.58,
+  "top_recommendations": [
+    {
+      "project_name": "智影AI视频",
+      "pocketcorn_score": 4.8,
+      "mrr_rmb": 22000,
+      "team_size": 5,
+      "growth_rate": 0.42,
+      "location": "深圳",
+      "media_influence": 4.0,
+      "total_media_followers": 9800,
+      "founder_background": "前字节跳动产品经理",
+      "competitive_moat": "AI算法+内容生态",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 9,800粉丝",
+        "创始人背景: 前字节跳动产品经理",
+        "产品成熟度: 产品市场匹配"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "快写AI文案",
+      "pocketcorn_score": 4.8,
+      "mrr_rmb": 25000,
+      "team_size": 6,
+      "growth_rate": 0.28,
+      "location": "杭州",
+      "media_influence": 5.0,
+      "total_media_followers": 14100,
+      "founder_background": "前阿里内容运营专家",
+      "competitive_moat": "行业模板库",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率良好(20-30%)",
+        "媒体影响力: 14,100粉丝",
+        "创始人背景: 前阿里内容运营专家",
+        "产品成熟度: 规模化阶段"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "慧算AI财务",
+      "pocketcorn_score": 4.5,
+      "mrr_rmb": 18000,
+      "team_size": 4,
+      "growth_rate": 0.35,
+      "location": "北京",
+      "media_influence": 4.0,
+      "total_media_followers": 5200,
+      "founder_background": "前用友+德勤复合背景",
+      "competitive_moat": "财税AI模型",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 5,200粉丝",
+        "创始人背景: 前用友+德勤复合背景",
+        "产品成熟度: MVP已验证"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    }
+  ],
+  "all_results": [
+    {
+      "project_name": "智影AI视频",
+      "pocketcorn_score": 4.8,
+      "mrr_rmb": 22000,
+      "team_size": 5,
+      "growth_rate": 0.42,
+      "location": "深圳",
+      "media_influence": 4.0,
+      "total_media_followers": 9800,
+      "founder_background": "前字节跳动产品经理",
+      "competitive_moat": "AI算法+内容生态",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 9,800粉丝",
+        "创始人背景: 前字节跳动产品经理",
+        "产品成熟度: 产品市场匹配"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "快写AI文案",
+      "pocketcorn_score": 4.8,
+      "mrr_rmb": 25000,
+      "team_size": 6,
+      "growth_rate": 0.28,
+      "location": "杭州",
+      "media_influence": 5.0,
+      "total_media_followers": 14100,
+      "founder_background": "前阿里内容运营专家",
+      "competitive_moat": "行业模板库",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率良好(20-30%)",
+        "媒体影响力: 14,100粉丝",
+        "创始人背景: 前阿里内容运营专家",
+        "产品成熟度: 规模化阶段"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "慧算AI财务",
+      "pocketcorn_score": 4.5,
+      "mrr_rmb": 18000,
+      "team_size": 4,
+      "growth_rate": 0.35,
+      "location": "北京",
+      "media_influence": 4.0,
+      "total_media_followers": 5200,
+      "founder_background": "前用友+德勤复合背景",
+      "competitive_moat": "财税AI模型",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 5,200粉丝",
+        "创始人背景: 前用友+德勤复合背景",
+        "产品成熟度: MVP已验证"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "智聊AI客服",
+      "pocketcorn_score": 4.5,
+      "mrr_rmb": 28000,
+      "team_size": 7,
+      "growth_rate": 0.32,
+      "location": "深圳",
+      "media_influence": 4.0,
+      "total_media_followers": 8200,
+      "founder_background": "前腾讯企业服务+前阿里云专家",
+      "competitive_moat": "多语言AI客服",
+      "reasons": [
+        "MRR处于Pre-A机会区间(25k-30k)",
+        "团队规模稍大，但可控",
+        "增长率优秀(>30%)",
+        "媒体影响力: 8,200粉丝",
+        "创始人背景: 前腾讯企业服务+前阿里云专家",
+        "产品成熟度: 产品市场匹配"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "⭐ 强烈推荐 - 准备投资条款",
+      "next_steps": [
+        "一周内安排创始人深度沟通",
+        "准备投资备忘录",
+        "进行客户验证访谈",
+        "评估技术壁垒和护城河"
+      ]
+    },
+    {
+      "project_name": "易译AI翻译",
+      "pocketcorn_score": 4.5,
+      "mrr_rmb": 15000,
+      "team_size": 4,
+      "growth_rate": 0.45,
+      "location": "北京",
+      "media_influence": 4.0,
+      "total_media_followers": 5800,
+      "founder_background": "前有道翻译+Google AI研究员",
+      "competitive_moat": "专业领域翻译模型",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 5,800粉丝",
+        "创始人背景: 前有道翻译+Google AI研究员",
+        "产品成熟度: MVP已验证"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "🎯 立即投资 - 50万全额投资",
+      "next_steps": [
+        "立即联系创始人安排会议",
+        "准备50万投资协议条款",
+        "启动技术+市场双重尽调",
+        "48小时内完成初步决策"
+      ]
+    },
+    {
+      "project_name": "图灵AI设计",
+      "pocketcorn_score": 4.4,
+      "mrr_rmb": 12000,
+      "team_size": 3,
+      "growth_rate": 0.38,
+      "location": "杭州",
+      "media_influence": 4.0,
+      "total_media_followers": 9500,
+      "founder_background": "前Canva高级设计师",
+      "competitive_moat": "垂直场景优化",
+      "reasons": [
+        "MRR处于种子期最佳区间(8k-25k)",
+        "团队规模理想(3-6人)",
+        "增长率优秀(>30%)",
+        "媒体影响力: 9,500粉丝",
+        "创始人背景: 前Canva高级设计师",
+        "产品成熟度: MVP迭代中"
+      ],
+      "investment_amount": 500000,
+      "recommendation": "⭐ 强烈推荐 - 准备投资条款",
+      "next_steps": [
+        "一周内安排创始人深度沟通",
+        "准备投资备忘录",
+        "进行客户验证访谈",
+        "评估技术壁垒和护城河"
+      ]
+    }
+  ]
+}

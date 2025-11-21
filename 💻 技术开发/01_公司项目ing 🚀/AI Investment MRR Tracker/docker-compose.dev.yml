@@ -1,0 +1,179 @@
+# Development Docker Compose Configuration
+# Usage: docker-compose -f docker-compose.dev.yml up
+version: '3.8'
+
+networks:
+  dev-network:
+    driver: bridge
+
+volumes:
+  postgres_dev_data:
+    driver: local
+  redis_dev_data:
+    driver: local
+
+services:
+  # PostgreSQL for development
+  postgres-dev:
+    image: postgres:15-alpine
+    container_name: ai-mrr-tracker-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_mrr_tracker_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      - ./scripts/init-dev-db.sql:/docker-entrypoint-initdb.d/init-dev-db.sql:ro
+    networks:
+      - dev-network
+    command: >
+      postgres
+        -c log_statement=all
+        -c log_destination=stderr
+        -c log_min_duration_statement=0
+        -c max_connections=100
+
+  # Redis for development
+  redis-dev:
+    image: redis:7-alpine
+    container_name: ai-mrr-tracker-redis-dev
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_dev_data:/data
+    command: redis-server --appendonly yes --appendfsync everysec
+    networks:
+      - dev-network
+
+  # Development application with hot reload
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: ai-mrr-tracker-app-dev
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+      - "9229:9229"  # Node.js debugging
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres-dev:5432/ai_mrr_tracker_dev
+      - REDIS_URL=redis://redis-dev:6379
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=dev-secret-key-change-in-production
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-your-openai-key-here}
+      - LOG_LEVEL=debug
+      - HOT_RELOAD=true
+    depends_on:
+      - postgres-dev
+      - redis-dev
+    networks:
+      - dev-network
+    stdin_open: true
+    tty: true
+
+  # Database management tool (optional)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ai-mrr-tracker-pgadmin-dev
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ai-mrr-tracker.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "8080:80"
+    volumes:
+      - ./config/pgadmin-servers.json:/pgadmin4/servers.json:ro
+    depends_on:
+      - postgres-dev
+    networks:
+      - dev-network
+    profiles:
+      - tools
+
+  # Redis management tool (optional)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ai-mrr-tracker-redis-commander-dev
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:redis-dev:6379
+      - HTTP_USER=admin
+      - HTTP_PASSWORD=admin
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis-dev
+    networks:
+      - dev-network
+    profiles:
+      - tools
+
+  # Test database for running tests
+  postgres-test:
+    image: postgres:15-alpine
+    container_name: ai-mrr-tracker-postgres-test
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_mrr_tracker_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./scripts/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    networks:
+      - dev-network
+    profiles:
+      - test
+    tmpfs:
+      - /var/lib/postgresql/data  # Use tmpfs for faster test runs
+
+  # Test runner service
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: ai-mrr-tracker-test-runner
+    restart: "no"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+      - DATABASE_URL=postgresql://postgres:postgres@postgres-test:5432/ai_mrr_tracker_test
+      - REDIS_URL=redis://redis-dev:6379
+      - LOG_LEVEL=silent
+    depends_on:
+      - postgres-test
+      - redis-dev
+    networks:
+      - dev-network
+    profiles:
+      - test
+    command: npm test
+
+  # Local mail server for testing (optional)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: ai-mrr-tracker-mailhog-dev
+    restart: unless-stopped
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    networks:
+      - dev-network
+    profiles:
+      - tools

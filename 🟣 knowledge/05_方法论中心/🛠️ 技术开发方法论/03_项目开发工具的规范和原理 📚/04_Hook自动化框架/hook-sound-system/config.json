@@ -1,0 +1,142 @@
+{
+  "enabled": true,
+  "volume": 0.7,
+  "sound_theme": "launchx_default",
+  "project_mappings": {
+    "zhilink": "web_platform",
+    "pocketcorn": "data_analysis",
+    "trading": "financial",
+    "knowledge": "research",
+    "deer-flow": "ai_workflow",
+    "business": "service"
+  },
+  "sound_levels": {
+    "major_success": {
+      "volume": 0.9,
+      "duration": 3.0,
+      "description": "重大项目完成、部署成功、里程碑达成"
+    },
+    "completion": {
+      "volume": 0.7,
+      "duration": 1.5,
+      "description": "常规任务完成、功能实现、测试通过"
+    },
+    "minor_task": {
+      "volume": 0.5,
+      "duration": 0.8,
+      "description": "文件保存、配置更新、小改动"
+    },
+    "error": {
+      "volume": 0.8,
+      "duration": 2.0,
+      "description": "编译失败、测试失败、系统错误"
+    },
+    "warning": {
+      "volume": 0.6,
+      "duration": 1.0,
+      "description": "代码质量警告、安全提醒、配置问题"
+    },
+    "startup": {
+      "volume": 0.6,
+      "duration": 1.2,
+      "description": "系统启动、项目初始化、服务启动"
+    },
+    "connection": {
+      "volume": 0.5,
+      "duration": 0.5,
+      "description": "MCP连接、网络连接、服务连接"
+    },
+    "processing": {
+      "volume": 0.4,
+      "duration": 0.3,
+      "description": "处理中、等待响应、后台任务"
+    }
+  },
+  "context_keywords": {
+    "major_success": [
+      "deployment completed",
+      "release successful", 
+      "milestone achieved",
+      "project completed",
+      "部署完成",
+      "发布成功", 
+      "里程碑",
+      "项目完成",
+      "全部测试通过",
+      "构建成功并部署"
+    ],
+    "completion": [
+      "build successful",
+      "tests passed",
+      "task completed",
+      "function implemented",
+      "构建成功",
+      "测试通过", 
+      "任务完成",
+      "功能实现",
+      "代码提交",
+      "合并完成"
+    ],
+    "minor_task": [
+      "file saved",
+      "config updated",
+      "小修改",
+      "文件保存",
+      "配置更新",
+      "格式化完成",
+      "文档更新"
+    ],
+    "error": [
+      "build failed",
+      "test failed",
+      "compilation error",
+      "runtime error",
+      "构建失败",
+      "测试失败",
+      "编译错误",
+      "运行时错误",
+      "异常",
+      "崩溃"
+    ],
+    "warning": [
+      "warning",
+      "deprecated",
+      "security issue",
+      "code quality",
+      "警告",
+      "过时",
+      "安全问题",
+      "代码质量",
+      "潜在问题"
+    ]
+  },
+  "project_specific_sounds": {
+    "zhilink": {
+      "major_success": "zhilink_success.wav",
+      "completion": "web_complete.wav"
+    },
+    "pocketcorn": {
+      "major_success": "analysis_complete.wav", 
+      "completion": "data_processed.wav"
+    },
+    "trading": {
+      "major_success": "trading_success.wav",
+      "completion": "trade_complete.wav"
+    }
+  },
+  "time_based_sounds": {
+    "morning": {
+      "startup": "morning_startup.wav",
+      "completion": "morning_success.wav"
+    },
+    "evening": {
+      "startup": "evening_startup.wav", 
+      "completion": "evening_success.wav"
+    }
+  },
+  "accessibility": {
+    "text_to_speech": true,
+    "visual_feedback": true,
+    "notification_sounds": true
+  }
+}

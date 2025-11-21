@@ -1,0 +1,324 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 数据源管理
+model DataSource {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  type        String   // 'api', 'scraping', 'manual', 'file_upload'
+  description String?
+  baseUrl     String?
+  apiKey      String?  // 加密存储
+  isActive    Boolean  @default(true)
+  rateLimit   Int?     // requests per minute
+  reliability Float    @default(0.5) // 0-1, 数据源可靠性评分
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  collectionTasks CollectionTask[]
+  mrrData         MrrData[]
+
+  @@map("data_sources")
+}
+
+// 企业基础信息
+model Company {
+  id                String   @id @default(cuid())
+  name              String   @unique
+  slug              String   @unique // URL友好的标识符
+  description       String?
+  website           String?
+  foundedYear       Int?
+  teamSize          Int?
+  teamSizeSource    String?  // 数据来源标识
+  industry          String?
+  subIndustry       String?
+  stage             String?  // 'seed', 'seriesA', 'seriesB', 'growth', 'mature'
+  location          String?
+  logoUrl           String?
+  linkedinUrl       String?
+  twitterUrl        String?
+  githubUrl         String?
+  crunchbaseUrl     String?
+  
+  // 企业状态
+  isActive          Boolean  @default(true)
+  isPublic          Boolean  @default(false)
+  isUnicorn         Boolean  @default(false)
+  
+  // 元数据
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  lastDataUpdate    DateTime?
+
+  // Relations
+  mrrData           MrrData[]
+  investmentScores  InvestmentScore[]
+  collectionTasks   CollectionTask[]
+  fundingRounds     FundingRound[]
+  companyMetrics    CompanyMetrics[]
+
+  @@map("companies")
+}
+
+// MRR数据
+model MrrData {
+  id              String   @id @default(cuid())
+  companyId       String
+  dataSourceId    String
+  
+  // 时间信息
+  monthYear       String   // 格式: 'YYYY-MM'
+  quarter         String   // 格式: 'YYYY-Q1'
+  year            Int
+  month           Int
+  
+  // MRR核心数据
+  mrrAmount       Decimal  // 当月MRR金额
+  currency        String   @default("USD")
+  growthRate      Decimal? // 环比增长率 (%)
+  yoyGrowthRate   Decimal? // 同比增长率 (%)
+  
+  // 数据质量
+  confidenceScore Float    @default(0.5) // 0-1, 数据置信度
+  dataQuality     String   @default("medium") // 'high', 'medium', 'low'
+  isEstimated     Boolean  @default(false)
+  estimationMethod String? // 估算方法描述
+  
+  // 验证状态
+  isVerified      Boolean  @default(false)
+  verifiedBy      String?  // 验证人员
+  verifiedAt      DateTime?
+  
+  // 元数据
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  collectedAt     DateTime @default(now())
+
+  // Relations
+  company         Company    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  dataSource      DataSource @relation(fields: [dataSourceId], references: [id])
+
+  @@unique([companyId, monthYear, dataSourceId])
+  @@index([companyId, monthYear])
+  @@index([monthYear])
+  @@map("mrr_data")
+}
+
+// 投资评分
+model InvestmentScore {
+  id              String   @id @default(cuid())
+  companyId       String
+  
+  // SPELO评分维度
+  scalabilityScore     Float @default(0) // 0-100
+  productMarketFitScore Float @default(0)
+  executionScore       Float @default(0)
+  leadershipScore      Float @default(0)
+  opportunityScore     Float @default(0)
+  
+  // 其他评分维度
+  technologyScore      Float @default(0)
+  financialScore       Float @default(0)
+  marketScore          Float @default(0)
+  teamScore           Float @default(0)
+  riskScore           Float @default(0)
+  
+  // 综合评分
+  totalScore          Float @default(0) // 0-1000
+  normalizedScore     Float @default(0) // 0-100
+  
+  // 投资建议
+  recommendation      String // 'strong_buy', 'buy', 'hold', 'sell', 'strong_sell'
+  riskLevel          String // 'low', 'medium', 'high', 'very_high'
+  targetValuation    Decimal?
+  recommendedInvestment Decimal?
+  expectedReturn     Float? // 预期回报率
+  timeHorizon        Int?   // 投资周期(月)
+  
+  // 分析详情
+  analysisDate       DateTime @default(now())
+  analystId          String?
+  analysisMethod     String? // 分析方法
+  keyInsights        Json?   // 关键洞察
+  riskFactors        Json?   // 风险因子
+  strengths          Json?   // 优势分析
+  weaknesses         Json?   // 劣势分析
+  
+  // 元数据
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  // Relations
+  company            Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, analysisDate])
+  @@map("investment_scores")
+}
+
+// 数据采集任务
+model CollectionTask {
+  id              String   @id @default(cuid())
+  companyId       String
+  dataSourceId    String
+  
+  // 任务信息
+  taskType        String   // 'mrr_collection', 'company_update', 'market_analysis'
+  priority        String   @default("medium") // 'low', 'medium', 'high', 'urgent'
+  status          String   @default("pending") // 'pending', 'running', 'completed', 'failed', 'cancelled'
+  
+  // 执行信息
+  scheduledAt     DateTime?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  retryCount      Int      @default(0)
+  maxRetries      Int      @default(3)
+  
+  // 任务配置
+  parameters      Json?    // 任务参数
+  configuration   Json?    // 配置信息
+  
+  // 执行结果
+  result          Json?    // 执行结果
+  errorMessage    String?
+  logs            Json?    // 执行日志
+  
+  // 元数据
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  company         Company    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  dataSource      DataSource @relation(fields: [dataSourceId], references: [id])
+
+  @@index([status, scheduledAt])
+  @@index([companyId, taskType])
+  @@map("collection_tasks")
+}
+
+// 融资轮次信息
+model FundingRound {
+  id              String   @id @default(cuid())
+  companyId       String
+  
+  // 融资基本信息
+  roundType       String   // 'seed', 'seriesA', 'seriesB', 'seriesC', 'bridge', 'ipo'
+  amount          Decimal
+  currency        String   @default("USD")
+  valuation       Decimal?
+  valuationType   String?  // 'pre_money', 'post_money'
+  
+  // 时间信息
+  announcedDate   DateTime
+  closedDate      DateTime?
+  
+  // 投资方信息
+  leadInvestors   Json?    // 主要投资方
+  investors       Json?    // 所有投资方
+  investorCount   Int?
+  
+  // 数据源
+  source          String?
+  sourceUrl       String?
+  isVerified      Boolean  @default(false)
+  
+  // 元数据
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, announcedDate])
+  @@map("funding_rounds")
+}
+
+// 企业关键指标
+model CompanyMetrics {
+  id              String   @id @default(cuid())
+  companyId       String
+  
+  // 时间信息
+  date            DateTime
+  period          String   // 'monthly', 'quarterly', 'annually'
+  
+  // 用户指标
+  totalUsers      Int?
+  activeUsers     Int?
+  paidUsers       Int?
+  churnRate       Float?   // 流失率
+  
+  // 财务指标
+  revenue         Decimal?
+  arr             Decimal? // Annual Recurring Revenue
+  grossMargin     Float?
+  burnRate        Decimal? // 月烧钱率
+  runway          Int?     // 跑道长度(月)
+  
+  // 增长指标
+  userGrowthRate  Float?
+  revenueGrowthRate Float?
+  marketShare     Float?
+  
+  // 运营指标
+  customerAcquisitionCost Decimal? // CAC
+  lifetimeValue   Decimal? // LTV
+  ltv2cacRatio    Float?
+  
+  // 数据质量
+  dataSource      String?
+  confidenceScore Float    @default(0.5)
+  isEstimated     Boolean  @default(false)
+  
+  // 元数据
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  company         Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, date, period])
+  @@index([companyId, date])
+  @@map("company_metrics")
+}
+
+// 系统配置
+model SystemConfig {
+  id              String   @id @default(cuid())
+  key             String   @unique
+  value           String
+  description     String?
+  category        String?  // 'api', 'collection', 'analysis', 'notification'
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("system_configs")
+}
+
+// 审计日志
+model AuditLog {
+  id              String   @id @default(cuid())
+  entityType      String   // 'company', 'mrr_data', 'investment_score'
+  entityId        String
+  action          String   // 'create', 'update', 'delete'
+  changes         Json?    // 变更内容
+  userId          String?  // 操作用户
+  ipAddress       String?
+  userAgent       String?
+  timestamp       DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([timestamp])
+  @@map("audit_logs")
+}

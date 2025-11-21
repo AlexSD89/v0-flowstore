@@ -1,0 +1,69 @@
+{
+  "mcp_servers": {
+    "tianyancha": {
+      "command": "python",
+      "args": ["-m", "mcp_server_tianyancha"],
+      "env": {
+        "TIANYANCHA_API_KEY": "your_tianyancha_api_key"
+      },
+      "description": "天眼查企业征信实时数据",
+      "capabilities": [
+        "company_info",
+        "financial_data",
+        "legal_records",
+        "real_time_updates"
+      ]
+    },
+    "itjuzi": {
+      "command": "python", 
+      "args": ["-m", "mcp_server_itjuzi"],
+      "env": {
+        "ITJUZI_API_KEY": "your_itjuzi_api_key"
+      },
+      "description": "IT桔子融资数据库",
+      "capabilities": [
+        "funding_rounds",
+        "investor_data",
+        "market_analysis",
+        "competitive_landscape"
+      ]
+    },
+    "social_sentiment": {
+      "command": "python",
+      "args": ["-m", "mcp_server_social_sentiment"],
+      "description": "社交媒体情感分析",
+      "capabilities": [
+        "xiaohongshu_sentiment",
+        "douyin_mentions",
+        "zhihu_discussions",
+        "brand_monitoring"
+      ]
+    }
+  },
+  "api_endpoints": {
+    "tianyancha": {
+      "base_url": "https://api.tianyancha.com",
+      "rate_limit": 100,
+      "cache_ttl": 300,
+      "real_time": true
+    },
+    "itjuzi": {
+      "base_url": "https://api.itjuzi.com",
+      "rate_limit": 50,
+      "cache_ttl": 600,
+      "real_time": true
+    },
+    "weibo_api": {
+      "base_url": "https://api.weibo.com",
+      "rate_limit": 200,
+      "cache_ttl": 900,
+      "real_time": false
+    }
+  },
+  "data_sources_priority": {
+    "official": ["tianyancha", "itjuzi", "official_website"],
+    "financial": ["itjuzi", "tianyancha", "crunchbase"],
+    "social": ["xiaohongshu", "douyin", "zhihu", "weibo"],
+    "technical": ["github", "producthunt", "gongzhonghao"]
+  }
+}

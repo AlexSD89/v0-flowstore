@@ -1,0 +1,50 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Running pre-push hooks..."
+
+# Run full test suite
+echo "🧪 Running full test suite..."
+npm run test -- --watchAll=false --coverage=false
+if [ $? -ne 0 ]; then
+  echo "❌ Tests failed. Push aborted."
+  exit 1
+fi
+
+# Build check
+echo "🏗️  Testing build..."
+npm run build
+if [ $? -ne 0 ]; then
+  echo "❌ Build failed. Push aborted."
+  exit 1
+fi
+
+# Database migration check (if in production/staging branch)
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$current_branch" = "main" ] || [ "$current_branch" = "staging" ]; then
+  echo "📊 Checking database migrations..."
+  
+  # Check if there are pending migrations
+  if npx prisma migrate status 2>&1 | grep -q "Following migration"; then
+    echo "⚠️  There are pending database migrations."
+    echo "⚠️  Make sure to run migrations after deployment."
+  fi
+fi
+
+# Security check for sensitive data
+echo "🔒 Checking for sensitive data..."
+if git log --oneline -n 10 | grep -i -E "(password|secret|key|token)" && \
+   ! git log --oneline -n 10 | grep -i -E "(remove|delete|hide)"; then
+  echo "⚠️  Recent commits mention sensitive data keywords."
+  echo "⚠️  Please ensure no secrets are committed."
+fi
+
+# Check for TODO/FIXME in staged files
+if git diff origin/main --name-only | xargs grep -l "TODO\|FIXME" 2>/dev/null; then
+  echo "⚠️  Found TODO/FIXME comments in changed files:"
+  git diff origin/main --name-only | xargs grep -n "TODO\|FIXME" 2>/dev/null || true
+  echo "⚠️  Consider resolving these before pushing to main."
+fi
+
+echo "✅ All pre-push checks passed!"
+echo "🌟 Ready to push!"

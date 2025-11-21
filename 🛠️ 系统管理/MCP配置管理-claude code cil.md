@@ -216,10 +216,80 @@ curl -s https://rube.app/mcp
     "command": "npx",
     "args": ["-y", "@cyanheads/git-mcp-server", "--repository", "/Users/dangsiyuan/Documents/obsidion/launch-x"],
     "autoApprove": ["git_status", "git_diff", "git_log"],
-    "description": "Local Git repository operations for LaunchX"
+      "description": "Local Git repository operations for LaunchX"
   }
 }
 ```
+
+### 4.6 Claude Code + Codex 同名 MCP 配置指引
+
+> 目标：让 Claude Code 与 Codex CLI 共享**同名 MCP 服务器**，并由各自的“执行端”自主选择如何调用（包括命名别名、组合工具等），用户只需要表达意图，不必记具体工具名或启动命令。
+
+1. **命名约定（同名）**  
+   - 统一使用本文件「当前 MCP 清单」中的名称作为**服务器名**：  
+     `context7`、`playwright`、`workspace-filesystem`、`git-local`、`tavily`、`jina`、`firecrawl`、`xiaohongshu-mcp` 等。  
+   - Claude 侧：在 `~/.claude.json` / `.claude/mcp.json` 的 `mcpServers.<name>` 下配置。  
+   - Codex 侧：在 `~/.codex/config.toml` 的 `[mcp_servers.<name>]` 下配置，保持名称一致，这样 Codex 会暴露形如 `mcp__<name>__*` 的工具函数。
+
+2. **Codex CLI 全局 MCP 配置示例（同名服务器）**  
+   文件：`~/.codex/config.toml`（节选，实际以本机为准）
+
+```toml
+# Context7 —— 最新库文档 / 示例
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+# Playwright —— 真开浏览器做 E2E 验证
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
+
+# Xiaohongshu MCP —— 小红书内容分析 / 趋势监测
+[mcp_servers.xiaohongshu-mcp]
+command = "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/xiaohongshu-mcp/xiaohongshu-mcp-darwin-arm64"
+args = ["-headless=true"]
+startup_timeout_ms = 30000
+
+# Workspace Filesystem —— 本地工作区文件
+[mcp_servers.workspace-filesystem]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dangsiyuan/Documents/obsidion/launch-x"]
+
+# Git Local —— 本地 Git 仓库操作
+[mcp_servers.git-local]
+command = "npx"
+args = ["-y", "@cyanheads/git-mcp-server", "--repository", "/Users/dangsiyuan/Documents/obsidion/launch-x"]
+
+# Tavily / Jina / Firecrawl —— 外部搜索与内容抓取（API Key 通过环境变量提供）
+[mcp_servers.tavily]
+command = "npx"
+args = ["-y", "tavily-mcp"]
+
+[mcp_servers.jina]
+command = "npx"
+args = ["-y", "jina-mcp-tools"]
+
+[mcp_servers.firecrawl]
+command = "npx"
+args = ["-y", "firecrawl-mcp"]
+
+# 其余同名服务器（ant-design、shadcn-ui、fetch 等）可按 .claude/mcp.json 中的 command/args 模板补充到此文件
+```
+
+3. **执行端自主策略说明**  
+   - Claude Code 与 Codex CLI 均视为**独立的 MCP 调度器**：
+     - 用户只需在对话中表达“用 MCP 做什么事”（例如“查库文档”“抓网页并解析”“发一篇小红书”等）；
+     - 具体选择哪个 MCP 服务器、哪个工具函数、如何组合调用，由当前执行端（Claude 或 Codex）自行决策。  
+   - Codex 侧可以根据任务自由决定：
+     - 使用 `context7` / `tavily` / `jina` / `firecrawl` 做技术文档与 Web 检索；
+     - 使用 `workspace-filesystem` / `filesystem-shtse` / `git-local` 读写本地仓库与 Git 历史；
+     - 使用 `playwright` / `xiaohongshu-mcp` 做浏览器自动化与小红书相关操作；
+     - 必要时根据自身理解为 MCP/工具起内部别名（方便 reasoning 和路由），不要求用户记住精确工具名。  
+   - 高副作用 MCP（如 `rube`、`gate`、`web-search-prime` 等）的风险管理由各执行端结合当前任务自行判断：
+     - 本文件仅提供统一的服务器清单和配置模板，不强制“只能谁来调”。
+
+> 实务建议：新增或重命名 MCP 服务器时，优先在 `~/.claude.json` / `.claude/mcp.json` 中完成配置，再在 `~/.codex/config.toml` 下追加同名 `[mcp_servers.<name>]`，并在本文件 3 节「当前 MCP 清单」中维护统一名称。具体调用策略（由 Claude 还是 Codex 调度、是否组合使用多工具）由当次会话的执行端根据任务自行决定。
 
 ### 4.5 网络架构优化
 ```

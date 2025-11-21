@@ -1,0 +1,124 @@
+{
+  "symbol": "HOOD",
+  "analysis_date": "2025-11-21T21:44:12.197374",
+  "current_price": 106.20999908447266,
+  "best_strategy": "macd_cross",
+  "best_score": 75.0,
+  "all_strategies": {
+    "rsi_swing": {
+      "strategy": "rsi_swing",
+      "total_trades": 2,
+      "winning_trades": 2,
+      "win_rate": 100.0,
+      "avg_return": 13.728154236644599,
+      "total_return": 27.456308473289198,
+      "max_profit": 17.175308039158953,
+      "max_loss": 10.281000434130243,
+      "avg_holding_days": 30.5,
+      "final_capital": 2549.1261694657837,
+      "current_price": 106.20999908447266
+    },
+    "macd_cross": {
+      "total_trades": 8,
+      "winning_trades": 4,
+      "win_rate": 50.0,
+      "avg_return": 13.2113282498215,
+      "total_return": 105.690625998572,
+      "max_profit": 66.20878655424023,
+      "max_loss": -12.368304042032618,
+      "avg_holding_days": 24.375,
+      "final_capital": 4113.8125199714395,
+      "current_price": 106.20999908447266
+    },
+    "bollinger_bands": {
+      "total_trades": 1,
+      "winning_trades": 1,
+      "win_rate": 100.0,
+      "avg_return": 24.501822286075306,
+      "total_return": 24.501822286075306,
+      "max_profit": 24.501822286075306,
+      "max_loss": 24.501822286075306,
+      "avg_holding_days": 11.0,
+      "final_capital": 2490.0364457215064,
+      "current_price": 106.20999908447266
+    },
+    "moving_average": {
+      "total_trades": 15,
+      "winning_trades": 5,
+      "win_rate": 33.33333333333333,
+      "avg_return": 8.246871401604471,
+      "total_return": 123.70307102406707,
+      "max_profit": 137.3485416101539,
+      "max_loss": -10.808530571500997,
+      "avg_holding_days": 15.533333333333333,
+      "final_capital": 4474.061420481341,
+      "current_price": 106.20999908447266
+    },
+    "momentum": {
+      "total_trades": 5,
+      "winning_trades": 4,
+      "win_rate": 80.0,
+      "avg_return": 3.0558248573502578,
+      "total_return": 15.279124286751289,
+      "max_profit": 18.864429454062986,
+      "max_loss": -21.73981049803504,
+      "avg_holding_days": 10.4,
+      "final_capital": 2305.582485735026,
+      "current_price": 106.20999908447266
+    }
+  },
+  "strategy_scores": {
+    "rsi_swing": 70.0,
+    "macd_cross": 75.0,
+    "bollinger_bands": 70.0,
+    "moving_average": 62.987485606417884,
+    "momentum": 56.22329942940103
+  },
+  "recommendations": {
+    "strategy": {
+      "name": "MACD\u4ea4\u53c9",
+      "description": "MACD\u91d1\u53c9\u4e70\u5165\uff0c\u6b7b\u53c9\u5356\u51fa",
+      "parameters": {
+        "fast": 12,
+        "slow": 26,
+        "signal": 9
+      }
+    },
+    "position_size": {
+      "percentage": 12.1,
+      "amount": 242.56,
+      "rationale": "\u57fa\u4e8e50.0%\u80dc\u7387\u548c12.4%\u6700\u5927\u635f\u5931\u98ce\u9669\u8c03\u6574"
+    },
+    "buy_price": {
+      "target_price": 104.09,
+      "current_price": 106.21,
+      "discount_percentage": 2.0,
+      "reason": "MACD\u7b56\u7565\u5efa\u8bae\u7b49\u5f85\u66f4\u660e\u786e\u7684\u91d1\u53c9\u4fe1\u53f7"
+    },
+    "risk_management": {
+      "stop_loss": {
+        "percentage": 15.0,
+        "description": "\u8bbe\u7f6e15.0%\u6b62\u635f\uff0c\u63a7\u5236\u5355\u7b14\u635f\u5931"
+      },
+      "take_profit": {
+        "percentage": 1981.7,
+        "description": "\u8bbe\u7f6e1981.7%\u6b62\u76c8\uff0c\u9501\u5b9a\u6536\u76ca"
+      },
+      "max_portfolio_risk": {
+        "percentage": 20.0,
+        "description": "\u5355\u53ea\u80a1\u7968\u6700\u5927\u4ed3\u4f4d\u4e0d\u8d85\u8fc720%"
+      },
+      "rebalance": {
+        "frequency": "monthly",
+        "description": "\u6bcf\u6708\u91cd\u65b0\u8bc4\u4f30\u548c\u8c03\u6574\u4ed3\u4f4d"
+      }
+    },
+    "expected_performance": {
+      "avg_return_per_trade": 13.2113282498215,
+      "win_rate": 50.0,
+      "avg_holding_days": 24.375,
+      "max_profit": 66.20878655424023,
+      "max_loss": -12.368304042032618
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    // Language and Environment
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "ES2022", "webworker"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "useDefineForClassFields": true,
+    
+    // Type Checking - Enterprise Grade Strict Mode
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    
+    // Module Resolution
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    
+    // Emit
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    
+    // JavaScript Support
+    "allowJs": true,
+    "checkJs": false,
+    
+    // Editor Support
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    
+    // Interop Constraints
+    "skipLibCheck": true,
+    
+    // Next.js specific
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    
+    // Path Mapping - Comprehensive Alias Setup
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/api/*": ["./src/api/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/database/*": ["./src/database/*"],
+      "@/repositories/*": ["./src/repositories/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/collectors/*": ["./src/collectors/*"],
+      "@/analyzers/*": ["./src/analyzers/*"],
+      "@/scorers/*": ["./src/scorers/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/middleware/*": ["./src/middleware/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/schemas/*": ["./src/schemas/*"],
+      "@/test/*": ["./src/test/*"],
+      "@/mocks/*": ["./src/__mocks__/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "global.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    ".next/types/**/*.ts",
+    "src/**/*",
+    "prisma/**/*",
+    "scripts/**/*",
+    "__tests__/**/*",
+    "jest.config.js",
+    "jest.setup.js"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "dist",
+    "build",
+    "coverage",
+    "*.min.js",
+    "**/*.min.js"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "node"
+    }
+  }
+}

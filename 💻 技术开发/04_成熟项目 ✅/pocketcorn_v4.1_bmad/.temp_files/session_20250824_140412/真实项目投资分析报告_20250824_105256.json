@@ -1,0 +1,298 @@
+{
+  "analysis_timestamp": "2025-08-24T10:52:56.422396",
+  "total_projects": 3,
+  "investment_recommendations": [
+    {
+      "rank": 1,
+      "project_name": "Leya AI",
+      "overall_score": 40.725,
+      "recommendation": "强烈推荐",
+      "investment_amount": "50万人民币",
+      "expected_return": "252.0%年化回报",
+      "key_reasons": [
+        "MRR表现优秀（$70万/月），现金流健康",
+        "团队规模较大（25人），执行能力强"
+      ]
+    },
+    {
+      "rank": 2,
+      "project_name": "Telli AI",
+      "overall_score": 30.6725,
+      "recommendation": "强烈推荐",
+      "investment_amount": "50万人民币",
+      "expected_return": "108.0%年化回报",
+      "key_reasons": [
+        "MRR表现优秀（$30万/月），现金流健康",
+        "精干团队（6人），成本控制好"
+      ]
+    },
+    {
+      "rank": 3,
+      "project_name": "中国AI Agent初创代表",
+      "overall_score": 14.59,
+      "recommendation": "强烈推荐",
+      "investment_amount": "50万人民币",
+      "expected_return": "54.0%年化回报",
+      "key_reasons": [
+        "MRR适中（$15万/月），有增长空间",
+        "企业服务市场巨大，但需要强销售能力"
+      ]
+    }
+  ],
+  "regional_analysis": {
+    "Europe": {
+      "count": 2,
+      "avg_score": 35.698750000000004,
+      "projects": [
+        {
+          "name": "Telli AI",
+          "score": 30.6725
+        },
+        {
+          "name": "Leya AI",
+          "score": 40.725
+        }
+      ]
+    },
+    "China": {
+      "count": 1,
+      "avg_score": 14.59,
+      "projects": [
+        {
+          "name": "中国AI Agent初创代表",
+          "score": 14.59
+        }
+      ]
+    }
+  },
+  "market_timing_assessment": {
+    "overall_timing": "良好",
+    "ai_market_cycle": "快速增长期",
+    "funding_environment": "活跃但竞争激烈",
+    "key_trends": [
+      "AI Agent成为投资热点（占中国AI创业36%）",
+      "企业服务AI需求旺盛",
+      "语音AI技术成熟度提升",
+      "法律科技市场开始爆发"
+    ],
+    "timing_score": 0.75,
+    "recommended_action": "积极寻找优质项目，但需要精准筛选"
+  },
+  "portfolio_suggestions": {
+    "recommended_portfolio_size": "3个项目",
+    "total_investment": "150万人民币",
+    "diversification_strategy": {
+      "geographic": "欧美项目为主，中国项目为辅",
+      "sector": "语音AI + 法律科技 + 企业服务AI",
+      "stage": "种子轮和A轮前期项目"
+    },
+    "risk_management": [
+      "单项目投资不超过50万",
+      "地区分散投资降低风险",
+      "关注项目间技术互补性"
+    ],
+    "expected_portfolio_return": "年化50-80%综合回报"
+  },
+  "detailed_analysis": [
+    {
+      "project_name": "Telli AI",
+      "analysis_timestamp": "2025-08-24T10:52:56.422424",
+      "project_details": {
+        "project_name": "Telli AI",
+        "description": "AI voice agents for customer-facing businesses",
+        "founders": [
+          "Seb Hapte-Selassie",
+          "Philipp Baumanns",
+          "Finn zur Muhlen"
+        ],
+        "team_size": 6,
+        "location": "Berlin, Germany",
+        "stage": "pre_seed",
+        "funding_amount": 3.6,
+        "funding_round": "Pre-seed",
+        "lead_investor": "Cherry Ventures + Y Combinator",
+        "funding_date": "2025-04",
+        "sector": "AI Voice Technology",
+        "target_market": "Enterprise Customer Service",
+        "key_metrics": {
+          "calls_processed": 1000000,
+          "monthly_growth_rate": 50,
+          "estimated_mrr": 30
+        },
+        "technology": "AI voice cloning, ElevenLabs, Cartesian AI",
+        "previous_experience": "Founders from Enpal (German energy startup)",
+        "geographic_focus": "Europe + Global expansion",
+        "competitive_advantages": [
+          "Real human voice cloning technology",
+          "High-volume call processing capability",
+          "Strong founder background from successful startup",
+          "YC backing and network access"
+        ],
+        "investment_thesis": "AI voice automation for enterprise customer service is rapidly growing market",
+        "potential_concerns": [
+          "Pre-seed stage high risk",
+          "Competitive voice AI market",
+          "Geographic distance from China market"
+        ]
+      },
+      "investment_analysis": {
+        "estimated_monthly_dividend": 4.5,
+        "recovery_period_months": 11.11111111111111,
+        "annual_roi_percentage": 108.0,
+        "financial_score": 75,
+        "risk_factors": [
+          "早期阶段高风险",
+          "地理位置远离主要市场"
+        ],
+        "investment_feasibility": true
+      },
+      "strategy_score": 0.85,
+      "darwin_score": 1.5000000000000002,
+      "overall_score": 30.6725,
+      "recommendation": {
+        "recommendation_level": "强烈推荐",
+        "suggested_action": "立即安排尽调和投资决策",
+        "overall_score": "30.67",
+        "confidence": "高"
+      },
+      "key_insights": [
+        "MRR表现优秀（$30万/月），现金流健康",
+        "精干团队（6人），成本控制好",
+        "语音AI市场快速增长，但竞争激烈",
+        "项目综合评分优秀，符合投资标准"
+      ]
+    },
+    {
+      "project_name": "Leya AI",
+      "analysis_timestamp": "2025-08-24T10:52:56.422477",
+      "project_details": {
+        "project_name": "Leya AI",
+        "description": "AI assistant for lawyers using proprietary legal data",
+        "founders": [
+          "Not specified in search results"
+        ],
+        "team_size": 25,
+        "location": "Stockholm, Sweden",
+        "stage": "seed",
+        "funding_amount": 105,
+        "funding_round": "Seed",
+        "lead_investor": "Benchmark (Chetan Puttagunta)",
+        "funding_date": "2024-05",
+        "sector": "Legal Tech AI",
+        "target_market": "Law Firms and Legal Professionals",
+        "key_metrics": {
+          "customers": 70,
+          "arr_per_user": 12000,
+          "estimated_mrr": 70,
+          "jurisdictions": 15
+        },
+        "technology": "Legal AI, Document Analysis, Citation System",
+        "previous_experience": "Y Combinator alumni",
+        "geographic_focus": "Europe, planning US expansion",
+        "competitive_advantages": [
+          "70家顶级律所客户验证",
+          "Benchmark领投的强大投资者",
+          "覆盖15个司法管辖区的数据",
+          "高客单价（年费1-3万欧元）"
+        ],
+        "investment_thesis": "Legal AI market has high barriers and strong customer retention",
+        "potential_concerns": [
+          "Legal market监管复杂",
+          "客户决策周期长",
+          "地区法律差异化需求"
+        ]
+      },
+      "investment_analysis": {
+        "estimated_monthly_dividend": 10.5,
+        "recovery_period_months": 4.761904761904762,
+        "annual_roi_percentage": 252.0,
+        "financial_score": 100,
+        "risk_factors": [
+          "地理位置远离主要市场"
+        ],
+        "investment_feasibility": true
+      },
+      "strategy_score": 1.0,
+      "darwin_score": 1.5,
+      "overall_score": 40.725,
+      "recommendation": {
+        "recommendation_level": "强烈推荐",
+        "suggested_action": "立即安排尽调和投资决策",
+        "overall_score": "40.73",
+        "confidence": "高"
+      },
+      "key_insights": [
+        "MRR表现优秀（$70万/月），现金流健康",
+        "团队规模较大（25人），执行能力强",
+        "法律科技市场壁垒高，客户粘性强",
+        "项目综合评分优秀，符合投资标准"
+      ]
+    },
+    {
+      "project_name": "中国AI Agent初创代表",
+      "analysis_timestamp": "2025-08-24T10:52:56.422511",
+      "project_details": {
+        "project_name": "中国AI Agent初创代表",
+        "description": "基于搜索结果的中国AI Agent市场综合分析",
+        "founders": [
+          "综合分析"
+        ],
+        "team_size": 8,
+        "location": "中国（北京、上海、深圳）",
+        "stage": "seed",
+        "funding_amount": 38,
+        "funding_round": "种子轮",
+        "lead_investor": "中国VC机构",
+        "funding_date": "2024-2025",
+        "sector": "AI Agent / 企业服务",
+        "target_market": "中国企业服务市场",
+        "key_metrics": {
+          "market_share": 36,
+          "funding_events": 56,
+          "average_funding": 38,
+          "estimated_mrr": 15
+        },
+        "technology": "AI Agent, 智能客服, 办公助手",
+        "previous_experience": "大厂背景创始人",
+        "geographic_focus": "中国市场",
+        "competitive_advantages": [
+          "本土化优势和语言理解",
+          "庞大的企业服务市场",
+          "政策支持AI产业发展",
+          "成本效率优势"
+        ],
+        "investment_thesis": "中国AI Agent市场正处于快速增长期",
+        "potential_concerns": [
+          "竞争异常激烈",
+          "平均融资金额较小",
+          "商业模式尚待验证",
+          "技术同质化严重"
+        ]
+      },
+      "investment_analysis": {
+        "estimated_monthly_dividend": 2.25,
+        "recovery_period_months": 22.22222222222222,
+        "annual_roi_percentage": 54.0,
+        "financial_score": 35,
+        "risk_factors": [
+          "地理位置远离主要市场"
+        ],
+        "investment_feasibility": false
+      },
+      "strategy_score": 0.9,
+      "darwin_score": 1.0999999999999999,
+      "overall_score": 14.59,
+      "recommendation": {
+        "recommendation_level": "强烈推荐",
+        "suggested_action": "立即安排尽调和投资决策",
+        "overall_score": "14.59",
+        "confidence": "高"
+      },
+      "key_insights": [
+        "MRR适中（$15万/月），有增长空间",
+        "企业服务市场巨大，但需要强销售能力",
+        "项目综合评分优秀，符合投资标准"
+      ]
+    }
+  ]
+}

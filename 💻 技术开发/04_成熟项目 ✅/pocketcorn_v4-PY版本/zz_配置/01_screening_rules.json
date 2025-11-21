@@ -1,0 +1,15 @@
+{
+  "MRR_RANGE": [2000, 25000],
+  "GROWTH_RATE": [0.15, 0.35],
+  "TEAM_SIZE": [3, 7],
+  "LOCATION_PRIORITY": ["北京", "上海", "深圳", "杭州", "广州"],
+  "MEDIA_INFLUENCE": {
+    "min_followers": 5000,
+    "engagement_rate": 0.03
+  },
+  "TECH_CRITERIA": {
+    "patent_bonus": 3,
+    "github_stars_bonus": 2,
+    "former_big_tech_bonus": 3
+  }
+}

@@ -1,0 +1,215 @@
+$TSLA: possibly delisted; no price data found  (period=2y)
+$TSLA: possibly delisted; no price data found  (period=2y)
+🚀 Moon Dev AI - 持续优化系统
+Built with love by Moon Dev 🚀
+============================================================
+
+🔄 开始持续优化循环...
+🔄 启动持续学习循环，分析 5 只股票...
+📡 正在获取 TSLA 的真实数据...
+✅ 成功获取 TSLA 502 天数据
+
+🎯 分析 TSLA...
+📡 正在获取 TSLA 的真实数据...
+✅ 成功获取 TSLA 502 天数据
+  测试 strategy_rsi 策略...
+  测试 strategy_momentum 策略...
+  测试 strategy_mean_reversion 策略...
+🔧 优化 TSLA 的 MOMENTUM 策略参数...
+📡 正在获取 TSLA 的真实数据...
+📡 正在获取 AAPL 的真实数据...
+✅ 成功获取 AAPL 502 天数据
+
+🎯 分析 AAPL...
+📡 正在获取 AAPL 的真实数据...
+✅ 成功获取 AAPL 502 天数据
+  测试 strategy_rsi 策略...
+  测试 strategy_momentum 策略...
+  测试 strategy_mean_reversion 策略...
+🔧 优化 AAPL 的 RSI 策略参数...
+📡 正在获取 AAPL 的真实数据...
+📡 正在获取 NVDA 的真实数据...
+✅ 成功获取 NVDA 502 天数据
+
+🎯 分析 NVDA...
+📡 正在获取 NVDA 的真实数据...
+✅ 成功获取 NVDA 502 天数据
+  测试 strategy_rsi 策略...
+  测试 strategy_momentum 策略...
+  测试 strategy_mean_reversion 策略...
+🔧 优化 NVDA 的 MOMENTUM 策略参数...
+📡 正在获取 NVDA 的真实数据...
+📡 正在获取 GOOGL 的真实数据...
+✅ 成功获取 AAPL 502 天数据
+📡 正在获取 AAPL 的真实数据...
+✅ 成功获取 GOOGL 502 天数据
+
+🎯 分析 GOOGL...
+📡 正在获取 GOOGL 的真实数据...
+✅ 成功获取 AAPL 502 天数据
+✅ 成功获取 GOOGL 502 天数据
+  测试 strategy_rsi 策略...
+  测试 strategy_momentum 策略...
+  测试 strategy_mean_reversion 策略...
+📡 正在获取 MSFT 的真实数据...
+🔧 优化 GOOGL 的 MOMENTUM 策略参数...
+📡 正在获取 GOOGL 的真实数据...
+✅ 成功获取 NVDA 502 天数据
+📡 正在获取 NVDA 的真实数据...
+✅ 成功获取 GOOGL 502 天数据
+📡 正在获取 GOOGL 的真实数据...
+✅ 成功获取 MSFT 502 天数据
+
+🎯 分析 MSFT...
+📡 正在获取 MSFT 的真实数据...
+✅ 成功获取 GOOGL 502 天数据
+✅ 成功获取 NVDA 502 天数据
+✅ 成功获取 MSFT 502 天数据
+  测试 strategy_rsi 策略...
+  测试 strategy_momentum 策略...
+  测试 strategy_mean_reversion 策略...
+📊 分析 AAPL 流动性指标...
+🔧 优化 MSFT 的 MOMENTUM 策略参数...
+📡 正在获取 MSFT 的真实数据...
+✅ 成功获取 MSFT 502 天数据
+📡 正在获取 MSFT 的真实数据...
+✅ 成功获取 MSFT 502 天数据
+✅ AAPL 学习完成 - 改进: +1.6%
+📊 分析 GOOGL 流动性指标...
+✅ GOOGL 学习完成 - 改进: +0.0%
+📊 分析 NVDA 流动性指标...
+✅ NVDA 学习完成 - 改进: +0.0%
+📊 分析 MSFT 流动性指标...
+⚠️  无法获取 TSLA 数据，使用模拟数据
+📡 正在获取 TSLA 的真实数据...
+✅ MSFT 学习完成 - 改进: +0.0%
+⚠️  无法获取 TSLA 数据，使用模拟数据
+📊 分析 TSLA 流动性指标...
+✅ TSLA 学习完成 - 改进: +0.0%
+
+🔄 Moon Dev AI - 持续优化系统报告
+生成时间: 2025-11-21 18:42
+分析师: Moon Dev AI 🚀
+
+📊 学习循环概览:
+• 分析股票: 5 只
+• 成功分析: 5 只
+• 成功率: 100.0%
+
+🚀 优化改进效果:
+• 总体改进: +1.6%
+• 平均改进: +0.3%
+• 成功优化: 1 个
+
+🏆 最佳改进表现:
+• 股票: AAPL (RSI)
+• 改进幅度: +1.6%
+• 优化状态: 成功
+
+📈 Top 5 优化改进:
+
+1. AAPL (RSI):
+   • 改进: +1.6%
+   • 状态: ✅ 成功
+
+2. GOOGL (MOMENTUM):
+   • 改进: +0.0%
+   • 状态: ⚠️  待改进
+
+3. NVDA (MOMENTUM):
+   • 改进: +0.0%
+   • 状态: ⚠️  待改进
+
+4. MSFT (MOMENTUM):
+   • 改进: +0.0%
+   • 状态: ⚠️  待改进
+
+5. TSLA (MOMENTUM):
+   • 改进: +0.0%
+   • 状态: ⚠️  待改进
+
+💡 智能优化建议:
+1. 🎯 震荡市场：建议使用均值回归和布林带策略
+2. ⚖️ 保持中等仓位70%，灵活调整
+3. 🔄 建议持有期1-2个月，区间操作
+4. ⚠️  参数优化效果有限，建议重新评估策略选择
+5. 📈 建议每周执行一次持续学习循环
+6. 🎯 密切关注市场制度变化，及时调整策略
+7. 💡 定期检查容量边界，确保资金配置最优
+8. ⚠️  严格执行风险管理，避免过度集中
+
+🔍 详细学习结果:
+
+📊 AAPL:
+• 当前策略: RSI
+• 优化策略: RSI
+• 收益改进: +1.6%
+• 建议仓位: ¥150,000
+• 流动性评级: A
+• 市场制度: sideways_market
+
+📊 GOOGL:
+• 当前策略: MOMENTUM
+• 优化策略: MOMENTUM
+• 收益改进: +0.0%
+• 建议仓位: ¥150,000
+• 流动性评级: A
+• 市场制度: bull_market_volatile
+
+📊 NVDA:
+• 当前策略: MOMENTUM
+• 优化策略: MOMENTUM
+• 收益改进: +0.0%
+• 建议仓位: ¥150,000
+• 流动性评级: A
+• 市场制度: sideways_market
+
+📊 MSFT:
+• 当前策略: MOMENTUM
+• 优化策略: MOMENTUM
+• 收益改进: +0.0%
+• 建议仓位: ¥150,000
+• 流动性评级: A
+• 市场制度: sideways_market
+
+📊 TSLA:
+• 当前策略: MOMENTUM
+• 优化策略: MOMENTUM
+• 收益改进: +0.0%
+• 建议仓位: ¥150,000
+• 流动性评级: A
+• 市场制度: sideways_market
+
+⏰ 下次优化建议:
+• 短期监控: 3天后检查策略表现
+• 中期优化: 1周后执行下一轮学习循环
+• 长期评估: 1个月后全面回顾优化效果
+
+🎯 持续优化系统状态:
+• 系统健康: 正常
+• 优化频率: 建议每周1-2次
+• 数据质量: 良好
+
+🚨 重要提醒:
+• 持续优化基于历史数据，实际交易需谨慎
+• 建议逐步实施优化参数，观察市场反应
+• 严格遵守风险管理原则，避免过度优化
+• 定期监控系统运行状态，确保数据准确性
+
+📈 报告说明:
+本报告由 Moon Dev AI 持续优化系统自动生成
+优化算法：参数网格搜索 + 性能回测验证
+数据来源：实时市场数据 + 历史表现分析
+更新频率：实时监控 + 周期性优化
+
+生成时间: 2025-11-21 18:42:38
+系统版本: v1.0 | AI引擎: Moon Dev
+        
+Traceback (most recent call last):
+  File "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/🧰 tools/moon-dev-ai-agents-trading/src/agents/continuous_optimizer.py", line 665, in <module>
+    main()
+    ~~~~^^
+  File "/Users/dangsiyuan/Documents/obsidion/launch x/🧰 tools/🧰 tools/moon-dev-ai-agents-trading/src/agents/continuous_optimizer.py", line 654, in main
+    serializable_summary = self._make_json_serializable(learning_summary)
+                           ^^^^
+NameError: name 'self' is not defined

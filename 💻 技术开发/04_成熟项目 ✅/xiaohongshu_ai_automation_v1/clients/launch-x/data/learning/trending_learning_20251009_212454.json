@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-10-09T13:24:54.797523+00:00",
+  "client": "launch-x",
+  "analysis_type": "trending_learning",
+  "viral_patterns": [],
+  "content_insights": {},
+  "optimization_recommendations": [
+    {
+      "category": "trending_topics",
+      "priority": "high",
+      "recommendation": "重点覆盖AI工具效率提升主题",
+      "implementation": "增加实测类内容，提供具体工具推荐和使用指南",
+      "expected_impact": "预计传播度提升50%"
+    }
+  ],
+  "viral_data_collection": {
+    "source": "xiaohongshu_trending",
+    "collection_time": "2025-10-09T13:24:54.797804+00:00",
+    "viral_posts": [
+      {
+        "id": "viral_001",
+        "title": "AI工具实测：这5个效率神器彻底改变我的工作方式",
+        "engagement_rate": 0.12,
+        "viral_score": 0.89,
+        "content_type": "工具评测",
+        "key_elements": [
+          "数字标题",
+          "实测体验",
+          "具体工具",
+          "效果对比"
+        ],
+        "hashtags": [
+          "AI工具",
+          "效率神器",
+          "工作技巧",
+          "科技好物"
+        ]
+      },
+      {
+        "id": "viral_002",
+        "title": "打工人必看！3个AI让你告别加班，工作效率提升300%",
+        "engagement_rate": 0.15,
+        "viral_score": 0.92,
+        "content_type": "效率提升",
+        "key_elements": [
+          "身份认同",
+          "具体数字",
+          "问题解决方案",
+          "效果承诺"
+        ],
+        "hashtags": [
+          "打工人",
+          "AI助手",
+          "效率提升",
+          "工作技巧"
+        ]
+      },
+      {
+        "id": "viral_003",
+        "title": "终于找到了！这个AI写作工具让我10分钟写出专业报告",
+        "engagement_rate": 0.11,
+        "viral_score": 0.87,
+        "content_type": "写作工具",
+        "key_elements": [
+          "情感共鸣",
+          "时间节省",
+          "专业成果",
+          "具体工具"
+        ],
+        "hashtags": [
+          "AI写作",
+          "效率工具",
+          "职场必备",
+          "文案神器"
+        ]
+      }
+    ],
+    "market_trends": {
+      "ai_tools": "持续热门",
+      "efficiency_improvement": "需求强烈",
+      "specific_solutions": "最受欢迎",
+      "quantified_results": "传播力强"
+    }
+  }
+}

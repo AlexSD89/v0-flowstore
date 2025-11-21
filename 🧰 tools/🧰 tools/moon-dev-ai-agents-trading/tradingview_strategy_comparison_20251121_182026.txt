@@ -1,0 +1,23 @@
+
+TradingView Classics - Strategy Comparison Report
+Generated: 2025-11-21 18:20:26
+================================================================================
+
+STRATEGY PERFORMANCE SUMMARY:
+
+RANKED BY AVERAGE RETURN:
+1. BOLLINGER    - 16.21% avg, 76.0% win rate, Best: 53.82%, Worst: -29.82%
+2. STOCH        -  8.71% avg, 64.0% win rate, Best: 61.05%, Worst: -38.69%
+3. RSI          -  3.20% avg, 40.0% win rate, Best: 66.58%, Worst: -31.82%
+4. MACD         -  2.97% avg, 48.0% win rate, Best: 49.72%, Worst: -28.01%
+5. SMA          -  1.91% avg, 40.0% win rate, Best: 45.58%, Worst: -29.00%
+6. EMA          - -3.82% avg, 28.0% win rate, Best: 74.79%, Worst: -40.83%
+
+================================================================================
+
+Analysis:
+- Best Performing Strategy: BOLLINGER (16.21% avg return)
+- Most Consistent: SMA (lowest volatility)
+- Highest Win Rate: BOLLINGER (76.0%)
+
+Built with love by Moon Dev 🚀

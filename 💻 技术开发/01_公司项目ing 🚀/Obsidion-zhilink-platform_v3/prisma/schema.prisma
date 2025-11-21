@@ -1,0 +1,213 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 用户账户管理
+model Account {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String?
+  avatar      String?
+  role        UserRole @default(BUYER)
+  status      String   @default("active")
+  settings    Json?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 关系
+  specs       Spec[]
+  orders      Order[]
+  activities  UserActivity[]
+  referrals   ReferralLink[]
+
+  @@map("accounts")
+}
+
+// 用户角色枚举
+enum UserRole {
+  BUYER       // 采购方
+  VENDOR      // 供应商
+  DISTRIBUTOR // 分销商
+  ADMIN       // 管理员
+}
+
+// 产品信息 (三大类型统一管理)
+model Product {
+  id            String      @id @default(cuid())
+  name          String
+  description   String
+  type          ProductType
+  category      String
+  vendorId      String
+  vendor        Json        // 供应商信息
+  pricing       Json        // 定价模型
+  capabilities  Json        // 能力描述
+  metadata      Json        // 产品元数据
+  tags          String      // JSON array as string
+  status        String      @default("active")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  // 关系
+  orderItems    OrderItem[]
+  reviews       Review[]
+  analytics     ProductAnalytics[]
+
+  @@map("products")
+}
+
+// 产品类型枚举
+enum ProductType {
+  WORKFORCE      // AI劳动力
+  EXPERT_MODULE  // 专家模块
+  MARKET_REPORT  // 市场报告
+}
+
+// 用户Specs项目
+model Spec {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  requirements    Json     // 需求详细信息
+  context         Json?    // 上下文信息(行业、预算等)
+  status          String   @default("draft")
+  accountId       String
+  account         Account  @relation(fields: [accountId], references: [id])
+  collaborations  CollaborationSession[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("specs")
+}
+
+// AI协作会话
+model CollaborationSession {
+  id              String    @id @default(cuid())
+  specId          String?
+  spec            Spec?     @relation(fields: [specId], references: [id])
+  status          String    @default("pending")
+  currentPhase    String    @default("analysis")
+  insights        Json      
+  synthesis       Json?     // 综合分析结果
+  recommendations Json?     // 推荐方案
+  metadata        Json
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("collaboration_sessions")
+}
+
+// 报告制品
+model ReportArtifact {
+  id          String   @id @default(cuid())
+  title       String
+  content     Json     // 报告内容
+  type        String   // 报告类型
+  status      String   @default("draft")
+  tags        String      // JSON array as string
+  pricing     Json?    // 如果发布为商品的定价
+  metadata    Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("report_artifacts")
+}
+
+// 订单和交易
+model Order {
+  id         String      @id @default(cuid())
+  accountId  String
+  account    Account     @relation(fields: [accountId], references: [id])
+  status     String      @default("pending")
+  total      Decimal
+  currency   String      @default("USD")
+  metadata   Json?
+  items      OrderItem[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  @@map("orders")
+}
+
+// 订单项
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int     @default(1)
+  price     Decimal
+  metadata  Json?
+
+  @@map("order_items")
+}
+
+// 分销链接和佣金
+model ReferralLink {
+  id         String   @id @default(cuid())
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id])
+  code       String   @unique
+  productId  String?  // 可选，特定产品链接
+  commission Decimal  // 佣金比例
+  clicks     Int      @default(0)
+  conversions Int     @default(0)
+  revenue    Decimal  @default(0)
+  isActive   Boolean  @default(true)
+  expiresAt  DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("referral_links")
+}
+
+// 用户行为分析
+model UserActivity {
+  id         String   @id @default(cuid())
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id])
+  action     String   // 行为类型
+  target     String?  // 目标对象
+  metadata   Json?    // 行为详细数据
+  createdAt  DateTime @default(now())
+
+  @@map("user_activities")
+}
+
+// 产品分析数据
+model ProductAnalytics {
+  id           String   @id @default(cuid())
+  productId    String
+  product      Product  @relation(fields: [productId], references: [id])
+  metric       String   // 指标名称
+  value        Decimal  // 指标值
+  dimensions   Json?    // 维度数据
+  recordedAt   DateTime @default(now())
+
+  @@map("product_analytics")
+}
+
+// 产品评价
+model Review {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+  rating     Int      // 1-5星评分
+  comment    String?
+  reviewer   Json     // 评价者信息
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("reviews")
+}

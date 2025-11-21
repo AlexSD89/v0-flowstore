@@ -1,0 +1,41 @@
+
+Moon Dev AI Agents - RSI Trading Strategy Report
+Generated: 2025-11-21 21:35:03
+============================================================
+
+EXECUTION SUMMARY:
+- Total Symbols Tested: 25
+- Successful Backtests: 25
+- Failed Backtests: 0
+- Success Rate: 100.0%
+- Execution Time: 0.54 seconds
+
+
+PERFORMANCE METRICS:
+- Average Return: 0.30%
+- Return Standard Deviation: 21.35%
+- Best Performing Symbol: NVDA (48.43%)
+- Worst Performing Symbol: AAPL (-32.84%)
+- Positive Returns: 12/25 symbols
+
+TOP 10 PERFORMERS:
+ 1. NVDA     - 48.43% (4 trades, Sharpe: 1.90)
+ 2. KO       - 41.92% (3 trades, Sharpe: 2.22)
+ 3. AMZN     - 24.09% (2 trades, Sharpe: 2.84)
+ 4. NFLX     - 21.05% (3 trades, Sharpe: 1.05)
+ 5. INTC     - 19.79% (2 trades, Sharpe: 1.44)
+ 6. GOOGL    - 17.38% (3 trades, Sharpe: 1.17)
+ 7. VZ       - 13.68% (2 trades, Sharpe: 1.13)
+ 8. PG       -  7.89% (3 trades, Sharpe: 0.43)
+ 9. UNH      -  6.21% (2 trades, Sharpe: 0.42)
+10. MA       -  3.04% (4 trades, Sharpe: 0.25)
+
+============================================================
+
+STRATEGY PARAMETERS:
+- RSI Period: 14
+- Oversold Level: 30
+- Overbought Level: 70
+- Initial Capital: $10,000
+
+Built with love by Moon Dev 🚀

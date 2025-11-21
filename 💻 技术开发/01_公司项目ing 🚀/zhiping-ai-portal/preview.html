@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智评AI - 中国专业AI产品评测与采购平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .zhiping-blue { color: #0ea5e9; }
+        .bg-zhiping-blue { background-color: #0ea5e9; }
+        .zhiping-accent { color: #38bdf8; }
+        .bg-zhiping-accent { background-color: #38bdf8; }
+        .zhiping-dark { color: #0c4a6e; }
+        .bg-zhiping-dark { background-color: #0c4a6e; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0c4a6e 100%);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #38bdf8 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #0ea5e9 0%, transparent 50%);
+        }
+        
+        .card {
+            @apply bg-white rounded-2xl shadow-lg border border-gray-100;
+        }
+        
+        .btn-primary {
+            @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center justify-center;
+        }
+        
+        .btn-secondary {
+            @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center justify-center;
+        }
+        
+        .section-padding {
+            @apply py-16 lg:py-24;
+        }
+        
+        .container-padding {
+            @apply px-4 sm:px-6 lg:px-8;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0c4a6e;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-blue-600">智评AI</div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">首页</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">服务</a>
+                    <a href="#evaluation" class="text-gray-700 hover:text-blue-600 transition-colors">评测框架</a>
+                    <a href="#cases" class="text-gray-700 hover:text-blue-600 transition-colors">案例</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">关于我们</a>
+                    <a href="#contact" class="btn-primary">免费咨询</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" class="md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700">首页</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700">服务</a>
+                <a href="#evaluation" class="block px-3 py-2 text-gray-700">评测框架</a>
+                <a href="#cases" class="block px-3 py-2 text-gray-700">案例</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700">关于我们</a>
+                <a href="#contact" class="block px-3 py-2 text-blue-600">免费咨询</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg hero-pattern text-white section-padding pt-32">
+        <div class="max-w-7xl mx-auto container-padding">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    中国专业AI产品<br>
+                    <span class="text-yellow-300">评测与采购平台</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
+                    基于独创的6维度科学评测框架，为企业提供AI产品选型、项目成功保障和专业咨询服务，
+                    <strong class="text-yellow-300">让每一个AI项目都能成功落地</strong>
+                </p>
+                
+                <!-- 核心数据 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-yellow-300 mb-2 stats-counter">1000+</div>
+                        <div class="text-lg opacity-90">服务企业</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-yellow-300 mb-2 stats-counter">98%</div>
+                        <div class="text-lg opacity-90">项目成功率</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-yellow-300 mb-2 stats-counter">42%</div>
+                        <div class="text-lg opacity-90">失败率降低</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-yellow-300 mb-2 stats-counter">300%</div>
+                        <div class="text-lg opacity-90">平均ROI提升</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-300">
+                        免费获取AI项目评估
+                    </a>
+                    <a href="#services" class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300">
+                        了解服务详情
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务介绍 -->
+    <section id="services" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto container-padding">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">三大核心服务</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    覆盖AI项目全生命周期的专业服务，从产品选型到成功落地的一站式解决方案
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- AI产品评测 -->
+                <div class="card p-8 hover:shadow-2xl transition-all duration-300 animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI产品专业评测</h3>
+                        <p class="text-gray-600">基于独创的6维度科学评测框架，为您的AI产品选型提供专业、客观、全面的评估服务</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            6维度科学评测框架
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            1000+产品数据库
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            专业评测报告
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            智能对比分析
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center">
+                        <div class="text-lg font-bold text-blue-600 mb-2">免费基础评测</div>
+                        <a href="#contact" class="btn-primary w-full">了解详情</a>
+                    </div>
+                </div>
+
+                <!-- 项目成功保障 -->
+                <div class="card p-8 hover:shadow-2xl transition-all duration-300 animate-slide-up bg-gradient-to-br from-green-50 to-green-100 border-green-200">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI项目成功保障</h3>
+                        <p class="text-gray-600">中国首个AI项目成功保障服务，承诺您的AI项目100%成功落地，不成功全额退款</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            100%成功保障承诺
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            专家团队全程护航
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            科学项目管理体系
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            实时项目监控
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center">
+                        <div class="text-lg font-bold text-green-600 mb-2">项目金额的10-15%</div>
+                        <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-medium mb-3 inline-block">最受欢迎</span>
+                        <a href="#contact" class="btn-primary w-full bg-green-500 hover:bg-green-600">了解详情</a>
+                    </div>
+                </div>
+
+                <!-- AI咨询服务 -->
+                <div class="card p-8 hover:shadow-2xl transition-all duration-300 animate-slide-up">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">AI专业咨询服务</h3>
+                        <p class="text-gray-600">汇聚顶级AI专家智慧，为您的企业AI转型提供战略指导、技术规划和实施建议</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            AI战略规划咨询
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            AI技术架构咨询
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            AI项目管理咨询
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            AI团队能力建设
+                        </li>
+                    </ul>
+                    
+                    <div class="text-center">
+                        <div class="text-lg font-bold text-purple-600 mb-2">¥80,000起</div>
+                        <a href="#contact" class="btn-primary w-full bg-purple-500 hover:bg-purple-600">了解详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6维度评测框架 -->
+    <section id="evaluation" class="section-padding bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto container-padding">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">6维度科学评测框架</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    基于大量AI项目实施经验，我们独创了科学全面的6维度评测体系，
+                    确保从技术、业务、安全等多个角度全面评估AI产品
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 技术能力 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">技术能力评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                            <span class="text-sm text-blue-600 font-medium">95%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">算法先进性、性能指标、技术成熟度、扩展能力</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 算法架构分析</li>
+                        <li>• 性能基准测试</li>
+                        <li>• 技术文档审查</li>
+                        <li>• 扩展性评估</li>
+                    </ul>
+                </div>
+
+                <!-- 业务价值 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">业务价值评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                            <span class="text-sm text-green-600 font-medium">88%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">ROI分析、应用场景匹配、业务流程优化潜力</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 投资回报分析</li>
+                        <li>• 场景适配度</li>
+                        <li>• 效率提升潜力</li>
+                        <li>• 成本效益评估</li>
+                    </ul>
+                </div>
+
+                <!-- 安全合规 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">安全合规评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                            <span class="text-sm text-red-600 font-medium">92%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">数据安全、隐私保护、监管合规、风险控制</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 数据安全审查</li>
+                        <li>• 隐私保护机制</li>
+                        <li>• 合规性检查</li>
+                        <li>• 风险评估</li>
+                    </ul>
+                </div>
+
+                <!-- 成本效益 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">成本效益评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <span class="text-sm text-yellow-600 font-medium">85%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">采购成本、实施成本、运维成本、总体拥有成本</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 采购成本分析</li>
+                        <li>• 实施成本评估</li>
+                        <li>• 运维成本预测</li>
+                        <li>• TCO计算</li>
+                    </ul>
+                </div>
+
+                <!-- 服务支持 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">服务支持评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <span class="text-sm text-purple-600 font-medium">90%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">技术支持、培训服务、升级维护、响应速度</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 技术支持质量</li>
+                        <li>• 培训体系完善</li>
+                        <li>• 维护升级能力</li>
+                        <li>• 响应时效性</li>
+                    </ul>
+                </div>
+
+                <!-- 生态兼容 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-500 text-white rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900">生态兼容评估</h3>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-indigo-500 h-2 rounded-full" style="width: 87%"></div>
+                            </div>
+                            <span class="text-sm text-indigo-600 font-medium">87%</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">系统集成、数据接口、平台兼容、标准支持</p>
+                    <ul class="text-xs text-gray-600 space-y-1">
+                        <li>• 系统集成能力</li>
+                        <li>• API接口质量</li>
+                        <li>• 平台兼容性</li>
+                        <li>• 标准协议支持</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功案例 -->
+    <section id="cases" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto container-padding">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">客户成功案例</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    来自不同行业客户的真实反馈，见证我们专业服务的价值和成果
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 案例1 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <blockquote class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        "智评AI的6维度评测体系非常专业，帮助我们选择了最适合的AI质检系统。项目实施过程中的成功保障服务让我们安心，最终效果超出预期，ROI提升了300%。"
+                    </blockquote>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="font-semibold text-gray-900">张伟 - CTO</div>
+                        <div class="text-blue-600">某大型制造企业</div>
+                        <div class="text-sm text-gray-500 mt-1">AI质检系统选型</div>
+                    </div>
+                </div>
+
+                <!-- 案例2 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <blockquote class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        "作为金融机构，我们对AI产品的安全性和合规性要求极高。智评AI不仅提供了深度的技术评测，更重要的是在合规性方面给了我们专业指导，让我们的AI风控系统顺利上线。"
+                    </blockquote>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="font-semibold text-gray-900">李明 - 风控总监</div>
+                        <div class="text-blue-600">某知名银行</div>
+                        <div class="text-sm text-gray-500 mt-1">AI风控系统升级</div>
+                    </div>
+                </div>
+
+                <!-- 案例3 -->
+                <div class="card p-6 animate-slide-up">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <blockquote class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        "从需求分析到产品选型，从实施部署到效果验收，智评AI提供了全程专业服务。特别是他们的成功保障承诺让我们没有后顾之忧，现在我们的智能客服系统运行非常稳定。"
+                    </blockquote>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="font-semibold text-gray-900">王芳 - 数字化转型总监</div>
+                        <div class="text-blue-600">某零售连锁集团</div>
+                        <div class="text-sm text-gray-500 mt-1">智能客服系统建设</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="section-padding bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+        <div class="max-w-4xl mx-auto container-padding text-center">
+            <div class="animate-slide-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    准备开始您的AI成功之旅？
+                </h2>
+                <p class="text-xl mb-8 leading-relaxed opacity-90">
+                    立即联系我们的专家团队，获得专业的AI服务支持。
+                    <strong class="text-yellow-300">现在咨询可享受免费初步评估服务。</strong>
+                </p>
+                
+                <!-- 联系方式 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">电话咨询</h3>
+                        <p class="text-blue-100">400-888-0123</p>
+                        <p class="text-sm text-blue-200">工作日 9:00-18:00</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">邮件咨询</h3>
+                        <p class="text-blue-100">contact@zhiping-ai.com</p>
+                        <p class="text-sm text-blue-200">24小时内回复</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-white text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">公司地址</h3>
+                        <p class="text-blue-100">北京市朝阳区国贸CBD</p>
+                        <p class="text-sm text-blue-200">欢迎实地交流</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:400-888-0123" class="bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-all duration-300">
+                        立即拨打咨询热线
+                    </a>
+                    <a href="mailto:contact@zhiping-ai.com" class="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300">
+                        发送邮件咨询
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto container-padding">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
+                <div>
+                    <div class="text-2xl font-bold text-blue-400 mb-4">智评AI</div>
+                    <p class="text-gray-400 mb-4">
+                        中国专业AI产品评测与采购平台，让每一个AI项目都能成功落地。
+                    </p>
+                    <div class="text-sm text-gray-500">
+                        © 2025 智评AI. 版权所有
+                    </div>
+                </div>
+                
+                <!-- 服务链接 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">核心服务</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition-colors">AI产品评测</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">项目成功保障</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">AI专业咨询</a></li>
+                        <li><a href="#evaluation" class="hover:text-white transition-colors">6维度评测框架</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 行业方案 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">行业方案</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">金融科技</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">制造业</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">医疗健康</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">零售电商</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系方式 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>电话：400-888-0123</li>
+                        <li>邮箱：contact@zhiping-ai.com</li>
+                        <li>地址：北京市朝阳区国贸CBD</li>
+                        <li>
+                            <a href="https://zhiping-ai.com" class="hover:text-white transition-colors">
+                                官网：zhiping-ai.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>让每一个AI项目都能成功落地 | 智评AI - 您的AI成功伙伴</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button 
+        id="backToTop" 
+        class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 opacity-0 pointer-events-none"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // 返回顶部按钮控制
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+                backToTop.classList.add('opacity-100');
+            } else {
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+                backToTop.classList.remove('opacity-100');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80; // 考虑固定导航栏高度
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 数字动画
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.innerText);
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.floor(current) + (counter.innerText.includes('%') ? '%' : '+');
+                    }
+                }, 20);
+            });
+        }
+
+        // 页面加载完成后执行动画
+        window.addEventListener('load', function() {
+            setTimeout(animateCounters, 1000);
+        });
+    </script>
+</body>
+</html>

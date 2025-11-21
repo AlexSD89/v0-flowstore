@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Me² NEXUS专业色彩与动效变量 */
+:root {
+  --nexus-deep-black: #0a0e1a;
+  --nexus-primary: #6366f1;
+  --nexus-secondary: #06b6d4;
+  --nexus-accent: #8b5cf6;
+  --nexus-success: #10b981;
+  --nexus-warning: #f59e0b;
+  --nexus-error: #ef4444;
+  --nexus-info: #3b82f6;
+  --nexus-level1: #8b5cf6;
+  --nexus-level2: #6366f1;
+  --nexus-level3: #06b6d4;
+  --nexus-data-positive: #10b981;
+  --nexus-data-negative: #ef4444;
+  --nexus-data-neutral: #64748b;
+  --nexus-data-emphasis: #f59e0b;
+}
+
+.gradient-nexus-primary { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); }
+.gradient-nexus-data { background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%); }
+
+@keyframes nexus-pulse { 0%,100%{opacity:.8;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+@keyframes nexus-flow { 0%{transform:translateY(-10px);opacity:0} 50%{transform:translateY(0);opacity:1} 100%{transform:translateY(10px);opacity:0} }
+@keyframes nexus-think { 0%{transform:rotate(0)} 25%{transform:rotate(90deg) scale(1.1)} 50%{transform:rotate(180deg)} 75%{transform:rotate(270deg) scale(1.1)} 100%{transform:rotate(360deg)} }
+@keyframes data-processing { 0%{width:0%;background-position:0% 50%} 100%{width:100%;background-position:100% 50%} }

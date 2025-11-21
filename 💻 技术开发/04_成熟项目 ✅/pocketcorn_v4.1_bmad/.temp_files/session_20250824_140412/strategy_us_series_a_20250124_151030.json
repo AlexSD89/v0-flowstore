@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-01-24T15:10:30.987654",
+  "strategy_name": "us_series_a_strategy", 
+  "region": "us",
+  "stage": "series_a",
+  "sources": [
+    "linkedin",
+    "twitter",
+    "techcrunch",
+    "crunchbase"
+  ],
+  "weights": {
+    "linkedin_expansion": 0.40,
+    "twitter_announcements": 0.25,
+    "techcrunch_coverage": 0.20,
+    "crunchbase_funding": 0.15
+  },
+  "performance_score": 0.75,
+  "success_rate": 0.72,
+  "context": {
+    "recent_success": "识别2个Series A融资的企业AI平台",
+    "market_trend": "企业AI服务快速增长",
+    "competition_level": "激烈",
+    "data_quality": "LinkedIn招聘信息准确度高"
+  }
+}

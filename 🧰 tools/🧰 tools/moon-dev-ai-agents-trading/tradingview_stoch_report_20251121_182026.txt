@@ -1,0 +1,43 @@
+
+Moon Dev AI Agents - TradingView Classics: STOCH Strategy Report
+Generated: 2025-11-21 18:20:26
+======================================================================
+
+EXECUTION SUMMARY:
+- Total Symbols Tested: 25
+- Successful Backtests: 25
+- Failed Backtests: 0
+- Success Rate: 100.0%
+- Execution Time: 2.72 seconds
+
+STRATEGY PARAMETERS:
+- K Period: 14
+- D Period: 3
+- Overbought Level: 80
+- Oversold Level: 20
+
+PERFORMANCE METRICS:
+- Average Return: 8.71%
+- Return Standard Deviation: 28.11%
+- Best Performing Symbol: INTC (61.05%)
+- Worst Performing Symbol: TSLA (-38.69%)
+- Positive Returns: 16/25 symbols
+
+TOP 10 PERFORMERS:
+ 1. INTC     - 61.05% (9 trades, Sharpe: 1.89)
+ 2. HD       - 58.20% (12 trades, Sharpe: 1.88)
+ 3. JPM      - 56.38% (10 trades, Sharpe: 1.99)
+ 4. AMZN     - 51.83% (9 trades, Sharpe: 2.15)
+ 5. GOOGL    - 41.98% (10 trades, Sharpe: 1.98)
+ 6. NFLX     - 40.21% (5 trades, Sharpe: 1.80)
+ 7. CSCO     - 21.30% (6 trades, Sharpe: 0.87)
+ 8. AAPL     - 17.22% (8 trades, Sharpe: 0.92)
+ 9. DIS      - 10.33% (7 trades, Sharpe: 0.64)
+10. VZ       -  7.07% (6 trades, Sharpe: 0.42)
+
+======================================================================
+
+Initial Capital: $10,000 per symbol
+Backtest Period: 252 trading days (1 year) with mock data
+
+Built with love by Moon Dev 🚀

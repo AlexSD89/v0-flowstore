@@ -3,7 +3,7 @@ title: "LaunchX 指挥总则"
 owners:
   - Launch X Codex Team
 status: active
-last_update: 2025-11-17
+last_update: 2025-11-21
 contact: "TODO｜待补充 - Launch X Codex Team 联络方式（如邮箱/微信/Slack频道）"
 related:
   - CLAUDE.md
@@ -115,13 +115,13 @@ impact: high
 ---
 
 ## 7. 工具与资源边界
-- Codex 只能执行仓库内命令、编辑文件、记录日志；不得触发 Hooks、Skills、MCP、🧩 bmad。
+- Codex 作为独立执行端，可以直接调用本机已配置的 MCP 服务器（包括读写类工具），并自行选择/组合最合适的 MCP 完成任务；Claude 侧继续负责 Hooks、Skills、🧩 bmad 等更复杂的自动化编排。
 - 如需自动化支持：
-  1. 在 Summary 或 plan/context 中写明命令/脚本、目的与风险；
-  2. 标注“待 Claude：<说明>”，并给出期望输出位置；
-  3. 收到结果后更新 Dev Docs 与 Summary。
+  1. 在 Summary 或 plan/context 中简要记录关键 MCP 调用（服务器/大类工具 + 目的）；
+  2. 涉及高风险操作（如远程执行、外部账户写入等）时，注明风险与回滚思路；
+  3. 收到 Claude 或其他系统返回的结果后，更新 Dev Docs 与 Summary。
 - 本地工具默认顺序：`rg`/`fd`/`sg` → 仓库脚本 → lint/测试命令；执行前说明目的，失败时保留输出。
-- 复用优先：先查 `memory-bank/support_modules`、目标域 README/USEME；仍缺信息再请求 Claude 调用 Skills/MCP。
+- 复用优先：先查 `memory-bank/support_modules`、目标域 README/USEME；仍缺信息时再结合 MCP/Web 搜索获取补充信息。
 
 ---
 
@@ -138,7 +138,7 @@ impact: high
 | 工具/资产 | 用途 | 使用说明 |
 | --- | --- | --- |
 | **MCP：rube** | 拉取外部建议、自动化请求 | Codex 记录命令与目的，待 Claude 执行并回传结果 |
-| **MCP：context7 / tavily / jina** | 技术文档、网络资料、内容提取 | 在 plan.md 或 context.md 记录来源与复用链接，标注“待 Claude 调用” |
+| **MCP：context7 / tavily / jina** | 技术文档、网络资料、内容提取 | Codex 可直接调用（只读模式）；在 plan.md 或 context.md 记录来源与复用链接，必要时标注“待 Claude 深度分析” |
 | **🧩 bmad** | 多 Agent 自动化脚本、SOP | 编制运行指令与风险提示；执行与结果由 Claude 记录 |
 | **support_modules/** | 公共 API、脚本、提示片段 | 引用时标注路径与函数；发现缺口先补齐 USEME |
 | **🧰 tools** | 现成子项目或脚手架 | 阅读各自 README；使用后更新互链 |

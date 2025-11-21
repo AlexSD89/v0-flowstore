@@ -1,0 +1,150 @@
+{
+  "analysis_date": "2025-08-05T19:37:06.455279",
+  "total_companies": 6,
+  "explosion_stages": {
+    "爆发期": 0,
+    "快速增长期": 6,
+    "准备期": 0,
+    "观察期": 0
+  },
+  "immediate_investments": [
+    {
+      "name": "AutoPrompt",
+      "category": "PEC技术栈",
+      "mrr": 18000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    {
+      "name": "RLLabs",
+      "category": "PEC技术栈",
+      "mrr": 25000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    {
+      "name": "Contextify",
+      "category": "PEC技术栈",
+      "mrr": 12000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    {
+      "name": "EchoSell",
+      "category": "电商AI工具",
+      "mrr": 22000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    {
+      "name": "FireBird AI",
+      "category": "电商AI工具",
+      "mrr": 16000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    {
+      "name": "Chuhuo AI",
+      "category": "电商AI工具",
+      "mrr": 15000,
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+
+Moon Dev AI Agents - TradingView Classics: RSI Strategy Report
+Generated: 2025-11-21 18:20:18
+======================================================================
+
+EXECUTION SUMMARY:
+- Total Symbols Tested: 25
+- Successful Backtests: 25
+- Failed Backtests: 0
+- Success Rate: 100.0%
+- Execution Time: 1.24 seconds
+
+STRATEGY PARAMETERS:
+- RSI Period: 14
+- Oversold Level: 30
+- Overbought Level: 70
+
+PERFORMANCE METRICS:
+- Average Return: 3.20%
+- Return Standard Deviation: 23.20%
+- Best Performing Symbol: HD (66.58%)
+- Worst Performing Symbol: V (-31.82%)
+- Positive Returns: 10/25 symbols
+
+TOP 10 PERFORMERS:
+ 1. HD       - 66.58% (5 trades, Sharpe: 2.28)
+ 2. NFLX     - 48.45% (4 trades, Sharpe: 2.22)
+ 3. AMZN     - 32.79% (3 trades, Sharpe: 1.41)
+ 4. AAPL     - 26.70% (2 trades, Sharpe: 1.80)
+ 5. MSFT     - 22.22% (2 trades, Sharpe: 1.25)
+ 6. PYPL     - 19.90% (2 trades, Sharpe: 1.17)
+ 7. UNH      - 13.30% (1 trades, Sharpe: 1.46)
+ 8. META     -  7.49% (1 trades, Sharpe: 0.41)
+ 9. GOOGL    -  5.23% (1 trades, Sharpe: 0.65)
+10. CRM      -  1.38% (2 trades, Sharpe: 0.16)
+
+======================================================================
+
+Initial Capital: $10,000 per symbol
+Backtest Period: 252 trading days (1 year) with mock data
+
+Built with love by Moon Dev 🚀

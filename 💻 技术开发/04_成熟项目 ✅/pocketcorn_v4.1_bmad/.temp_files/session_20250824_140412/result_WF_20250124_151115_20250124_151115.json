@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-01-24T15:11:15.345678",
+  "workflow_id": "WF_20250124_151115", 
+  "strategy_used": "us_series_a_strategy",
+  "region": "us",
+  "stage": "series_a",
+  "input_params": {
+    "search_keywords": ["enterprise AI", "business intelligence", "AI platform"],
+    "time_period": "30d",
+    "focus_areas": ["funding", "expansion", "partnerships"]
+  },
+  "discovered_projects": 6,
+  "verified_projects": 4,
+  "execution_time": 52.3,
+  "success_rate": 0.667,
+  "feedback_score": 0.75,
+  "insights": [
+    "LinkedIn数据质量高，企业AI平台扩招明显",
+    "Series A阶段公司更注重商业化验证",
+    "企业服务AI市场增长迅速但竞争激烈",
+    "建议关注垂直行业AI解决方案"
+  ]
+}

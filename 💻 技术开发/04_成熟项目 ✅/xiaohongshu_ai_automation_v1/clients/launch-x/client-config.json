@@ -1,0 +1,35 @@
+{
+  "client_name": "Example Client",
+  "client_slug": "example-client",
+  "industry": "AI 自动化",
+  "target_audience": "数字化决策者",
+  "brand_voice_keywords": [
+    "权威、可信、专业"
+  ],
+  "disallowed_phrases": [
+    "割韭菜",
+    "保底收益"
+  ],
+  "prompt_style_keywords": [
+    "futuristic neon",
+    "cinematic lighting"
+  ],
+  "daily_publish_limit": 5,
+  "post_count": 5,
+  "asset_output_dir": "projects/example-client/assets/generated",
+  "content_output_dir": "clients/launch-x/assets/content",
+  "data_output_dir": "clients/launch-x/data",
+  "image_generation_tool": "image-mcp.generate",
+  "image_ai_models": [
+    "flux-schnell"
+  ],
+  "image_fallback_sources": [
+    "Pexels"
+  ],
+  "primary_mcp": "xiaohongshu-mcp",
+  "additional_mcp": [],
+  "report_frequency": "weekly",
+  "storage_root": "projects/example-client",
+  "default_run_id": "launch-x_automation",
+  "claude_task_file": "automation/claude_tasks/launch-x.yaml"
+}

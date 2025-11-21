@@ -1,0 +1,42 @@
+{
+  "daily": {
+    "sources": ["ProductHunt", "xiaohongshu", "zhihu"],
+    "keywords": ["AI SaaS", "MRR 2万-25万", "初创"],
+    "time_window": "7d"
+  },
+  "weekly": {
+    "sources": ["all"],
+    "keywords": ["AI startup", "SaaS growth", "revenue"],
+    "time_window": "30d"
+  },
+  "deep_dive": {
+    "sources": ["ProductHunt", "GitHub", "TechCrunch"],
+    "keywords": ["AI BPO", "automation SaaS"],
+    "time_window": "90d"
+  },
+  "reasoning_config": {
+    "gpt5_mode": {
+      "enabled": true,
+      "tot_max_branches": 5,
+      "mcts_simulations": 10,
+      "compute_budget_s": 300,
+      "early_stop_delta": 0.1,
+      "confidence_threshold": 0.8,
+      "max_iterations": 3
+    },
+    "process_rewards": {
+      "uncertainty_validation": 0.3,
+      "roi_analysis": 0.4,
+      "professional_metrics": 0.2,
+      "explosion_detection": 0.1
+    },
+    "tool_weights": {
+      "special_search_pec": 1.0,
+      "explosion_detector": 0.8,
+      "uncertainty_validator": 0.9,
+      "roi_engine": 1.0,
+      "professional_analyzer": 0.7,
+      "iteration_optimizer": 0.6
+    }
+  }
+}

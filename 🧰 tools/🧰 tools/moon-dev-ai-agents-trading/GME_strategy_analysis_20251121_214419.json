@@ -1,0 +1,124 @@
+{
+  "symbol": "GME",
+  "analysis_date": "2025-11-21T21:44:19.395298",
+  "current_price": 19.940000534057617,
+  "best_strategy": "rsi_swing",
+  "best_score": 70.62331879360454,
+  "all_strategies": {
+    "rsi_swing": {
+      "strategy": "rsi_swing",
+      "total_trades": 2,
+      "winning_trades": 2,
+      "win_rate": 100.0,
+      "avg_return": 9.200723145143712,
+      "total_return": 18.401446290287424,
+      "max_profit": 15.311659396802272,
+      "max_loss": 3.089786893485153,
+      "avg_holding_days": 81.0,
+      "final_capital": 1184.0144629028741,
+      "current_price": 19.940000534057617
+    },
+    "macd_cross": {
+      "total_trades": 7,
+      "winning_trades": 2,
+      "win_rate": 28.57142857142857,
+      "avg_return": -0.12206968262500009,
+      "total_return": -0.8544877783750007,
+      "max_profit": 11.266987088980366,
+      "max_loss": -7.724427233975047,
+      "avg_holding_days": 23.285714285714285,
+      "final_capital": 991.45512221625,
+      "current_price": 19.940000534057617
+    },
+    "bollinger_bands": {
+      "total_trades": 2,
+      "winning_trades": 2,
+      "win_rate": 100.0,
+      "avg_return": 7.883697978679119,
+      "total_return": 15.767395957358238,
+      "max_profit": 10.392506314795726,
+      "max_loss": 5.374889642562511,
+      "avg_holding_days": 20.0,
+      "final_capital": 1157.6739595735824,
+      "current_price": 19.940000534057617
+    },
+    "moving_average": {
+      "total_trades": 16,
+      "winning_trades": 3,
+      "win_rate": 18.75,
+      "avg_return": -1.2026150452170334,
+      "total_return": -19.241840723472535,
+      "max_profit": 9.302325199337242,
+      "max_loss": -10.747474130958018,
+      "avg_holding_days": 7.125,
+      "final_capital": 807.5815927652746,
+      "current_price": 19.940000534057617
+    },
+    "momentum": {
+      "total_trades": 2,
+      "winning_trades": 0,
+      "win_rate": 0.0,
+      "avg_return": -7.532049191106899,
+      "total_return": -15.064098382213798,
+      "max_profit": -0.7129008955020196,
+      "max_loss": -14.351197486711778,
+      "avg_holding_days": 11.5,
+      "final_capital": 849.359016177862,
+      "current_price": 19.940000534057617
+    }
+  },
+  "strategy_scores": {
+    "rsi_swing": 70.62331879360454,
+    "macd_cross": 28.08314984092857,
+    "bollinger_bands": 61.53479191471648,
+    "moving_average": 20.814539819131866,
+    "momentum": -30.128196764427596
+  },
+  "recommendations": {
+    "strategy": {
+      "name": "RSI\u6446\u52a8\u4ea4\u6613",
+      "description": "RSI\u8d85\u5356\u4e70\u5165\uff0c\u8d85\u4e70\u5356\u51fa",
+      "parameters": {
+        "rsi_period": 14,
+        "oversold": 30,
+        "overbought": 70
+      }
+    },
+    "position_size": {
+      "percentage": 25.0,
+      "amount": 250.0,
+      "rationale": "\u57fa\u4e8e100.0%\u80dc\u7387\u548c3.1%\u6700\u5927\u635f\u5931\u98ce\u9669\u8c03\u6574"
+    },
+    "buy_price": {
+      "target_price": 19.34,
+      "current_price": 19.94,
+      "discount_percentage": 3.0,
+      "reason": "RSI\u7b56\u7565\u5efa\u8bae\u7b49\u5f85\u4ef7\u683c\u56de\u8c033%\u5de6\u53f3\u4e70\u5165"
+    },
+    "risk_management": {
+      "stop_loss": {
+        "percentage": 15.0,
+        "description": "\u8bbe\u7f6e15.0%\u6b62\u635f\uff0c\u63a7\u5236\u5355\u7b14\u635f\u5931"
+      },
+      "take_profit": {
+        "percentage": 1380.1,
+        "description": "\u8bbe\u7f6e1380.1%\u6b62\u76c8\uff0c\u9501\u5b9a\u6536\u76ca"
+      },
+      "max_portfolio_risk": {
+        "percentage": 20.0,
+        "description": "\u5355\u53ea\u80a1\u7968\u6700\u5927\u4ed3\u4f4d\u4e0d\u8d85\u8fc720%"
+      },
+      "rebalance": {
+        "frequency": "monthly",
+        "description": "\u6bcf\u6708\u91cd\u65b0\u8bc4\u4f30\u548c\u8c03\u6574\u4ed3\u4f4d"
+      }
+    },
+    "expected_performance": {
+      "avg_return_per_trade": 9.200723145143712,
+      "win_rate": 100.0,
+      "avg_holding_days": 81.0,
+      "max_profit": 15.311659396802272,
+      "max_loss": 3.089786893485153
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "generated_at": "2025-08-08T12:03:08.798829",
+    "file_type": "special",
+    "priority": "P0",
+    "category": "PEC专项",
+    "filename": "🔥_SPC_20250808_120308_PEC专项_pec_like_candidates.json",
+    "system_version": "v4.0.1"
+  },
+  "data": {
+    "items": [
+      {
+        "name": "RLForge",
+        "category": "PEC相似-强化学习优化",
+        "mrr": 26000,
+        "growth_rate": 0.32,
+        "team_size": 6,
+        "location": "北京",
+        "risk": {
+          "overall_risk_score": 0.35333333333333333,
+          "risk_level": "中低风险",
+          "risk_factors": [
+            {
+              "name": "市场竞争加剧",
+              "probability": 0.4,
+              "impact": 0.7,
+              "risk_score": 0.27999999999999997,
+              "mitigation": "建立技术护城河，专注垂直场景",
+              "time_horizon": "6-12个月"
+            },
+            {
+              "name": "市场教育成本超预期",
+              "probability": 0.3,
+              "impact": 0.5,
+              "risk_score": 0.15,
+              "mitigation": "优化产品市场匹配，降低获客成本",
+              "time_horizon": "3-6个月"
+            },
+            {
+              "name": "现金流紧张",
+              "probability": 0.7,
+              "impact": 0.9,
+              "risk_score": 0.63,
+              "mitigation": "加速收入增长，控制成本，准备过桥融资",
+              "time_horizon": "1-6个月"
+            }
+          ],
+          "risk_distribution": {
+            "low": 1,
+            "medium": 1,
+            "high": 1
+          }
+        },
+        "valuation": {
+          "final_valuation": 0,
+          "revenue_multiple": 13.776000000000002
+        },
+        "uncertainty": {
+          "project_name": "RLForge",
+          "mrr_estimate": 26000,
+          "growth_estimate": 0.32,
+          "team_quality_score": 0.7,
+          "confidence": 0.7,
+          "consistency_score": 0.9,
+          "source_quality": 0.5,
+          "mrr_low": 23270,
+          "mrr_high": 28730,
+          "overall_score": 0.682,
+          "recommendation": "重点关注"
+        }
+      },
+      {
+        "name": "ContextHub",
+        "category": "PEC生态-上下文中间件",
+        "mrr": 22000,
+        "growth_rate": 0.27,
+        "team_size": 5,
+        "location": "杭州",
+        "risk": {
+          "overall_risk_score": 0.35333333333333333,
+          "risk_level": "中低风险",
+          "risk_factors": [
+            {
+              "name": "市场竞争加剧",
+              "probability": 0.4,
+              "impact": 0.7,
+              "risk_score": 0.27999999999999997,
+              "mitigation": "建立技术护城河，专注垂直场景",
+              "time_horizon": "6-12个月"
+            },
+            {
+              "name": "市场教育成本超预期",
+              "probability": 0.3,
+              "impact": 0.5,
+              "risk_score": 0.15,
+              "mitigation": "优化产品市场匹配，降低获客成本",
+              "time_horizon": "3-6个月"
+            },
+            {
+              "name": "现金流紧张",
+              "probability": 0.7,
+              "impact": 0.9,
+              "risk_score": 0.63,
+              "mitigation": "加速收入增长，控制成本，准备过桥融资",
+              "time_horizon": "1-6个月"
+            }
+          ],
+          "risk_distribution": {
+            "low": 1,
+            "medium": 1,
+            "high": 1
+          }
+        },
+        "valuation": {
+          "final_valuation": 0,
+          "revenue_multiple": 12.32
+        },
+        "uncertainty": {
+          "project_name": "ContextHub",
+          "mrr_estimate": 22000,
+          "growth_estimate": 0.27,
+          "team_quality_score": 0.7,
+          "confidence": 0.7,
+          "consistency_score": 0.9,
+          "source_quality": 0.5,
+          "mrr_low": 19690,
+          "mrr_high": 24310,
+          "overall_score": 0.652,
+          "recommendation": "重点关注"
+        }
+      }
+    ]
+  }
+}

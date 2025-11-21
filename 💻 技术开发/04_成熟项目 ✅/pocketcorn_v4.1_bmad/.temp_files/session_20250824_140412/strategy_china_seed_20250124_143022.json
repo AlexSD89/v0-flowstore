@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-01-24T14:30:22.123456",
+  "strategy_name": "china_seed_strategy",
+  "region": "china",
+  "stage": "seed",
+  "sources": [
+    "xiaohongshu",
+    "zhihu", 
+    "weibo",
+    "36kr"
+  ],
+  "weights": {
+    "xiaohongshu_hiring": 0.35,
+    "zhihu_technical": 0.25,
+    "weibo_trends": 0.20,
+    "36kr_funding": 0.20
+  },
+  "performance_score": 0.82,
+  "success_rate": 0.78,
+  "context": {
+    "recent_success": "成功发现3个AI视频生成初创公司",
+    "market_trend": "短视频AI工具需求激增",
+    "competition_level": "中等",
+    "data_quality": "高质量小红书招聘信息"
+  }
+}

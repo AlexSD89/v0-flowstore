@@ -1,0 +1,103 @@
+{
+  "timestamp": "2025-11-21T18:56:58.894222",
+  "optimal_solution": {
+    "core_strategies": [
+      "MACD_CROSS",
+      "MEAN_REV_5_2.0",
+      "RSI_14_30_70"
+    ],
+    "strategy_weights": {
+      "MACD_CROSS": 0.45,
+      "MEAN_REV_5_2.0": 0.35,
+      "RSI_14_30_70": 0.2
+    },
+    "optimal_stocks": [
+      {
+        "symbol": "MSFT",
+        "score": 0.89,
+        "allocation": "15%",
+        "strategy": "MACD_CROSS"
+      },
+      {
+        "symbol": "TSLA",
+        "score": 0.85,
+        "allocation": "12%",
+        "strategy": "MEAN_REV_5_2.0"
+      },
+      {
+        "symbol": "AAPL",
+        "score": 0.82,
+        "allocation": "10%",
+        "strategy": "RSI_14_30_70"
+      },
+      {
+        "symbol": "NIO",
+        "score": 0.78,
+        "allocation": "8%",
+        "strategy": "MEAN_REV_5_2.0"
+      },
+      {
+        "symbol": "BA",
+        "score": 0.75,
+        "allocation": "7%",
+        "strategy": "MACD_CROSS"
+      }
+    ],
+    "discovery_results": {
+      "personal_focus": {
+        "TSLA": {
+          "strategy": "MEAN_REV_5_2.0",
+          "return": 21.7,
+          "reason": "Tesla高波动性适合均值回归",
+          "holding_period": "2-4周"
+        },
+        "AAPL": {
+          "strategy": "RSI_14_30_70",
+          "return": 22.2,
+          "reason": "Apple稳定性适合RSI超卖超买",
+          "holding_period": "1-3个月"
+        },
+        "NVDA": {
+          "strategy": "BOLLINGER_BREAKOUT",
+          "return": 18.5,
+          "reason": "NVIDIA成长性适合突破策略",
+          "holding_period": "3-6个月"
+        }
+      },
+      "market_discovery": {
+        "MSFT": {
+          "strategy": "MACD_CROSS",
+          "return": 129.5
+        },
+        "BA": {
+          "strategy": "MACD_CROSS",
+          "return": 93.8
+        },
+        "CAT": {
+          "strategy": "MACD_CROSS",
+          "return": 88.0
+        },
+        "NIO": {
+          "strategy": "MEAN_REV_5_2.0",
+          "return": 50.0
+        },
+        "BABA": {
+          "strategy": "MOMENTUM_5D",
+          "return": 26.5
+        },
+        "BIDU": {
+          "strategy": "MACD_CROSS",
+          "return": 48.6
+        },
+        "XOM": {
+          "strategy": "MOMENTUM_20D",
+          "return": 54.5
+        },
+        "CVX": {
+          "strategy": "MOMENTUM_5D",
+          "return": 40.8
+        }
+      }
+    }
+  }
+}

@@ -19,11 +19,22 @@ estimated_duration: "6周"
 success_rate: "95%"
 ---
 
+---
+name: obsidian-plugin-developer
+description: >-
+  Obsidian plugin development specialist that follows LaunchX's 5-step cognition
+  method and Dev Docs workflow to design, implement, test, and ship
+  production-grade plugins. This skill should be used when planning or executing
+  an Obsidian plugin project (from scratch or refactor), and when you need a
+  structured, enterprise-grade development process rather than ad-hoc coding.
+license: Complete terms in LICENSE.txt
+---
+
 # Obsidian插件开发专家 SKILL
 
 ## 🎯 Skill定位
 
-**核心定位**: 基于LaunchX 5步认知法的专业Obsidian插件开发专家，专注于从需求分析到企业级插件发布的全流程开发
+**核心定位**: 基于LaunchX 5步认知法的专业Obsidian插件开发专家，专注于从需求分析到企业级插件发布的全流程开发。
 
 **适用场景**:
 - Obsidian插件从零开发项目
@@ -198,75 +209,4 @@ npm install -D jest @types/jest ts-jest
 
 ## 📊 质量指标和验收标准
 
-### 技术质量指标
-- **代码质量**: ≥95% (LaunchX标准)
-- **测试覆盖率**: ≥90%
-- **TypeScript严格模式**: 100%启用
-- **性能指标**: 加载时间≤2秒，内存占用≤50MB
-
-### 功能完整性指标
-- **需求实现度**: 100%
-- **API兼容性**: 100%
-- **用户体验**: ≥4.5/5
-- **错误处理**: 100%覆盖
-
-### LaunchX流程指标
-- **5步认知法执行**: 100%遵循
-- **Dev Docs完整性**: 100%
-- **资产复用率**: ≥80%
-- **Skill生成**: 100%完成
-
-## 🚀 使用指南
-
-### 启动SKILL
-```markdown
-在Claude Code中使用以下提示词激活此SKILL:
-
-"请使用Obsidian插件开发专家SKILL，基于LaunchX 5步认知法帮我开发[具体需求]插件。
-
-要求:
-- 遵循5步认知法和Dev Docs工作流
-- 确保代码质量≥95%，测试覆盖率≥90%
-- 生成完整的plan/context/tasks三文件
-- 提供可复用的开发模板"
-```
-
-### 标准交付清单
-- [x] Phase 0认知加载完成
-- [x] Dev Docs三文件生成
-- [x] AI角色卡和能力定义
-- [x] 技术架构和方案设计
-- [x] 开发计划和任务分解
-- [x] 质量保障体系建立
-- [x] 可复用Skill资产生成
-
-### 成功标志
-- ✅ 插件功能完整，用户满意
-- ✅ 代码质量达到LaunchX企业级标准
-- ✅ Dev Docs文档完整且规范
-- ✅ 形成可复用的Skill资产
-- ✅ 为LaunchX生态系统贡献价值
-
-## 📚 相关资源
-
-### 核心文档
-- [LaunchX 5步认知法指南](../CLAUDE.md)
-- [Dev Docs标准模板](../../🧰%20tools/launchx-spec-kit-cli/README.md)
-- [成功案例分析](../../🟣%20knowledge/00_待处理信息/我用Claude%20Code开发了Obsidian内容分发插件，爆了！（附教程）.md)
-
-### 技术参考
-- [Obsidian API文档](https://docs.obsidian.md/Plugins/Getting+started)
-- [TypeScript官方文档](https://www.typescriptlang.org/docs/)
-- [插件开发最佳实践](https://github.com/obsidianmd/obsidian-api)
-
-### LaunchX生态
-- [技能生态系统](../README.md)
-- [质量保障体系](../../RULES.md)
-- [AI增强开发指南](../../🧰%20tools/CLAUDE.md)
-
----
-
-**SKILL状态**: 已验证 ✅  
-**最后更新**: 2025-11-18  
-**下次评估**: 项目完成后  
-**维护团队**: LaunchX团队
+TODO｜待补充：结合实际项目数据，补充性能指标、故障率、用户满意度等量化验收标准。

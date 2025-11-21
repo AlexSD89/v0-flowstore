@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-01-24T14:30:45.789012",
+  "workflow_id": "WF_20250124_143045",
+  "strategy_used": "china_seed_strategy",
+  "region": "china",
+  "stage": "seed",
+  "input_params": {
+    "search_keywords": ["AI视频生成", "智能剪辑", "AI内容创作"],
+    "time_period": "30d",
+    "focus_areas": ["hiring", "product_launch", "funding"]
+  },
+  "discovered_projects": 8,
+  "verified_projects": 5,
+  "execution_time": 45.6,
+  "success_rate": 0.625,
+  "feedback_score": 0.82,
+  "insights": [
+    "小红书招聘信息准确度极高，成功率达78%",
+    "AI视频生成赛道竞争激烈，但仍有优质项目",
+    "中国市场对短视频AI工具需求旺盛",
+    "建议重点关注B端视频剪辑工具"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-11-21T18:40:22.763683",
+  "total_symbols": 5,
+  "successful_analyses": 5,
+  "learning_results": {
+    "NVDA": {
+      "original_analysis": {
+        "symbol": "NVDA",
+        "best_strategy": "MOMENTUM",
+        "best_return": 0.1264930947113037,
+        "best_sharpe": 0.46153846153846156,
+        "all_results": [
+          {
+            "symbol": "NVDA",
+            "strategy": "RSI",
+            "total_return": 0.009080780639648437,
+            "win_rate": 1.0,
+            "total_trades": 1,
+            "initial_capital": 100000,
+            "final_capital": 100908.07806396484,
+            "data_points": 502,
+            "success": true
+          },
+          {
+            "symbol": "NVDA",
+            "strategy": "MOMENTUM",
+            "total_return": 0.1264930947113037,
+            "win_rate": 0.46153846153846156,
+            "total_trades": 13,
+            "initial_capital": 100000,
+            "final_capital": 112649.30947113037,
+            "data_points": 502,
+            "success": true
+          },
+          {
+            "symbol": "NVDA",
+            "strategy": "MEAN_REVERSION",
+            "total_return": 0.044578829879760744,
+            "win_rate": 1.0,
+            "total_trades": 5,
+            "initial_capital": 100000,
+            "final_capital": 104457.88298797607,
+            "data_points": 502,
+            "success": true
+          }
+        ],
+        "analysis_period": "730 days",
+        "data_quality": "✅ 502 数据点"
+      },
+      "market_regime": {
+        "regime_type": "sideways_market",
+        "trend": "sideways",
+        "volatility_level": "high",
+        "confidence_score": 0.06221011061517134,
+        "current_volatility": 0.5107756958781563,
+        "recommended_strategies": [
+          "GRID",
+          "MEAN_REVERSION",
+          "BOLLINGER",
+          "RSI"
+        ],
+        "timestamp": "2025-11-21T18:40:10.716486"
+      },
+      "optimization_result": {
+        "symbol": "NVDA",
+        "strategy": "MOMENTUM",
+        "old_performance": 0.1264930947113037,
+        "new_performance": 0.1264930947113037,
+        "improvement": 0.0,
+        "old_params": "default",
+        "new_params": "default",
+        "improvement_pct": 0.0,
+        "optimization_successful": 

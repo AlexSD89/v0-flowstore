@@ -1,0 +1,679 @@
+/*
+ * Cloudsway 现代设计系统 v2.0
+ * Modern Design System for Cloud-Era Products
+ * 
+ * 设计理念：云端优雅，简约科技
+ * Author: LaunchX Design Team
+ * License: MIT
+ * Version: 2.0.0
+ */
+
+/* ===================================
+   CSS 自定义属性系统
+   ================================== */
+
+:root {
+  /* === 色彩系统 === */
+  
+  /* 主色调 - 云天渐变 */
+  --cloudsway-primary: #6366F1;
+  --cloudsway-primary-light: #818CF8;
+  --cloudsway-primary-dark: #4F46E5;
+  --cloudsway-primary-foreground: #FFFFFF;
+  
+  /* 辅助色 - 晨曦青绿 */
+  --cloudsway-secondary: #22D3EE;
+  --cloudsway-secondary-light: #67E8F9;
+  --cloudsway-secondary-dark: #0891B2;
+  --cloudsway-secondary-foreground: #FFFFFF;
+  
+  /* 中性色调 - 云雾灰阶 */
+  --cloudsway-slate-50: #F8FAFC;
+  --cloudsway-slate-100: #F1F5F9;
+  --cloudsway-slate-200: #E2E8F0;
+  --cloudsway-slate-300: #CBD5E1;
+  --cloudsway-slate-400: #94A3B8;
+  --cloudsway-slate-500: #64748B;
+  --cloudsway-slate-600: #475569;
+  --cloudsway-slate-700: #334155;
+  --cloudsway-slate-800: #1E293B;
+  --cloudsway-slate-900: #0F172A;
+  --cloudsway-slate-950: #020617;
+  
+  /* 语义色彩 */
+  --cloudsway-success: #10B981;
+  --cloudsway-success-light: #34D399;
+  --cloudsway-success-bg: rgba(16, 185, 129, 0.1);
+  
+  --cloudsway-warning: #F59E0B;
+  --cloudsway-warning-light: #FBBF24;
+  --cloudsway-warning-bg: rgba(245, 158, 11, 0.1);
+  
+  --cloudsway-error: #EF4444;
+  --cloudsway-error-light: #F87171;
+  --cloudsway-error-bg: rgba(239, 68, 68, 0.1);
+  
+  --cloudsway-info: #3B82F6;
+  --cloudsway-info-light: #60A5FA;
+  --cloudsway-info-bg: rgba(59, 130, 246, 0.1);
+  
+  /* 渐变系统 */
+  --cloudsway-gradient-primary: linear-gradient(135deg, #6366F1 0%, #22D3EE 100%);
+  --cloudsway-gradient-soft: linear-gradient(135deg, #818CF8 0%, #67E8F9 100%);
+  --cloudsway-gradient-intense: linear-gradient(135deg, #4F46E5 0%, #0891B2 100%);
+  --cloudsway-gradient-surface: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  
+  /* === 字体系统 === */
+  --cloudsway-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cloudsway-font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  --cloudsway-font-zh: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  
+  /* 字体尺寸 */
+  --cloudsway-text-xs: 0.75rem;    /* 12px */
+  --cloudsway-text-sm: 0.875rem;   /* 14px */
+  --cloudsway-text-base: 1rem;     /* 16px */
+  --cloudsway-text-lg: 1.125rem;   /* 18px */
+  --cloudsway-text-xl: 1.25rem;    /* 20px */
+  --cloudsway-text-2xl: 1.5rem;    /* 24px */
+  --cloudsway-text-3xl: 1.875rem;  /* 30px */
+  --cloudsway-text-4xl: 2.25rem;   /* 36px */
+  --cloudsway-text-5xl: 3rem;      /* 48px */
+  --cloudsway-text-6xl: 3.75rem;   /* 60px */
+  
+  /* 字重 */
+  --cloudsway-font-thin: 100;
+  --cloudsway-font-light: 300;
+  --cloudsway-font-normal: 400;
+  --cloudsway-font-medium: 500;
+  --cloudsway-font-semibold: 600;
+  --cloudsway-font-bold: 700;
+  --cloudsway-font-extrabold: 800;
+  
+  /* 行高 */
+  --cloudsway-leading-none: 1;
+  --cloudsway-leading-tight: 1.25;
+  --cloudsway-leading-snug: 1.375;
+  --cloudsway-leading-normal: 1.5;
+  --cloudsway-leading-relaxed: 1.625;
+  --cloudsway-leading-loose: 2;
+  
+  /* === 空间系统 === */
+  --cloudsway-space-0: 0px;
+  --cloudsway-space-1: 0.25rem;    /* 4px */
+  --cloudsway-space-2: 0.5rem;     /* 8px */
+  --cloudsway-space-3: 0.75rem;    /* 12px */
+  --cloudsway-space-4: 1rem;       /* 16px */
+  --cloudsway-space-5: 1.25rem;    /* 20px */
+  --cloudsway-space-6: 1.5rem;     /* 24px */
+  --cloudsway-space-8: 2rem;       /* 32px */
+  --cloudsway-space-10: 2.5rem;    /* 40px */
+  --cloudsway-space-12: 3rem;      /* 48px */
+  --cloudsway-space-16: 4rem;      /* 64px */
+  --cloudsway-space-20: 5rem;      /* 80px */
+  --cloudsway-space-24: 6rem;      /* 96px */
+  --cloudsway-space-32: 8rem;      /* 128px */
+  
+  /* 圆角系统 */
+  --cloudsway-radius-none: 0px;
+  --cloudsway-radius-sm: 0.125rem;  /* 2px */
+  --cloudsway-radius-md: 0.375rem;  /* 6px */
+  --cloudsway-radius-lg: 0.5rem;    /* 8px */
+  --cloudsway-radius-xl: 0.75rem;   /* 12px */
+  --cloudsway-radius-2xl: 1rem;     /* 16px */
+  --cloudsway-radius-3xl: 1.5rem;   /* 24px */
+  --cloudsway-radius-full: 9999px;
+  
+  /* === 阴影系统 === */
+  --cloudsway-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --cloudsway-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --cloudsway-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --cloudsway-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --cloudsway-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --cloudsway-shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --cloudsway-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  
+  /* 彩色发光阴影 */
+  --cloudsway-shadow-primary: 0 0 20px rgba(99, 102, 241, 0.2);
+  --cloudsway-shadow-secondary: 0 0 20px rgba(34, 211, 238, 0.2);
+  --cloudsway-shadow-success: 0 0 20px rgba(16, 185, 129, 0.2);
+  --cloudsway-shadow-warning: 0 0 20px rgba(245, 158, 11, 0.2);
+  --cloudsway-shadow-error: 0 0 20px rgba(239, 68, 68, 0.2);
+  
+  /* === 动效系统 === */
+  --cloudsway-duration-75: 75ms;
+  --cloudsway-duration-100: 100ms;
+  --cloudsway-duration-150: 150ms;
+  --cloudsway-duration-200: 200ms;
+  --cloudsway-duration-300: 300ms;
+  --cloudsway-duration-500: 500ms;
+  --cloudsway-duration-700: 700ms;
+  --cloudsway-duration-1000: 1000ms;
+  
+  /* 缓动函数 */
+  --cloudsway-ease-linear: linear;
+  --cloudsway-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --cloudsway-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --cloudsway-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --cloudsway-ease-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --cloudsway-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  /* === 断点系统 === */
+  --cloudsway-breakpoint-sm: 640px;
+  --cloudsway-breakpoint-md: 768px;
+  --cloudsway-breakpoint-lg: 1024px;
+  --cloudsway-breakpoint-xl: 1280px;
+  --cloudsway-breakpoint-2xl: 1536px;
+}
+
+/* ===================================
+   暗色主题变量映射
+   ================================== */
+
+.cloudsway-theme {
+  /* 背景系统 */
+  --background: var(--cloudsway-slate-950);
+  --surface: var(--cloudsway-slate-900);
+  --surface-hover: var(--cloudsway-slate-800);
+  --surface-active: var(--cloudsway-slate-700);
+  
+  /* 文字系统 */
+  --foreground: var(--cloudsway-slate-100);
+  --foreground-muted: var(--cloudsway-slate-400);
+  --foreground-accent: var(--cloudsway-slate-300);
+  
+  /* 边框系统 */
+  --border: var(--cloudsway-slate-800);
+  --border-hover: var(--cloudsway-slate-700);
+  --border-focus: var(--cloudsway-primary);
+  
+  /* 交互色彩 */
+  --primary: var(--cloudsway-primary);
+  --primary-hover: var(--cloudsway-primary-light);
+  --secondary: var(--cloudsway-secondary);
+  --secondary-hover: var(--cloudsway-secondary-light);
+}
+
+/* ===================================
+   全局基础样式
+   ================================== */
+
+.cloudsway-theme {
+  font-family: var(--cloudsway-font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  line-height: var(--cloudsway-leading-normal);
+}
+
+.cloudsway-theme * {
+  box-sizing: border-box;
+}
+
+/* ===================================
+   组件库
+   ================================== */
+
+/* === 按钮组件 === */
+.cloudsway-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cloudsway-space-2);
+  border: none;
+  border-radius: var(--cloudsway-radius-lg);
+  font-family: inherit;
+  font-size: var(--cloudsway-text-sm);
+  font-weight: var(--cloudsway-font-medium);
+  line-height: var(--cloudsway-leading-none);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--cloudsway-duration-200) var(--cloudsway-ease-out);
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.cloudsway-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cloudsway-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* 按钮变体 */
+.cloudsway-btn-primary {
+  background: var(--cloudsway-gradient-primary);
+  color: var(--cloudsway-primary-foreground);
+  padding: var(--cloudsway-space-3) var(--cloudsway-space-6);
+  box-shadow: var(--cloudsway-shadow-md);
+}
+
+.cloudsway-btn-primary:hover:not(:disabled) {
+  box-shadow: var(--cloudsway-shadow-lg), var(--cloudsway-shadow-primary);
+  transform: translateY(-1px);
+}
+
+.cloudsway-btn-secondary {
+  background: transparent;
+  color: var(--foreground-accent);
+  border: 1px solid var(--border);
+  padding: var(--cloudsway-space-3) var(--cloudsway-space-6);
+}
+
+.cloudsway-btn-secondary:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: var(--cloudsway-shadow-primary);
+}
+
+.cloudsway-btn-ghost {
+  background: transparent;
+  color: var(--foreground-muted);
+  padding: var(--cloudsway-space-3) var(--cloudsway-space-6);
+}
+
+.cloudsway-btn-ghost:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--foreground);
+}
+
+/* 按钮尺寸 */
+.cloudsway-btn-sm {
+  padding: var(--cloudsway-space-2) var(--cloudsway-space-4);
+  font-size: var(--cloudsway-text-xs);
+  border-radius: var(--cloudsway-radius-md);
+}
+
+.cloudsway-btn-lg {
+  padding: var(--cloudsway-space-4) var(--cloudsway-space-8);
+  font-size: var(--cloudsway-text-lg);
+  border-radius: var(--cloudsway-radius-xl);
+}
+
+/* === 卡片组件 === */
+.cloudsway-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--cloudsway-radius-xl);
+  padding: var(--cloudsway-space-6);
+  box-shadow: var(--cloudsway-shadow-sm);
+  transition: all var(--cloudsway-duration-300) var(--cloudsway-ease-out);
+}
+
+.cloudsway-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--cloudsway-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.cloudsway-card-premium {
+  position: relative;
+  border: 1px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              var(--cloudsway-gradient-primary) border-box;
+}
+
+.cloudsway-card-header {
+  margin-bottom: var(--cloudsway-space-4);
+}
+
+.cloudsway-card-title {
+  font-size: var(--cloudsway-text-xl);
+  font-weight: var(--cloudsway-font-semibold);
+  color: var(--foreground);
+  margin: 0 0 var(--cloudsway-space-2);
+}
+
+.cloudsway-card-description {
+  color: var(--foreground-muted);
+  font-size: var(--cloudsway-text-sm);
+  line-height: var(--cloudsway-leading-relaxed);
+  margin: 0;
+}
+
+.cloudsway-card-content {
+  color: var(--foreground);
+}
+
+.cloudsway-card-footer {
+  margin-top: var(--cloudsway-space-6);
+  padding-top: var(--cloudsway-space-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: var(--cloudsway-space-3);
+}
+
+/* === 输入框组件 === */
+.cloudsway-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--cloudsway-radius-lg);
+  padding: var(--cloudsway-space-3) var(--cloudsway-space-4);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: var(--cloudsway-text-sm);
+  line-height: var(--cloudsway-leading-normal);
+  transition: all var(--cloudsway-duration-200) var(--cloudsway-ease-out);
+  outline: none;
+}
+
+.cloudsway-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.cloudsway-input::placeholder {
+  color: var(--foreground-muted);
+}
+
+/* 输入框状态 */
+.cloudsway-input-success {
+  border-color: var(--cloudsway-success);
+}
+
+.cloudsway-input-success:focus {
+  box-shadow: 0 0 0 3px var(--cloudsway-success-bg);
+}
+
+.cloudsway-input-error {
+  border-color: var(--cloudsway-error);
+}
+
+.cloudsway-input-error:focus {
+  box-shadow: 0 0 0 3px var(--cloudsway-error-bg);
+}
+
+/* === 标签组件 === */
+.cloudsway-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cloudsway-space-1);
+  padding: var(--cloudsway-space-1) var(--cloudsway-space-3);
+  border-radius: var(--cloudsway-radius-full);
+  font-size: var(--cloudsway-text-xs);
+  font-weight: var(--cloudsway-font-medium);
+  line-height: var(--cloudsway-leading-none);
+}
+
+.cloudsway-badge-primary {
+  background: var(--cloudsway-primary);
+  color: var(--cloudsway-primary-foreground);
+}
+
+.cloudsway-badge-secondary {
+  background: var(--surface-hover);
+  color: var(--foreground-accent);
+  border: 1px solid var(--border);
+}
+
+.cloudsway-badge-success {
+  background: var(--cloudsway-success-bg);
+  color: var(--cloudsway-success);
+  border: 1px solid var(--cloudsway-success);
+}
+
+.cloudsway-badge-warning {
+  background: var(--cloudsway-warning-bg);
+  color: var(--cloudsway-warning);
+  border: 1px solid var(--cloudsway-warning);
+}
+
+.cloudsway-badge-error {
+  background: var(--cloudsway-error-bg);
+  color: var(--cloudsway-error);
+  border: 1px solid var(--cloudsway-error);
+}
+
+/* === 容器系统 === */
+.cloudsway-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--cloudsway-space-4);
+}
+
+@media (min-width: 640px) {
+  .cloudsway-container { max-width: 640px; }
+}
+
+@media (min-width: 768px) {
+  .cloudsway-container { max-width: 768px; }
+}
+
+@media (min-width: 1024px) {
+  .cloudsway-container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .cloudsway-container { max-width: 1280px; }
+}
+
+@media (min-width: 1536px) {
+  .cloudsway-container { max-width: 1536px; }
+}
+
+/* === 网格系统 === */
+.cloudsway-grid {
+  display: grid;
+  gap: var(--cloudsway-space-6);
+}
+
+.cloudsway-grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.cloudsway-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.cloudsway-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cloudsway-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.cloudsway-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+.cloudsway-grid-cols-12 { grid-template-columns: repeat(12, 1fr); }
+
+/* 响应式网格 */
+@media (min-width: 640px) {
+  .cloudsway-sm-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .cloudsway-sm-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .cloudsway-md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .cloudsway-md-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cloudsway-md-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .cloudsway-lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cloudsway-lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .cloudsway-lg-grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* ===================================
+   特色组件
+   ================================== */
+
+/* === 渐变边框卡片 === */
+.cloudsway-gradient-card {
+  position: relative;
+  padding: var(--cloudsway-space-6);
+  border-radius: var(--cloudsway-radius-xl);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.cloudsway-gradient-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--cloudsway-gradient-primary);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* === 渐变文字 === */
+.cloudsway-text-gradient {
+  background: var(--cloudsway-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--cloudsway-font-bold);
+}
+
+/* === 浮动动效 === */
+@keyframes cloudsway-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.cloudsway-float {
+  animation: cloudsway-float 6s ease-in-out infinite;
+}
+
+/* === 脉冲动效 === */
+@keyframes cloudsway-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.cloudsway-pulse {
+  animation: cloudsway-pulse 2s ease-in-out infinite;
+}
+
+/* === 渐变背景动效 === */
+@keyframes cloudsway-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cloudsway-gradient-animated {
+  background: var(--cloudsway-gradient-primary);
+  background-size: 200% 200%;
+  animation: cloudsway-gradient-shift 4s ease infinite;
+}
+
+/* ===================================
+   工具类
+   ================================== */
+
+/* === 间距工具类 === */
+.cloudsway-p-0 { padding: var(--cloudsway-space-0) !important; }
+.cloudsway-p-1 { padding: var(--cloudsway-space-1) !important; }
+.cloudsway-p-2 { padding: var(--cloudsway-space-2) !important; }
+.cloudsway-p-3 { padding: var(--cloudsway-space-3) !important; }
+.cloudsway-p-4 { padding: var(--cloudsway-space-4) !important; }
+.cloudsway-p-6 { padding: var(--cloudsway-space-6) !important; }
+.cloudsway-p-8 { padding: var(--cloudsway-space-8) !important; }
+
+.cloudsway-m-0 { margin: var(--cloudsway-space-0) !important; }
+.cloudsway-m-1 { margin: var(--cloudsway-space-1) !important; }
+.cloudsway-m-2 { margin: var(--cloudsway-space-2) !important; }
+.cloudsway-m-3 { margin: var(--cloudsway-space-3) !important; }
+.cloudsway-m-4 { margin: var(--cloudsway-space-4) !important; }
+.cloudsway-m-6 { margin: var(--cloudsway-space-6) !important; }
+.cloudsway-m-8 { margin: var(--cloudsway-space-8) !important; }
+
+/* === 文字工具类 === */
+.cloudsway-text-xs { font-size: var(--cloudsway-text-xs) !important; }
+.cloudsway-text-sm { font-size: var(--cloudsway-text-sm) !important; }
+.cloudsway-text-base { font-size: var(--cloudsway-text-base) !important; }
+.cloudsway-text-lg { font-size: var(--cloudsway-text-lg) !important; }
+.cloudsway-text-xl { font-size: var(--cloudsway-text-xl) !important; }
+.cloudsway-text-2xl { font-size: var(--cloudsway-text-2xl) !important; }
+.cloudsway-text-3xl { font-size: var(--cloudsway-text-3xl) !important; }
+
+.cloudsway-font-thin { font-weight: var(--cloudsway-font-thin) !important; }
+.cloudsway-font-light { font-weight: var(--cloudsway-font-light) !important; }
+.cloudsway-font-normal { font-weight: var(--cloudsway-font-normal) !important; }
+.cloudsway-font-medium { font-weight: var(--cloudsway-font-medium) !important; }
+.cloudsway-font-semibold { font-weight: var(--cloudsway-font-semibold) !important; }
+.cloudsway-font-bold { font-weight: var(--cloudsway-font-bold) !important; }
+
+.cloudsway-text-left { text-align: left !important; }
+.cloudsway-text-center { text-align: center !important; }
+.cloudsway-text-right { text-align: right !important; }
+
+/* === 颜色工具类 === */
+.cloudsway-text-primary { color: var(--primary) !important; }
+.cloudsway-text-secondary { color: var(--secondary) !important; }
+.cloudsway-text-muted { color: var(--foreground-muted) !important; }
+.cloudsway-text-success { color: var(--cloudsway-success) !important; }
+.cloudsway-text-warning { color: var(--cloudsway-warning) !important; }
+.cloudsway-text-error { color: var(--cloudsway-error) !important; }
+
+.cloudsway-bg-primary { background-color: var(--primary) !important; }
+.cloudsway-bg-secondary { background-color: var(--secondary) !important; }
+.cloudsway-bg-surface { background-color: var(--surface) !important; }
+.cloudsway-bg-success { background-color: var(--cloudsway-success-bg) !important; }
+.cloudsway-bg-warning { background-color: var(--cloudsway-warning-bg) !important; }
+.cloudsway-bg-error { background-color: var(--cloudsway-error-bg) !important; }
+
+/* === 布局工具类 === */
+.cloudsway-flex { display: flex !important; }
+.cloudsway-inline-flex { display: inline-flex !important; }
+.cloudsway-grid { display: grid !important; }
+.cloudsway-hidden { display: none !important; }
+
+.cloudsway-flex-col { flex-direction: column !important; }
+.cloudsway-flex-row { flex-direction: row !important; }
+
+.cloudsway-items-center { align-items: center !important; }
+.cloudsway-items-start { align-items: flex-start !important; }
+.cloudsway-items-end { align-items: flex-end !important; }
+
+.cloudsway-justify-center { justify-content: center !important; }
+.cloudsway-justify-between { justify-content: space-between !important; }
+.cloudsway-justify-around { justify-content: space-around !important; }
+.cloudsway-justify-start { justify-content: flex-start !important; }
+.cloudsway-justify-end { justify-content: flex-end !important; }
+
+/* ===================================
+   可访问性增强
+   ================================== */
+
+/* 高对比度模式适配 */
+@media (prefers-contrast: high) {
+  .cloudsway-theme {
+    --border: var(--cloudsway-slate-600);
+    --border-hover: var(--cloudsway-slate-500);
+  }
+  
+  .cloudsway-btn,
+  .cloudsway-card,
+  .cloudsway-input {
+    border-width: 2px;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .cloudsway-theme *,
+  .cloudsway-theme *::before,
+  .cloudsway-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 聚焦指示器 */
+.cloudsway-theme *:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* 屏幕阅读器专用 */
+.cloudsway-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

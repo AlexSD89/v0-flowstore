@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-01-24T14:35:00.456789",
+  "weight_type": "signal_weights",
+  "previous_weights": {
+    "xiaohongshu_hiring": 0.30,
+    "zhihu_technical": 0.28,
+    "weibo_trends": 0.22,
+    "36kr_funding": 0.20
+  },
+  "new_weights": {
+    "xiaohongshu_hiring": 0.35,
+    "zhihu_technical": 0.25,
+    "weibo_trends": 0.20,
+    "36kr_funding": 0.20
+  },
+  "trigger_event": "performance_feedback",
+  "performance_delta": 0.05,
+  "confidence": 0.87
+}

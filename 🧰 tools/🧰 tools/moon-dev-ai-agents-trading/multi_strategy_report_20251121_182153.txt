@@ -1,0 +1,24 @@
+
+Moon Dev AI Agents - Multi-Strategy Backtesting Report
+Generated: 2025-11-21 18:21:53
+================================================================================
+
+STRATEGY PERFORMANCE SUMMARY:
+
+RANKED BY AVERAGE RETURN:
+1. MOMENTUM        - 12.74% avg, 56.0% win rate, Best: 84.13%, Worst: -29.70%, Trades: 440
+2. MACD            - 10.18% avg, 60.0% win rate, Best: 79.63%, Worst: -29.12%, Trades: 455
+3. RSI             -  7.81% avg, 48.0% win rate, Best: 62.95%, Worst: -24.45%, Trades:  38
+4. BOLLINGER       -  6.91% avg, 64.0% win rate, Best: 47.78%, Worst: -33.33%, Trades: 158
+5. MEAN_REVERSION  -  4.20% avg, 56.0% win rate, Best: 36.01%, Worst: -33.14%, Trades: 162
+6. GRID            -  3.12% avg, 56.0% win rate, Best: 43.35%, Worst: -34.42%, Trades: 137
+7. MARTINGALE      - -3.73% avg, 32.0% win rate, Best: 55.94%, Worst: -33.20%, Trades: 431
+
+================================================================================
+
+RECOMMENDATIONS:
+- Best Overall Performance: MOMENTUM (12.74%)
+- Most Consistent: GRID (lowest volatility)
+- Highest Win Rate: BOLLINGER (64.0%)
+
+Built with love by Moon Dev 🚀

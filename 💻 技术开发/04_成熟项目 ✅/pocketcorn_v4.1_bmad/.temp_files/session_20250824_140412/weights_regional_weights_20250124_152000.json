@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-01-24T15:20:00.123456",
+  "weight_type": "regional_weights",
+  "previous_weights": {
+    "china": 0.45,
+    "us": 0.35,
+    "europe": 0.20
+  },
+  "new_weights": {
+    "china": 0.50,
+    "us": 0.30,
+    "europe": 0.20
+  },
+  "trigger_event": "exploration",
+  "performance_delta": 0.03,
+  "confidence": 0.72
+}

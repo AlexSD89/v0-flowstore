@@ -1,0 +1,41 @@
+
+Moon Dev AI Agents - TradingView Classics: BOLLINGER Strategy Report
+Generated: 2025-11-21 18:20:21
+======================================================================
+
+EXECUTION SUMMARY:
+- Total Symbols Tested: 25
+- Successful Backtests: 25
+- Failed Backtests: 0
+- Success Rate: 100.0%
+- Execution Time: 2.12 seconds
+
+STRATEGY PARAMETERS:
+- Period: 20
+- Standard Deviations: 2
+
+PERFORMANCE METRICS:
+- Average Return: 16.21%
+- Return Standard Deviation: 23.13%
+- Best Performing Symbol: DIS (53.82%)
+- Worst Performing Symbol: NVDA (-29.82%)
+- Positive Returns: 19/25 symbols
+
+TOP 10 PERFORMERS:
+ 1. DIS      - 53.82% (8 trades, Sharpe: 2.40)
+ 2. MSFT     - 51.91% (5 trades, Sharpe: 2.23)
+ 3. JPM      - 51.33% (10 trades, Sharpe: 1.95)
+ 4. NFLX     - 46.42% (9 trades, Sharpe: 1.87)
+ 5. MA       - 34.48% (8 trades, Sharpe: 2.03)
+ 6. ADBE     - 32.64% (10 trades, Sharpe: 1.52)
+ 7. CSCO     - 29.04% (9 trades, Sharpe: 1.60)
+ 8. AAPL     - 28.30% (8 trades, Sharpe: 1.38)
+ 9. KO       - 27.25% (6 trades, Sharpe: 1.41)
+10. CRM      - 26.43% (7 trades, Sharpe: 1.56)
+
+======================================================================
+
+Initial Capital: $10,000 per symbol
+Backtest Period: 252 trading days (1 year) with mock data
+
+Built with love by Moon Dev 🚀

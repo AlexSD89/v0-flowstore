@@ -1,0 +1,87 @@
+{
+  "report_period_days": 7,
+  "generated_at": "2025-01-24T16:00:00.000000",
+  "summary": {
+    "total_strategy_changes": 12,
+    "total_weight_evolutions": 8,
+    "total_executions": 15
+  },
+  "strategy_analysis": {
+    "total_strategies": 12,
+    "region_distribution": {
+      "china": 7,
+      "us": 4,
+      "europe": 1
+    },
+    "stage_distribution": {
+      "seed": 6,
+      "series_a": 4,
+      "growth": 2
+    },
+    "average_performance": 0.794,
+    "best_performing_strategy": "china_seed_strategy"
+  },
+  "weight_analysis": {
+    "total_weight_changes": 8,
+    "trigger_distribution": {
+      "performance_feedback": 5,
+      "exploration": 2,
+      "mutation": 1
+    },
+    "average_performance_delta": 0.042,
+    "most_active_weight_type": "signal_weights"
+  },
+  "performance_analysis": {
+    "total_executions": 15,
+    "total_projects_discovered": 89,
+    "total_projects_verified": 67,
+    "verification_rate": 75.28,
+    "average_success_rate": 72.6,
+    "average_execution_time": 48.3
+  },
+  "recommendations": [
+    "建议更多使用 china_seed_strategy 策略，在 china 地区表现优异",
+    "权重进化趋势良好，建议继续当前的自适应策略",
+    "项目发现效果良好，可以考虑提高筛选标准",
+    "中国市场小红书数据源质量稳定，建议增加权重",
+    "美国市场LinkedIn扩招信号准确度高，可优先关注"
+  ],
+  "detailed_insights": {
+    "top_performing_regions": [
+      {
+        "region": "china",
+        "performance_score": 0.82,
+        "success_factors": [
+          "小红书招聘信息准确度高",
+          "短视频AI赛道需求旺盛",
+          "团队扩张信号明显"
+        ]
+      },
+      {
+        "region": "us", 
+        "performance_score": 0.75,
+        "success_factors": [
+          "LinkedIn数据质量稳定",
+          "企业服务需求增长",
+          "Series A融资活跃"
+        ]
+      }
+    ],
+    "optimization_opportunities": [
+      {
+        "area": "数据源权重",
+        "suggestion": "小红书权重可从0.35提升到0.40",
+        "expected_improvement": "5-8%"
+      },
+      {
+        "area": "地区分配",
+        "suggestion": "中国市场权重可从0.50提升到0.55",
+        "expected_improvement": "3-5%"
+      }
+    ],
+    "risk_warnings": [
+      "欧洲市场数据不足，建议谨慎决策",
+      "Growth阶段项目识别准确度相对较低"
+    ]
+  }
+}

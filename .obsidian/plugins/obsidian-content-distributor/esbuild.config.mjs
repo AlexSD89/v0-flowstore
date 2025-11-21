@@ -16,7 +16,8 @@ const context = await esbuild.context({
 		js: banner,
 	},
 	entryPoints: [
-		'main.ts',
+		// 使用多提供商最佳实践版本作为主入口
+		'main-best-practice.ts',
 	],
 	bundle: true,
 	external: [

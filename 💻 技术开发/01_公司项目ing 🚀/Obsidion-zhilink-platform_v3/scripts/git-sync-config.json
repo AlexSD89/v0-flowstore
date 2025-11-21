@@ -1,0 +1,42 @@
+{
+  "auto_sync": true,
+  "sync_interval_hours": 1,
+  "commit_message_template": "🤖 自动同步更新 - {timestamp}",
+  "max_retries": 3,
+  "retry_delay_seconds": 60,
+  "exclude_patterns": [
+    "*.log",
+    "*.tmp",
+    "node_modules/",
+    ".next/",
+    "dist/",
+    "build/",
+    "coverage/",
+    ".DS_Store",
+    "*.pyc",
+    "__pycache__/"
+  ],
+  "include_patterns": [
+    "*.py",
+    "*.ts",
+    "*.tsx",
+    "*.js",
+    "*.jsx",
+    "*.md",
+    "*.json",
+    "*.yaml",
+    "*.yml",
+    "*.html",
+    "*.css",
+    "*.scss"
+  ],
+  "git_config": {
+    "user_name": "LaunchX Auto Sync",
+    "user_email": "auto-sync@launchx.ai"
+  },
+  "notification": {
+    "enabled": true,
+    "webhook_url": "",
+    "email": ""
+  }
+}

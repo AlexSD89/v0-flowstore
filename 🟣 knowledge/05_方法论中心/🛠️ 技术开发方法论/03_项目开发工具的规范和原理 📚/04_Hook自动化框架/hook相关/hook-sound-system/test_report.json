@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-08-14 11:21:18",
+  "results": {
+    "basic": {
+      "sound_engine_init": true,
+      "config_loading": true,
+      "context_detection": true,
+      "level_analysis": true
+    },
+    "playback": {
+      "sound_minor_task": true,
+      "sound_completion": true,
+      "sound_major_success": true,
+      "sound_warning": true,
+      "sound_error": true
+    },
+    "scenarios": {
+      "scenario_development": true,
+      "scenario_deep_focus": true,
+      "scenario_testing": true,
+      "sound_filtering": true
+    },
+    "hooks": {
+      "hook_script_exists": true,
+      "hook_test": true,
+      "hook_completion": true,
+      "hook_build-completed": true
+    }
+  },
+  "summary": {
+    "total_tests": 17,
+    "passed_tests": 17,
+    "pass_rate": 100.0
+  }
+}

@@ -1,0 +1,71 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit hooks..."
+
+# Run type checking
+echo "📝 Type checking..."
+npm run type-check
+if [ $? -ne 0 ]; then
+  echo "❌ Type check failed. Please fix TypeScript errors before committing."
+  exit 1
+fi
+
+# Run linting
+echo "🧹 Linting..."
+npm run lint
+if [ $? -ne 0 ]; then
+  echo "❌ Lint check failed. Please fix linting errors before committing."
+  exit 1
+fi
+
+# Run Prettier formatting check
+echo "💄 Checking code formatting..."
+npx prettier --check .
+if [ $? -ne 0 ]; then
+  echo "❌ Code formatting check failed. Running Prettier to fix formatting..."
+  npx prettier --write .
+  echo "✅ Code has been formatted. Please review and stage the changes."
+  exit 1
+fi
+
+# Run tests (if they exist and are configured)
+if [ -d "src/__tests__" ] || [ -d "__tests__" ] || ls src/**/*.test.* 1> /dev/null 2>&1; then
+  echo "🧪 Running tests..."
+  npm run test -- --watchAll=false --passWithNoTests
+  if [ $? -ne 0 ]; then
+    echo "❌ Tests failed. Please fix failing tests before committing."
+    exit 1
+  fi
+fi
+
+# Check for database schema changes
+if git diff --cached --name-only | grep -q "prisma/schema.prisma"; then
+  echo "📊 Database schema changes detected..."
+  echo "⚠️  Make sure to run 'npm run db:generate' if you modified the Prisma schema."
+  echo "⚠️  Consider running 'npm run db:migrate' to create a new migration."
+fi
+
+# Check for package.json changes
+if git diff --cached --name-only | grep -q "package.json"; then
+  echo "📦 package.json changes detected..."
+  echo "⚠️  Make sure to run 'npm install' to update dependencies."
+  
+  # Check if package-lock.json is also staged
+  if ! git diff --cached --name-only | grep -q "package-lock.json"; then
+    echo "⚠️  package-lock.json is not staged. This might cause dependency issues."
+  fi
+fi
+
+# Check for environment file changes
+if git diff --cached --name-only | grep -q ".env"; then
+  echo "🔒 Environment file changes detected..."
+  echo "⚠️  Make sure not to commit sensitive information in .env files."
+  echo "⚠️  Consider using .env.example for documentation."
+fi
+
+# Validate commit message format (if commitizen is configured)
+# This is handled by the commit-msg hook
+
+echo "✅ All pre-commit checks passed!"
+echo "🚀 Ready to commit!"

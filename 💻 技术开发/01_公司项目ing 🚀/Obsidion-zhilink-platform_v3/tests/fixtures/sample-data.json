@@ -1,0 +1,243 @@
+{
+  "users": {
+    "buyer": {
+      "id": "user-buyer-1",
+      "name": "张三",
+      "email": "zhangsan@company.com",
+      "currentRole": "buyer",
+      "availableRoles": ["buyer", "vendor", "distributor"],
+      "verified": true,
+      "company": "测试科技有限公司",
+      "industry": "电子商务",
+      "memberSince": "2023-01-15T00:00:00Z"
+    },
+    "vendor": {
+      "id": "user-vendor-1", 
+      "name": "李四",
+      "email": "lisi@aicompany.com",
+      "currentRole": "vendor",
+      "availableRoles": ["buyer", "vendor"],
+      "verified": true,
+      "company": "AI创新科技",
+      "industry": "人工智能",
+      "memberSince": "2022-08-20T00:00:00Z"
+    },
+    "distributor": {
+      "id": "user-distributor-1",
+      "name": "王五", 
+      "email": "wangwu@marketing.com",
+      "currentRole": "distributor",
+      "availableRoles": ["buyer", "distributor"],
+      "verified": true,
+      "company": "营销推广工作室",
+      "industry": "数字营销",
+      "memberSince": "2023-03-10T00:00:00Z"
+    }
+  },
+  "products": [
+    {
+      "id": "product-1",
+      "name": "智能客服机器人Pro",
+      "description": "基于大语言模型的智能客服系统，支持多轮对话、情感识别、知识库问答，7×24小时全天候服务",
+      "type": "workforce",
+      "vendor": {
+        "id": "vendor-1",
+        "name": "AI创新科技",
+        "verified": true,
+        "rating": 4.8
+      },
+      "pricing": {
+        "model": "subscription",
+        "basePrice": 299,
+        "currency": "¥",
+        "period": "月",
+        "commissionRate": 20
+      },
+      "capabilities": ["自然语言处理", "多轮对话", "情感分析", "知识库管理", "API集成"],
+      "metrics": {
+        "rating": 4.8,
+        "reviewCount": 256,
+        "userCount": 3200,
+        "successRate": 96,
+        "responseTime": "< 500ms",
+        "uptime": 99.8
+      },
+      "tags": ["客服", "AI", "自动化", "NLP"],
+      "featured": true,
+      "trending": true,
+      "status": "active",
+      "category": "客户服务",
+      "compatibility": ["REST API", "SDK", "Webhook"]
+    },
+    {
+      "id": "product-2",
+      "name": "数据分析专家模块",
+      "description": "专业的数据挖掘和分析模块，包含统计分析、预测建模、可视化报表等功能，帮助企业快速洞察数据价值",
+      "type": "expert_module",
+      "vendor": {
+        "id": "vendor-2",
+        "name": "数据智能实验室",
+        "verified": true,
+        "rating": 4.9
+      },
+      "pricing": {
+        "model": "one_time",
+        "basePrice": 1999,
+        "currency": "¥",
+        "commissionRate": 15
+      },
+      "capabilities": ["数据清洗", "统计分析", "预测建模", "可视化", "报表生成"],
+      "metrics": {
+        "rating": 4.9,
+        "reviewCount": 89,
+        "userCount": 456,
+        "successRate": 99,
+        "uptime": 99.9
+      },
+      "tags": ["数据分析", "预测", "可视化", "统计"],
+      "featured": false,
+      "trending": true,
+      "status": "active",
+      "category": "数据分析",
+      "compatibility": ["Python", "R", "Excel", "BI工具"]
+    },
+    {
+      "id": "product-3",
+      "name": "电商行业AI趋势报告2024",
+      "description": "深度分析电商行业AI应用现状、发展趋势、投资机会和技术演进，基于1000+企业调研和专家访谈",
+      "type": "market_report",
+      "vendor": {
+        "id": "vendor-3",
+        "name": "产业研究院",
+        "verified": true,
+        "rating": 4.7
+      },
+      "pricing": {
+        "model": "one_time",
+        "basePrice": 599,
+        "currency": "¥",
+        "commissionRate": 25
+      },
+      "capabilities": ["行业分析", "趋势预测", "投资建议", "竞争分析"],
+      "metrics": {
+        "rating": 4.7,
+        "reviewCount": 123,
+        "userCount": 890,
+        "successRate": 98
+      },
+      "tags": ["电商", "报告", "趋势", "投资"],
+      "featured": true,
+      "trending": false,
+      "status": "active",
+      "category": "行业报告",
+      "compatibility": ["PDF", "PPT", "在线查看"]
+    }
+  ],
+  "collaborationSessions": [
+    {
+      "id": "session-1",
+      "userQuery": "我需要一个AI客服系统，能够处理多语言客户咨询，支持情感识别",
+      "phase": "completed",
+      "agents": [
+        {
+          "id": "alex",
+          "name": "Alex",
+          "title": "需求理解专家",
+          "status": "completed",
+          "progress": 100,
+          "confidence": 0.92,
+          "lastMessage": "需求分析完成：核心需求是多语言智能客服"
+        },
+        {
+          "id": "sarah",
+          "name": "Sarah", 
+          "title": "技术架构师",
+          "status": "completed",
+          "progress": 100,
+          "confidence": 0.88,
+          "lastMessage": "技术方案设计完成：推荐多语言NLP + 情感分析架构"
+        }
+      ],
+      "insights": {
+        "alex": {
+          "analysis": "基于需求分析，客户需要一个支持多语言的智能客服系统，核心痛点是人工客服无法7×24小时覆盖多个语言区域",
+          "recommendations": [
+            "实施多语言AI客服机器人",
+            "集成情感识别提升服务质量",
+            "保留人工客服处理复杂问题",
+            "建立多语言知识库"
+          ],
+          "confidence": 0.92,
+          "dataPoints": {
+            "complexity": "medium-high",
+            "urgency": "high", 
+            "languages": ["中文", "英文", "日文"],
+            "expectedVolume": "1000+/day"
+          }
+        }
+      },
+      "synthesis": {
+        "summary": "基于6位专家深度分析，为您设计了一套完整的多语言AI客服解决方案",
+        "keyFindings": [
+          "多语言客服需求明确，技术实现可行性高",
+          "情感识别能力可显著提升客户满意度",
+          "预期能够减少70%人工客服工作量",
+          "投资回报周期约8个月"
+        ],
+        "recommendations": [
+          "第一阶段：构建中英文AI客服核心能力",
+          "第二阶段：扩展日文等其他语言支持", 
+          "第三阶段：深度集成CRM和业务系统",
+          "建议总预算：25-35万元"
+        ],
+        "nextSteps": [
+          "确认支持语言范围和优先级",
+          "评估现有客服数据质量",
+          "选择技术供应商进行POC",
+          "制定详细实施时间表"
+        ],
+        "confidence": 0.89
+      },
+      "startTime": "2024-01-15T10:00:00Z",
+      "progress": 100
+    }
+  ],
+  "categories": [
+    {
+      "id": "customer-service",
+      "name": "客户服务",
+      "description": "客服机器人、工单系统、客户管理等解决方案",
+      "productCount": 156
+    },
+    {
+      "id": "data-analytics", 
+      "name": "数据分析",
+      "description": "数据挖掘、商业智能、预测分析等工具",
+      "productCount": 89
+    },
+    {
+      "id": "marketing-automation",
+      "name": "营销自动化", 
+      "description": "营销工具、用户画像、精准投放等方案",
+      "productCount": 67
+    },
+    {
+      "id": "content-generation",
+      "name": "内容生成",
+      "description": "文本生成、图像生成、视频制作等AI工具", 
+      "productCount": 123
+    }
+  ],
+  "searchSuggestions": [
+    "AI客服",
+    "客服机器人", 
+    "数据分析",
+    "营销自动化",
+    "内容生成",
+    "语音识别",
+    "图像识别",
+    "推荐系统",
+    "风控系统",
+    "智能翻译"
+  ]
+}

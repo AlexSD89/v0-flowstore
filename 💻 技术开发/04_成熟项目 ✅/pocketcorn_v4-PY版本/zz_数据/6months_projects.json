@@ -1,0 +1,156 @@
+{
+  "search_metadata": {
+    "search_date": "2025-08-05T16:20:33.807902",
+    "period": "6_months",
+    "date_range": {
+      "start": "2025-02-01",
+      "end": "2025-08-05"
+    },
+    "criteria": {
+      "MRR_RANGE": [
+        20000,
+        250000
+      ],
+      "TEAM_SIZE": [
+        3,
+        8
+      ],
+      "LOCATION": [
+        "北京",
+        "上海",
+        "深圳",
+        "杭州",
+        "广州"
+      ],
+      "BUSINESS_MODEL": "SaaS订阅",
+      "FUNDING_STAGE": [
+        "Pre-seed",
+        "Seed",
+        "Pre-A"
+      ]
+    },
+    "total_projects": 6
+  },
+  "projects": [
+    {
+      "name": "智影AI视频",
+      "category": "AI视频生成",
+      "team_size": 5,
+      "mrr": 22000,
+      "growth_rate": 0.42,
+      "location": "深圳",
+      "founding_date": "2025-03-15",
+      "commercial_start": "2025-04-01",
+      "media_presence": {
+        "小红书": 2800,
+        "抖音": 5200,
+        "B站": 1800
+      },
+      "founder_background": "前字节跳动产品经理",
+      "product_maturity": "产品市场匹配",
+      "customer_segment": "短视频创作者+电商",
+      "competitive_moat": "AI算法+内容生态",
+      "latest_funding": "Pre-seed轮 50万"
+    },
+    {
+      "name": "慧算AI财务",
+      "category": "AI企业服务",
+      "team_size": 4,
+      "mrr": 18000,
+      "growth_rate": 0.35,
+      "location": "北京",
+      "founding_date": "2025-02-20",
+      "commercial_start": "2025-03-15",
+      "media_presence": {
+        "公众号": 3200,
+        "知乎": 1200,
+        "小红书": 800
+      },
+      "founder_background": "前用友+德勤复合背景",
+      "product_maturity": "MVP已验证",
+      "customer_segment": "中小企业财务自动化",
+      "competitive_moat": "财税AI模型",
+      "latest_funding": "种子轮 30万"
+    },
+    {
+      "name": "快写AI文案",
+      "category": "AI内容创作",
+      "team_size": 6,
+      "mrr": 25000,
+      "growth_rate": 0.28,
+      "location": "杭州",
+      "founding_date": "2025-01-10",
+      "commercial_start": "2025-02-20",
+      "media_presence": {
+        "小红书": 4500,
+        "抖音": 6800,
+        "公众号": 2800
+      },
+      "founder_background": "前阿里内容运营专家",
+      "product_maturity": "规模化阶段",
+      "customer_segment": "电商+自媒体",
+      "competitive_moat": "行业模板库",
+      "latest_funding": "Pre-A轮 80万"
+    },
+    {
+      "name": "图灵AI设计",
+      "category": "AI设计工具",
+      "team_size": 3,
+      "mrr": 12000,
+      "growth_rate": 0.38,
+      "location": "杭州",
+      "founding_date": "2025-03-08",
+      "commercial_start": "2025-04-10",
+      "media_presence": {
+        "小红书": 5200,
+        "抖音": 2800,
+        "B站": 1500
+      },
+      "founder_background": "前Canva高级设计师",
+      "product_maturity": "MVP迭代中",
+      "customer_segment": "设计师+电商卖家",
+      "competitive_moat": "垂直场景优化",
+      "latest_funding": "种子轮 20万"
+    },
+    {
+      "name": "智聊AI客服",
+      "category": "AI客户服务",
+      "team_size": 7,
+      "mrr": 28000,
+      "growth_rate": 0.32,
+      "location": "深圳",
+      "founding_date": "2025-02-05",
+      "commercial_start": "2025-03-01",
+      "media_presence": {
+        "小红书": 1800,
+        "抖音": 4200,
+        "知乎": 2200
+      },
+      "founder_background": "前腾讯企业服务+前阿里云专家",
+      "product_maturity": "产品市场匹配",
+      "customer_segment": "SaaS企业+电商",
+      "competitive_moat": "多语言AI客服",
+      "latest_funding": "Pre-seed轮 60万"
+    },
+    {
+      "name": "易译AI翻译",
+      "category": "AI语言服务",
+      "team_size": 4,
+      "mrr": 15000,
+      "growth_rate": 0.45,
+      "location": "北京",
+      "founding_date": "2025-04-12",
+      "commercial_start": "2025-05-01",
+      "media_presence": {
+        "知乎": 2800,
+        "B站": 1200,
+        "公众号": 1800
+      },
+      "founder_background": "前有道翻译+Google AI研究员",
+      "product_maturity": "MVP已验证",
+      "customer_segment": "跨境电商+内容国际化",
+      "competitive_moat": "专业领域翻译模型",
+      "latest_funding": "种子轮 25万"
+    }
+  ]
+}

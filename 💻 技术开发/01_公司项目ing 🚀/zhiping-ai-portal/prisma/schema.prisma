@@ -1,0 +1,359 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User management
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  name              String?
+  company           String?
+  position          String?
+  phone             String?
+  avatar            String?
+  hashedPassword    String?
+  emailVerified     DateTime?
+  role              UserRole @default(USER)
+  plan              PlanType @default(FREE)
+  credits           Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  accounts          Account[]
+  sessions          Session[]
+  evaluations       Evaluation[]
+  projects          Project[]
+  subscriptions     Subscription[]
+  orders            Order[]
+  consultations     Consultation[]
+  
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// AI Products and Evaluation
+model AIProduct {
+  id              String   @id @default(cuid())
+  name            String
+  description     String   @db.Text
+  category        ProductCategory
+  vendor          String
+  website         String?
+  logo            String?
+  pricing         Json?
+  features        Json?
+  specifications  Json?
+  status          ProductStatus @default(ACTIVE)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  evaluations     Evaluation[]
+  comparisons     Comparison[]
+  
+  @@map("ai_products")
+}
+
+model Evaluation {
+  id                    String   @id @default(cuid())
+  userId                String
+  productId             String
+  overallScore          Float
+  technicalScore        Float
+  businessScore         Float
+  securityScore         Float
+  costScore            Float
+  serviceScore         Float
+  ecosystemScore       Float
+  detailedReport        Json?
+  recommendations       Json?
+  status               EvaluationStatus @default(PENDING)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  user                 User @relation(fields: [userId], references: [id])
+  product              AIProduct @relation(fields: [productId], references: [id])
+  
+  @@map("evaluations")
+}
+
+model Comparison {
+  id              String   @id @default(cuid())
+  name            String
+  description     String?
+  productIds      String[]
+  criteria        Json?
+  results         Json?
+  isPublic        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  products        AIProduct[]
+  
+  @@map("comparisons")
+}
+
+// Project Management
+model Project {
+  id              String   @id @default(cuid())
+  userId          String
+  name            String
+  description     String   @db.Text
+  industry        String
+  budget          Float?
+  timeline        String?
+  requirements    Json?
+  status          ProjectStatus @default(PLANNING)
+  successMetrics  Json?
+  riskAssessment  Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User @relation(fields: [userId], references: [id])
+  consultations   Consultation[]
+  
+  @@map("projects")
+}
+
+model Consultation {
+  id              String   @id @default(cuid())
+  userId          String
+  projectId       String?
+  type            ConsultationType
+  subject         String
+  description     String   @db.Text
+  status          ConsultationStatus @default(PENDING)
+  priority        Priority @default(MEDIUM)
+  scheduledAt     DateTime?
+  completedAt     DateTime?
+  notes           String?  @db.Text
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User @relation(fields: [userId], references: [id])
+  project         Project? @relation(fields: [projectId], references: [id])
+  
+  @@map("consultations")
+}
+
+// Subscription and Payment
+model Subscription {
+  id              String   @id @default(cuid())
+  userId          String
+  plan            PlanType
+  status          SubscriptionStatus
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  stripePriceId        String?
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  user            User @relation(fields: [userId], references: [id])
+  
+  @@map("subscriptions")
+}
+
+model Order {
+  id              String   @id @default(cuid())
+  userId          String
+  type            OrderType
+  amount          Float
+  currency        String   @default("CNY")
+  status          OrderStatus @default(PENDING)
+  stripePaymentIntentId String?
+  items           Json?
+  metadata        Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User @relation(fields: [userId], references: [id])
+  
+  @@map("orders")
+}
+
+// Content Management
+model Article {
+  id              String   @id @default(cuid())
+  title           String
+  slug            String   @unique
+  content         String   @db.Text
+  excerpt         String?
+  coverImage      String?
+  category        ArticleCategory
+  tags            String[]
+  published       Boolean  @default(false)
+  publishedAt     DateTime?
+  views           Int      @default(0)
+  likes           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@map("articles")
+}
+
+model CaseStudy {
+  id              String   @id @default(cuid())
+  title           String
+  slug            String   @unique
+  company         String
+  industry        String
+  challenge       String   @db.Text
+  solution        String   @db.Text
+  results         String   @db.Text
+  metrics         Json?
+  testimonial     String?  @db.Text
+  coverImage      String?
+  published       Boolean  @default(false)
+  featured        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@map("case_studies")
+}
+
+// Enums
+enum UserRole {
+  USER
+  ADMIN
+  EVALUATOR
+  CONSULTANT
+}
+
+enum PlanType {
+  FREE
+  PROFESSIONAL
+  ENTERPRISE
+  FLAGSHIP
+}
+
+enum ProductCategory {
+  ML_PLATFORM
+  COMPUTER_VISION
+  NLP
+  SPEECH
+  RECOMMENDATION
+  AUTOMATION
+  ANALYTICS
+  OTHER
+}
+
+enum ProductStatus {
+  ACTIVE
+  INACTIVE
+  DEPRECATED
+}
+
+enum EvaluationStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
+
+enum ProjectStatus {
+  PLANNING
+  IN_PROGRESS
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+}
+
+enum ConsultationType {
+  EVALUATION
+  PROJECT_PLANNING
+  IMPLEMENTATION
+  RISK_ASSESSMENT
+  GENERAL
+}
+
+enum ConsultationStatus {
+  PENDING
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  INACTIVE
+  CANCELLED
+  PAST_DUE
+}
+
+enum OrderType {
+  SUBSCRIPTION
+  ONE_TIME_SERVICE
+  CONSULTATION
+  EVALUATION
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum ArticleCategory {
+  AI_TRENDS
+  CASE_STUDY
+  BEST_PRACTICES
+  INDUSTRY_NEWS
+  TECHNICAL_GUIDE
+}

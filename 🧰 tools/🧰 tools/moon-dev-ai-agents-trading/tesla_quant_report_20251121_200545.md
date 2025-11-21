@@ -1,0 +1,1 @@
+❌ 报告生成失败: Unknown format code 'f' for object of type 'str'

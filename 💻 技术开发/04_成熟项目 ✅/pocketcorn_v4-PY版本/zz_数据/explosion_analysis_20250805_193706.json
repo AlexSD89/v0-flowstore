@@ -1,0 +1,963 @@
+[
+  {
+    "company": {
+      "name": "AutoPrompt",
+      "github_repo": "autoprompt/autoprompt",
+      "npm_package": "@autoprompt/core",
+      "pypi_package": "autoprompt-engine",
+      "category": "PEC技术栈",
+      "location": "北京",
+      "mrr": 18000
+    },
+    "explosion_analysis": {
+      "company_name": "AutoPrompt",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453157",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453173",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453175",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453176"
+  },
+  {
+    "company": {
+      "name": "RLLabs",
+      "github_repo": "rllabs/rl-prompt-optimizer",
+      "npm_package": "@rllabs/optimizer",
+      "category": "PEC技术栈",
+      "location": "硅谷",
+      "mrr": 25000
+    },
+    "explosion_analysis": {
+      "company_name": "RLLabs",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453288",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453291",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453293",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453294"
+  },
+  {
+    "company": {
+      "name": "Contextify",
+      "github_repo": "contextify/context-engine",
+      "pypi_package": "contextify-core",
+      "category": "PEC技术栈",
+      "location": "深圳",
+      "mrr": 12000
+    },
+    "explosion_analysis": {
+      "company_name": "Contextify",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453311",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453312",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453313",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453316"
+  },
+  {
+    "company": {
+      "name": "EchoSell",
+      "github_repo": "echosell/ai-sales-copilot",
+      "npm_package": "@echosell/core",
+      "category": "电商AI工具",
+      "location": "上海",
+      "mrr": 22000
+    },
+    "explosion_analysis": {
+      "company_name": "EchoSell",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453328",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453329",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453330",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453331"
+  },
+  {
+    "company": {
+      "name": "FireBird AI",
+      "github_repo": "firebirdai/content-generator",
+      "api_endpoint": "https://api.firebirdai.com",
+      "category": "电商AI工具",
+      "location": "深圳",
+      "mrr": 16000
+    },
+    "explosion_analysis": {
+      "company_name": "FireBird AI",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453345",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453346",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453347",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453348"
+  },
+  {
+    "company": {
+      "name": "Chuhuo AI",
+      "github_repo": "chuhuoai/tiktok-analyzer",
+      "api_endpoint": "https://api.chuhuo.ai",
+      "category": "电商AI工具",
+      "location": "杭州",
+      "mrr": 15000
+    },
+    "explosion_analysis": {
+      "company_name": "Chuhuo AI",
+      "explosion_score": {
+        "total_score": 0.695,
+        "breakdown": {
+          "api_growth": 1.0,
+          "hiring_intensity": 0.2,
+          "product_signals": 0.6,
+          "customer_signals": 1.5,
+          "financial_signals": 0.0
+        },
+        "explosion_stage": "快速增长期",
+        "confidence": 0.85
+      },
+      "api_signals": {
+        "current_metrics": {
+          "github_stars": [
+            {
+              "date": "2025-07-01",
+              "value": 100
+            },
+            {
+              "date": "2025-08-01",
+              "value": 300
+            }
+          ],
+          "npm_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 1000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 2500
+            }
+          ],
+          "pypi_downloads": [
+            {
+              "date": "2025-07-01",
+              "value": 500
+            },
+            {
+              "date": "2025-08-01",
+              "value": 1200
+            }
+          ],
+          "api_calls": [
+            {
+              "date": "2025-07-01",
+              "value": 10000
+            },
+            {
+              "date": "2025-08-01",
+              "value": 25000
+            }
+          ]
+        },
+        "growth_rates": {
+          "github_stars": 200.0,
+          "npm_downloads": 150.0,
+          "pypi_downloads": 140.0,
+          "api_calls": 150.0
+        },
+        "explosion_indicator": true
+      },
+      "hiring_signals": {
+        "hiring_data": [
+          {
+            "role": "市场总监",
+            "platform": "boss_zhipin",
+            "posted_date": "2025-08-03",
+            "compensation": "30-50K"
+          },
+          {
+            "role": "增长黑客",
+            "platform": "linkedin",
+            "posted_date": "2025-08-01",
+            "compensation": "25-40K"
+          }
+        ],
+        "critical_roles": {
+          "market_director": true,
+          "growth_hacker": true,
+          "business_development": false,
+          "sales_director": false,
+          "product_manager": false
+        },
+        "explosion_signal": true,
+        "hiring_intensity": 2
+      },
+      "traditional_signals": {
+        "product_metrics": {
+          "new_features": 3,
+          "api_releases": 2,
+          "integration_announcements": 1
+        },
+        "customer_signals": {
+          "customer_growth": 150,
+          "case_studies": 3,
+          "renewal_rate": 0.85
+        },
+        "market_signals": {
+          "competitor_mentions": 0,
+          "industry_reports": 0,
+          "media_coverage": 0
+        },
+        "financial_signals": {
+          "funding_announcements": 0,
+          "revenue_growth": 0,
+          "burn_rate": 0
+        }
+      },
+      "explosion_timeline": {
+        "event": "快速增长期",
+        "timeline": "2-4周",
+        "confidence": 0.85,
+        "signals": [
+          "API增长>100%",
+          "团队扩张",
+          "客户增长"
+        ]
+      },
+      "investment_timeline": {
+        "immediate_action": "深度尽调",
+        "due_diligence": "2-3周",
+        "term_sheet": "3-4周",
+        "closing": "6-8周"
+      }
+    },
+    "real_time_signals": [
+      {
+        "type": "api_growth",
+        "signal": "GitHub stars增长200%",
+        "timestamp": "2025-08-05T19:37:06.453362",
+        "confidence": 0.9
+      },
+      {
+        "type": "hiring",
+        "signal": "招聘市场总监+增长黑客",
+        "timestamp": "2025-08-05T19:37:06.453363",
+        "confidence": 0.95
+      },
+      {
+        "type": "product",
+        "signal": "发布新API版本",
+        "timestamp": "2025-08-05T19:37:06.453364",
+        "confidence": 0.8
+      }
+    ],
+    "analyzed_at": "2025-08-05T19:37:06.453365"
+  }
+]

@@ -1,0 +1,34 @@
+version: 1
+tasks:
+  image_batch_generate:
+    description: "Generic image generation hook using Flux via image-mcp"
+    context:
+      mcpServers:
+        - image-mcp
+    steps:
+      - ask: |
+          你将收到一个包含多篇图文的 JSON 数组，每项含 `title`, `body`, `tags`, `prompt_style_keywords`。
+          请为每篇内容生成用于生图的提示词，输出：
+          [{
+            "post_id": <index>,
+            "prompt": "英文提示词",
+            "negative_prompt": "需要避免的元素",
+            "aspect_ratio": "3:4"
+          }]
+      - use: image-mcp.generate
+        foreach: "{{step.prev.data}}"
+        with:
+          prompt: "{{item.prompt}}"
+          negativePrompt: "{{item.negative_prompt}}"
+          aspectRatio: "{{item.aspect_ratio}}"
+          model: "flux-schnell"
+          outputDir: "{{vars.output_dir}}"
+      - ask: |
+          将生成结果整理为 manifest：
+          [{
+            "post_id": <index>,
+            "generated_images": ["/absolute/path/img1.png", "…"],
+            "prompt": "...",
+            "model": "flux-schnell",
+            "created_at": "{{now}}"
+          }]

@@ -3,7 +3,7 @@ title: "Integration"
 owners:
   - Launch X Claude Team
 status: active
-last_update: 2025-11-13
+last_update: 2025-11-21
 version: 1.0.0
 category: "开发工具"
 tags:
@@ -13,11 +13,18 @@ tags:
 related:
   - ./README.md
   - ./instructions.md
+source: 人工采集
+impact: "协调 Codex 与 Claude Code 协作使用的高级集成技能"
 ---
 
 ---
-name: codex
-description: "Advanced Codex execution skill with enhanced thinking capabilities and Claude Code collaboration. This skill provides intelligent command construction, approval-aware execution, A/B testing capabilities, and serves as an intelligent reference system. It features deep analytical thinking, natural language understanding for complex requirements, comparative analysis between Codex and Claude Code approaches, and intelligent suggestion generation for optimal development workflows."
+name: codex-claudecode-integration
+description: >-
+  Advanced Codex execution and Claude Code collaboration skill that helps
+  design workflows where both tools are used together. This skill should be
+  used when comparing Codex and Claude Code approaches, designing hybrid
+  execution strategies, or running structured A/B tests between different
+  development workflows.
 license: Complete terms in LICENSE.txt
 ---
 

@@ -1,0 +1,121 @@
+{
+  "timestamp": "20251121_183910",
+  "tesla_analysis": {
+    "liquidity": {
+      "symbol": "TSLA",
+      "avg_daily_volume": 89109953.84615384,
+      "avg_daily_value": 36933251945.88666,
+      "volatility": 0.5045640660641918,
+      "price_impact_per_million": 1.4267563693172193e-05,
+      "liquidity_score": "A",
+      "market_cap": 1314463547392,
+      "data_quality": "✅ 真实数据"
+    },
+    "position": {
+      "symbol": "TSLA",
+      "liquidity_score": "A",
+      "optimal_position": 150000.0,
+      "min_position": 50000.0,
+      "max_position": 200000.0,
+      "position_pct_of_portfolio": 0.15,
+      "capacity_utilization": 8.122761581881546e-05,
+      "risk_adjusted_return": 0.07999982878923569,
+      "holding_period_recommendation": "1-3个月"
+    }
+  },
+  "portfolio_analysis": {
+    "timestamp": "2025-11-21T18:39:10.821521",
+    "total_portfolio_value": 1000000,
+    "total_optimal_allocation": 1050000.0,
+    "portfolio_efficiency": 0.8,
+    "remaining_capacity": -50000.0,
+    "allocation_status": "🔥 接近满仓",
+    "recommendation": "建议降低仓位或增加资金",
+    "diversification_score": "B (适度分散)",
+    "individual_positions": {
+      "TSLA": {
+        "symbol": "TSLA",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 8.122761581881546e-05,
+        "risk_adjusted_return": 0.07999982878923569,
+        "holding_period_recommendation": "1-3个月"
+      },
+      "AAPL": {
+        "symbol": "AAPL",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 0.00023538427451572292,
+        "risk_adjusted_return": 0.059999899117344435,
+        "holding_period_recommendation": "1-3个月"
+      },
+      "NVDA": {
+        "symbol": "NVDA",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 8.643923483976034e-05,
+        "risk_adjusted_return": 0.11999991075929949,
+        "holding_period_recommendation": "3-6个月"
+      },
+      "GOOGL": {
+        "symbol": "GOOGL",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 0.00033425635325181767,
+        "risk_adjusted_return": 0.04999983155236998,
+        "holding_period_recommendation": "1-3个月"
+      },
+      "MSFT": {
+        "symbol": "MSFT",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 0.0002750399335669354,
+        "risk_adjusted_return": 0.06999978026738148,
+        "holding_period_recommendation": "1-3个月"
+      },
+      "AMZN": {
+        "symbol": "AMZN",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 0.0002799481684209844,
+        "risk_adjusted_return": 0.08999974789818714,
+        "holding_period_recommendation": "1-3个月"
+      },
+      "META": {
+        "symbol": "META",
+        "liquidity_score": "A",
+        "optimal_position": 150000.0,
+        "min_position": 50000.0,
+        "max_position": 200000.0,
+        "position_pct_of_portfolio": 0.15,
+        "capacity_utilization": 0.0002755540289745291,
+        "risk_adjusted_return": 0.09999926096517428,
+        "holding_period_recommendation": "1-3个月"
+      }
+    },
+    "risk_assessment": {
+      "risk_level": "低风险",
+      "concentration_risk": 0.14285714285714285,
+      "liquidity_risk": 0.0,
+      "recommendations": []
+    }
+  }
+}

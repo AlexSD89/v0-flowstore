@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="cloudsway-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudsway 设计系统演示</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cloudsway.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .demo-section {
+            margin-bottom: var(--cloudsway-space-16);
+        }
+        
+        .demo-grid {
+            display: grid;
+            gap: var(--cloudsway-space-6);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .component-showcase {
+            padding: var(--cloudsway-space-8);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--cloudsway-radius-xl);
+        }
+        
+        .hero-section {
+            background: var(--cloudsway-gradient-surface);
+            padding: var(--cloudsway-space-24) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--cloudsway-space-8);
+            margin: var(--cloudsway-space-16) 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--cloudsway-space-6);
+        }
+        
+        .stat-number {
+            font-size: var(--cloudsway-text-4xl);
+            font-weight: var(--cloudsway-font-bold);
+            background: var(--cloudsway-gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--cloudsway-space-2);
+        }
+        
+        .feature-card {
+            padding: var(--cloudsway-space-8);
+            text-align: center;
+            border-radius: var(--cloudsway-radius-2xl);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all var(--cloudsway-duration-300) var(--cloudsway-ease-out);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--cloudsway-shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--cloudsway-gradient-primary);
+            border-radius: var(--cloudsway-radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--cloudsway-space-4);
+            font-size: var(--cloudsway-text-2xl);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav style="
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: var(--cloudsway-space-4) 0;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    ">
+        <div class="cloudsway-container">
+            <div class="cloudsway-flex cloudsway-items-center cloudsway-justify-between">
+                <div class="cloudsway-flex cloudsway-items-center">
+                    <h1 class="cloudsway-text-xl cloudsway-font-bold cloudsway-text-gradient">
+                        Cloudsway
+                    </h1>
+                </div>
+                <div class="cloudsway-flex cloudsway-items-center" style="gap: var(--cloudsway-space-6);">
+                    <a href="#components" class="cloudsway-text-muted hover:cloudsway-text-primary" style="transition: color var(--cloudsway-duration-200);">组件</a>
+                    <a href="#features" class="cloudsway-text-muted hover:cloudsway-text-primary" style="transition: color var(--cloudsway-duration-200);">特性</a>
+                    <a href="#docs" class="cloudsway-text-muted hover:cloudsway-text-primary" style="transition: color var(--cloudsway-duration-200);">文档</a>
+                    <button class="cloudsway-btn cloudsway-btn-primary">开始使用</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="cloudsway-container">
+            <div class="hero-content">
+                <h1 style="
+                    font-size: var(--cloudsway-text-6xl);
+                    font-weight: var(--cloudsway-font-extrabold);
+                    margin-bottom: var(--cloudsway-space-6);
+                    line-height: var(--cloudsway-leading-tight);
+                ">
+                    <span class="cloudsway-text-gradient">云端优雅</span><br>
+                    <span style="color: var(--foreground);">简约科技</span>
+                </h1>
+                <p style="
+                    font-size: var(--cloudsway-text-xl);
+                    color: var(--foreground-muted);
+                    margin-bottom: var(--cloudsway-space-10);
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    line-height: var(--cloudsway-leading-relaxed);
+                ">
+                    为现代科技产品提供统一、优雅、高效的设计语言。简约至上，层次清晰，优雅互动。
+                </p>
+                <div class="cloudsway-flex cloudsway-items-center cloudsway-justify-center" style="gap: var(--cloudsway-space-4);">
+                    <button class="cloudsway-btn cloudsway-btn-primary cloudsway-btn-lg">立即开始</button>
+                    <button class="cloudsway-btn cloudsway-btn-secondary cloudsway-btn-lg">查看文档</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 统计数据 -->
+    <section class="cloudsway-container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="cloudsway-text-muted">精心设计的组件</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="cloudsway-text-muted">现代 CSS 变量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">A11Y</div>
+                <div class="cloudsway-text-muted">可访问性支持</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">MIT</div>
+                <div class="cloudsway-text-muted">开源许可</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性展示 -->
+    <section id="features" class="cloudsway-container demo-section">
+        <div style="text-align: center; margin-bottom: var(--cloudsway-space-16);">
+            <h2 class="cloudsway-text-4xl cloudsway-font-bold" style="margin-bottom: var(--cloudsway-space-4);">
+                <span class="cloudsway-text-gradient">核心特性</span>
+            </h2>
+            <p class="cloudsway-text-xl cloudsway-text-muted">
+                基于现代设计原则，为开发者提供完整的设计系统
+            </p>
+        </div>
+        
+        <div class="cloudsway-grid cloudsway-lg-grid-cols-3">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="cloudsway-text-xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-3);">
+                    现代美学
+                </h3>
+                <p class="cloudsway-text-muted">
+                    基于云端美学理念，打造简洁优雅的视觉体验
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="cloudsway-text-xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-3);">
+                    高性能
+                </h3>
+                <p class="cloudsway-text-muted">
+                    使用 CSS 变量和现代技术，确保最佳性能表现
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3 class="cloudsway-text-xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-3);">
+                    高度可定制
+                </h3>
+                <p class="cloudsway-text-muted">
+                    完整的 CSS 变量系统，轻松适配品牌色彩
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 组件展示 -->
+    <section id="components" class="cloudsway-container demo-section">
+        <div style="text-align: center; margin-bottom: var(--cloudsway-space-16);">
+            <h2 class="cloudsway-text-4xl cloudsway-font-bold" style="margin-bottom: var(--cloudsway-space-4);">
+                <span class="cloudsway-text-gradient">组件展示</span>
+            </h2>
+            <p class="cloudsway-text-xl cloudsway-text-muted">
+                丰富的组件库，满足各种设计需求
+            </p>
+        </div>
+
+        <!-- 按钮组件 -->
+        <div class="demo-section">
+            <h3 class="cloudsway-text-2xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-6);">
+                按钮组件
+            </h3>
+            <div class="demo-grid">
+                <div class="component-showcase">
+                    <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                        主要按钮
+                    </h4>
+                    <div class="cloudsway-flex" style="gap: var(--cloudsway-space-3); flex-wrap: wrap;">
+                        <button class="cloudsway-btn cloudsway-btn-primary cloudsway-btn-sm">小型</button>
+                        <button class="cloudsway-btn cloudsway-btn-primary">默认</button>
+                        <button class="cloudsway-btn cloudsway-btn-primary cloudsway-btn-lg">大型</button>
+                    </div>
+                </div>
+                <div class="component-showcase">
+                    <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                        次要按钮
+                    </h4>
+                    <div class="cloudsway-flex" style="gap: var(--cloudsway-space-3); flex-wrap: wrap;">
+                        <button class="cloudsway-btn cloudsway-btn-secondary cloudsway-btn-sm">小型</button>
+                        <button class="cloudsway-btn cloudsway-btn-secondary">默认</button>
+                        <button class="cloudsway-btn cloudsway-btn-secondary cloudsway-btn-lg">大型</button>
+                    </div>
+                </div>
+                <div class="component-showcase">
+                    <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                        幽灵按钮
+                    </h4>
+                    <div class="cloudsway-flex" style="gap: var(--cloudsway-space-3); flex-wrap: wrap;">
+                        <button class="cloudsway-btn cloudsway-btn-ghost cloudsway-btn-sm">小型</button>
+                        <button class="cloudsway-btn cloudsway-btn-ghost">默认</button>
+                        <button class="cloudsway-btn cloudsway-btn-ghost cloudsway-btn-lg">大型</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 卡片组件 -->
+        <div class="demo-section">
+            <h3 class="cloudsway-text-2xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-6);">
+                卡片组件
+            </h3>
+            <div class="demo-grid">
+                <div class="cloudsway-card">
+                    <div class="cloudsway-card-header">
+                        <h4 class="cloudsway-card-title">基础卡片</h4>
+                        <p class="cloudsway-card-description">
+                            这是一个基础的卡片组件，包含标题和描述。
+                        </p>
+                    </div>
+                    <div class="cloudsway-card-content">
+                        <p>卡片内容区域，可以放置任何内容。</p>
+                    </div>
+                    <div class="cloudsway-card-footer">
+                        <button class="cloudsway-btn cloudsway-btn-primary">主要操作</button>
+                        <button class="cloudsway-btn cloudsway-btn-ghost">次要操作</button>
+                    </div>
+                </div>
+                
+                <div class="cloudsway-card-premium">
+                    <div class="cloudsway-card-header">
+                        <h4 class="cloudsway-card-title">
+                            高级卡片 
+                            <span class="cloudsway-badge cloudsway-badge-primary" style="margin-left: var(--cloudsway-space-2);">Pro</span>
+                        </h4>
+                        <p class="cloudsway-card-description">
+                            带有渐变边框的高级卡片组件。
+                        </p>
+                    </div>
+                    <div class="cloudsway-card-content">
+                        <p>这是一个带有渐变边框效果的卡片，突出显示重要内容。</p>
+                    </div>
+                    <div class="cloudsway-card-footer">
+                        <button class="cloudsway-btn cloudsway-btn-primary">升级到 Pro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 输入框组件 -->
+        <div class="demo-section">
+            <h3 class="cloudsway-text-2xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-6);">
+                输入框组件
+            </h3>
+            <div class="demo-grid">
+                <div class="component-showcase">
+                    <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                        基础输入框
+                    </h4>
+                    <div style="display: flex; flex-direction: column; gap: var(--cloudsway-space-3);">
+                        <input type="text" class="cloudsway-input" placeholder="请输入您的姓名">
+                        <input type="email" class="cloudsway-input" placeholder="请输入邮箱地址">
+                        <input type="password" class="cloudsway-input" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="component-showcase">
+                    <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                        状态样式
+                    </h4>
+                    <div style="display: flex; flex-direction: column; gap: var(--cloudsway-space-3);">
+                        <input type="text" class="cloudsway-input cloudsway-input-success" placeholder="成功状态" value="输入正确">
+                        <input type="text" class="cloudsway-input cloudsway-input-error" placeholder="错误状态" value="输入错误">
+                        <input type="text" class="cloudsway-input" placeholder="默认状态">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 标签组件 -->
+        <div class="demo-section">
+            <h3 class="cloudsway-text-2xl cloudsway-font-semibold" style="margin-bottom: var(--cloudsway-space-6);">
+                标签组件
+            </h3>
+            <div class="component-showcase">
+                <div class="cloudsway-flex" style="gap: var(--cloudsway-space-3); flex-wrap: wrap;">
+                    <span class="cloudsway-badge cloudsway-badge-primary">主要</span>
+                    <span class="cloudsway-badge cloudsway-badge-secondary">次要</span>
+                    <span class="cloudsway-badge cloudsway-badge-success">成功</span>
+                    <span class="cloudsway-badge cloudsway-badge-warning">警告</span>
+                    <span class="cloudsway-badge cloudsway-badge-error">错误</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色效果展示 -->
+    <section class="cloudsway-container demo-section">
+        <div style="text-align: center; margin-bottom: var(--cloudsway-space-16);">
+            <h2 class="cloudsway-text-4xl cloudsway-font-bold" style="margin-bottom: var(--cloudsway-space-4);">
+                <span class="cloudsway-text-gradient">特色效果</span>
+            </h2>
+            <p class="cloudsway-text-xl cloudsway-text-muted">
+                丰富的动效和视觉效果
+            </p>
+        </div>
+
+        <div class="demo-grid">
+            <div class="cloudsway-gradient-card">
+                <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                    渐变边框卡片
+                </h4>
+                <p class="cloudsway-text-muted">
+                    使用 CSS mask 实现的渐变边框效果，既现代又优雅。
+                </p>
+            </div>
+            
+            <div class="cloudsway-card cloudsway-float">
+                <h4 class="cloudsway-text-lg cloudsway-font-medium" style="margin-bottom: var(--cloudsway-space-4);">
+                    浮动动效
+                </h4>
+                <p class="cloudsway-text-muted">
+                    轻柔的浮动动画，为页面增添生动感。
+                </p>
+            </div>
+            
+            <div class="cloudsway-card">
+                <h4 class="cloudsway-text-lg cloudsway-font-medium cloudsway-text-gradient cloudsway-pulse" style="margin-bottom: var(--cloudsway-space-4);">
+                    渐变文字 + 脉冲
+                </h4>
+                <p class="cloudsway-text-muted">
+                    组合使用渐变文字和脉冲动效，突出重要信息。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 响应式网格展示 -->
+    <section class="cloudsway-container demo-section">
+        <div style="text-align: center; margin-bottom: var(--cloudsway-space-16);">
+            <h2 class="cloudsway-text-4xl cloudsway-font-bold" style="margin-bottom: var(--cloudsway-space-4);">
+                <span class="cloudsway-text-gradient">响应式布局</span>
+            </h2>
+            <p class="cloudsway-text-xl cloudsway-text-muted">
+                完善的响应式网格系统
+            </p>
+        </div>
+
+        <div class="cloudsway-grid cloudsway-grid-cols-1 cloudsway-md-grid-cols-2 cloudsway-lg-grid-cols-4">
+            <div class="cloudsway-card" style="text-align: center;">
+                <div style="
+                    width: 40px;
+                    height: 40px;
+                    background: var(--cloudsway-gradient-primary);
+                    border-radius: var(--cloudsway-radius-lg);
+                    margin: 0 auto var(--cloudsway-space-3);
+                "></div>
+                <h5 class="cloudsway-font-medium">移动端</h5>
+                <p class="cloudsway-text-sm cloudsway-text-muted">1 列布局</p>
+            </div>
+            <div class="cloudsway-card" style="text-align: center;">
+                <div style="
+                    width: 40px;
+                    height: 40px;
+                    background: var(--cloudsway-gradient-primary);
+                    border-radius: var(--cloudsway-radius-lg);
+                    margin: 0 auto var(--cloudsway-space-3);
+                "></div>
+                <h5 class="cloudsway-font-medium">平板</h5>
+                <p class="cloudsway-text-sm cloudsway-text-muted">2 列布局</p>
+            </div>
+            <div class="cloudsway-card" style="text-align: center;">
+                <div style="
+                    width: 40px;
+                    height: 40px;
+                    background: var(--cloudsway-gradient-primary);
+                    border-radius: var(--cloudsway-radius-lg);
+                    margin: 0 auto var(--cloudsway-space-3);
+                "></div>
+                <h5 class="cloudsway-font-medium">桌面</h5>
+                <p class="cloudsway-text-sm cloudsway-text-muted">4 列布局</p>
+            </div>
+            <div class="cloudsway-card" style="text-align: center;">
+                <div style="
+                    width: 40px;
+                    height: 40px;
+                    background: var(--cloudsway-gradient-primary);
+                    border-radius: var(--cloudsway-radius-lg);
+                    margin: 0 auto var(--cloudsway-space-3);
+                "></div>
+                <h5 class="cloudsway-font-medium">大屏</h5>
+                <p class="cloudsway-text-sm cloudsway-text-muted">4 列布局</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="
+        background: var(--cloudsway-gradient-surface);
+        padding: var(--cloudsway-space-16) 0 var(--cloudsway-space-8);
+        margin-top: var(--cloudsway-space-24);
+        border-top: 1px solid var(--border);
+    ">
+        <div class="cloudsway-container">
+            <div style="text-align: center;">
+                <h3 class="cloudsway-text-2xl cloudsway-font-bold cloudsway-text-gradient" style="margin-bottom: var(--cloudsway-space-4);">
+                    Cloudsway 设计系统
+                </h3>
+                <p class="cloudsway-text-muted" style="margin-bottom: var(--cloudsway-space-8);">
+                    云端优雅，简约科技 - 为每个数字体验注入专业美感
+                </p>
+                <div class="cloudsway-flex cloudsway-items-center cloudsway-justify-center" style="gap: var(--cloudsway-space-4);">
+                    <button class="cloudsway-btn cloudsway-btn-primary">立即开始</button>
+                    <button class="cloudsway-btn cloudsway-btn-secondary">GitHub</button>
+                </div>
+                <div style="
+                    margin-top: var(--cloudsway-space-12);
+                    padding-top: var(--cloudsway-space-6);
+                    border-top: 1px solid var(--border);
+                    color: var(--foreground-muted);
+                    font-size: var(--cloudsway-text-sm);
+                ">
+                    © 2025 LaunchX. 基于 MIT 许可证开源。
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -2,40 +2,38 @@
 title: "Tool"
 owners:
   - Launch X Claude Team
+  - LaunchX Skills团队
 status: active
-last_update: 2025-11-13
+last_update: 2025-11-21
 version: 1.0.0
 category: "开发工具"
 tags:
   - LaunchX
   - AI技能
   - 专业工具
-related:
-  - ./README.md
-  - ./instructions.md
----
-
----
-name: codex
-title: LaunchX Codex Execution Skill
-description: LaunchX Guardrailed Codex CLI integration for Claude Code，确保命令审批、最小权限与验证闭环。
-allowed-tools:
-  - bash:read-only
-  - python:read-only
-  - read
-owners:
-  - LaunchX Skills团队
-status: active
-last_update: '2025-10-31'
+  - codex
+  - guardrails
 related:
   - ./README.md
   - ./instructions.md
 source: 人工采集
-impact: 规范 Codex CLI 在 Claude Code 场景下的指令构建、执行与归档流程
-tags:
-  - codex
-  - guardrails
+impact: "规范 Codex CLI 在 Claude Code 场景下的指令构建、执行与归档流程"
+allowed-tools:
+  - bash:read-only
+  - python:read-only
+  - read
 location: user
+---
+
+---
+name: codex-execution-tool
+description: >-
+  Guardrailed Codex CLI integration for Claude Code that enforces
+  approval-aware, least-privilege command execution and verification loops.
+  This skill should be used whenever Claude needs to run `codex exec` for
+  LaunchX projects while respecting the Collect → Align → Deliver → Archive
+  workflow and safety guardrails.
+license: Complete terms in LICENSE.txt
 ---
 
 # LaunchX Codex Execution Skill
