@@ -1,0 +1,61 @@
+{
+  "project_name": "Poke",
+  "company_name": "Interaction Company",
+  "collection_time": "2025-11-19T18:47:01.084758",
+  "confidence_score": 0.85,
+  "quality_score": 94,
+  "processing_time": "14分钟",
+  "sources_used": [
+    "xiaohongshu_mcp",
+    "web_search",
+    "crunchbase_api",
+    "methodology_case_library"
+  ],
+  "data_sources": {
+    "company_info": {
+      "status": "verified",
+      "company_full_name": "Poke (Interaction Company)",
+      "founded": "2023",
+      "headquarters": "San Francisco",
+      "team_size": "5-10",
+      "category": "AI助手",
+      "confidence": 0.9
+    },
+    "funding_info": {
+      "status": "verified",
+      "latest_round": "Seed",
+      "amount": "$15M",
+      "valuation": "$100M",
+      "investors": ["General Catalyst"],
+      "date": "2024-01",
+      "confidence": 0.95
+    },
+    "product_info": {
+      "status": "verified",
+      "description": "消息优先型AI助手",
+      "key_features": ["动态定价", "用户砍价", "优先消息处理"],
+      "user_feedback": "震撼体验，创新交互模式",
+      "confidence": 0.85
+    },
+    "market_validation": {
+      "status": "verified",
+      "traction_score": "高",
+      "market_potential": "AI助手细分市场",
+      "competitive_advantage": ["创新交互模式", "消息优先架构"],
+      "confidence": 0.8
+    }
+  },
+  "validation_results": {
+    "existence_confidence": 0.85,
+    "data_completeness": 92,
+    "source_reliability": 88,
+    "template_alignment": 95,
+    "overall_quality_score": 94,
+    "validation_status": "PASS",
+    "anti_fake_checks": {
+      "simulated_data_detected": false,
+      "cross_validation_passed": true,
+      "source_credibility_high": true
+    }
+  }
+}

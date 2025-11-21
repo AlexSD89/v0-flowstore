@@ -1,0 +1,151 @@
+{
+  "ai_industry_benchmarks": {
+    "recommendation_systems": {
+      "accuracy_rates": {
+        "industry_leaders": {
+          "netflix": 80,
+          "spotify": 75,
+          "amazon": 78,
+          "youtube": 76
+        },
+        "realistic_range": [70, 85],
+        "unrealistic_threshold": 90,
+        "excellent_threshold": 82
+      },
+      "response_times": {
+        "unit": "ms",
+        "industry_leaders": {
+          "netflix": 150,
+          "spotify": 100,
+          "amazon": 120,
+          "tiktok": 80
+        },
+        "realistic_range": [50, 200],
+        "excellent_threshold": 100
+      },
+      "user_satisfaction": {
+        "industry_average": 4.2,
+        "realistic_range": [3.5, 4.8],
+        "excellent_threshold": 4.5
+      }
+    },
+    "funding_stages": {
+      "pre_seed": {
+        "range": [50000, 500000],
+        "typical": 150000
+      },
+      "seed": {
+        "range": [100000, 3000000],
+        "typical": 800000
+      },
+      "series_a": {
+        "range": [2000000, 15000000],
+        "typical": 5000000
+      },
+      "series_b": {
+        "range": [5000000, 40000000],
+        "typical": 15000000
+      },
+      "series_c": {
+        "range": [15000000, 100000000],
+        "typical": 50000000
+      },
+      "series_d": {
+        "range": [50000000, 300000000],
+        "typical": 150000000
+      }
+    },
+    "revenue_growth": {
+      "pre_seed_to_seed": {
+        "realistic": [100, 1000],
+        "excellent": 500
+      },
+      "seed_to_a": {
+        "realistic": [100, 500],
+        "excellent": 300
+      },
+      "a_to_b": {
+        "realistic": [150, 400],
+        "excellent": 250
+      },
+      "b_to_c": {
+        "realistic": [100, 300],
+        "excellent": 200
+      },
+      "c_to_d": {
+        "realistic": [50, 200],
+        "excellent": 150
+      }
+    },
+    "revenue_multiples": {
+      "saas_typical": {
+        "min": 5,
+        "max": 15,
+        "industry_avg": 8
+      },
+      "ai_premium": {
+        "min": 8,
+        "max": 25,
+        "industry_avg": 12
+      },
+      "high_growth": {
+        "min": 12,
+        "max": 40,
+        "industry_avg": 20
+      }
+    },
+    "user_metrics": {
+      "monthly_active_users": {
+        "early_stage": {
+          "realistic_range": [1000, 100000],
+          "growth_rate": [50, 300]
+        },
+        "growth_stage": {
+          "realistic_range": [100000, 1000000],
+          "growth_rate": [20, 150]
+        },
+        "mature_stage": {
+          "realistic_range": [1000000, 10000000],
+          "growth_rate": [5, 50]
+        }
+      },
+      "conversion_rates": {
+        "visitor_to_signup": {
+          "industry_avg": 0.025,
+          "realistic_range": [0.01, 0.05],
+          "excellent_threshold": 0.03
+        },
+        "signup_to_paid": {
+          "industry_avg": 0.03,
+          "realistic_range": [0.01, 0.08],
+          "excellent_threshold": 0.05
+        }
+      }
+    },
+    "team_metrics": {
+      "team_size_by_stage": {
+        "seed": [2, 10],
+        "series_a": [10, 30],
+        "series_b": [30, 75],
+        "series_c": [75, 200]
+      },
+      "technical_team_ratio": {
+        "realistic_range": [0.3, 0.7],
+        "industry_avg": 0.5,
+        "excellent_threshold": 0.6
+      }
+    }
+  },
+  "credibility_weights": {
+    "tier_1_official": 1.0,
+    "tier_2_professional": 0.8,
+    "tier_3_industry": 0.6,
+    "tier_4_contextual": 0.3
+  },
+  "quality_factors": {
+    "source_reliability": 0.4,
+    "data_freshness": 0.3,
+    "consistency_check": 0.2,
+    "completeness": 0.1
+  }
+}

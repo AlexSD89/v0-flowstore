@@ -1,4 +1,4 @@
-import { App, Plugin, PluginSettingTab, Setting, MarkdownView, Notice, Modal, ButtonComponent, TextAreaComponent, DropdownComponent, requestUrl } from 'obsidian';
+import { App, Plugin, PluginSettingTab, Setting, MarkdownView, Notice, Modal, ButtonComponent, TextAreaComponent, DropdownComponent } from 'obsidian';
 
 // AI模型配置接口 - 基于成功插件的模式
 interface AIModelConfig {
@@ -13,7 +13,6 @@ interface AIModelConfig {
 	headers?: Record<string, string>; // 自定义请求头
 	proxyUrl?: string; // 可选代理URL
 	useStream?: boolean; // 是否使用流式响应
-	presetId?: string; // 使用的模型预设模板ID（可选）
 }
 
 // 平台配置接口
@@ -41,50 +40,16 @@ interface ContentDistributorSettings {
 	retryStrategy: 'exponential' | 'linear' | 'none';
 }
 
-// 智谱GLM模型预设模板配置
-interface ZhipuModelPreset {
-	id: string;
-	name: string;
-	modelId: string;
-	maxTokens: number;
-	temperature: number;
-}
-
-const ZHIPU_MODEL_PRESETS: ZhipuModelPreset[] = [
-	{
-		id: 'glm-4.6-standard',
-		name: 'GLM-4.6 高质量（推荐）',
-		modelId: 'glm-4.6',
-		maxTokens: 3000,
-		temperature: 0.7,
-	},
-	{
-		id: 'glm-4.5-standard',
-		name: 'GLM-4.5 通用',
-		modelId: 'glm-4.5',
-		maxTokens: 2000,
-		temperature: 0.7,
-	},
-	{
-		id: 'glm-4.5-air-lowcost',
-		name: 'GLM-4.5-Air 低成本模板',
-		modelId: 'glm-4.5-air',
-		maxTokens: 1500,
-		temperature: 0.6,
-	},
-];
-
 // 基于智谱AI官方推荐的默认设置
 const DEFAULT_SETTINGS: ContentDistributorSettings = {
 	aiModels: [
 		{
 			name: 'GLM-4.6-官方模式',
-			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
+			apiKey: '720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
 			modelId: 'glm-4.6',
 			maxTokens: 3000, // 官方推荐值
 			temperature: 0.7,
-			presetId: 'glm-4.6-standard',
 			timeout: 30000, // 30秒超时
 			headers: {
 				'Content-Type': 'application/json',
@@ -94,16 +59,15 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
 		},
 		{
 			name: 'GLM-4.6-兼容模式',
-			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
+			apiKey: '720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
 			modelId: 'glm-4.6',
 			maxTokens: 2000, // 保守值
 			temperature: 0.5, // 较低的temperature更稳定
-			presetId: 'glm-4.6-standard',
 			timeout: 45000, // 45秒超时，更宽松
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
+				'Authorization': 'Bearer 720ce7aeeca047e9aa2788c7f4346aea.BbkmxXWxYvhj7iEV',
 				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
 			},
 			useStream: false
@@ -155,9 +119,6 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
 	globalTimeout: 30000,
 	retryStrategy: 'exponential'
 };
-
-// 全局并发控制 - 基于智谱AI官方Rate Limiting政策
-let activeApiRequest: Promise<string> | null = null;
 
 // 改进的内容分发模态框
 class ContentDistributorModal extends Modal {
@@ -305,90 +266,52 @@ class ContentDistributorModal extends Modal {
 		}
 	}
 
-	// 基于智谱AI官方Rate Limiting政策的并发控制API调用
+	// 改进的AI调用方法 - 基于成功插件的模式
 	async callAIImproved(prompt: string): Promise<string> {
-		// 如果已经有请求在进行，等待完成
-		if (activeApiRequest) {
-			try {
-				return await activeApiRequest;
-			} catch (error) {
-				// 如果之前的请求失败，继续尝试新请求
-				console.warn('Previous API request failed, retrying:', error);
-			}
-		}
-
-		// 创建新的API请求
-		activeApiRequest = this.executeApiRequest(prompt);
+		const controller = new AbortController();
+		const timeoutId = setTimeout(() => controller.abort(), this.selectedModel.timeout);
 
 		try {
-			const result = await activeApiRequest;
-			return result;
-		} finally {
-			// 请求完成后清除全局状态
-			activeApiRequest = null;
-		}
-	}
+			// 构建请求体 - 使用智谱AI官方格式
+			const requestBody = {
+				model: this.selectedModel.modelId,
+				messages: [
+					{
+						role: "user",
+						content: prompt.length > 4000 ? prompt.substring(0, 4000) + "..." : prompt
+					}
+				],
+				max_tokens: this.selectedModel.maxTokens,
+				temperature: this.selectedModel.temperature,
+				stream: false
+			};
 
-	// 实际执行API请求的方法
-	private async executeApiRequest(prompt: string): Promise<string> {
-		try {
-			// 使用BMO Chatbot相同的请求格式和Obsidian的requestUrl方法
-			const response = await requestUrl({
-				url: `${this.selectedModel.endpoint}/chat/completions`,
+			const response = await fetch(`${this.selectedModel.endpoint}/chat/completions`, {
 				method: 'POST',
 				headers: {
-					// 允许自定义请求头，但 Authorization 始终以当前配置的 apiKey 为准
-					...(this.selectedModel.headers || {}),
+					'Authorization': `Bearer ${this.selectedModel.apiKey}`,
 					'Content-Type': 'application/json',
-					'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA'
+					...this.selectedModel.headers
 				},
-				body: JSON.stringify({
-					model: this.selectedModel.modelId,
-					messages: [
-						{
-							role: "user",
-							content: prompt.length > 4000 ? prompt.substring(0, 4000) + "..." : prompt
-						}
-					],
-					max_tokens: this.selectedModel.maxTokens,
-					temperature: this.selectedModel.temperature,
-					stream: false
-				}),
+				body: JSON.stringify(requestBody),
+				signal: controller.signal
 			});
 
-			// BMO Chatbot格式的响应处理
-			const data = response.json;
+			clearTimeout(timeoutId);
 
-			if (response.status >= 400) {
-				// 智谱API在429时既可能表示频率限制，也可能表示余额/资源包问题
-				const errorInfo = (data && (data as any).error) || {};
-				const errorCode = (errorInfo as any).code as string | undefined;
-				const errorMessage = (errorInfo as any).message as string | undefined;
-
+			if (!response.ok) {
 				if (response.status === 429) {
-					// 智谱返回 code=1113 时，明确表示“余额不足或无可用资源包”
-					if (errorCode === '1113' || (errorMessage && errorMessage.includes('余额不足'))) {
-						throw new Error(
-							`余额不足或未开通对应API资源包，请登录智谱AI控制台检查账户余额和GLM-4.6资源包配置（错误码: ${errorCode ?? '1113'}）。`
-						);
-					}
-					throw new Error(
-						`请求频率过高或受限，请稍后重试（HTTP状态码: ${response.status}，错误码: ${errorCode ?? '未知'}）。`
-					);
+					throw new Error(`请求频率过高，请稍后再试 (状态码: ${response.status})`);
 				} else if (response.status === 401) {
-					throw new Error(
-						`API密钥无效或未配置，请在插件设置中检查密钥（HTTP状态码: ${response.status}，错误码: ${errorCode ?? '未知'}）。`
-					);
+					throw new Error(`API密钥无效，请检查配置 (状态码: ${response.status})`);
 				} else if (response.status === 403) {
-					throw new Error(
-						`API权限或配额不足，请检查是否开通对应模型权限（HTTP状态码: ${response.status}，错误码: ${errorCode ?? '未知'}）。`
-					);
+					throw new Error(`API配额不足，请检查账户 (状态码: ${response.status})`);
 				} else {
-					throw new Error(
-						`API调用失败（HTTP状态码: ${response.status}，错误信息: ${errorMessage ?? '未知错误'}）。`
-					);
+					throw new Error(`API调用失败: ${response.status} ${response.statusText}`);
 				}
 			}
+
+			const data = await response.json();
 
 			if (!data.choices || !data.choices[0] || !data.choices[0].message) {
 				throw new Error('API返回格式异常');
@@ -397,10 +320,12 @@ class ContentDistributorModal extends Modal {
 			return data.choices[0].message.content;
 
 		} catch (error) {
-			// BMO Chatbot风格的错误处理
-			if (error.message.includes('Request was aborted.')) {
+			clearTimeout(timeoutId);
+
+			if (error.name === 'AbortError') {
 				throw new Error('请求超时，请检查网络连接或稍后重试');
 			}
+
 			throw error;
 		}
 	}
@@ -525,18 +450,6 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 
 			modelContainer.createEl('h4', { text: model.name });
 
-			// 模型显示名称配置
-			new Setting(modelContainer)
-				.setName('模型名称')
-				.setDesc('用于在下拉列表中显示的名称，例如：GLM-4.6 高质量')
-				.addText(text => text
-					.setPlaceholder('请输入模型名称')
-					.setValue(model.name)
-					.onChange(async (value) => {
-						this.plugin.settings.aiModels[index].name = value || model.name;
-						await this.plugin.saveSettings();
-					}));
-
 			new Setting(modelContainer)
 				.setName('API密钥')
 				.setDesc('输入AI模型的API密钥')
@@ -572,41 +485,6 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 							await this.plugin.saveSettings();
 						}
 					}));
-
-			// 智谱GLM模型预设模板
-			new Setting(modelContainer)
-				.setName('模型模板')
-				.setDesc('选择一个智谱GLM模型预设，一键应用推荐的 modelId / max_tokens / temperature')
-				.addDropdown(dropdown => {
-					dropdown.addOption('custom', '自定义配置');
-					ZHIPU_MODEL_PRESETS.forEach(preset => {
-						dropdown.addOption(preset.id, preset.name);
-					});
-					dropdown.setValue(model.presetId ?? 'custom');
-					dropdown.onChange(async (value) => {
-						const targetModel = this.plugin.settings.aiModels[index];
-
-						if (value === 'custom') {
-							targetModel.presetId = undefined;
-						} else {
-							const preset = ZHIPU_MODEL_PRESETS.find(p => p.id === value);
-							if (preset) {
-								targetModel.presetId = preset.id;
-								targetModel.modelId = preset.modelId;
-								targetModel.maxTokens = preset.maxTokens;
-								targetModel.temperature = preset.temperature;
-								// 若端点为空，自动补齐智谱官方端点
-								if (!targetModel.endpoint) {
-									targetModel.endpoint = 'https://open.bigmodel.cn/api/paas/v4';
-								}
-							}
-						}
-
-						await this.plugin.saveSettings();
-						// 重新渲染设置界面以刷新展示
-						this.display();
-					});
-				});
 
 			const testButton = new ButtonComponent(modelContainer);
 			testButton.setButtonText('测试连接');
@@ -665,23 +543,19 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 		const notice = new Notice('正在测试连接...', 0);
 
 		try {
-			// 使用BMO Chatbot相同的requestUrl方法进行连接测试
-			const response = await requestUrl({
-				url: `${model.endpoint}/models`,
-				method: 'GET',
+			const response = await fetch(`${model.endpoint}/models`, {
 				headers: {
-					// 自定义请求头优先，但 Authorization 始终与当前 apiKey 保持一致
-					...(model.headers || {}),
-					'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA'
+					'Authorization': `Bearer ${model.apiKey}`,
+					...model.headers
 				}
 			});
 
 			notice.hide();
 
-			if (response.status < 400) {
+			if (response.ok) {
 				new Notice('连接测试成功！');
 			} else {
-				new Notice('连接测试失败：' + response.status);
+				new Notice('连接测试失败：' + response.statusText);
 			}
 		} catch (error) {
 			notice.hide();

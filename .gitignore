@@ -112,16 +112,23 @@ mcp_config_standardized.json
 .claude/.DS_Store
 
 # 图片和媒体文件（可选，根据需要调整）
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.mp4
-*.mov
-*.avi
+# 注意：允许Gemini MCP访问图片文件用于分析
+# *.jpg
+# *.jpeg
+# *.png
+# *.gif
+# *.mp4
+# *.mov
+# *.avi
 
 # 允许特定目录下的图片文件
 !.playwright-mcp/*.png
+!.playwright-mcp/*.jpg
+!.playwright-mcp/*.jpeg
+
+# 允许Gemini MCP分析的特定图片文件
+!怡苑.jpg
+!*.jpg
 
 # 文档文件（可选，根据需要调整）
 *.pdf

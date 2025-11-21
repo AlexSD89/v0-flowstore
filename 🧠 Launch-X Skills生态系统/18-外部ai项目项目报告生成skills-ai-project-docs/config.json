@@ -1,0 +1,42 @@
+{
+  "skill_name": "外部AI项目文档生成专项技能-External-AI-Project-Doc-Generation",
+  "version": "2.0.0",
+  "status": "active",
+  "category": "专业技能",
+  "created_date": "2025-01-19",
+  "last_updated": "2025-01-19",
+  "configuration": {
+    "auto_activate": true,
+    "token_limit": 8000,
+    "priority_level": 1,
+    "timeout_minutes": 15
+  },
+  "capabilities": [
+    "项目存在性验证",
+    "多源数据采集",
+    "行业基准对比",
+    "4层可信度验证",
+    "企业级文档生成",
+    "质量控制保障"
+  ],
+  "validation_thresholds": {
+    "existence_confidence": 0.6,
+    "quality_score_minimum": 90,
+    "industry_benchmark_compliance": 0.8,
+    "cross_validation_sources": 2
+  },
+  "integration_settings": {
+    "rube_mcp": {
+      "enabled": true,
+      "timeout": 30,
+      "retry_count": 3
+    },
+    "skills_collaboration": [
+      "enterprise-research-analyst",
+      "market-intelligence-expert",
+      "technical-design-expert",
+      "data-analyst",
+      "trend-researcher"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import { App, Plugin, PluginSettingTab, Setting, MarkdownView, Notice, Modal } from 'obsidian';
-import { BMOStyleAPIClient, APIError, type AIProvider } from './api-client-bmo-style';
+import { APIClient, AIProvider, APIError } from './api-client';
 
 // 基于第三方插件最佳实践的设置接口
 interface ContentDistributorSettings {
@@ -23,15 +23,6 @@ interface PlatformConfig {
 // 预定义的AI提供商配置
 const DEFAULT_PROVIDERS: AIProvider[] = [
 	{
-		id: 'zhipu-glm45-flash',
-		name: '智谱GLM-4.5-Flash (免费)',
-		baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
-		model: 'glm-4.5-flash',
-		apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
-		maxTokens: 2000,
-		temperature: 0.7
-	},
-	{
 		id: 'zhipu-glm45',
 		name: '智谱GLM-4.5',
 		baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
@@ -42,7 +33,7 @@ const DEFAULT_PROVIDERS: AIProvider[] = [
 	},
 	{
 		id: 'zhipu-glm46',
-		name: '智谱GLM-4.6 (余额不足)',
+		name: '智谱GLM-4.6',
 		baseUrl: 'https://open.bigmodel.cn/api/paas/v4',
 		model: 'glm-4.6',
 		apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
@@ -72,7 +63,7 @@ const DEFAULT_PROVIDERS: AIProvider[] = [
 // 默认设置
 const DEFAULT_SETTINGS: ContentDistributorSettings = {
 	providers: DEFAULT_PROVIDERS,
-	selectedProviderId: 'zhipu-glm45-flash', // 默认选择GLM-4.5-Flash (免费)
+	selectedProviderId: 'zhipu-glm45', // 默认选择GLM-4.5
 	platforms: [
 		{
 			id: 'xiaohongshu',
@@ -108,7 +99,7 @@ const DEFAULT_SETTINGS: ContentDistributorSettings = {
  */
 export default class ContentDistributorPlugin extends Plugin {
 	settings: ContentDistributorSettings;
-	apiClient: BMOStyleAPIClient | null = null;
+	apiClient: APIClient | null = null;
 
 	async onload() {
 		await this.loadSettings();
@@ -151,7 +142,7 @@ export default class ContentDistributorPlugin extends Plugin {
 	private initializeAPIClient() {
 		const selectedProvider = this.settings.providers.find(p => p.id === this.settings.selectedProviderId);
 		if (selectedProvider && selectedProvider.apiKey) {
-			this.apiClient = new BMOStyleAPIClient(selectedProvider);
+			this.apiClient = new APIClient(selectedProvider);
 		} else {
 			this.apiClient = null;
 		}
@@ -160,7 +151,7 @@ export default class ContentDistributorPlugin extends Plugin {
 	/**
 	 * 获取当前API客户端
 	 */
-	getCurrentAPIClient(): BMOStyleAPIClient | null {
+	getCurrentAPIClient(): APIClient | null {
 		return this.apiClient;
 	}
 
@@ -181,7 +172,7 @@ export default class ContentDistributorPlugin extends Plugin {
 			return false;
 		}
 
-		const client = new BMOStyleAPIClient(selectedProvider);
+		const client = new APIClient(selectedProvider);
 		return await client.testConnection();
 	}
 }
@@ -191,7 +182,6 @@ export default class ContentDistributorPlugin extends Plugin {
  */
 class ContentDistributorSettingTab extends PluginSettingTab {
 	plugin: ContentDistributorPlugin;
-	private providerKeyInput: HTMLInputElement | null = null;
 
 	constructor(app: App, plugin: ContentDistributorPlugin) {
 		super(app, plugin);
@@ -202,33 +192,42 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: '🚀 内容分发助手设置' });
+		containerEl.createEl('h2', { text: '内容分发助手设置' });
 
 		// AI提供商设置
-		containerEl.createEl('h3', { text: 'AI模型配置' });
+		containerEl.createEl('h3', { text: 'AI模型设置' });
 
-		// 提供商选择
 		new Setting(containerEl)
 			.setName('AI提供商')
 			.setDesc('选择要使用的AI模型提供商')
 			.addDropdown(dropdown => {
-				// 动态生成选项列表
-				const providerOptions = this.plugin.settings.providers.reduce((acc, provider) => {
-					acc[provider.id] = `${provider.name} ${provider.apiKey ? '✅' : '⚠️'}`;
-					return acc;
-				}, {} as Record<string, string>);
-
-				dropdown.addOptions(providerOptions);
+				dropdown.addOptions(
+					this.plugin.settings.providers.reduce((acc, provider) => {
+						acc[provider.id] = provider.name;
+						return acc;
+					}, {} as Record<string, string>)
+				);
 				dropdown.setValue(this.plugin.settings.selectedProviderId);
 				dropdown.onChange(async (value) => {
 					this.plugin.settings.selectedProviderId = value;
 					await this.plugin.saveSettings();
-					this.display(); // 重新渲染以更新API密钥配置
 				});
 			});
 
-		// API密钥配置 - 使用函数以便动态更新
-		this.renderProviderConfig(containerEl);
+		// API密钥配置
+		const selectedProvider = this.plugin.settings.providers.find(p => p.id === this.plugin.settings.selectedProviderId);
+		if (selectedProvider) {
+			new Setting(containerEl)
+				.setName(`${selectedProvider.name} API密钥`)
+				.setDesc('输入您的API密钥')
+				.addText(text => text
+					.setPlaceholder('输入API密钥')
+					.setValue(selectedProvider.apiKey)
+					.onChange(async (value) => {
+						selectedProvider.apiKey = value;
+						await this.plugin.saveSettings();
+					}));
+		}
 
 		// 连接测试
 		new Setting(containerEl)
@@ -249,7 +248,7 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 						if (isConnected) {
 							new Notice('✅ 连接测试成功！');
 						} else {
-							new Notice('❌ 连接测试失败，请检查API密钥配置');
+							new Notice('❌ 连接测试失败，请检查配置');
 						}
 					} catch (error) {
 						notice.hide();
@@ -262,16 +261,6 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 						button.setDisabled(false);
 						button.setText('测试连接');
 					}
-				}));
-
-		// 添加新提供商
-		new Setting(containerEl)
-			.setName('添加新提供商')
-			.setDesc('支持自定义AI提供商配置')
-			.addButton(button => button
-				.setButtonText('添加OpenAI')
-				.onClick(() => {
-					this.addOpenAIProvider();
 				}));
 
 		// 高级设置
@@ -296,88 +285,6 @@ class ContentDistributorSettingTab extends PluginSettingTab {
 					this.plugin.settings.showPreview = value;
 					await this.plugin.saveSettings();
 				}));
-	}
-
-	/**
-	 * 渲染提供商配置部分
-	 */
-	private renderProviderConfig(containerEl: HTMLElement) {
-		const selectedProvider = this.plugin.settings.providers.find(p => p.id === this.plugin.settings.selectedProviderId);
-		if (!selectedProvider) return;
-
-		const providerContainer = containerEl.createDiv('provider-config');
-		providerContainer.id = 'provider-config-container';
-
-		// API密钥配置
-		new Setting(providerContainer)
-			.setName(`${selectedProvider.name} API密钥`)
-			.setDesc(`${selectedProvider.name}的API密钥`)
-			.addText(text => {
-				this.providerKeyInput = text.inputEl;
-				text.setPlaceholder('输入API密钥');
-				text.setValue(selectedProvider.apiKey);
-				text.onChange(async (value) => {
-					selectedProvider.apiKey = value;
-					await this.plugin.saveSettings();
-					this.updateProviderDisplay();
-				});
-			});
-
-		// 模型参数配置
-		new Setting(providerContainer)
-			.setName('模型参数')
-			.setDesc('调整AI生成的参数')
-			.addSlider(slider => slider
-				.setLimits(0, 2, 0.1)
-				.setValue(selectedProvider.temperature)
-				.setDynamicTooltip()
-				.onChange(async (value) => {
-					selectedProvider.temperature = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(providerContainer)
-			.setName('最大Token数')
-			.setDesc('限制AI响应的最大长度')
-			.addSlider(slider => slider
-				.setLimits(100, 8000, 100)
-				.setValue(selectedProvider.maxTokens)
-				.setDynamicTooltip()
-				.onChange(async (value) => {
-					selectedProvider.maxTokens = value;
-					await this.plugin.saveSettings();
-				}));
-	}
-
-	/**
-	 * 更新提供商显示状态
-	 */
-	private updateProviderDisplay() {
-		const selectedProvider = this.plugin.settings.providers.find(p => p.id === this.plugin.settings.selectedProviderId);
-		if (selectedProvider && this.providerKeyInput) {
-			this.providerKeyInput.value = selectedProvider.apiKey;
-		}
-	}
-
-	/**
-	 * 添加OpenAI提供商
-	 */
-	private async addOpenAIProvider() {
-		const newProvider: AIProvider = {
-			id: `openai-custom-${Date.now()}`,
-			name: 'OpenAI 自定义',
-			baseUrl: 'https://api.openai.com/v1',
-			model: 'gpt-3.5-turbo',
-			apiKey: '',
-			maxTokens: 3000,
-			temperature: 0.7
-		};
-
-		this.plugin.settings.providers.push(newProvider);
-		this.plugin.settings.selectedProviderId = newProvider.id;
-		await this.plugin.saveSettings();
-		this.display(); // 重新渲染
-		new Notice('✅ 已添加OpenAI提供商');
 	}
 }
 

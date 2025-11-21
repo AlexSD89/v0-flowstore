@@ -74,42 +74,46 @@ const ZHIPU_MODEL_PRESETS: ZhipuModelPreset[] = [
 	},
 ];
 
-// 基于智谱AI官方推荐的默认设置
+// 基于Claude Code + GLM-4最佳实践的优化配置
 const DEFAULT_SETTINGS: ContentDistributorSettings = {
 	aiModels: [
 		{
-			name: 'GLM-4.6-官方模式',
+			name: 'GLM-4-ClaudeCode模式',
 			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
-			modelId: 'glm-4.6',
-			maxTokens: 3000, // 官方推荐值
+			modelId: 'glm-4',
+			maxTokens: 4000, // GLM-4的128K上下文，充足的token限制
 			temperature: 0.7,
-			presetId: 'glm-4.6-standard',
-			timeout: 30000, // 30秒超时
+			presetId: 'glm-4-standard',
+			timeout: 60000, // 60秒超时，稳定的处理时间
 			headers: {
 				'Content-Type': 'application/json',
-				'User-Agent': 'Obsidian-ContentDistributor/1.2.0'
+				'User-Agent': 'Claude-Code/1.0 Obsidian-ContentDistributor/2.0',
+				'Accept': 'application/json',
+				'Connection': 'keep-alive'
 			},
-			useStream: false // 使用非流式响应，更稳定
+			useStream: false, // 使用非流式响应，确保稳定性
+			proxyUrl: undefined
 		},
 		{
-			name: 'GLM-4.6-兼容模式',
+			name: 'GLM-4-高并发模式',
 			apiKey: '85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
 			endpoint: 'https://open.bigmodel.cn/api/paas/v4',
-			modelId: 'glm-4.6',
-			maxTokens: 2000, // 保守值
-			temperature: 0.5, // 较低的temperature更稳定
-			presetId: 'glm-4.6-standard',
-			timeout: 45000, // 45秒超时，更宽松
+			modelId: 'glm-4',
+			maxTokens: 3000, // 平衡性能和质量
+			temperature: 0.6, // 稍微降低随机性，提高一致性
+			presetId: 'glm-4-standard',
+			timeout: 45000, // 45秒超时
 			headers: {
 				'Content-Type': 'application/json',
 				'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA',
-				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+				'User-Agent': 'Obsidian-ContentDistributor/2.0 (Claude-Code-Compatible)',
+				'Accept': 'application/json'
 			},
 			useStream: false
 		}
 	],
-	selectedModelId: 'GLM-4.6-官方模式',
+	selectedModelId: 'GLM-4-ClaudeCode模式',
 	platforms: [
 		{
 			id: 'xiaohongshu',
@@ -332,28 +336,34 @@ class ContentDistributorModal extends Modal {
 	// 实际执行API请求的方法
 	private async executeApiRequest(prompt: string): Promise<string> {
 		try {
-			// 使用BMO Chatbot相同的请求格式和Obsidian的requestUrl方法
+			// 基于Claude Code + GLM-4.6最佳实践的OpenAI兼容请求格式
+			const requestBody = {
+				model: this.selectedModel.modelId,
+				messages: [
+					{
+						role: "user",
+						content: prompt.length > 8000 ? prompt.substring(0, 8000) + "...\n\n[注意：内容已截断，如需完整分析请分批处理]" : prompt
+					}
+				],
+				max_tokens: this.selectedModel.maxTokens,
+				temperature: this.selectedModel.temperature,
+				stream: false,
+				// 添加OpenAI兼容的额外参数
+				top_p: 0.9,
+				frequency_penalty: 0,
+				presence_penalty: 0
+			};
+
 			const response = await requestUrl({
 				url: `${this.selectedModel.endpoint}/chat/completions`,
 				method: 'POST',
 				headers: {
-					// 允许自定义请求头，但 Authorization 始终以当前配置的 apiKey 为准
+					// 优先使用模型配置的请求头
 					...(this.selectedModel.headers || {}),
 					'Content-Type': 'application/json',
-					'Authorization': 'Bearer 85311233fbc34a288dd6427b7c1169ca.MhxPmD7VrcljE8QA'
+					'Authorization': `Bearer ${this.selectedModel.apiKey}`
 				},
-				body: JSON.stringify({
-					model: this.selectedModel.modelId,
-					messages: [
-						{
-							role: "user",
-							content: prompt.length > 4000 ? prompt.substring(0, 4000) + "..." : prompt
-						}
-					],
-					max_tokens: this.selectedModel.maxTokens,
-					temperature: this.selectedModel.temperature,
-					stream: false
-				}),
+				body: JSON.stringify(requestBody),
 			});
 
 			// BMO Chatbot格式的响应处理
@@ -366,14 +376,19 @@ class ContentDistributorModal extends Modal {
 				const errorMessage = (errorInfo as any).message as string | undefined;
 
 				if (response.status === 429) {
-					// 智谱返回 code=1113 时，明确表示“余额不足或无可用资源包”
+					// 智谱返回 code=1113 时，明确表示"余额不足或无可用资源包"
 					if (errorCode === '1113' || (errorMessage && errorMessage.includes('余额不足'))) {
 						throw new Error(
-							`余额不足或未开通对应API资源包，请登录智谱AI控制台检查账户余额和GLM-4.6资源包配置（错误码: ${errorCode ?? '1113'}）。`
+							`余额不足或未开通对应API资源包，请登录智谱AI控制台检查账户余额和GLM-4资源包配置（错误码: ${errorCode ?? '1113'}）。`
 						);
 					}
+					// 付费用户的429错误处理 - 提供更详细的解决建议
+					const retrySuggestion = this.selectedModel.name.includes('ClaudeCode')
+						? '建议切换到"GLM-4-高并发模式"或稍后重试。'
+						: '建议切换到"GLM-4-ClaudeCode模式"或稍后重试。';
+
 					throw new Error(
-						`请求频率过高或受限，请稍后重试（HTTP状态码: ${response.status}，错误码: ${errorCode ?? '未知'}）。`
+						`请求频率过高（付费用户限制），请稍后重试。${retrySuggestion}（HTTP状态码: ${response.status}，错误码: ${errorCode ?? '未知'}）。`
 					);
 				} else if (response.status === 401) {
 					throw new Error(
